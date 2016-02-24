@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "INVESTIGACIÓN COMO ESTRATEGIA PEDAGÓGICA";
+    Layout = "~/Views/Shared/_InvIEP.cshtml";    
+}
+
+@section Style{
+    @RenderSection("Style", required: false)
+}
+
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span12 text-center">
+            <h4>@ViewBag.Title</h4>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.InfoGrupo != null)
+{
+    var infogrupo = (INI.Models.DataBase.InformacionGrupo)ViewBag.InfoGrupo;    
+    Html.RenderPartial("_InformacionGrupo", infogrupo);
+}
+
+<div class="button-set margin10">
+    <a href="/IEP" class="button">
+        <i class="icon-home"></i>
+    </a>
+    <a href="/IEP/IrAlProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Mi Grupo</a>
+    <a href="/IEP/IrABitacoras/@ViewBag.InfoGrupo.idGrupo" class="button">Mis Bitacoras</a>
+    <a href="/IEP/ForoProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Foro</a>    
+    <a href="/IEP/ComentarioProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Comentario</a>    
+      
+</div>
+
+<hr />
+@RenderBody()
+
+@section Scripts{
+    @RenderSection("scripts", required: false)
+}
+
+<div id="d_rta" class="alert alert-success"></div>
+
+
+<a href="/IEP/OffLineMetodo/@ViewBag.InfoGrupo.idGrupo" class="button" id="offLinesId">Generar Archivo!</a> 
+    <center>@Html.AtrasInvestic()</center>
+ 
+
+<script type="text/javascript">
+
+    $('#offLinesId').click(function () {
+        
+        $.get(function (data)
+        {
+            $("#d_rta").html(data.rta);
+            $("#d_rta").show();
+        });
+     })
+</script>
+

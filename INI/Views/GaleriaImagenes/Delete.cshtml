@@ -1,0 +1,61 @@
+﻿@model INI.Models.DataBase.tblGaleriaImagenes
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Ver Detalles.
+        </h2>
+    </p>
+    <hr />
+    <h3>Está seguro de eliminar esta imagen?</h3>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            Título
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen_titulo)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen_descripcion)
+        </dd>
+
+        <dt>
+            Imagen
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen_url)
+        </dd>
+
+        <dt>
+            Categoría
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategoriaImagenes.cat_Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="button large primary" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

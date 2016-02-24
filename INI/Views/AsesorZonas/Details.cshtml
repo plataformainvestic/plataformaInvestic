@@ -1,0 +1,59 @@
+﻿@model INI.Models.DataBase.tblAsesorZona
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<h2>Información de Contacto</h2>
+
+<div>
+    <h4>Revisa los datos del Coordinador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.aseZon_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aseZon_apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aseZon_correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aseZon_telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblEquipo_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEquipo_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar Coordinador", "Edit", new { id = Model.tblAsesorZona_ID }) |
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</p>

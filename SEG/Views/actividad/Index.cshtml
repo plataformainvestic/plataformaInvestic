@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SEG.Models.DataBase.actividade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Ini)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_Actividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_Observaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.responsabilidade.Id_Contratista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tabla_alternativas.Des_Alternativa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tabla_estados.Des_Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Ini)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Des_Actividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Des_Observaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.responsabilidade.Id_Contratista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tabla_alternativas.Des_Alternativa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tabla_estados.Des_Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Actividad }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Actividad }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Actividad })
+        </td>
+    </tr>
+}
+
+</table>

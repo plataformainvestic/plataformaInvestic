@@ -1,0 +1,82 @@
+﻿@model IEP.Models.DataBase.tblReflexionProyectoInvestigacion
+
+@{
+    ViewBag.Title = "ParaElCoinvestigador";
+}
+
+<h2>ParaElCoinvestigador</h2>
+
+<div>
+    <h4>tblReflexionProyectoInvestigacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proceso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Motivacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Motivacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reflexion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reflexion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConceptoAsesor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConceptoAsesor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Revisado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revisado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGrupoInvestigacion.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGrupoInvestigacion.Codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

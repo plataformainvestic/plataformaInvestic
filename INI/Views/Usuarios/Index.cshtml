@@ -1,0 +1,107 @@
+﻿@model IEnumerable<INI.Models.DataBase.AspNetUsers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+<h2>Usuarios</h2>
+
+<p>
+
+</p>
+<table id="mitabla" class="table striped hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contrato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cdp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_IniContrato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_FinContrato)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonalID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SureName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>            
+
+                    @Html.DisplayFor(modelItem => item.Cargo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contrato)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cdp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_IniContrato)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_FinContrato)
+                </td>
+                <td>|</td>
+                @*<td>
+                    @Html.ActionLink("Reportes", "R", new { id = item.PersonalID }) |
+                    @Html.ActionLink("Tareas", "D", new { id = item.PersonalID }) |
+                    @Html.ActionLink("Productos", "P", new { id = item.PersonalID })
+
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+<script src="~/Scripts/jquery-ui-1.11.1.js"></script>
+<script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+<script src="~/Scripts/Investic/seg-0.1-mitabla.js"></script>
+<link href="~/Content/themes/base/all.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

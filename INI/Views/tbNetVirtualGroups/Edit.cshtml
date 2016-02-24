@@ -1,0 +1,53 @@
+﻿@model INI.Models.DataBase.tbNetVirtualGroup
+
+@{
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+    ViewBag.Title = "Edit";
+    String ctrl=ViewBag.ControllerName;
+}
+
+<div>
+    @Html.ActionLink("Atraz", "Index", null, new { @class = "button large primary" })
+</div>
+
+
+@using (Html.BeginForm("Edit",ctrl,FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="input-control text" data-role="input-control">
+            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            <button class="btn-clear" tabindex="-1" type="button"></button>
+        </div>
+
+        @Html.Label("Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
+        
+        @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="input-control file info-state" data-role="input-control">
+            @Html.EditorFor(model => model.photo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.photo, "", new { @class = "text-danger" })
+            <input type="text" id="__input_file_wrapper__" readonly="" style="z-index: 1; cursor: default;">
+            <button class="btn-file" type="button"></button>
+        </div>        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="button large primary" />
+            </div>
+        </div>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

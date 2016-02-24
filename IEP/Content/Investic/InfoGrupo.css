@@ -1,0 +1,9 @@
+﻿#informacion-grupo{
+    width: 98%;
+    height:150px;
+    padding: 10px;    
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background:rgba(196,196,196,0.6);
+}

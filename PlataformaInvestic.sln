@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEP", "IEP\IEP.csproj", "{9FF8B356-6351-481A-A1D4-05051FFD078D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAI", "MAI\MAI.csproj", "{38C31A9E-E46D-4F13-AE90-04A095BA0470}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INI", "INI\INI.csproj", "{B1905781-EFEE-40EC-87E9-88E4874074F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEG", "SEG\SEG.csproj", "{9EA6ACF4-CFA6-4A0E-A3C5-67AAF842ECE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{0BD5C2A4-A39B-4665-B29C-5C755DD1F296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APR", "APR\APR.csproj", "{DF57EFCB-8A56-49D4-9047-1F53A1D11055}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FF8B356-6351-481A-A1D4-05051FFD078D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FF8B356-6351-481A-A1D4-05051FFD078D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FF8B356-6351-481A-A1D4-05051FFD078D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FF8B356-6351-481A-A1D4-05051FFD078D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38C31A9E-E46D-4F13-AE90-04A095BA0470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C31A9E-E46D-4F13-AE90-04A095BA0470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38C31A9E-E46D-4F13-AE90-04A095BA0470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38C31A9E-E46D-4F13-AE90-04A095BA0470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1905781-EFEE-40EC-87E9-88E4874074F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1905781-EFEE-40EC-87E9-88E4874074F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1905781-EFEE-40EC-87E9-88E4874074F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1905781-EFEE-40EC-87E9-88E4874074F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EA6ACF4-CFA6-4A0E-A3C5-67AAF842ECE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA6ACF4-CFA6-4A0E-A3C5-67AAF842ECE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA6ACF4-CFA6-4A0E-A3C5-67AAF842ECE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA6ACF4-CFA6-4A0E-A3C5-67AAF842ECE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD5C2A4-A39B-4665-B29C-5C755DD1F296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BD5C2A4-A39B-4665-B29C-5C755DD1F296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BD5C2A4-A39B-4665-B29C-5C755DD1F296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BD5C2A4-A39B-4665-B29C-5C755DD1F296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF57EFCB-8A56-49D4-9047-1F53A1D11055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF57EFCB-8A56-49D4-9047-1F53A1D11055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF57EFCB-8A56-49D4-9047-1F53A1D11055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF57EFCB-8A56-49D4-9047-1F53A1D11055}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://investic.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = APR\\APR.csproj
+		SccProjectName1 = APR
+		SccLocalPath1 = APR
+		SccProjectUniqueName2 = ClassLibrary\\ClassLibrary.csproj
+		SccProjectName2 = ClassLibrary
+		SccLocalPath2 = ClassLibrary
+		SccProjectUniqueName3 = IEP\\IEP.csproj
+		SccProjectName3 = IEP
+		SccLocalPath3 = IEP
+		SccProjectUniqueName4 = INI\\INI.csproj
+		SccProjectName4 = INI
+		SccLocalPath4 = INI
+		SccProjectUniqueName5 = MAI\\MAI.csproj
+		SccProjectName5 = MAI
+		SccLocalPath5 = MAI
+		SccProjectUniqueName6 = SEG\\SEG.csproj
+		SccProjectName6 = SEG
+		SccLocalPath6 = SEG
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

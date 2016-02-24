@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MAI.Models.DataBase.tblProyectosInvestigacion_Rev>
+@using MAI.Models.DataBase
+
+
+@{
+    ViewBag.Title = "MisProyectosRevision";
+}
+
+<h1>Proyectos por Evaluar</h1>
+
+<div class="grid fluid">
+    <div class="row">
+        <table id="misProyectosRevision" class="table striped hover">
+            <thead>
+                <tr>
+                    <th class="span4">Proyecto</th>
+                    <th class="span4">Grupo de Investigación</th>
+                    <th class="span4">Lider de Grupo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="vertical text-center">
+                        <th>
+                            @Html.DisplayFor(m => item.tblProyectosInvestigacion.FirstOrDefault().proyInv_nombreProyecto)<br />
+                            @Html.ActionLink("Evaluar Proyecto", "EvaluarProyecto", "ProyectosInvestigacion_Rev", new { id = item.tblProyectosInvestigacion_ID }, new { @class = "button info" })
+                        </th>
+                        <th>
+                            @Html.Partial("~/Views/Shared/_InfoGrupoInvestigacion.cshtml", item.tblProyectosInvestigacion.FirstOrDefault())
+                        </th>
+                        <th>
+                            @Html.Partial("~/Views/Shared/_InfoLiderGrupo.cshtml", item.tblProyectosInvestigacion.FirstOrDefault().tblGruposInvestigacion.AspNetUsers)
+                        </th>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+}

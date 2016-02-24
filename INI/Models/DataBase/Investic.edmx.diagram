@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d70944e42934707a7a846e451b03914" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="investicModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="75.875" />
+        <EntityTypeShape EntityType="investicModel.AspNetUserClaims" Width="1.5" PointX="3" PointY="117" />
+        <EntityTypeShape EntityType="investicModel.AspNetUserLogins" Width="1.5" PointX="3" PointY="143.375" />
+        <EntityTypeShape EntityType="investicModel.AspNetUserRoles" Width="1.5" PointX="3" PointY="64.625" />
+        <EntityTypeShape EntityType="investicModel.AspNetUsers" Width="1.5" PointX="0.75" PointY="64.375" />
+        <EntityTypeShape EntityType="investicModel.CategoriaRepositorio" Width="1.5" PointX="5.75" PointY="5.25" />
+        <EntityTypeShape EntityType="investicModel.CategoriaRevista" Width="1.5" PointX="5.75" PointY="1.25" />
+        <EntityTypeShape EntityType="investicModel.Repositorio" Width="1.5" PointX="10.25" PointY="5" />
+        <EntityTypeShape EntityType="investicModel.Revista" Width="1.5" PointX="10.25" PointY="1" />
+        <EntityTypeShape EntityType="investicModel.SubCategoriaRepositorio" Width="1.5" PointX="8" PointY="5" />
+        <EntityTypeShape EntityType="investicModel.SubCategoriaRevista" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="investicModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="investicModel.tblActividadContratista" Width="1.5" PointX="8.25" PointY="98.25" />
+        <EntityTypeShape EntityType="investicModel.tblAlternativas" Width="1.5" PointX="3" PointY="98.5" />
+        <EntityTypeShape EntityType="investicModel.tblAreaConocimiento" Width="1.5" PointX="3.75" PointY="54" />
+        <EntityTypeShape EntityType="investicModel.tblAsesor" Width="1.5" PointX="3" PointY="145.875" />
+        <EntityTypeShape EntityType="investicModel.tblAsesorGrupoInvestigacion" Width="1.5" PointX="5.25" PointY="145.875" />
+        <EntityTypeShape EntityType="investicModel.tblAsesorZona" Width="1.5" PointX="3.75" PointY="29.25" />
+        <EntityTypeShape EntityType="investicModel.tblAsesorZonaMunicipio" Width="1.5" PointX="6" PointY="24" />
+        <EntityTypeShape EntityType="investicModel.tblBitacoraGrupoInvestigacion" Width="1.5" PointX="8.25" PointY="56.875" />
+        <EntityTypeShape EntityType="investicModel.tblCaracteristicasProy" Width="1.5" PointX="9" PointY="115.625" />
+        <EntityTypeShape EntityType="investicModel.tblCaracteristicasProy_Rev" Width="1.5" PointX="6.75" PointY="157.5" />
+        <EntityTypeShape EntityType="investicModel.tblCargos" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="investicModel.tblCategoriaImagenes" Width="1.5" PointX="5.75" PointY="9.125" />
+        <EntityTypeShape EntityType="investicModel.tblCategoriaProductos" Width="1.5" PointX="3" PointY="77.875" />
+        <EntityTypeShape EntityType="investicModel.tblCentrosPoblado" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="investicModel.tblCoInvestigadorGrupoInvestigacion" Width="1.5" PointX="8.25" PointY="68.625" />
+        <EntityTypeShape EntityType="investicModel.tblColecciones" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="investicModel.tblComentarioGrupo" Width="1.5" PointX="8.25" PointY="65.375" />
+        <EntityTypeShape EntityType="investicModel.tblConceptosEstadoArte" Width="1.5" PointX="10.5" PointY="50.625" />
+        <EntityTypeShape EntityType="investicModel.tblCriticoSocial" Width="1.5" PointX="6.75" PointY="31.875" />
+        <EntityTypeShape EntityType="investicModel.tblCronogramaProy" Width="1.5" PointX="9" PointY="123.625" />
+        <EntityTypeShape EntityType="investicModel.tblCronogramaProy_Rev" Width="1.5" PointX="6.75" PointY="160.125" />
+        <EntityTypeShape EntityType="investicModel.tblDiseniosProy" Width="1.5" PointX="6.75" PointY="38.875" />
+        <EntityTypeShape EntityType="investicModel.tblDocumentosSoporte" Width="1.5" PointX="8.25" PointY="95.125" />
+        <EntityTypeShape EntityType="investicModel.tblEjeInvestigacion" Width="1.5" PointX="6.75" PointY="112.75" />
+        <EntityTypeShape EntityType="investicModel.tblEquipo" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="investicModel.tblEquiposTrabajo" Width="1.5" PointX="3" PointY="148.625" />
+        <EntityTypeShape EntityType="investicModel.tblEstado" Width="1.5" PointX="0.75" PointY="78.625" />
+        <EntityTypeShape EntityType="investicModel.tblEstadoArteProyectoInvestigacion" Width="1.5" PointX="8.25" PointY="50.625" />
+        <EntityTypeShape EntityType="investicModel.tblEstadoTarea" Width="1.5" PointX="6" PointY="102.5" />
+        <EntityTypeShape EntityType="investicModel.tblEventosAcademicos" Width="1.5" PointX="5.25" PointY="82.25" />
+        <EntityTypeShape EntityType="investicModel.tblEvidenciasContratista" Width="1.5" PointX="13.5" PointY="79.25" />
+        <EntityTypeShape EntityType="investicModel.tblExperienciaProyectos" Width="1.5" PointX="5.25" PointY="79.5" />
+        <EntityTypeShape EntityType="investicModel.tblFechaCronograma" Width="1.5" PointX="11.25" PointY="123.25" />
+        <EntityTypeShape EntityType="investicModel.tblForoProyectoInvestigacion" Width="1.5" PointX="11.25" PointY="67.875" />
+        <EntityTypeShape EntityType="investicModel.tblGaleriaImagenes" Width="1.5" PointX="8" PointY="8.875" />
+        <EntityTypeShape EntityType="investicModel.tblGrupoInvestigacion" Width="1.5" PointX="6" PointY="66.125" />
+        <EntityTypeShape EntityType="investicModel.tblGruposInvestigacion" Width="1.5" PointX="3" PointY="73" />
+        <EntityTypeShape EntityType="investicModel.tblHerramientasRecoleccionInformacion" Width="1.5" PointX="9" PointY="47.75" />
+        <EntityTypeShape EntityType="investicModel.tblHistoricoHermeneutico" Width="1.5" PointX="6.75" PointY="27.25" />
+        <EntityTypeShape EntityType="investicModel.tblHojaVida" Width="1.5" PointX="3" PointY="67.875" />
+        <EntityTypeShape EntityType="investicModel.tblIdiomas" Width="1.5" PointX="9" PointY="41.75" />
+        <EntityTypeShape EntityType="investicModel.tblInstitucion" Width="1.5" PointX="3.75" PointY="56.625" />
+        <EntityTypeShape EntityType="investicModel.tblInstitucionEducativa" Width="1.5" PointX="9.75" PointY="20" />
+        <EntityTypeShape EntityType="investicModel.tblIntegrante" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="investicModel.tblIntegrantesGrupoInv" Width="1.5" PointX="14.25" PointY="76.25" />
+        <EntityTypeShape EntityType="investicModel.tblInvitacionGrupo" Width="1.5" PointX="14.25" PointY="64.375" />
+        <EntityTypeShape EntityType="investicModel.tblLenguas" Width="1.5" PointX="12" PointY="44" />
+        <EntityTypeShape EntityType="investicModel.tblLineaInvestigacion" Width="1.5" PointX="3.75" PointY="85.75" />
+        <EntityTypeShape EntityType="investicModel.tblMaestroCoInvestigador" Width="1.5" PointX="6" PointY="62" />
+        <EntityTypeShape EntityType="investicModel.tblMarcoReferenciaProy" Width="1.5" PointX="9" PointY="92.25" />
+        <EntityTypeShape EntityType="investicModel.tblMarcoReferenciaProy_Rev" Width="1.5" PointX="6.75" PointY="164.75" />
+        <EntityTypeShape EntityType="investicModel.tblMeta" Width="1.5" PointX="3.75" PointY="49.25" />
+        <EntityTypeShape EntityType="investicModel.tblMetodoProy" Width="1.5" PointX="9" PointY="31.375" />
+        <EntityTypeShape EntityType="investicModel.tblMetodoProy_Rev" Width="1.5" PointX="6.75" PointY="167.5" />
+        <EntityTypeShape EntityType="investicModel.tblMiembroGrupo" Width="1.5" PointX="14.25" PointY="72.375" />
+        <EntityTypeShape EntityType="investicModel.tblMunicipios" Width="1.5" PointX="1.5" PointY="55.625" />
+        <EntityTypeShape EntityType="investicModel.tblNivel" Width="1.5" PointX="12" PointY="47.5" />
+        <EntityTypeShape EntityType="investicModel.tblNivelAcademicoEducacionSuperior" Width="1.5" PointX="9" PointY="44.875" />
+        <EntityTypeShape EntityType="investicModel.tblNivelIdioma" Width="1.5" PointX="11.25" PointY="76.375" />
+        <EntityTypeShape EntityType="investicModel.tblNivelLengua" Width="1.5" PointX="14.25" PointY="60.375" />
+        <EntityTypeShape EntityType="investicModel.tblNoticias" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="investicModel.tblParadigmaEpistemologico" Width="1.5" PointX="6.75" PointY="29.5" />
+        <EntityTypeShape EntityType="investicModel.tblParadigmaMetodologico" Width="1.5" PointX="6.75" PointY="34.25" />
+        <EntityTypeShape EntityType="investicModel.tblPreguntaInvestigacion" Width="1.5" PointX="8.25" PointY="53.625" />
+        <EntityTypeShape EntityType="investicModel.tblPreguntaProyectoInvestigacion" Width="1.5" PointX="8.25" PointY="87.75" />
+        <EntityTypeShape EntityType="investicModel.tblPresentacionProyecto" Width="1.5" PointX="9" PointY="112.25" />
+        <EntityTypeShape EntityType="investicModel.tblPresentacionProyecto_Rev" Width="1.5" PointX="6.75" PointY="151.25" />
+        <EntityTypeShape EntityType="investicModel.tblPresupuestoProy" Width="1.5" PointX="9" PointY="118.125" />
+        <EntityTypeShape EntityType="investicModel.tblPresupuestoProy_Rev" Width="1.5" PointX="6.75" PointY="162.375" />
+        <EntityTypeShape EntityType="investicModel.tblPresupuestoProyectoInvestigacion" Width="1.5" PointX="14.25" PointY="68.25" />
+        <EntityTypeShape EntityType="investicModel.tblProblemaInvestigacion" Width="1.5" PointX="8.25" PointY="79.125" />
+        <EntityTypeShape EntityType="investicModel.tblProblemaInvestigacionProy" Width="1.5" PointX="9" PointY="38" />
+        <EntityTypeShape EntityType="investicModel.tblProblemaInvestigacionProy_Rev" Width="1.5" PointX="6.75" PointY="154.25" />
+        <EntityTypeShape EntityType="investicModel.tblProblemaProyectoInvestigacion" Width="1.5" PointX="8.25" PointY="82.375" />
+        <EntityTypeShape EntityType="investicModel.tblProductosAcademicos" Width="1.5" PointX="5.25" PointY="74.375" />
+        <EntityTypeShape EntityType="investicModel.tblProductosContratista" Width="1.5" PointX="13.5" PointY="83.25" />
+        <EntityTypeShape EntityType="investicModel.tblProgramaTareasContratista" Width="1.5" PointX="5.25" PointY="97.625" />
+        <EntityTypeShape EntityType="investicModel.tblPropagacionGrupo" Width="1.5" PointX="11.25" PointY="64.375" />
+        <EntityTypeShape EntityType="investicModel.tblProyectoInvestigacion" Width="1.5" PointX="8.25" PointY="75.875" />
+        <EntityTypeShape EntityType="investicModel.tblProyectosGruposInvstigacion" Width="1.5" PointX="13.5" PointY="87.25" />
+        <EntityTypeShape EntityType="investicModel.tblProyectosInvestigacion" Width="1.5" PointX="11.25" PointY="79.875" />
+        <EntityTypeShape EntityType="investicModel.tblProyectosInvestigacion_Rev" Width="1.5" PointX="9" PointY="156.25" />
+        <EntityTypeShape EntityType="investicModel.tblRecoleccionInformacionProyectoInvestigacion" Width="1.5" PointX="11.25" PointY="72.375" />
+        <EntityTypeShape EntityType="investicModel.tblRecursosEducativos" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="investicModel.tblReferenciasProy" Width="1.5" PointX="9" PointY="121.25" />
+        <EntityTypeShape EntityType="investicModel.tblReferenciasProy_Rev" Width="1.5" PointX="6.75" PointY="149" />
+        <EntityTypeShape EntityType="investicModel.tblReflexionOnda" Width="1.5" PointX="8.25" PointY="107.625" />
+        <EntityTypeShape EntityType="investicModel.tblReflexionProyectoInvestigacion" Width="1.5" PointX="8.25" PointY="103.875" />
+        <EntityTypeShape EntityType="investicModel.tblRegion" Width="1.5" PointX="1.5" PointY="53.25" />
+        <EntityTypeShape EntityType="investicModel.tblResponsabContratista" Width="1.5" PointX="3" PointY="131.5" />
+        <EntityTypeShape EntityType="investicModel.tblRol" Width="1.5" PointX="12" PointY="57.75" />
+        <EntityTypeShape EntityType="investicModel.tblRubro" Width="1.5" PointX="12" PointY="54.625" />
+        <EntityTypeShape EntityType="investicModel.tblRubroPresupuesto" Width="3.5" PointX="16.25" PointY="86.25" />
+        <EntityTypeShape EntityType="investicModel.tblSedeEducativa" Width="1.5" PointX="12" PointY="20.125" />
+        <EntityTypeShape EntityType="investicModel.tblSeguimientoProyectoInvestigacion" Width="1.5" PointX="8.25" PointY="72.25" />
+        <EntityTypeShape EntityType="investicModel.tblTipoEstablecimiento" Width="1.5" PointX="7.5" PointY="20.625" />
+        <EntityTypeShape EntityType="investicModel.tblTipoEstudioProy" Width="1.5" PointX="6.75" PointY="36.625" />
+        <EntityTypeShape EntityType="investicModel.tblTipoFeria" Width="1.5" PointX="9" PointY="62.75" />
+        <EntityTypeShape EntityType="investicModel.tblTipoInstitucion" Width="1.5" PointX="1.5" PointY="61.625" />
+        <EntityTypeShape EntityType="investicModel.tblTituloEducacionSuperior" Width="1.5" PointX="11.25" PointY="60.375" />
+        <EntityTypeShape EntityType="investicModel.tblTutorZona" Width="1.5" PointX="6" PointY="58.125" />
+        <EntityTypeShape EntityType="investicModel.tblTutorZonaSedeEducativa" Width="1.5" PointX="14.25" PointY="57.5" />
+        <EntityTypeShape EntityType="investicModel.tblZona" Width="1.5" PointX="1.5" PointY="59.125" />
+        <EntityTypeShape EntityType="investicModel.tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" Width="1.5" PointX="0.75" PointY="12.75" />
+        <AssociationConnector Association="investicModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <AssociationConnector Association="investicModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="investicModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="investicModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="investicModel.FK_dbo_actividades_dbo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_dbo_equipos_dbo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_dbo_evidencias_dbo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_dbo_productos_dbo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_dbo_programa_tareas_dbo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_dbo_responsabilidade_dbo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblAsesor_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblCoInvestigadorGrupoInvestigacion_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblComentarioGrupo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblForoProyectoInvestigacion_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblGrupoInvestigacion_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblGruposInvestigacion_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblHojaVida_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblIntegrantesGrupoInv_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblInvitacionGrupo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblMaestroCoInvestigador_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_tblMiembroGrupo_AspNetUsers" />
+        <AssociationConnector Association="investicModel.FK_SubCategoriaRepositorio_CategoriaRepositorio" />
+        <AssociationConnector Association="investicModel.FK_SubCategoriaRevista_CategoriaRevista" />
+        <AssociationConnector Association="investicModel.FK_Repositorio_SubCategoriaRepositorio" />
+        <AssociationConnector Association="investicModel.FK_Revista_SubCategoriaRevista" />
+        <AssociationConnector Association="investicModel.FK_dbo_evidencias_dbo_actividades" />
+        <AssociationConnector Association="investicModel.FK_dbo_productos_dbo_actividades" />
+        <AssociationConnector Association="investicModel.FK_dbo_actividades_dbo_responsabilidades" />
+        <AssociationConnector Association="investicModel.FK_dbo_actividades_dbo_tabla_alternativas" />
+        <AssociationConnector Association="investicModel.FK_dbo_actividades_dbo_tabla_estados" />
+        <AssociationConnector Association="investicModel.FK_dbo_programa_tareas_dbo_tabla_alternativas" />
+        <AssociationConnector Association="investicModel.FK_tblMaestroCoInvestigador_tblAreaConocimiento" />
+        <AssociationConnector Association="investicModel.FK_tblAsesorGrupoInvestigacion_tblAsesor" />
+        <AssociationConnector Association="investicModel.FK_tblAsesorGrupoInvestigacion_tblProyectoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblAsesorZona_tblEquipo" />
+        <AssociationConnector Association="investicModel.FK_tblAsesorZona_tblMunicipios" />
+        <AssociationConnector Association="investicModel.FK_tblAsesorZonaMunicipio_tblAsesorZona" />
+        <AssociationConnector Association="investicModel.FK_tblBitacoraGrupoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblCaracteristicasProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblCaracteristicasProy_Rev" />
+        <AssociationConnector Association="investicModel.FK_tblGaleriaImagenes_tblCategoriaImagenes" />
+        <AssociationConnector Association="investicModel.FK_tblProductosAcademicos_tblCategoriaProductos" />
+        <AssociationConnector Association="investicModel.FK_tblCoInvestigadorGrupoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblRecursosEducativos_tblColecciones" />
+        <AssociationConnector Association="investicModel.FK_tblComentarioGrupo_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblConceptosEstadoArte_tblEstadoArteProyectoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblMetodoProy_tblCriticoSocial" />
+        <AssociationConnector Association="investicModel.FK_tblFechaCronograma_tblCronograma" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblCronogramaProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblCronogramaProy_Rev" />
+        <AssociationConnector Association="investicModel.FK_tblMetodoProy_tblDiseniosProy" />
+        <AssociationConnector Association="investicModel.FK_tblDocumentosSoporte_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblPresentacionProyecto_tblEjeInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblIntegrante_tblEquipo" />
+        <AssociationConnector Association="investicModel.FK_tblGruposInvestigacion_tblEstado" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblEstado" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblEstado" />
+        <AssociationConnector Association="investicModel.FK_tblEstadoArteProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblEventosAcademicos_tblHojaVida" />
+        <AssociationConnector Association="investicModel.FK_tblExperienciaProyectos_tblHojaVida" />
+        <AssociationConnector Association="investicModel.FK_tblForoProyectoInvestigacion_tblForoProyectoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblForoProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblGrupoInvestigacion_tblInstitucion" />
+        <AssociationConnector Association="investicModel.FK_tblGrupoInvestigacion_tblLineaInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblInvitacionGrupo_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblMiembroGrupo_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblPreguntaInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblPreguntaProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblPresupuestoProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblProblemaInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblProblemaProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblPropagacionGrupo_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblReflexionOnda_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblReflexionProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblSeguimientoProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblIntegrantesGrupoInv_tblGruposInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblGruposInvestigacion1" />
+        <AssociationConnector Association="investicModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblHerramientasRecoleccionInformacion" />
+        <AssociationConnector Association="investicModel.FK_tblMetodoProy_tblHistoricoHermeneutico" />
+        <AssociationConnector Association="investicModel.FK_tblHojaVida_tblInstitucion" />
+        <AssociationConnector Association="investicModel.FK_tblNivelIdioma_tblHojaVida" />
+        <AssociationConnector Association="investicModel.FK_tblNivelLengua_tblHojaVida" />
+        <AssociationConnector Association="investicModel.FK_tblProductosAcademicos_tblHojaVida" />
+        <AssociationConnector Association="investicModel.FK_tblTituloEducacionSuperior_tblHojaVida" />
+        <AssociationConnector Association="investicModel.FK_tblNivelIdioma_tblIdiomas" />
+        <AssociationConnector Association="investicModel.FK_tblInstitucion_tblMunicipios" />
+        <AssociationConnector Association="investicModel.FK_tblInstitucion_tblTipoInstitucion" />
+        <AssociationConnector Association="investicModel.FK_tblInstitucion_tblZona" />
+        <AssociationConnector Association="investicModel.FK_tblMaestroCoInvestigador_tblInstitucion" />
+        <AssociationConnector Association="investicModel.FK_tblTutorZona_tblInstitucion" />
+        <AssociationConnector Association="investicModel.FK_tblInstitucionEducativa_tblTipoEstablecimiento" />
+        <AssociationConnector Association="investicModel.FK_tblSedeEducativa_tblInstitucionEducativa" />
+        <AssociationConnector Association="investicModel.FK_tblInvitacionGrupo_tblRol" />
+        <AssociationConnector Association="investicModel.FK_tblNivelLengua_tblLenguas" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblMarcoReferenciaProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblMarcoReferenciaProy_Rev" />
+        <AssociationConnector Association="investicModel.FK_tblMeta_tblMunicipios" />
+        <AssociationConnector Association="investicModel.FK_tblMetodoProy_tblParadigmaEpistemologico" />
+        <AssociationConnector Association="investicModel.FK_tblMetodoProy_tblParadigmaMetodologico" />
+        <AssociationConnector Association="investicModel.FK_tblMetodoProy_tblTipoEstudioProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblMetodoProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblMetodoProy_Rev" />
+        <AssociationConnector Association="investicModel.FK_tblMiembroGrupo_tblRol" />
+        <AssociationConnector Association="investicModel.FK_tblMunicipios_tblRegion" />
+        <AssociationConnector Association="investicModel.FK_tblNivelIdioma_tblNivel" />
+        <AssociationConnector Association="investicModel.FK_tblNivelLengua_tblNivel" />
+        <AssociationConnector Association="investicModel.FK_tblTituloEducacionSuperior_tblNivelAcademicoEducacionSuperior" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblPresentacionProyecto" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblPresentacionProyecto_Rev" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblPresupuestoProy" />
+        <AssociationConnector Association="investicModel.FK_tblRubroPresupuesto_tblPresupuestoProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblPresupuestoProy_Rev" />
+        <AssociationConnector Association="investicModel.FK_tblPresupuestoProyectoInvestigacion_tblRubro" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblProblemaInvestigacionProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblProblemaInvestigacionProy_Rev" />
+        <AssociationConnector Association="investicModel.FK_dbo_programa_tareas_dbo_responsabilidades" />
+        <AssociationConnector Association="investicModel.FK_tblPropagacionGrupo_tblTipoFeria" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosGruposInvstigacion_tblProyectosInvestigacion" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev4" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev5" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev6" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev7" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_tblReferenciasProy" />
+        <AssociationConnector Association="investicModel.FK_tblProyectosInvestigacion_Rev_tblReferenciasProy_Rev" />
+        <AssociationConnector Association="investicModel.FK_tblRubroPresupuesto_tblRubro" />
+        <AssociationConnector Association="investicModel.FK_tblTutorZonaSedeEducativa_tblSedeEducativa" />
+        <AssociationConnector Association="investicModel.FK_tblTutorZonaSedeEducativa_tblTutorZona" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualGroup" Width="1.5" PointX="13.375" PointY="9.5" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualMessage" Width="2.125" PointX="18.625" PointY="11.25" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualResource" Width="1.5" PointX="16.375" PointY="9.75" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualUser" Width="1.5" PointX="13.375" PointY="6.625" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualUserGroup" Width="1.5" PointX="15.625" PointY="6.375" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualWall" Width="1.5" PointX="17.875" PointY="6.75" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualMessage_tbNetVirtualGroup" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualUserGroup_tbNetVirtualGroup" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualResource_tbNetVirtualUser" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualUserGroup_tbNetVirtualUser" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualWall_tbNetVirtualUserGroup" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualCategoryResource" Width="1.5" PointX="16.125" PointY="13.875" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualResource_tbNetVirtualCategoryResource" />
+        <EntityTypeShape EntityType="investicModel.tbNetVirtualForo" Width="1.5" PointX="20.625" PointY="6.75" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualForo_tbNetVirtualForo" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualForo_tbNetVirtualGroup" />
+        <AssociationConnector Association="investicModel.FK_tbNetVirtualForo_tbNetVirtualUser" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

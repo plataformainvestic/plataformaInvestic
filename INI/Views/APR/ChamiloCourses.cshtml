@@ -1,0 +1,92 @@
+﻿@model IEnumerable<INI.ChamiloWS.chamiloCource>
+@{
+    ViewBag.Title = "ChamiloCourses";
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+    var obj = new INI.ChamiloWS.IchamiloClient();
+    obj.Open();
+}
+@if (Model.Count() > 0)
+{
+    <br />
+    <br />
+    <br />
+    <div class="scrollbar" style="width: 90%; height: 478px; background-color:white;padding-left:20px; overflow: auto">
+        <div id="scrollbox1" data-role="scrollbox1" data-scroll="vertical" style="position: relative; top: 0px;">
+            <div class="grid">
+                <div class="row">
+                    <div class="span5">
+                        <div class="listview">
+                            @foreach (var item in Model)
+                            {
+                                var tutorname = obj.getTutorCource(item.code);
+                                <a href="/APR/ChamiloLessons?coursecode=@item.code&name=@item.title" class="list" style="background-color: #f5f5f5">
+                                    <div class="list-content">
+                                        <img src="http://investic.udenar.edu.co/chamilolms/main/img/icons/48/blackboard.png" class="icon" />
+                                    </div>
+                                    <div class="data">
+                                        <span class="list-title">
+                                            @item.title
+                                        </span>
+                                        <img src="http://investic.udenar.edu.co/chamilolms/main/img/icons/16/teacher.png" alt="Profesor" title="Profesor">
+                                        <span class="list-remark">
+                                            @tutorname.name_complete
+                                        </span>
+                                    </div>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>No esta inscrito en ningun curso</p>
+}
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    @if (INI.Models.DataBase.AspNetUsersRoles.IsUserInRole("Maestro", User.Identity.Name)) { 
+        <script>
+            $(function () {
+                $("#btn_create").attr("href", "/Home/Chamilo?url=cr");
+                $("#btn_miscursos").attr("href", "/Home/Chamilo?url=mc");
+                $("#btn_catcursos").attr("href", "/Home/Chamilo?url=cc");
+
+                $("#btn_create").attr("target", "");
+                $("#btn_miscursos").attr("target", "");
+                $("#btn_catcursos").attr("target", "");
+
+                $("div.listview a").click(function (e) {
+                    e.preventdefault();
+                    var val = $("div.listview a").attr("href");
+                    alert(val);
+                });
+            });
+        </script>
+    }
+    else
+    {
+       <script>
+            $(function () {                
+                $("#btn_miscursos").attr("href", "/ChamiloCourses");
+                $("#btn_catcursos").attr("href", "/Home/Chamilo?url=cc");
+
+                
+                $("#btn_miscursos").attr("target", "");
+                $("#btn_catcursos").attr("target", "");
+
+                $("div.listview a").click(function (e) {
+                    e.preventdefault();
+                    var val = $("div.listview a").attr("href");
+                    alert(val);
+                });
+            });
+        </script>
+    }
+}
+
+
+
+

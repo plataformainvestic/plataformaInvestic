@@ -1,0 +1,62 @@
+﻿@model INI.Models.DataBase.tblFechaCronograma
+
+@{
+    ViewBag.Title = "Create";
+    Model.cro_FechaInicio = DateTime.Now;
+    Model.cro_FechaFin = DateTime.Now;
+}
+
+<div class="row">
+    @using (Html.BeginForm("CreateFecha", "FechasCronograma"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("tblCronogramaProy_ID", Model.tblCronogramaProy_ID)
+
+        <div class="row">
+            <div class="span6">
+                <strong>&nbsp;&nbsp; Actividad</strong>
+            </div>
+            <div class="span6 input-control text">
+                @Html.EditorFor(m => m.cro_Actividad)
+                @*@Html.ValidationMessage("¿Que actividad va a realizar?")*@
+                @Html.ValidationMessageFor(m => m.cro_Actividad, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <strong>&nbsp;&nbsp;Fecha Inicio</strong>
+            </div>
+            <div class="input-control text size6" data-role="datepicker" data-format="dd/mm/yyyy" > @*style='max-width: 130px'>*@
+                @Html.TextBoxFor(m => m.cro_FechaInicio, "{0:dd/MM/yyyy}")
+                <button class="btn btn-date" type="button"></button>
+                @*@Html.ValidationMessage("Digite fecha de inicio")*@
+                @Html.ValidationMessageFor(m => m.cro_FechaInicio, String.Empty, new { @style = "color:red;!important" })
+            </div>
+            <div class="span6">
+                <strong>&nbsp;&nbsp;Fecha Final</strong>
+            </div>
+            <div class="input-control text size6" data-role="datepicker" data-format="dd/mm/yyyy" > @*style='max-width: 130px'>*@
+                @Html.TextBoxFor(m => m.cro_FechaFin, "{0:dd/MM/yyyy}")
+                <button class="btn btn-date" type="button"></button>
+                @*@Html.ValidationMessage("Digite fecha de inicio")*@
+                @Html.ValidationMessageFor(m => m.cro_FechaFin, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <strong>&nbsp;&nbsp;Indicador</strong>
+            </div>
+            <div class="span6 input-control text">
+                @Html.EditorFor(m => m.cro_Indicador)
+                @*@Html.ValidationMessage("Indicador")*@
+                @Html.ValidationMessageFor(m => m.cro_Indicador, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <button class="large bg-green fg-white" type="submit">
+                Agregar Fecha
+                <i class="icon-plus bg-green fg-white"></i>
+            </button>
+        </div>
+    }
+</div>

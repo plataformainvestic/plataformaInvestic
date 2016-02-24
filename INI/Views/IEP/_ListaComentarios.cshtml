@@ -1,0 +1,13 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblComentarioGrupo>
+
+@foreach (var item in Model) {
+    <div class="ballon left">
+        <div>
+            @Html.DisplayFor(modelItem => item.Comentario)
+        </div>        
+        <div>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Name)
+        </div>        
+    </div>
+    <hr />
+}    

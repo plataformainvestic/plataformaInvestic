@@ -1,0 +1,71 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblRecursosEducativos>
+<div>
+
+    <table id="Tabla" class="table striped hover" >
+        <thead>
+            <tr>
+                <th width="1"></th>
+                <th width="15">Recurso</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td >
+                        <div style="padding:5px;">
+                            <a href="#">
+                                <img id="@item.id_rec_educativo" class="thumb" src="~/images/icono_agenda.png" style="max-width:40px;max-height:40px;" />
+                            </a>
+                        </div>
+                    </td>
+                    <td >
+                        <div>
+                            @Html.DisplayFor(modelItem => item.nom_rec_educativo)
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div id="divResultados2" class="centradoRecEducativo" style="width:550px;">
+
+</div>
+
+                          <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+                          <script>
+                              $(function () {
+                                  $('#Tabla').dataTable({
+                                      "autoWidth": false,
+                                      "info": false,
+                                      "paging": false,
+                                      "sPaginationType": "full_numbers",
+                                      "oLanguage": {
+                                          "sUrl": "../../Lang/es-CO.txt"
+                                      }
+                                  });
+
+                                
+
+                              });
+
+                          </script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $("img.thumb").click(function () {
+
+            var id = $(this).attr("id");
+            $('#divResultados2').load('/RecursosEducativos/getResourcesDetails/' + id);
+            $('#divResultados2').css("visibility", 'visible');
+
+        });
+
+    });
+
+
+
+</script>

@@ -1,0 +1,61 @@
+﻿@model INI.Models.DataBase.tblGaleriaImagenes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Ver Detalles.
+        </h2>
+    </p>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Título
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen_titulo)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen_descripcion)
+        </dd>
+
+        <dt>
+            Imagen
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen_url)
+        </dd>
+
+        <dt>
+            Categoría
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategoriaImagenes.cat_Nombre)
+        </dd>
+
+    </dl>
+
+    <div class="form-actions no-color">
+        <table style="background-color:transparent;">
+            <tr>
+                <td><h4>@Html.ActionLink("Editar", "Edit", new { id = Model.Imagen_ID }) |</h4></td>
+                <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+            </tr>
+        </table>
+    </div>
+
+</div>

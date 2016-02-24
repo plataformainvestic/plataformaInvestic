@@ -1,0 +1,12 @@
+﻿@using INI.Models.DataBase;
+
+@{
+    ViewBag.Title = "Investic";
+    Layout = "~/Views/Shared/_Layout.Phone.cshtml";
+    ViewBag.ShowHomeButton = false;
+    ViewBag.ShowBackButton = false;
+    var db = new investicEntities();
+}
+<img src="~/images/mobile/aroinvestic.png" style="text-align:left;float:left;"/><h2>Entérate</h2>
+
+@Html.Partial("~/Views/Shared/_Noticias.mobile.cshtml", db.tblNoticias.OrderByDescending(m => m.not_fecha).Where(m => m.estaActivo == true).Take(20))

@@ -1,0 +1,62 @@
+﻿@model INI.Models.DataBase.tblRubroPresupuesto
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Create";
+    investicEntities db = new investicEntities();
+    ViewBag.tblRubro_ID = new SelectList(db.tblRubro, "id", "rubro");
+}
+
+<div class="row">
+    @using (Html.BeginForm("CreatePresupuesto", "RubrosPresupuesto"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("tblPresupuestoProy_ID", Model.tblPresupuestoProy_ID)
+
+        <div class="row">
+            <div class="span2">
+                <strong>Rubro</strong>
+            </div>
+            <div class="span4 input-control select">
+                @Html.DropDownList("tblRubro_ID")
+                @*@Html.ValidationMessage("Especifique el rubro")*@
+                @Html.ValidationMessageFor(m => m.tblRubro_ID, String.Empty, new { @style = "color:red;!important" })
+
+
+            </div>
+            <div class="span2">
+                <strong>Valor</strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.EditorFor(m => m.rubPre_valor)
+                @*@Html.ValidationMessage("Ingrese un valor en pesos")*@
+                @Html.ValidationMessageFor(m => m.rubPre_valor, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>Fuente</strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.EditorFor(m => m.rubPre_fuente)
+                @*@Html.ValidationMessage("Especifique la fuente de ingresos")*@
+                @Html.ValidationMessageFor(m => m.rubPre_fuente, String.Empty, new { @style = "color:red;!important" })
+            </div>
+            <div class="span2">
+                <strong>Justificacion</strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.EditorFor(m => m.rubPre_justificacion)
+                @*@Html.ValidationMessage("Justifique el gasto")*@
+                @Html.ValidationMessageFor(m => m.rubPre_justificacion, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+
+        <div class="row">
+            <button class="large bg-green fg-white" type="submit">
+                Agregar Rubro
+                <i class="icon-plus bg-green fg-white"></i>
+            </button>
+        </div>
+    }
+</div>

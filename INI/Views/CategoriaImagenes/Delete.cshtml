@@ -1,0 +1,58 @@
+﻿@model INI.Models.DataBase.tblCategoriaImagenes
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+    string msj = ViewBag.Message;
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>
+                Detalle de Categoría.
+            </strong>
+        </h2>
+    </p>
+    <h3>Está seguro de eliminar esta Categoría?</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Categoría
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_Nombre)
+        </dd>
+
+        <dt>
+            Imagen de Portada
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cat_Imagen_Portada)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+         <div class="form-actions no-color">
+                <table style="background-color:transparent;">
+                    <tr>
+                        <td><input type="submit" value="Borrar" class="button large primary" /> |</td>
+                        <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                    </tr>
+                </table>
+            </div>
+            
+    }
+</div>
+<script src="~/Scripts/Investic/iep-0.1-index.js"></script>
+<script>
+
+    AlertMessage('@msj');
+</script>
+

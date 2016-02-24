@@ -1,0 +1,67 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../scripts/js/jquery-1.10.2.js"></script>
+    <script src="../../scripts/js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript">
+        //---------------------------------------------------------------------------------
+        function enter(area) {
+            switch (area) {
+                case 1: alert("El Penol 254"); break;
+                case 2: alert("El Tambo 260"); break;
+                case 3: alert("La Llanada 385"); break;
+                case 4: alert("Los Andes Sotomayor 418"); break;
+            }
+        }
+        //---------------------------------------------------------------------------------
+    </script>
+    <style>
+        .TextStyle {
+            font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body class="TextStyle">
+    <table border="0" width="750">
+        <tr>
+            <td align="left">
+                <b>Guambuyaco</b>
+            </td>
+            <td align="right">
+                <b><a href="#" id="municipality_title">Municipio: </a></b>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <table border="0" width="750">
+        <tr>
+            <td align="center">
+                <img id="subregion_img" src="subregion.png" usemap="#test" />
+                <map id="test" name="test">
+                    <area id="sh1" shape="poly" alt="El Penol" title="El Penol" coords="407,302,439,268,438,260,442,258,431,234,442,233,466,219,475,219,479,229,469,238,474,254,471,271,484,283,479,295,479,308,486,319,461,350,446,355,433,350,424,357,421,350,403,345,396,336,406,328" href="#" onclick="enter(1)" />
+                    <area id="sh2" shape="poly" alt="El Tambo" title="El Tambo" coords="402,346,419,352,425,358,429,352,444,355,462,351,485,318,478,309,479,286,487,282,511,295,514,301,525,296,547,315,554,315,556,336,557,368,525,409,504,406,500,413,500,420,479,438,462,442,463,416,447,400,432,395,420,420,400,413,404,403,398,398,398,389,404,383,404,378,396,372" href="#" onclick="enter(2)" />
+                    <area id="sh3" shape="poly" alt="La Llanada" title="La Llanada" coords="83,209,88,200,93,204,101,197,98,191,109,181,115,168,125,170,127,167,141,171,143,179,153,180,157,195,154,203,158,216,171,214,186,224,184,232,221,256,236,258,251,250,243,238,274,233,290,241,306,234,311,247,323,255,322,268,312,293,325,305,345,324,345,331,355,347,351,350,341,344,321,340,314,331,318,321,271,282,251,278,242,285,234,280,223,292,215,299,200,301,188,293,185,275,178,283,171,277,157,280,129,252,138,244,134,232,120,225,107,232,100,226,90,226" href="#" onclick="enter(3)" />
+                    <area id="sh4" shape="poly" alt="Los Andes Sotomayor" title="Los Andes Sotomayor" coords="2,146,6,130,18,130,24,144,34,142,34,124,54,106,52,94,60,98,66,90,62,68,90,50,90,42,98,44,152,2,188,2,202,16,198,24,200,40,218,46,228,38,240,50,254,46,262,60,262,68,274,78,264,94,272,102,254,120,270,156,292,168,324,218,326,230,320,238,326,242,344,230,400,218,426,234,438,258,436,270,412,298,388,306,384,324,362,348,350,342,344,322,314,298,312,276,324,266,308,242,274,234,248,238,250,246,242,260,226,260,216,244,188,238,182,224,156,214,154,198,162,198,154,178,124,168,108,174,102,192,88,208,66,210,60,196,36,172" href="#" onclick="enter(4)" />
+                </map>
+                <script>
+                    (function ($) {
+                        jQuery("#sh1").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: El Penol");
+                        });
+                        jQuery("#sh2").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: El Tambo");
+                        });
+                        jQuery("#sh3").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: La Llanada");
+                        });
+                        jQuery("#sh4").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: Los Andes Sotomayor");
+                        });
+                    })(jQuery);
+                 </script>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+<h2>Reportes</h2>
+@using (Html.BeginForm("Reporte", "repo", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input id="algo" type="submit" value="Exportar a PDF" />
+
+}

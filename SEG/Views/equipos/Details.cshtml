@@ -1,0 +1,42 @@
+﻿@model SEG.Models.DataBase.equipos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>equipos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Equipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Equipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Coordinador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Coordinador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Equipo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

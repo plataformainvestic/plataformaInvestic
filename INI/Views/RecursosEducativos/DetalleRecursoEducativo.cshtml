@@ -1,0 +1,24 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblRecursosEducativos>
+
+<div>
+    <table>
+        <tr>
+            <td><strong>Colección</strong></td>
+            <td>@Html.DisplayFor(model => model.tblColecciones.nom_coleccion)</td>
+        </tr>
+        <tr>
+            <td><strong>Recurso Educativo</strong></td>
+            <td>@Html.DisplayFor(model => model.nom_rec_educativo)</td>
+        </tr>
+        <tr>
+            <td><strong>Descripción General</strong></td>
+            <td>@Html.DisplayFor(model => model.desc_rec_educativo)</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="@Html.DisplayFor(model => model.archivo_rec_educativo)" class=" image-button primary"></a>
+            </td>
+
+        </tr>
+    </table>
+</div>

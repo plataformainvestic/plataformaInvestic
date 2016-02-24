@@ -1,0 +1,68 @@
+﻿@model INI.Models.DataBase.tblRecursosEducativos
+
+@{
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>
+                Detalle de Recurso Educativo
+            </strong>
+        </h2>
+    </p>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Colección
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblColecciones.nom_coleccion)
+        </dd>
+
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_rec_educativo)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_rec_educativo)
+        </dd>
+
+        <dt>
+            Archivo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.archivo_rec_educativo)
+        </dd>
+
+       
+        <dt>
+            Autor
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.autor_rec_educativo)
+        </dd>
+
+    </dl>
+
+    <div class="form-actions no-color">
+        <table style="background-color:transparent;">
+            <tr>
+                <td><h4>@Html.ActionLink("Editar", "Edit", new { id = Model.id_rec_educativo }) |</h4></td>
+                <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+            </tr>
+        </table>
+    </div>
+
+</div>

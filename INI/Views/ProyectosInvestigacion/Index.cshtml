@@ -1,0 +1,36 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblProyectosInvestigacion>
+
+<div class="row">
+    <table id="miTabla" class="table striped hover">
+        <thead>
+            <tr>
+                <th class="span2"></th>
+                <th class="span5">Nombre del Proyecto</th>
+                <th class="span5">Resumen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (item.tblEstado_ID == 1)
+                    {
+                        <td>@Html.ActionLink("Modificar Proyecto", "EditarProyecto", "ProyectosInvestigacion", new { id = item.tblProyectosInvestigacion_ID }, new { @class = "button info" })</td>
+                    }
+                    else
+                    {
+                        <td>Proyecto en Evaluación</td>
+                    }
+                    <td>@Html.DisplayFor(model => item.tblPresentacionProyecto.preProy_tituloProy)</td>
+                    <td>@Html.DisplayFor(model => item.tblPresentacionProyecto.preProy_resumenProy)</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+}

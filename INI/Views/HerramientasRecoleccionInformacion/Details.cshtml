@@ -1,0 +1,35 @@
+﻿@model INI.Models.DataBase.tblHerramientasRecoleccionInformacion
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<br /><br /><br />
+<h2>Detalle</h2>
+
+<div>
+    <h4>Herramientas de recolección información</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HerramientaRecoleccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HerramientaRecoleccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Atrás", "Index")
+</p>

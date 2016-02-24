@@ -1,0 +1,48 @@
+﻿@model INI.Models.DataBase.MiembrosGrupoCoinvestigador
+
+<table id="CoresearchTeachersTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Nombres")
+            </th>
+            <th>
+                @Html.DisplayName("Apellidos")
+            </th>
+            <th>
+                @Html.DisplayName("Usuario")
+            </th>
+            <th>
+                @Html.DisplayName("Correo")
+            </th>
+            <th>
+                @Html.DisplayName("Invitar")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Usuarios)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SureName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Asesor", "InvitarAsesor", new { id = item.Id, idGroup = Model.idGrupoInvestigacion }) |
+                    @Html.ActionLink("Colaborador", "InvitarColaborador", new { id = item.Id, idGroup = Model.idGrupoInvestigacion })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

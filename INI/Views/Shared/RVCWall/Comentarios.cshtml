@@ -1,0 +1,82 @@
+﻿@model INI.Models.Mymodels.RVCWMessages
+
+<fieldset>
+    <input type="hidden" id="hd_id" value="@Model.idNVCGrpUser"/>
+    <div class="input-control textarea">
+        <textarea id="txt_area_msj" placeholder="Escribe un mensaje">
+
+        </textarea>
+    </div>
+    <button id="btn_sendmsj" class="">Enviar</button>
+</fieldset>
+<div data-role="scrollbox" data-scroll="vertical" style="background-color:#ffffff">
+    <div class="grid">
+        @foreach (var item in Model.RedvirtualWallMessage)
+        {
+            <div class="row">
+                @if (item.IsOwner)
+                {
+                    if (item.IsMine)
+                    {
+                        <div class="span8">
+                            @item.DataSend
+                            <div>
+                                <div class="notice marker-on-right">
+                                    <div class="fg-white">@Html.Raw(item.Message)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <img class="redondo" src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idUser, FileId = "photo" })" style="" width="50px" />
+                        </div>
+                        
+                    }
+                    else { 
+                        <div class="span4">
+                            <img class="redondo" src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idUser, FileId = "photo" })" style="" width="50px" />
+                        </div>
+                        <div class="span8">
+                            @item.DataSend
+                            <div>
+                                <div class="notice marker-on-left">
+                                    <div class="fg-white">@Html.Raw(item.Message)</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+                }
+                else if (item.IsMine)
+                {
+                    <div class="span8">
+                        @item.DataSend
+                        <div>
+                            <div class="notice marker-on-right bg-green">
+                                <div class="fg-white">@Html.Raw(item.Message)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <img class="redondo" src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idUser, FileId = "photo" })" style="" width="50px" />
+                    </div>
+                }
+                else
+                {
+                    <div class="span4">
+                        <img class="redondo" src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idUser, FileId = "photo" })" style="" width="50px" />
+                    </div>
+                    <div class="span8">
+                        @item.DataSend
+                        <div>
+                            <div class="notice bg-darkRed marker-on-left">
+                                <div class="fg-white">@Html.Raw(item.Message)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

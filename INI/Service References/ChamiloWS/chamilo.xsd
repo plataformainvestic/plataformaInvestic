@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ChamiloUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LasttName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Registration_date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="xs:byte" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChamiloUser" nillable="true" type="tns:ChamiloUser" />
+  <xs:complexType name="ArrayOfchamiloCource">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="chamiloCource" nillable="true" type="tns:chamiloCource" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfchamiloCource" nillable="true" type="tns:ArrayOfchamiloCource" />
+  <xs:complexType name="chamiloCource">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="creation_date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="directory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="expiration_date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="last_edit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="last_visit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="chamiloCource" nillable="true" type="tns:chamiloCource" />
+  <xs:simpleType name="Role">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Profesor">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Estudiante">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Invitado">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Role" nillable="true" type="tns:Role" />
+  <xs:complexType name="ArrayOfChamiloLesson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChamiloLesson" nillable="true" type="tns:ChamiloLesson" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChamiloLesson" nillable="true" type="tns:ArrayOfChamiloLesson" />
+  <xs:complexType name="ChamiloLesson">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="c_id" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChamiloLesson" nillable="true" type="tns:ChamiloLesson" />
+  <xs:complexType name="chamiloDescriptionCatalog">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="creation_date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name_complete" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="chamiloDescriptionCatalog" nillable="true" type="tns:chamiloDescriptionCatalog" />
+</xs:schema>

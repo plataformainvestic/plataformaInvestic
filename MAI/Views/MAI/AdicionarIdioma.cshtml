@@ -1,0 +1,50 @@
+﻿@model MAI.Models.DataBase.tblNivelIdioma
+
+@{
+    ViewBag.Title = "Adicionar Idioma";
+}
+
+
+<div class="grid fluid">
+    <h2>Adicionar Idiomas</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Hidden("tblHojaVida_ID", (object)ViewBag.idHojaVida)
+
+        <div class="form-control">
+            <div class="form-group span6">
+                @Html.Label("Idioma")
+                <div class="input-control select">
+                    @Html.DropDownList("tblIdiomas_ID")
+                    @Html.ValidationMessageFor(model => model.tblIdiomas_ID)
+                </div>
+            </div>
+
+            <div class="form-group span6">
+                @Html.Label("Nivel")
+                <div class="input-control select">
+                    @Html.DropDownList("tblNivel_ID")
+                    @Html.ValidationMessageFor(model => model.tblNivel_ID)
+                </div>
+            </div>
+
+            <button class="large bg-green fg-white" type="submit">
+                Agregar Idioma
+                <i class="icon-plus bg-green fg-white"></i>
+            </button>
+
+            <div class="form-group">
+                <h3>
+                    @Html.ActionLink("Regresar", "FormacionYExperiencia", new { id = (object)ViewBag.idUsuarioPlataforma })
+                </h3>
+            </div>
+        </div>
+    }
+
+</div>

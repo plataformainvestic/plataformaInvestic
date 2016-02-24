@@ -1,0 +1,124 @@
+﻿@model INI.Models.DataBase.tblCategoriaImagenes
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Crear Categoría.
+        </h2>
+    </p>
+
+    @using (Html.BeginForm("Create", "CategoriaImagenes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <table>
+                <tr>
+                    <td>
+                        
+                        
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Categoria', { sticky: true })">
+                                    Categoría
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Categoria">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu categoría?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes ingresar una categoría.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        
+
+
+
+
+
+
+
+
+                    </td>
+<td>
+                        <div class="input-control text size3">
+                            @Html.EditorFor(model => model.cat_Nombre)
+                            @Html.ValidationMessageFor(model => model.cat_Nombre)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+
+                        <div style="margin: auto; width: auto;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#ImagendePortada', { sticky: true })">
+                                Imagen de Portada
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="ImagendePortada">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>Cual es tu imagen de portada?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar una imagen de portada.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </td>
+                    <td>
+                        <div class="input-control select size3">
+                            <div class="input-control file">
+                                <input id="cat_Imagen_Portada" name="cat_Imagen_Portada" type="file" />
+                                <button class="btn btn-file"></button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+        <br />
+        <div class="form-actions no-color">
+            <table style="background-color:transparent;">
+                <tr>
+                    <td><input type="submit" value="Crear" class="button large primary" /> |</td>
+                    <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                </tr>
+            </table>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

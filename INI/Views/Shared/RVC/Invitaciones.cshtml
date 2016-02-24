@@ -1,0 +1,39 @@
+﻿@model  List<INI.Models.Mymodels.RedVirtualGrupoOtherUser>
+<h1>Invitaciones</h1>
+<table id="tbl_inv" class="table">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Creador</th>
+            <th>
+                Nombre
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="#">
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualGroups", new { id = item.id, FileId = "photo" })" width="100px" />
+                    </a>
+                </td>
+                <td>
+                    <a href="#" data-hint="Owner|Aqui podras saber más sobre el creador de esta red." data-hint-position="bottom">
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idUser, FileId = "photo" }) " width=" 50px" />
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>                
+                <td>
+                    <button class="button large primary btnrvcinv" id="@item.id">Aceptar invitación</button>
+                    @Html.ActionLink(" ", "Details", "tbNetVirtualGroups", new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

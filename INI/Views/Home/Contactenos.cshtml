@@ -1,0 +1,200 @@
+﻿@{
+    ViewBag.Title = "Contactenos";
+    Layout = "~/Views/Shared/_InvContactanos.cshtml";
+}
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+<div style="position: fixed; top: 110px; padding:10px; opacity:0.9; background-color:#ffffff; height:480px; width:1024px;">
+    @using (Html.BeginForm("Contactenos", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div style="float: left; width:50%; padding:10px;">
+
+
+
+
+
+
+
+            <label style="font-weight:bold;">
+            
+            
+                <div style="margin: auto; width: auto;">
+
+                    
+                        <strong  onmouseover="tooltip.pop(this, '#Nombre1', { sticky: true })">
+                            Nombres*:
+                        </strong>
+
+                    
+                    <div style="display:none;">
+                        <div id="Nombre1">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu nombre?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar nombres.
+                        </div>
+                    </div>
+                </div>
+
+            
+            
+            
+            
+             </label><input type="text" id="nombres" name="nombres" placeholder="Nombres" size="50" maxlength="50" required="required" pattern="[a-zA-Z ñáéíóúÁÉÍÓÚÑ]*"  autofocus="autofocus"  title="Se necesita nombre" />
+            
+            <label style="font-weight:bold;">
+            
+                <div style="margin: auto; width: auto;">
+
+                    
+                        <strong onmouseover="tooltip.pop(this, '#Apellidos1', { sticky: true })">
+                            Apellidos*:
+                        </strong>
+
+                    
+                    <div style="display:none;">
+                        <div id="Apellidos1">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es son tus apellidos?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar apellidos.
+                        </div>
+                    </div>
+                </div>
+            
+            
+            
+            
+             </label><input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" size="50" maxlength="50" required="required"  pattern="[a-zA-Z ñáéíóúÁÉÍÓÚÑ]*" title="Se necesita apellidos"/>
+            <label style="font-weight:bold;">
+            
+            
+                <div style="margin: auto; width: auto;">
+
+                    
+                        <strong onmouseover="tooltip.pop(this, '#CorreoElectronico1', { sticky: true })">
+                            Correo Electrónico*:
+                        </strong>
+
+                    
+                    <div style="display:none;">
+                        <div id="CorreoElectronico1">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Correo Electronico?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar correo electronico.
+                        </div>
+                    </div>
+                </div>
+            
+            
+             </label><input type="email" id="email" name="email" placeholder="Correo Electrónico" size="50" maxlength="50" required="required" title="Se necesita Email"/>
+            <label style="font-weight:bold;">
+            
+                <div style="margin: auto; width: auto;">
+
+                    
+                        <strong onmouseover="tooltip.pop(this, '#TelefonoOcelulardecontacto1', { sticky: true })">
+                            Telefóno o celular de contacto*: 
+                        </strong>
+
+                    
+                    <div style="display:none;">
+                        <div id="TelefonoOcelulardecontacto1">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Telefóno ó celular decontacto?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar Telefóno ó celular de contacto.
+                        </div>
+                    </div>
+                </div>
+            
+            
+            
+            
+            </label><input type="tel" id="celular" name="celular" placeholder="Telefóno" size="15" required="required" pattern="[0-9]{9}" maxlength="10" title="Formato incorrecto."/>
+            <label style="font-weight:bold;">
+                <div style="margin: auto; width: auto;">
+
+                    
+                        <strong onmouseover="tooltip.pop(this, '#Mensaje1', { sticky: true })">
+                            Mensaje*:
+                        </strong>
+
+                    
+                    <div style="display:none;">
+                        <div id="Mensaje1">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu mensaje?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar un Mensaje.
+                        </div>
+                    </div>
+                </div>
+
+            
+            
+            
+            
+            </label><input type="text"  id="mensaje"  size="500" maxlength="500" name="mensaje" style="width:400px;height:100px;" placeholder="mensaje" required="required" title="Este campo obligatorio."/> 
+            <br />
+            <input type="checkbox" id="accept" name="accept" value="Accept" checked /> Conozco y acepto los términos y condiciones del sitio y la política de protección de la información personal.*
+            <br />
+            <label><b >* Los campos marcados son obligatorios.</b></label>
+            <br />
+            <input id="enviarCorreo" type="submit" value="Enviar mensaje"/>
+            <br />
+            
+            
+        </div>
+
+
+    }
+    <div id="direccion" style='float:left; width:50%; padding:10px;'>
+        <div id="map-canvas" style='height: 220px; width: 100%;'></div>
+        <br />
+        <label style="font-weight:bold;">Universidad de Nariño - Sede Torobajo <br />Bloque tecnológico - Aula 104 <br /> Telefono: 320 632 5587</label>
+    </div>
+    <center>@Html.AtrasInvestic()</center>
+</div>
+
+@section scripts{
+    <script>
+        $("#accept").click(function () {
+            if ($("#accept").is(':checked')) {
+                $("#enviarCorreo").removeAttr('disabled');
+            }
+            else {
+                $("#enviarCorreo").attr('disabled', 'disabled');
+            }
+        });
+
+        var map;
+        function initialize() {
+            var mylocalize = new google.maps.LatLng(1.232858, -77.293053)
+            var mapOptions = {
+                zoom: 15,
+                center: mylocalize
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+            var marker = new google.maps.Marker({
+                position: mylocalize,
+                map: map,
+                title: 'Oficina INVESTIC'
+            });
+
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+}
+
+
+<script>
+    function notifyOnErrorInput(input){
+        var message = input.data('validateHint');
+        $.Notify({
+            caption: 'Error',
+            content: message,
+            type: 'alert'
+        });
+    }
+</script>

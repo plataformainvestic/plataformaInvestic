@@ -1,0 +1,65 @@
+﻿@model INI.Models.DataBase.tblProductosAcademicos
+
+@{
+    Layout = "~/Views/Shared/_InvCuenta.cshtml";
+    ViewBag.Title = "Modificar Producto Academico";
+}
+
+<div class="verticalSpan2"></div>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.tblProductosAcademicos_ID)
+    @Html.Hidden("tblHojaVida_ID", (object)ViewBag.idHojaVida)
+
+    <div class="text-center">
+        <h2><strong>Modificar Producto Academico</strong></h2>
+    </div>
+
+    <div class="form-control grid" style="text-align:center">
+        <hr />
+
+        <div class="form-group span6 offset4 text-center">
+            <h3><strong>Titulo del Producto Académico</strong></h3>
+            <div class="input-control text" data-role="input-control">
+                @Html.EditorFor(model => model.proaca_tituloProducto)
+                <button type="button" class="btn btn-clear" tabindex="-1"></button>
+                @Html.ValidationMessageFor(model => model.proaca_tituloProducto)
+            </div>
+        </div>
+
+        <div class="form-group span6 offset4 text-center">
+            <h3><strong>Fecha de Publicación del Producto Académico</strong></h3>
+            <div class="input-control text" data-role="datepicker" data-format="dd/mm/yyyy">
+                @Html.TextBoxFor(m => m.proaca_anoTerminacion, "{0:dd/MM/yyyy}")
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessage("Digite fecha")
+            </div>
+        </div>
+
+        <div class="form-group span6 offset4 text-center">
+            <h3><strong>Categoría del Producto Académico</strong></h3>
+            <div class="input-control select">
+                @Html.DropDownList("tblCategoriaProductos_ID")
+                @Html.ValidationMessageFor(model => model.tblCategoriaProductos_ID)
+            </div>
+        </div>
+
+        <button class="large bg-green fg-white" type="submit">
+            Guardar Cambios
+            <i class="icon-upload-3 bg-green fg-white"></i>
+        </button>
+
+        <div class="form-group">
+            <h3>
+                @Html.ActionLink("Regresar", "Investigacion", new { id = (object)ViewBag.idUsuarioPlataforma })
+            </h3>
+        </div>
+    </div>
+
+}

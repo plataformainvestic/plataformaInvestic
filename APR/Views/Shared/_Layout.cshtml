@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+@*
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+    </head>
+*@
+
+@*
+        <body style="background:#558b2f;">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        <div class="container body-content">
+            @RenderBody()
+           <hr />
+
+            <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+*@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .INVESTIC</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript">
+        //$(function () {
+        //    //Acciones del botón General
+        //    $('#boton_general').click(function () {
+        //        $('#conocenos').hide();
+        //        $('#equipotrabajo').hide();
+        //        $('#general').show();
+
+
+        //        $('#boton_general').attr('src', $('#boton_general').attr('src').replace('general.png', 'general_activo.png'));
+        //        $('#boton_equipoTrabajo').attr('src', $('#boton_equipoTrabajo').attr('src').replace('equipotrabajo/boton_activo.png', 'equipoTrabajo.png'));
+
+        //    });
+        //    //Acciones del botón Conocenos
+        //    $('#boton_conocenos').click(function () {
+        //        $('#conocenos').show();
+        //        $('#general').hide();
+        //        $('#equipotrabajo').hide();
+
+        //        $('#boton_general').attr('src', $('#boton_general').attr('src').replace('general_activo.png', 'general.png'));
+        //        $('#boton_equipoTrabajo').attr('src', $('#boton_equipoTrabajo').attr('src').replace('equipotrabajo/boton_activo.png', 'equipoTrabajo.png'));
+
+        //    });
+        //    //Acciones del botón Equipo de Trabajo
+
+        //    $('#boton_equipoTrabajo').click(function () {
+        //        $('#conocenos').hide();
+        //        $('#general').hide();
+        //        $('#equipotrabajo').show();
+        //        $('#boton_general').attr('src', $('#boton_general').attr('src').replace('general_activo.png', 'general.png'));
+        //        $('#boton_equipoTrabajo').attr('src', $('#boton_equipoTrabajo').attr('src').replace('equipoTrabajo.png', 'equipotrabajo/boton_activo.png'));
+        //        $('body').css('background-image', 'url(../../images/conocenos/equipotrabajo/fondo.png)');
+        //    });
+        //    //Acciones del botón Alternativas
+
+        //    //Acciones del botón Asesores de Zona
+
+        //    ////Acciones del botón TutoresTIC
+
+        //});
+    </script>
+</head>
+
+<body class="metro" style="background: #F5EFBC;">
+
+    <nav class="navigation-bar" style="background-color:#808080">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/">
+                <img src="/favicon.png" height="16" width="16" />
+                <span style="font-size:medium;color:azure">Investic</span>
+            </a>
+            <span class="element-divider"></span>
+            <span id="textomenu" style=" font-size:x-small" class="element">Ciencia, tecnología e innovación para el buen vivir nariñense</span>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Conocenos">
+                Conócenos
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Contactenos">
+                Contáctanos
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Recuerdos">
+                Recuerdos
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/comovamos">
+                ¿Cómo Vamos?
+            </a>
+            <span class="element-divider place-right"></span>
+            <div class="no-tablet-portrait">
+                <div class="element input-element">
+                    @*@if (!Request.IsAuthenticated)
+                        {
+                            @Html.Partial("_LoginForm")
+                        }
+                        else {
+                            @Html.Partial("_LoginPartial")
+                        }*@
+                </div>
+                <div class="element place-right">
+                    <a class="dropdown-toggle" href="#">
+                        <span>¿Eres Nuevo?</span>
+                    </a>
+                    <ul class="dropdown-menu place-right" data-role="dropdown">
+                        <li><a href="#">Registrarse</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <div class="container">
+        <div id="botones" style="background:url('') repeat-x; height:50px; position:absolute; width:100%; left:0;top:45px;">
+            <div style="background-color:#E5E5E5">
+                <img src="~/images/Investiga/investigadividido-05.png" style="margin:0; float: left;" />
+                <div id="titulosmenusec" style="color:#871E80"> Investiga</div>
+                <div style="float:left ;padding-bottom:15px;padding-top:14px;margin:0">|</div>
+                <div><a id="btnmenusec">Aprendizaje </a></div>
+                <div style="float:left ;padding-bottom:15px;padding-top:14px;margin:0">|</div>
+                <div><a id="btnmenusec">Investigación</a></div>
+                <div style="padding-bottom:15px;padding-top:14px;margin:0">
+                    |
+
+                </div>
+                <div style="float:right;margin:0;">
+                    <img id="boton_inicio" src="~/images/inicio.png" style="margin:0; float: right;" />
+                    <img id="boton_facebook" src="~/images/boton_facebook.png" style="margin:0; float: right;" />
+                    <img id="boton_twitter" src="~/images/boton_twitter.png" style="margin:0; float: right;" />
+                    <img id="boton_youtube" src="~/images/boton_youtube.png" style="margin:0; float: right;" />
+                </div>
+                @*<img src="~/images/Investiga/investigadividido-14.png" style="margin:0; float: left;" />
+                    <img src="~/images/Investiga/aprendizaje_off.png" style="margin:0; float: left;" />
+                    <img src="~/images/Investiga/investigacion_off.png" style="margin:0; float: left;" />
+                    <img src="~/images/Investiga/investigadividido-17.png" style="margin:0; float: left;" />*@
+            </div>
+
+        </div>z
+        @*<div class="tile fluid bg-transparent">
+                <a href="#">
+                    <div class="tile half bg-transparent">
+                        <div class="tile-content image">
+                            <img src="~/usuarios/images/2.conocenos.png" />
+                        </div>
+                    </div>
+                </a>
+            </div>*@
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/metro-ui")
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.js"></script>
+    <script src="~/usuarios/Scripts/js/Invresources.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

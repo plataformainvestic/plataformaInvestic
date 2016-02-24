@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Aceso a la plataforma Investic";
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span1 offset1">
+            <h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="icon-arrow-left-3 fg-darker smaller"></i>
+                </a>
+            </h1>
+        </div>
+        <div class="span8">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix">    
+    <div class="tile half bg-transparent"></div>
+    <div class="tile bg-transparent">
+        <div class="tile-content image">            
+            <img src="~/images/log_1.svg" width="120" />
+        </div>        
+    </div>
+    <a href="/AsistenteGruposInvestigacion">
+        <div class="tile bg-transparent">
+            <div class="tile-content image">
+                <img src="~/images/log_2.svg" width="120" />
+            </div>
+        </div>
+    </a>
+    <div class="tile bg-transparent">
+        <div class="tile-content image">
+            <img src="~/images/log_3.svg" width="120" />
+        </div>
+    </div>        
+    <div class="tile bg-transparent">
+        <div class="tile-content image">
+            <img src="~/images/log_4.svg" width="120" />
+        </div>
+    </div>            
+</div>
+@section Scripts{
+    <script src="~/Scripts/Investic/Access.js"></script>
+}

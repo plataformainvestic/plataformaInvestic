@@ -1,0 +1,66 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblEjeInvestigacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br /><br /><br />
+<h2>Ejes de Investigación</h2>
+
+<p>
+    @Html.ActionLink("Nuevo elemento de lista", "Create")
+</p>
+<table id="Tabla_1" class="table striped hover" style="width:100%">
+
+    <thead>
+        <tr>
+            <th>
+               Ítems de Ejes de investigación
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ejeInv_nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.tblEjeInvestigacion_ID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.tblEjeInvestigacion_ID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.tblEjeInvestigacion_ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script>
+            $(function () {
+                $('#Tabla_1').dataTable({
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sUrl": "../../Lang/es-CO.txt"
+                    }
+                });
+
+
+                $(function () {
+                    $('#Tabla_2').dataTable({
+                        "sPaginationType": "full_numbers",
+                        "oLanguage": {
+                            "sUrl": "../../Lang/es-CO.txt"
+                        }
+                    });
+
+                });
+            });
+
+    </script>
+}

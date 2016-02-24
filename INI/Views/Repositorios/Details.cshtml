@@ -1,0 +1,55 @@
+﻿@model INI.Models.DataBase.Repositorio
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<br /><br /><br />
+<h2>Detalles</h2>
+
+<div>
+    <h4>Repositorio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.urlRepositorio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlRepositorio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.urlfront)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.urlfront)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoriaRepositorio.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoriaRepositorio.nombre)
+        </dd>
+        
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SEG.Models.DataBase.producto>
+
+
+<table class="table">
+<tr>
+<th>Archivo</th>
+<th>Descripción</th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Nombre_Producto)</td>
+
+        @if (item.Descripcion_Producto == null)
+        {
+            <td>N/A</td>
+        }
+        else
+        {
+            <td>@Html.DisplayFor(modelItem => item.Descripcion_Producto)</td>
+        }        
+        <td>@Html.ActionLink("Borrar", "BorrarProducto", new { id = item.Id_Producto })</td>
+    </tr>
+}
+
+</table>

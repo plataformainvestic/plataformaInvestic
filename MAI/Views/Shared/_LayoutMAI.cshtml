@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Maestro Investigador</h1>
+
+<div class="row">
+    @Html.ActionLink("Hoja de Vida", "FormacionYExperiencia", "MAI", null, new { @class = "button primary" })
+    @Html.ActionLink("Investigación", "Investigacion", "MAI", null, new { @class = "button primary" })
+    @Html.ActionLink("Mis Proyectos", "MisGrupos","GruposInvestigacion", null, new { @class = "button primary" })
+</div>
+
+@RenderBody()
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/widgets")
+@Scripts.Render("~/bundles/metro-ui")
+@RenderSection("scripts", required: false)

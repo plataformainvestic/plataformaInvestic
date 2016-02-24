@@ -1,0 +1,82 @@
+﻿@model SEG.Models.DataBase.actividade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>actividade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Ini)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Ini)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Des_Actividad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Des_Actividad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Des_Observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Des_Observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.responsabilidade.Id_Contratista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responsabilidade.Id_Contratista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tabla_alternativas.Des_Alternativa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tabla_alternativas.Des_Alternativa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tabla_estados.Des_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tabla_estados.Des_Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Actividad }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

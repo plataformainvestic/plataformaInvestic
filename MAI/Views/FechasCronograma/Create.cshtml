@@ -1,0 +1,122 @@
+﻿@model MAI.Models.DataBase.tblFechaCronograma
+
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+    @using (Html.BeginForm("Create", "FechasCronograma"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("tblCronogramaProy_ID", Model.tblCronogramaProy_ID)
+
+        <div class="row">
+            <div class="span2">
+                <strong>Actividad</strong>
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(m => m.cro_Actividad)
+                @Html.ValidationMessage("¿Que actividad va a realizar?")
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>Fecha Inicio</strong>
+            </div>
+            <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" style='max-width: 130px'>
+                @Html.TextBoxFor(m => m.cro_FechaInicio, "{0:dd/MM/yyyy}")
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessage("Digite fecha de inicio")
+            </div>
+            <div class="span2">
+                <strong>Fecha Final</strong>
+            </div>
+            <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" style='max-width: 130px'>
+                @Html.TextBoxFor(m => m.cro_FechaFin, "{0:dd/MM/yyyy}")
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessage("Digite fecha de inicio")
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>Indicador</strong>
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(m => m.cro_Indicador)
+                @Html.ValidationMessage("Indicador")
+            </div>
+        </div>
+        <div class="row">
+            <button class="large bg-green fg-white" type="submit">
+                Agregar Fecha
+                <i class="icon-plus bg-green fg-white"></i>
+            </button>
+        </div>
+    }
+</div>
+
+
+
+@*<h2>Create</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>tblFechaCronograma</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.tblCronogramaProy_ID, "tblCronogramaProy_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("tblCronogramaProy_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.tblCronogramaProy_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.cro_Actividad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.cro_Actividad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cro_Actividad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.cro_FechaInicio, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.cro_FechaInicio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cro_FechaInicio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.cro_FechaFin, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.cro_FechaFin, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cro_FechaFin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.cro_Indicador, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.cro_Indicador, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cro_Indicador, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

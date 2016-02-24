@@ -1,0 +1,50 @@
+﻿@model IEnumerable<INI.Models.DataBase.tbNetVirtualUser>
+
+@{
+    String ctrl=ViewBag.ControllerName;
+	var modelName = "tbl_"+ctrl;
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink(" ", "Create", null, new { @class = "btn btn-default glyphicon glyphicon-plus" })
+</p>
+<table id="@modelName" class="table">
+	<thead>
+		<tr>
+            
+			<th>
+				@Html.DisplayNameFor(model => model.state)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.state)
+			</td>
+			<td>
+                
+                    <a href="@Url.Action("DowloadFile", new { id = item.id, FileId = "photo" })" target="_blank" class="glyphicon glyphicon-download-alt">photo</a>
+                    @*<img src="@Url.Action("DowloadFile", new { id = item.id, FileId = "photo" })" width="100px"/>*@       
+                
+				@Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "glyphicon glyphicon-edit" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.id, }, new { @class = "glyphicon glyphicon-list" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "glyphicon glyphicon-remove" })
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#@modelName').DataTable();
+        });
+    </script>
+}

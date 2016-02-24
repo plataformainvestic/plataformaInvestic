@@ -1,0 +1,39 @@
+﻿@model IEP.Models.DataBase.tblPreguntaInvestigacion
+
+@using (Html.BeginForm("EditarPreguntaInvestigacion", "AsistenteGruposInvestigacion"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+    @Html.HiddenFor(model => model.FechaCreacion)
+    @Html.HiddenFor(model => model.Consecutivo)
+    @Html.HiddenFor(model => model.PreguntaPrincipal)
+
+    @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        <h4>Pregunta de investigación</h4>
+        <hr />
+
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Pregunta")
+                    </strong>
+                </div>
+                <div class="span10 input-control textarea">
+                    @Html.TextAreaFor(model => model.Pregunta)
+                    @Html.ValidationMessageFor(model => model.Pregunta)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span10 offset2">
+                    <input type="submit" value="Modificar Pregunta" class="button large" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

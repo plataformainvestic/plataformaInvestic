@@ -1,0 +1,56 @@
+﻿@model IEnumerable<INI.Models.DataBase.AspNetUserRoles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>
+    <a href="/Configuracion">
+        <i class="icon-arrow-left-3 fg-darker smaller"></i>
+    </a>
+    <small>Administrar Roles</small>
+</h1>
+
+<div class="toolbar transparent">
+    <button onclick="javascript:window.location.href = '/UsuariosRoles/Create'"><i class="icon-new on-left"></i>Nuevo</button>
+</div>
+<table id="Roles" class="table striped hovered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("Nombre")</th>
+            <th>@Html.DisplayName("Rol")</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetRoles.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Eliminar", "Delete", new { Id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div style="min-height:40px;">
+</div>
+@section Scripts {
+    <script src="~/Scripts/DataTables-1.9.4/media/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Roles').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+        });
+    </script>
+}

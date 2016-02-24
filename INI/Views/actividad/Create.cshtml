@@ -1,0 +1,212 @@
+﻿@model INI.Models.DataBase.tblActividadContratista
+@using INI.Models.DataBase
+
+
+@{
+    var db = new investicEntities();
+    string msj = ViewBag.Message;
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "actividad", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Actividad)
+    
+    
+    @Html.HiddenFor(model => model.Id_Contratista)
+    @Html.HiddenFor(model => model.Fecha_Ini)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @if (Model.Id_Actividad != 0)
+        {
+            <div class="col-md-10">
+               
+
+            </div>
+        }
+        else
+        {
+            <div class="col-md-10">
+                @Html.DropDownList("Id_Alternativa", null, htmlAttributes: new { @class = "form-control", @style = "display:none" })
+                @Html.ValidationMessageFor(model => model.Id_Alternativa, "", new { @class = "text-danger", @style = "display:none" })
+            </div>
+        }
+
+    </div>
+
+    <div class="form-group">
+       
+        @if (Model.Id_Actividad != 0)
+        {
+            <div class="col-md-10">
+              
+            </div>
+        }
+        else
+        {
+            <div class="col-md-10">
+                @Html.DropDownList("Des_Resp_Contratista", null, htmlAttributes: new { @style = "display:none" })
+                @*@Html.DropDownList("Des_Resp_Contratista", ViewBag.Des_Resp_Contratista as SelectList, "Seleccione responsabilidad", new { @style = "max-width:190px" })*@
+                @Html.ValidationMessageFor(model => model.Des_Resp_Contratista, "", new { @style = "display:none" })
+            </div>
+        }
+
+
+
+    </div>
+
+    <div class="grid fluid">
+
+        <div class="row">
+            <div class="span2">
+                <strong>Tarea</strong>
+            </div>
+            <div class="span3">
+                
+                @ViewBag.tarea
+            </div>
+            <div class="span2">
+                <strong>Fecha Corte</strong>
+            </div>
+            <div class="span2">
+                
+                @ViewBag.fechacorte
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>Descripción Tarea:</strong>
+            </div>
+            <div class="span5">
+                
+                @ViewBag.descrip
+            </div>
+            <div class="span2">
+                Faltan <strong> @ViewBag.dias</strong>días
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>Fecha Realización</strong>
+            </div>
+            <div class="span2">
+                <div class="input-control text" data-role="datepicker" data-locale="es" data-format="dd/mm/yyyy" style='max-width: 130px'>
+                    @Html.TextBoxFor(model => model.Fecha_Fin, "{0:dd/MM/yyyy}", new { @type = "text" })
+                    <button class="btn btn-date" type="button"></button>
+                    @Html.ValidationMessageFor(model => model.Fecha_Fin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>Descripción Actividad</strong>
+            </div>
+            <div class="span6 input-control textarea">
+                @Html.TextAreaFor(model => model.Des_Actividad)
+                @Html.ValidationMessageFor(model => model.Des_Actividad)
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>Estado</strong>
+            </div>
+            <div class="span2 input-control select">
+                @Html.DropDownList("Id_Estado")
+                @Html.ValidationMessageFor(model => model.Id_Estado)
+            </div>
+            <div class="span1">
+                <strong>Observacion</strong>
+            </div>
+            <div class="span3 input-control textarea">
+                @Html.TextAreaFor(model => model.Des_Observaciones)
+                @Html.ValidationMessageFor(model => model.Des_Observaciones)
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="span2">
+
+            </div>
+            <div class="span2">
+                @if (Model.Id_Actividad == 0)
+                {
+
+                    <input type="submit" class="btn large bg-darkBlue fg-white" value="Registrar" />
+                }
+                else
+                {
+                    <input type="button" value="Regresar" class="btn large bg-darkGreen fg-white" onclick="javascript: location.href = '/Seguimiento';"/>
+                }
+            </div>
+
+
+        </div>
+
+        <div class="span2">
+            @Html.AtrasInvestic()
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+}
+
+@if (Model.Id_Actividad != 0)
+{
+
+    tblProductosContratista pro = new tblProductosContratista();
+    
+    pro.Id_Contratista = Model.Id_Contratista;
+    pro.Id_Actividad = Model.Id_Actividad;
+   
+    @Html.Partial("_producto", pro)
+    <hr />
+    tblEvidenciasContratista ev = new tblEvidenciasContratista();
+    ev.Id_Contratista = Model.Id_Contratista;
+    ev.Id_Actividad = Model.Id_Actividad;
+ 
+    @Html.Partial("_evidencia", ev)
+
+}
+
+
+
+
+
+
+
+@section Scripts {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    <script src="~/Scripts/metro-ui/metro.min.js"></script>
+    @Styles.Render("~/Content/csswizard")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/wizard")
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.date.js"></script>
+
+    <script src="~/Scripts/Investic/iep-0.1-AlertMessage.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}

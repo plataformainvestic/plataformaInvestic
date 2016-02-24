@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MAI.Models.DataBase.tblIntegrantesGrupoInv>
+@using MAI.Models.DataBase
+
+<div class="row">
+
+
+
+    <table id="miTabla" class="table striped hover">
+        <thead>
+            <tr>
+                <th>
+                    Identificaión
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Fecha de Vinculacion
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.AspNetUsers.PersonalID)
+                    </td>
+                    <td>
+                        @Html.DisplayName(AspNetUsers.GetName(item.AspNetUsers.UserName))
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.intGruInv_fechaVinculacion)
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+}

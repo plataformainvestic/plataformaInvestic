@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="954a82d7-28cd-4488-b527-f1f6d64e208c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://investic.udenar.edu.co/chamilo/chamilo.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="chamilo.wsdl" MetadataType="Wsdl" ID="1da8dee6-591d-4967-ae97-b10d1344f0d4" SourceId="1" SourceUrl="http://investic.udenar.edu.co/chamilo/chamilo.svc?wsdl" />
+    <MetadataFile FileName="chamilo.disco" MetadataType="Disco" ID="9e475f06-8cf3-467b-ae45-32c1c6ea6808" SourceId="1" SourceUrl="http://investic.udenar.edu.co/chamilo/chamilo.svc?disco" />
+    <MetadataFile FileName="chamilo1.xsd" MetadataType="Schema" ID="a4bc3cea-9473-4976-b83f-447795717f4a" SourceId="1" SourceUrl="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd0" />
+    <MetadataFile FileName="chamilo2.xsd" MetadataType="Schema" ID="b582686c-6748-4b61-b951-10b8068a4125" SourceId="1" SourceUrl="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd1" />
+    <MetadataFile FileName="chamilo.xsd" MetadataType="Schema" ID="6328b326-d59c-4cfc-b8c6-a73421430df1" SourceId="1" SourceUrl="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd2" />
+    <MetadataFile FileName="chamilo3.xsd" MetadataType="Schema" ID="d72ba82b-e6a3-4187-ae46-48ff5f03f7e1" SourceId="1" SourceUrl="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

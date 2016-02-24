@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64d7b302f1bc45638381b5b97cd03d2d" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tabla_alternativas" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.tabla_estados" Width="1.5" PointX="15.625" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.fechasreporte" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.producto" Width="1.5" PointX="9.75" PointY="6.375" />
+        <EntityTypeShape EntityType="Model.evidencia" Width="1.5" PointX="12.75" PointY="6.375" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="2" PointX="3" PointY="3.5" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_dbo_evidencias_dbo_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_dbo_productos_dbo_AspNetUsers" />
+        <AssociationConnector Association="Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="Model.equipos" Width="1.5" PointX="5.25" PointY="3.25" />
+        <AssociationConnector Association="Model.FK_dbo_equipos_dbo_AspNetUsers" />
+        <EntityTypeShape EntityType="Model.programa_tareas" Width="1.5" PointX="10" PointY="9.5" />
+        <AssociationConnector Association="Model.FK_dbo_programa_tareas_dbo_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_dbo_programa_tareas_dbo_tabla_alternativas" />
+        <EntityTypeShape EntityType="Model.responsabilidade" Width="1.5" PointX="9.625" PointY="2" />
+        <AssociationConnector Association="Model.FK_dbo_responsabilidade_dbo_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_dbo_programa_tareas_dbo_responsabilidades" />
+        <EntityTypeShape EntityType="Model.actividade" Width="1.5" PointX="7.5" PointY="5.875" />
+        <AssociationConnector Association="Model.FK_dbo_actividades_dbo_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_dbo_evidencias_dbo_actividades" />
+        <AssociationConnector Association="Model.FK_dbo_productos_dbo_actividades" />
+        <AssociationConnector Association="Model.FK_dbo_actividades_dbo_responsabilidades" />
+        <AssociationConnector Association="Model.FK_dbo_actividades_dbo_tabla_alternativas" />
+        <AssociationConnector Association="Model.FK_dbo_actividades_dbo_tabla_estados" />
+        <EntityTypeShape EntityType="Model.cargo" Width="1.5" PointX="6.375" PointY="11.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

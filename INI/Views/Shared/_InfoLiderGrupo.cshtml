@@ -1,0 +1,9 @@
+﻿@model INI.Models.DataBase.AspNetUsers
+@using INI.Models.DataBase
+
+<div>
+    <small><strong>@Html.DisplayName(AspNetUsers.GetName(Model.UserName))</strong></small><br />
+    <small><strong>Identificación: </strong>@Html.DisplayFor(m => m.PersonalID)</small><br />
+    <small><strong>Municipio: </strong></small><br />
+    <small><strong>Institución: </strong></small>
+</div>

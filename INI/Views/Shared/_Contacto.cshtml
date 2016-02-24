@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .INVESTIC</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script type="text/javascript">
+
+        var map;
+        function initialize() {
+            var mylocalize= new google.maps.LatLng(1.232858,-77.293053)
+            var mapOptions = {
+                zoom: 15,
+                center: mylocalize
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+            var marker = new google.maps.Marker({
+                position: mylocalize,
+                map: map,
+                title: 'Oficina INVESTIC'
+            });
+
+        }
+        
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+
+        //$(function () {
+        //    //Acciones del botón General
+        //    $('#boton_general').click(function () {
+        //        $('#conocenos').hide();
+        //        $('#equipotrabajo').hide();
+        //        $('#general').show();
+
+
+        //        $('#boton_general').attr('src', $('#boton_general').attr('src').replace('general.png', 'general_activo.png'));
+        //        $('#boton_equipoTrabajo').attr('src', $('#boton_equipoTrabajo').attr('src').replace('equipotrabajo/boton_activo.png', 'equipoTrabajo.png'));
+
+        //    });
+        //    //Acciones del botón Conocenos
+        //    $('#boton_conocenos').click(function () {
+        //        $('#conocenos').show();
+        //        $('#general').hide();
+        //        $('#equipotrabajo').hide();
+
+        //        $('#boton_general').attr('src', $('#boton_general').attr('src').replace('general_activo.png', 'general.png'));
+        //        $('#boton_equipoTrabajo').attr('src', $('#boton_equipoTrabajo').attr('src').replace('equipotrabajo/boton_activo.png', 'equipoTrabajo.png'));
+
+        //    });
+        //    //Acciones del botón Equipo de Trabajo
+
+        //    $('#boton_equipoTrabajo').click(function () {
+        //        $('#conocenos').hide();
+        //        $('#general').hide();
+        //        $('#equipotrabajo').show();
+        //        $('#boton_general').attr('src', $('#boton_general').attr('src').replace('general_activo.png', 'general.png'));
+        //        $('#boton_equipoTrabajo').attr('src', $('#boton_equipoTrabajo').attr('src').replace('equipoTrabajo.png', 'equipotrabajo/boton_activo.png'));
+        //        $('body').css('background-image', 'url(../../images/conocenos/equipotrabajo/fondo.png)');
+        //    });
+        //    //Acciones del botón Alternativas
+
+        //    //Acciones del botón Asesores de Zona
+
+        //    ////Acciones del botón TutoresTIC
+
+        //});
+    </script>
+
+</head>
+<body class="metro" style="background: url('../../images/Contactanos/bg_Contactanos.png') center no-repeat #558b2f;background-size: cover;">
+
+    <nav class="navigation-bar" style="background-color:#575756;">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/">
+                <img src="/favicon.png" height="16" width="16" />
+                <span style="font-size:medium;color:azure">Investic</span>
+            </a>
+            <span class="element-divider"></span>
+            <span style=" font-size:x-small" class=" element">Ciencia, tecnología e innovación para el buen vivir nariñense</span>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Conocenos">
+                Conócenos
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Investiga">
+                Investiga
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Recuerdos">
+                Recuerdos
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/comovamos">
+                ¿Cómo Vamos?
+            </a>
+            @*<span class="element-divider place-right"></span>*@
+            @if (!Request.IsAuthenticated)
+            {
+
+                <div class="element place-right">
+                    <a class="dropdown-toggle" href="#">
+                        <span>¿Eres Nuevo?</span>
+                    </a>
+                    <ul class="dropdown-menu place-right" data-role="dropdown">
+                        <li><a href="~/Usuario/Registrar">Registrarse</a></li>
+                    </ul>
+                </div>
+                @Html.Partial("_LoginForm")
+            }
+            else
+            {
+                @Html.Partial("_LoginPartial")
+
+            }
+
+
+        </nav>
+    </nav>
+    <div class="container">
+        <div id="botones" style="background:url('') repeat-x; height:50px; position:absolute; width:100%; left:0;top:45px;">
+            <div style="background-color:#E5E5E5">
+                <img src="~/images/Contactanos/logocontactanos.png" style="margin:0; float: left;" />
+                <div id="titulosmenusec" style="color:#3A99D4"> Contáctanos</div>
+                <div style="padding-bottom:15px;padding-top:14px;margin:0; color:#E5E5E5;">
+                    |                    
+                </div>
+                <div style="position:absolute; right:0;top:3%;">
+                    <a href="http://www.facebook.com/investic.edu" target="_blank">
+                        <img id="boton_facebook" src="~/images/boton_facebook.png" style="margin:0; float: right;margin-top:-2px;" /></a>
+                    <a href="http://www.twitter.com/investic_edu" target="_blank">
+                        <img id="boton_twitter" src="~/images/boton_twitter.png" style="margin:0; float: right;margin-top:-2px;" />
+                    </a>
+                    <a href="http://www.youtube.com/user/investicedu" target="_blank"><img id="boton_youtube" src="~/images/boton_youtube.png" style="margin:0; float: right;margin-top:-2px;" /></a>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+   </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/metro-ui")
+        <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.js"></script>
+        <script src="~/usuarios/Scripts/js/Invresources.js"></script>
+
+        @RenderSection("scripts", required: false)
+</body>
+</html>

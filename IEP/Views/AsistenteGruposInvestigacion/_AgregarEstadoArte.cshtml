@@ -1,0 +1,31 @@
+﻿@model IEP.Models.DataBase.tblEstadoArteProyectoInvestigacion
+
+@using (Html.BeginForm("AgregarEstadoArte", "AsistenteGruposInvestigacion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+
+    <div class="grid fluid">        
+        <div class="row">
+            <div class="span2">
+                Tema:
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(model => model.TemaInvestigacion)
+            </div>            
+        </div>
+        <div class="row">
+            <div class="span2">
+                Mapa Conceptual:
+            </div>
+            <div class="span10">
+                <input type="file" name="MapaConceptual" id="MapaConceptual" accept="application/pdf,image/jpeg" />
+            </div>
+        </div>
+        <div class="row">
+            <button class="button large bg-green">Enviar</button>
+        </div>
+    </div>
+}
+

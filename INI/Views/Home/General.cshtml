@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "General";
+    Layout = "~/Views/Shared/_InvConocenos.cshtml";
+}
+<div id="general" style="position: fixed; top: 10%; width: 100%; height: 100%;z-index:1;left:0;">
+     
+    <div id="cuerpo">
+
+        <div id="izquierda">
+            <div id="opacidad80" onclick="javascript: vegeneral(1);">
+                <div id="titulo1">Objetivo general</div>
+            </div>
+            <div id="contenido_izquierda"></div>
+
+        </div>
+
+        <div id="mitad">
+            <div id="opacidadm" onclick="javascript:vegeneral(2);">
+                <div id="titulo2">Objetivos específicos</div>
+                <div id="titulo2">@Html.AtrasInvestic()</div>
+            </div>
+            <div id="contenido_centro"></div>
+        </div>
+
+        <div id="derecha">
+            <div id="opacidadd" onclick="javascript:vegeneral(3);">
+                <div id="titulo3">Componentes</div>
+            </div>
+            <div id="contenido_derecha"></div>
+        </div>
+        
+
+                
+
+
+        
+    </div>
+
+
+</div>
+
+
+
+

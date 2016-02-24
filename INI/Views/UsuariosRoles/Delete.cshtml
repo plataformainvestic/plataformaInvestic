@@ -1,0 +1,47 @@
+﻿@model INI.Models.DataBase.AspNetUserRoles
+    
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h1>
+    <a href="/UsuariosRoles">
+        <i class="icon-arrow-left-3 fg-darker smaller"></i>
+    </a>
+    <small>Eliminar usuario del perf&#237;l</small>
+</h1>
+
+<h3>Seguro que desea eliminar este registro?</h3>
+
+<fieldset>
+    <legend>Registro</legend>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model=> model.Id)
+    <table class="table striped hovered">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Rol</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(model => model.AspNetUsers.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.AspNetRoles.Name)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <input class="button large bg-darkCobalt fg-white" type="submit" value="Eliminar" />
+    </p>
+}

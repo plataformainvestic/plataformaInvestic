@@ -1,0 +1,84 @@
+﻿@*@model IEnumerable<DataBase.tblIntegrantesGrupoInv>*@
+
+@model INI.Models.DataBase.tblGruposInvestigacion
+@using INI.Models.DataBase
+
+@{
+    Layout = "~/Views/Shared/_LayoutMAI_Proyectos.cshtml";
+    ViewBag.Title = "Integrantes";
+}
+
+<div class="grid fluid">
+
+    @Html.Partial("~/Views/Shared/_GrupoInvestigacion.cshtml", Model)
+
+    <h2>Integrantes</h2>
+
+    <div class="row">
+        <button id="newIntegrante" type="button" class="large bg-green fg-white">
+            Agregar Integrantes
+            <i class="icon-plus bg-gren fg-white"></i>
+        </button>
+    </div>
+
+    <div class="row">
+        <table id="miTabla" class="table striped hover">
+            <thead>
+                <tr>
+                    <th class="span2">Identificacion</th>
+                    <th class="span4">Nombre</th>
+                    <th class="span2">Fecha de Vinculacion</th>
+                    <th class="span2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.tblIntegrantesGrupoInv)
+                {
+                    <tr>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.AspNetUsers.PersonalID)</td>
+                        <td>@Html.DisplayName(AspNetUsers.GetName(item.AspNetUsers.UserName))</td>
+                        <td>@Html.DisplayFor(modelItem => item.intGruInv_fechaVinculacion)</td>
+                        <td class="text-center">
+                            <a href="#" onclick="javascript:DeleteMember(@item.tblIntegrantesGrupoInv_ID);" title="Eliminar"><i class="icon-remove"></i></a>
+                            <button class="button danger" onclick="javascript:DeleteMember(@item.tblIntegrantesGrupoInv_ID)">Eliminar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <center> @Html.AtrasInvestic()</center>
+    </div>
+
+    @*<div class="row">
+        <button id="newIntegrante" type="button" class="large bg-green fg-white">
+            Agregar Intgrantes
+            <i class="icon-plus bg-gren fg-white"></i>
+        </button>
+    </div>*@
+
+    @*<div class="form-group">
+        <h3>
+            @Html.ActionLink("Regresar", "DetallesGrupo", "GruposInvestigacion", new { id = Model.tblGruposInvestigacion_ID }, null)
+        </h3>
+    </div>*@
+
+</div>
+<div id="">
+
+</div>
+
+<div id="addMemberDialog">
+        @{
+        investicEntities db = new investicEntities();
+        ViewBag.tblGruposInvestigacion_ID = Model.tblGruposInvestigacion_ID;
+        Html.RenderPartial("AgregarIntegrantes", tblGruposInvestigacion.UserNotInGroup(Model.tblGruposInvestigacion_ID));
+        }
+</div>
+
+@section ScriptsMAI_PRY{
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+    <script src="~/Scripts/Investic/mai_AddIntegranteGrupoInv.js"></script>
+    <script src="~/Scripts/Investic/mai_BorrarMiembroGrupInv.js"></script>
+}

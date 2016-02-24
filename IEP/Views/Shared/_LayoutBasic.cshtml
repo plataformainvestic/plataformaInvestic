@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .NET</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/SiteNubes.css" rel="stylesheet" />
+</head>
+<body class="metro">
+    <nav class="navigation-bar dark">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/">
+                <img src="/favicon.png" height="16" width="16" />
+                INVESTIC <sub>beta</sub>
+            </a>
+            <span class="element-divider"></span>
+            <a class="element" href="/Inicio/Bitacoras">Bitacoras</a>
+            <div class="no-tablet-portrait">
+                <div class="element input-element">
+                    <form>
+                        <div class="input-control text size4">
+                            <input type="text" placeholder="Buscar...">
+                            <button class="btn-search"></button>
+                        </div>
+                    </form>
+                </div>
+                <span class="element place-right">@DateTime.Now.Year - Galeras.NET</span>
+                <div class="no-tablet-portrait no-phone">
+                    <span class="element-divider place-right"></span>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/metro-ui")
+    <script src="~/Scripts/Investic/AlertMessage.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

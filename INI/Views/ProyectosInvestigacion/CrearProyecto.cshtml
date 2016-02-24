@@ -1,0 +1,53 @@
+﻿@model INI.Models.DataBase.tblGruposInvestigacion
+
+@{
+    ViewBag.Title = "Nuevo Proyecto";
+}
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+<div class="grid fluid">
+    @using (Html.BeginForm("CrearProyecto", "ProyectosInvestigacion"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.Hidden("tblGruposInvestigacion_ID", Model.tblGruposInvestigacion_ID)
+
+        <div class="row">
+            <h2>
+                <div style="margin: auto; width: auto;">
+                    <strong onmouseover="tooltip.pop(this, '#NuevoProyecto', { sticky: true })">Nuevo Proyecto</strong>
+                    <div style="display:none;">
+                        <div id="NuevoProyecto">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Nuevo Proyecto?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar un Nuevo Proyecto.
+                        </div>
+                    </div>
+                </div>
+
+
+        
+                                </h2>
+                                <div class="input-control text">
+                                    @Html.TextBox("proyInv_nombreProyecto",null, new { placeholder = "Nombre del Proyecto.", required = "required", title = "Nombre del proyecto obligatorio.", size = "50" ,maxlength = "50" })
+                                    <button type="button" class="btn btn-clear" tabindex="-1"></button>
+                                    @Html.ValidationMessage("Digite el nombre de su nuevo proyecto")
+                                    
+                                </div>
+                            </div>
+
+        <div class="row">
+            <button class="large bg-green fg-white" type="submit">
+                Crear Proyecto
+                <i class="icon-plus bg-green fg-white"></i>
+            </button>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

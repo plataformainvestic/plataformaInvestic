@@ -1,0 +1,67 @@
+﻿@model INI.Models.DataBase.Repositorio
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<br /><br /><br />
+<h2>Delete</h2>
+
+<h3>Seguro que quiere borrar esto?</h3>
+<div>
+    <h4>Repositorio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urlRepositorio)
+        </dt>
+        
+
+        <dd>
+            @Html.DisplayFor(model => model.urlRepositorio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urlfront)
+        </dt>
+
+
+        <dd>
+            @Html.DisplayFor(model => model.urlfront)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoriaRepositorio.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoriaRepositorio.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

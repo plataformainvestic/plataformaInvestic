@@ -1,0 +1,47 @@
+﻿@model SEG.Models.DataBase.programa_tareas
+
+@{
+
+}
+
+<h2>Seleccionar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="grid fluid">
+
+        <div class="row">
+            <div class="span2">
+                <strong>Contratista</strong>
+            </div>
+            <div class="span2 input-control select">
+                @Html.DropDownList("Id_Contratista")
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="span2">
+
+            </div>
+            <div class="span2">
+                <input type="submit" class="btn large bg-darkBlue fg-white" value="Seleccionar" />
+            </div>
+
+
+        </div>
+
+
+
+    </div>   
+ 
+
+        
+        
+            
+        
+ 
+}

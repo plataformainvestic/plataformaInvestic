@@ -1,0 +1,7 @@
+﻿<configuration>
+    <appSettings>
+    <add key="TabletAsDesktop" value ="false"/>
+    <add key="TvAsDesktop" value ="false"/>
+    <add key="SessionVariable" value ="Device"/>
+  </appSettings>
+</configuration>

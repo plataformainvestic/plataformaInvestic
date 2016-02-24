@@ -1,0 +1,50 @@
+﻿
+@model INI.Models.RegisterViewModel
+@using MvcSiteMapProvider.Web.Html;
+
+
+@{
+    ViewBag.Title = "Mapa Sitio Autenticado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string msj = ViewBag.Mensaje;
+}
+
+<div id="bgDiv">
+    <table style="background-color:transparent;margin:auto ;">
+        <tr>
+            <td width="20%" align="left">
+                <img style="padding-top:60px;" src="~/images/personajes/Papa.svg" />
+            </td>
+            <td width="80%" align="left">
+                    <div class=" grid fluid">
+
+                        <div class="row">
+                            <span id="divTitulo" style="font-family:Chewy;color:#FF1643;font-size:16pt;">
+                                @ViewBag.Title
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="grid fluid">
+                        
+                        @Html.MvcSiteMap().Menu(false, true, true)
+                    </div>
+
+                
+            </td>
+        </tr>
+    </table>
+    <div id="viewalternativas" style="position: absolute;width:600px;top:50%;left:30%;margin-top:290px;padding:5px; ">
+        <center>@Html.AtrasInvestic()</center>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        AlertMessage('@msj');
+    </script>
+}

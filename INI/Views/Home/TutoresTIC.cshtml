@@ -1,0 +1,75 @@
+﻿@model  IEnumerable<INI.Models.DataBase.tblTutorZona>
+
+@{
+    ViewBag.Title = "Tutores de Zona";
+    Layout = "~/usuarios/Views/Shared/_Contacto.cshtml";
+}
+@*<div class="button-set margin10">
+    <a href="#" class="button active">Tutores de Zona</a>
+    <a href="#" class="button">Mis solicitudes</a>
+</div>*@
+
+<br /><br /><br /><br /><br /><br /><br />
+<h2>@ViewBag.Title</h2>
+
+<div class="grid">
+    @*<div class="row">
+        <div class="offset10 span2">
+            <a href="/AsistenteGruposInvestigacion" class="button info"><i class="icon-new on-left"></i>Crear Grupo</a>
+        </div>
+    </div>*@
+    <div class="row">
+        <div class="span12">
+            <table id="tutorestic" class="table striped hover" style="width:100%">
+                <thead>
+                    <tr>
+                        @*<th>MUNICIPIO</th>*@
+                        <th>NOMBRES</th>
+                        <th>APELLIDOS</th>
+                        <th>TELÉFONO</th>
+                        <th>E-MAIL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   @foreach (var item in Model)
+                    {
+                        <tr>
+                            @*<td>
+                                 @item.s
+                               
+                            </td>*@
+                            <td>
+
+                                @item.tutZon_nombre
+                               
+                            </td>
+                            <td>
+                                @item.tutZon_apellido
+                              
+                            </td>
+                            <td>
+                               @item.tutZon_telefono
+                            </td>
+                            <td>
+                                @item.tutZon_correo
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $('#tutorestic').dataTable({
+            "sPaginationType": "full_numbers",
+            "oLanguage": {
+               "sUrl": "../../Lang/es-CO.txt"
+            }
+        });
+    </script>
+   @* <script src="~/Scripts/Investic/MisGrupos.js"></script>*@
+}

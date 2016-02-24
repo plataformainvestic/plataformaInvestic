@@ -1,0 +1,89 @@
+﻿@model INI.Models.DataBase.tblRecursosEducativos
+
+@{
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar</title>
+</head>
+<body>
+    <h3>Está seguro de eliminar este Recurso?</h3>
+    <div class="divMetas">
+        <p>
+            <h2>
+                <strong>
+                    Detalle de Recurso Educativo
+                </strong>
+            </h2>
+        </p>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Colección
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tblColecciones.nom_coleccion)
+            </dd>
+
+            <dt>
+                Nombre
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nom_rec_educativo)
+            </dd>
+
+            <dt>
+                Descripción
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.desc_rec_educativo)
+            </dd>
+
+            <dt>
+                Archivo
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.archivo_rec_educativo)
+            </dd>
+
+
+            <dt>
+                Autor
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.autor_rec_educativo)
+            </dd>
+
+        </dl>
+
+
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <table style="background-color:transparent;">
+                    <tr>
+                        <td><input type="submit" value="Eliminar" class="button large primary" /> |</td>
+                        <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                    </tr>
+                </table>
+            </div>
+
+
+        }
+    </div>
+</body>
+</html>

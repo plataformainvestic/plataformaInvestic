@@ -1,0 +1,47 @@
+﻿@model IEP.Models.DataBase.tblPresupuestoProyectoInvestigacion
+
+@using (Html.BeginForm("AgregarPresupuesto", "IEP")) 
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model=>model.idGrupoInvestigacion)
+    
+    <div id="PresupuestoGrupo" class="grid fluid">
+        <div class="row">
+            <div class="span2">
+                Rubro:
+            </div>
+            <div class="span10 input-control select">
+                @Html.DropDownList("idRubro", "Seleccionar Rubro")
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Cantidad:
+            </div>
+            <div class="span2 input-control text">
+                @Html.TextBoxFor(model => model.ValorRubro)
+            </div>
+            <div class="span2">
+                Valor Unitario:
+            </div>
+            <div class="span2 input-control text">
+                @Html.TextBoxFor(model => model.ValorUnitario)
+            </div>
+            <div class="span2">
+                Total:
+            </div>
+            <div class="span2 input-control text">
+                @Html.TextBoxFor(model => model.Total, new { disabled = "disabled" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Descripción:
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.DescripcionGasto)
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Agregar" class="button bg-green" />
+}

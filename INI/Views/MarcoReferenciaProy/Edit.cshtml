@@ -1,0 +1,195 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "MarcoReferenciaProy", FormMethod.Post, new { id = "MarcoReferenciaProy" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.tblMarcoReferenciaProy.tblMarcoReferenciaProy_ID)
+
+    <div class="grid fluid">
+        @*ESTRUCTURA MARCO TEORICO*@
+        <div class="row">
+            <div class="span2">
+                <strong>Marco Teórico</strong>
+                <span data-hint="Éste es un apartado en el que los investigadores deben hacer referencia a la literatura relevante relacionada con el tema de investigación. De esta manera, el marco teórico debe contener las teorías y conceptos que fundamentan el proyecto de investigación.
+                      No se trata de realizar una copia textual de la literatura encontrada, sino de construir en base a la información encontrada, un texto referente las teorías y conceptos más importantes para el desarrollo de la investigación, de manera acorde con el objetivo del proyecto.
+                      Para conocer la forma correcta de citar a los autores incluidos en el escrito, recuerde remitirse al “Manual de Normas APA” disponible en el siguiente enlace: http://portales.puj.edu.co/ftpcentroescritura/Recursos/Normasapa.pdf"
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoTeoricoProy)
+                @*@Html.ValidationMessage("Agrege el marco teórico de la investigación")*@
+                @Html.ValidationMessageFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoTeoricoProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display:none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMarcoReferenciaProy_Rev.marRefProy_marcoTeoricoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMarcoReferenciaProy_Rev.marRefProy_marcoTeoricoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMarcoReferenciaProy_Rev.marRefProy_marcoTeoricoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMarcoReferenciaProy_Rev.marRefProy_marcoTeoricoProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*ESTRUCTURA MARCO DE ANTECEDENTES*@
+        <div class="row">
+            <div class="span2">
+                <strong>Marco de Antecedentes</strong>
+                <span data-hint="En este apartado se debe consignar todo lo que se ha escrito e investigado acerca del objeto de la investigación. A diferencia del marco teórico, que se caracteriza por tener teorías y conceptos, el marco de antecedentes contiene investigaciones previas que se han hecho al tema de investigación.
+                      Para conocer la forma correcta de citar a los autores incluidos en el escrito, recuerde remitirse al “Manual de Normas APA”, disponible en el siguiente enlace: http://portales.puj.edu.co/ftpcentroescritura/Recursos/Normasapa.pdf"
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoAntecedentesProy)
+                @*@Html.ValidationMessage("Agrege el marco de antecedentes de la investigación")*@
+                @Html.ValidationMessageFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoAntecedentesProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display:none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMarcoReferenciaProy_Rev.marRefProy_marcoAntecedentesProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMarcoReferenciaProy_Rev.marRefProy_marcoAntecedentesProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMarcoReferenciaProy_Rev.marRefProy_marcoAntecedentesProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMarcoReferenciaProy_Rev.marRefProy_marcoAntecedentesProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*ESTRUCTURA MARCO CONTEXTUAL*@
+        <div class="row">
+            <div class="span2">
+                <strong>Marco Contextual</strong>
+                <span data-hint="En este apartado se debe describir el contexto en el que se va a realizar la investigación, de manera acorde con el objetivo del proyecto. Así por ejemplo, si el objetivo del proyecto fuera fomentar el uso de las TIC como recurso educativo en un Establecimiento Educativo específico, los investigadores podrían describir las características del establecimiento en relación al uso de las TIC (formación en TIC en el establecimiento, estrategias basadas en TIC que se han llevado a cabo, disponibilidad de equipos y docentes capacitados en el uso de TIC, etc.)."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoConceptualProy)
+                @*@Html.ValidationMessage("Agrege el marco contextual de la investigación")*@
+                @Html.ValidationMessageFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoConceptualProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display:none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMarcoReferenciaProy_Rev.marRefProy_marcoConceptualProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMarcoReferenciaProy_Rev.marRefProy_marcoConceptualProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMarcoReferenciaProy_Rev.marRefProy_marcoConceptualProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMarcoReferenciaProy_Rev.marRefProy_marcoConceptualProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

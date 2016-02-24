@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @*<meta name="viewport" content="width=device-width" />*@
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .INVESTIC</title>
+    @*<link rel="icon" type="image/png" href="favicon.png">*@
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    @*<link href="~/Content/Investic/Site.css" rel="stylesheet" />*@
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+    <title>_EditorLayout</title>
+</head>
+<body>
+    <nav class="navigation-bar" style="background-color:#808080">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/">
+                <img src="/favicon.png" height="16" width="16" />
+                <span style="font-size:medium;color:azure">Investic</span>
+            </a>
+            <span class="element-divider"></span>
+            <span id="textomenu" style=" font-size:x-small" class="element">Ciencia, tecnología e innovación para el buen vivir nariñense</span>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/Noticias">
+                Noticias
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/Metas">
+                Metas
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/CategoriaImagenes">
+                Categoría de Imagenes
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/GaleriaImagenes">
+                Galería de Imagenes
+            </a>
+            <span class="element-divider place-right"></span>
+            <div class="no-tablet-portrait">
+                <div class="element input-element">
+                    @if (!Request.IsAuthenticated)
+                    {
+                        @Html.Partial("_LoginForm")
+                    }
+                    else
+                    {
+                        @Html.Partial("_LoginPartial")
+                    }
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <div> 
+        @RenderBody();
+    </div>
+</body>
+</html>

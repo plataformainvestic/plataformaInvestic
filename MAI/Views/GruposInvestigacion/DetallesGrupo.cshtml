@@ -1,0 +1,118 @@
+﻿@using MAI.Models.DataBase
+@*@model DataBase.tblUsuarioPlataforma*@
+@model MAI.Models.DataBase.tblGruposInvestigacion
+
+
+
+@{
+    ViewBag.Title = "Grupo de investigacion";
+}
+
+
+
+
+
+<div class="grid">
+
+    @Html.Partial("~/Views/Shared/_GrupoInvestigacion.cshtml", Model)
+
+
+    @*<div class="row">
+            <div class="span2">
+                <div class="tile bg-cyan">
+                    <div class="tile-content icon">
+                        <i class="icon-smiley"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="span10">
+                <dl class="horizontal">
+                    <dt>
+                        @Html.DisplayName("Creado el:")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.gruInv_fechaCreacion)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Proyectos:")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.gruInv_proyectos)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Estado del Grupo:")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tblEstado.est_nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayName("Grupo creado por:")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tblUsuarioPlataforma.usuPla_nombre)
+
+                        @Html.DisplayFor(tblUsuarioPlataforma.GetName((long)ViewBag.tblUsuarioPlataforma_ID))
+                    </dd>
+                </dl>
+            </div>
+        </div>*@
+
+    <div class="row">
+        <div class="span6">
+            <div class="panel" data-role="panel">
+                <div class="panel-header bg-darkPink fg-white">
+                    Integrantes del Grupo de Investigación
+                </div>
+                <div style="display: none;" class="panel-content">
+                    <div class="row">
+                        @Html.Partial("~/Views/IntegrantesGrupoInv/Index.cshtml", Model.tblIntegrantesGrupoInv)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span6">
+            <div class="panel" data-role="panel">
+                <div class="panel-header bg-darkPink fg-white">
+                    Proyectos
+                </div>
+                <div style="display: none;" class="panel-content">
+                    <div class="row">
+                        @Html.Partial("~/Views/ProyectosInvestigacion/Index.cshtml", Model.tblProyectosInvestigacion)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="span6">
+            <h3 style="text-align:right">
+                @Html.ActionLink("Administrar Integrantes", "Integrantes", "IntegrantesGrupoInv", new { id = Model.tblGruposInvestigacion_ID }, null)
+            </h3>
+        </div>
+        <div class="span6">
+            <h3 style="text-align:right">
+                @Html.ActionLink("Administrar Proyectos", "Proyectos", "ProyectosInvestigacion", new { id = Model.tblGruposInvestigacion_ID }, null)
+            </h3>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="form-group">
+        <h3>
+            @Html.ActionLink("Regresar", "MisGrupos", new { id = Model.tblUsuarioPlataforma_ID })
+        </h3>
+    </div>
+</div>
+
+

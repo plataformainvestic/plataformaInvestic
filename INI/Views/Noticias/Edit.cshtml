@@ -1,0 +1,206 @@
+﻿@model INI.Models.DataBase.tblNoticias
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<style>
+    .inputClass input {
+        width: 100%;
+    }
+</style>
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>
+                Editar Noticia
+            </strong>
+        </h2>
+    </p>
+    @using (Html.BeginForm("Edit", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Noticia_ID)
+            @Html.HiddenFor(model => model.not_urlimage)
+
+            <table style="background-color:transparent;">
+                <tr>
+                    <td>Titular</td>
+                    <td>
+                        <div class="input-control text size8">
+                            @Html.EditorFor(model => model.not_titulo)
+                            @Html.ValidationMessageFor(model => model.not_titulo, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>Descripción</td>
+                    <td>
+                        <div class="input-control text size8">
+                            @Html.EditorFor(model => model.not_descripcion)
+                            @Html.ValidationMessageFor(model => model.not_descripcion, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Imagen
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-control text size8">
+                            <div class="input-control file">
+                                <input id="not_urlimage" name="not_urlimage" type="file" maxlength="500" required  message="Error Usted no selecciono el archivo [png,image/jpeg]" title="Error Usted no selecciono el archivo [PNG,image/jpeg]" />
+                                <button class="btn btn-file"></button>
+                                @Html.ValidationMessageFor(model => model.not_fecha, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Audio
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-control text size8">
+                            <div class="input-control file">
+                                <input id="not_urlpotcast" name="not_urlpotcast" type="file" />
+                                <button class="btn btn-file"></button>
+                                @Html.ValidationMessageFor(model => model.not_fecha, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Contenido
+                        </div>
+                    </td>
+                    <td>
+
+                        <div class="editor-field">
+                            @*@Html.EditorFor(Json.Encode(model => model.not_contenido))*@
+                            @*@Html.EditorFor(model => model.not_contenido, new { @AllowHtml = true, @UIHint = "tinymce_full_compressed" })*@
+                            
+                            @Html.EditorFor(model=>model.not_contenido)
+                            @Html.ValidationMessageFor(model => model.not_contenido)
+                            @*@Html.TextArea(Server.HtmlDecode(Model.not_contenido)))*@
+                            @*@Html.ValidationMessageFor(model => model.not_contenido)*@
+                        </div>
+
+                    </td>
+                </tr>
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Pie de Foto
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-control text size6">
+                            @Html.EditorFor(model => model.not_piedefoto)
+                            @Html.ValidationMessageFor(model => model.not_piedefoto, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Fecha de la Noticia
+                        </div>
+                    </td>
+                    <td>
+                        @{
+                            var myDate = String.Format("{0}-{1}-{2}", Html.DisplayFor(model => model.not_fecha.Year), Html.DisplayFor(model => model.not_fecha.Month), Html.DisplayFor(model => model.not_fecha.Day));
+                        }
+                        <div class="input-control text size6">
+                            <div class="input-control text" data-role="datepicker" data-position="top" data-date="@myDate" data-format=" yyyy-mm-dd" data-effect="fade">
+                                <input type="text" id="not_fecha" name="not_fecha" readonly="readonly">
+                                <a href="#" class="btn-date"></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Autor
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-control text size6">
+                            @Html.EditorFor(model => model.not_autor)
+                            @Html.ValidationMessageFor(model => model.not_autor, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+
+
+
+
+
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Esta Activo:
+                        </div>
+                    </td>
+                    <td>
+                        <input type="checkbox" checked="checked" id="chkestaActivo" />
+                        <input type="hidden" id="estaActivo" name="estaActivo" value="true" />
+                        @Html.ValidationMessageFor(model => model.estaActivo)
+
+                    </td>
+                </tr>
+
+
+
+
+
+            </table>
+            <br />
+
+            <div class="form-actions no-color">
+                <table style="background-color:transparent;">
+                    <tr>
+                        <td><input type="submit" value="Guardar" class="button large primary" /> |</td>
+                        <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+                            }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script>
+        $(function () {
+            $("#chkestaActivo").click(function () {
+
+                var val = $("#chkestaActivo").prop("checked");
+                $("#estaActivo").val(val);
+
+            })
+
+        });
+    </script>
+
+}

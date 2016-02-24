@@ -1,0 +1,92 @@
+﻿@model SEG.Models.DataBase.fechasreporte
+
+@{
+    ViewBag.Title = "Create";
+    string msj = ViewBag.Message;
+}
+
+<h2>Fechas de Reporte</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        <div class="form-group">
+            <label class="control-label col-md-2">Semana de Trabajo</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Id_SemanaTrabajo, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Id_SemanaTrabajo, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Fecha Inicial</label>
+
+            <div class="input-control text" data-role="datepicker" data-format="dd/mm/yyyy" style='max-width: 130px'>
+                @Html.TextBoxFor(model => model.Fecha_Ini, "{0:dd/MM/yyyy}", new {@type = "text"})
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessageFor(model => model.Fecha_Ini, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Fecha Final</label>
+
+            <div class="input-control text" data-role="datepicker" data-format="dd/mm/yyyy" style='max-width: 130px'>
+                @Html.TextBoxFor(model => model.Fecha_Fin, "{0:dd/MM/yyyy}", new {@type = "text"})
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessageFor(model => model.Fecha_Fin, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        
+        
+        <div class="input-control radio" data-role="input-control">
+            <label>
+                Activa
+                <input type="radio" name="Activa" value="1" checked="">
+                <span class="check"></span>
+               
+            </label>
+        </div>
+        <div class="input-control radio" data-role="input-control">
+            <label>
+                Inactiva
+                <input type="radio" name="Activa" value="0">
+                <span class="check"></span>
+               
+            </label>
+        </div>
+
+
+       
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Ingresar semana de trabajo" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@section Scripts {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    <script src="~/Scripts/metro-ui/metro.min.js"></script>
+    @Styles.Render("~/Content/csswizard")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/wizard")
+
+    <script src="~/Scripts/jquery.validate.date.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}

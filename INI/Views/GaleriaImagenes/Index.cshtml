@@ -1,0 +1,78 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblGaleriaImagenes>
+
+@{
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Galería de Imágenes.
+        </h2>
+    </p>
+
+    <p>
+        @Html.ActionLink("Nueva Imagen", "Create")
+    </p>
+
+    <table id="Tabla" class="table striped hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Titulo
+                </th>
+                <th width="20%">
+                    Descripción
+                </th>
+                <th width="20%">
+                    Imagen
+                </th>
+                <th>
+                    Categoría
+                </th>
+                <th width="15%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imagen_titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imagen_descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imagen_url)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblCategoriaImagenes.cat_Nombre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Imagen_ID }) |
+                        @Html.ActionLink("Ver", "Details", new { id = item.Imagen_ID }) |
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.Imagen_ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script>
+        $(function () {
+            $('#Tabla').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+
+        });
+
+    </script>
+}

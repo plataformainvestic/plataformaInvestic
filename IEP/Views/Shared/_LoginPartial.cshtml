@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@using IEP.Models.DataBase
+@{
+    var uname = User.Identity.GetUserName();
+    var pwd = System.Web.HttpContext.Current.Session["pwd"] as String;
+    var cad = String.Format("http://190.254.4.125:90/chamilo-1.9.8.2/login2.php?user={0}&pass={1}&email={2}&fname={3}", uname, pwd, "investic@gmail.com", uname);
+}
+@if (Request.IsAuthenticated)
+{
+    <span class="element-divider place-right"></span>
+    <div class="user place-right">        
+        <img src="/images/icon-user.png" class="element place-right" width="45" />
+        <small class=" element place-right">
+            @Html.ActionLink(string.Format("Soy {0}", AspNetUsers.GetName(@User.Identity.Name)), "AdministrarCuenta", "Usuario")
+        </small>
+        <br />
+        <small class="element place-right">
+            <a href="/Investigador" title="Salir">[Maestro Investigador]</a>
+        </small>
+        <br />
+        @using (Html.BeginForm("Salir", "Usuario", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <small class="element place-right">
+                <a href="javascript:document.getElementById('logoutForm').submit()" title="Salir">Cerrar Sesión</a>
+            </small>
+        }
+    </div>    
+    
+}
+

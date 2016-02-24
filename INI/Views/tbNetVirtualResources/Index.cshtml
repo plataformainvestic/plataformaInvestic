@@ -1,0 +1,72 @@
+﻿@model IEnumerable<INI.Models.DataBase.tbNetVirtualResource>
+
+@{
+    String ctrl=ViewBag.ControllerName;
+	var modelName = "tbl_"+ctrl;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink(" ", "Create", null, new { @class = "icon-plus-2" })
+    @Html.ActionLink("Atraz", "Index","RVC" ,null, new { @class = "button large primary" })
+</p>
+<table id="@modelName" class="table">
+	<thead>
+		<tr>
+            
+			<th>
+				Nombre
+			</th>
+            
+			<th>
+				Descripcion
+			</th>            
+			<th>
+				Categoria
+			</th>
+            <th>
+                Categoria img
+            </th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.description)
+			</td>			
+			<td>
+				@Html.DisplayFor(modelItem => item.tbNetVirtualCategoryResource.name)
+			</td>
+            <td>
+                <img src="@Url.Action("DowloadFile", "tbNetVirtualCategoryResources", new { id = item.tbNetVirtualCategoryResource.id, FileId = "image" })" width="100px" />
+            </td>
+			<td>
+                
+                    <a href="@Url.Action("DowloadFile", new { id = item.id, FileId = "resource" })" target="_blank" class="icon-download-2">resource</a>
+                    @*<img src="@Url.Action("DowloadFile", new { id = item.id, FileId = "resource" })" width="100px"/>*@       
+                
+
+				@Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "icon-pencil" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.id, }, new { @class = "icon-clipboard-2" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "icon-cancel-2" })
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#@modelName').DataTable();
+        });
+    </script>
+}

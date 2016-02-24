@@ -1,0 +1,82 @@
+﻿body {
+    background-image: url('/images/lorraine/mapa/background.png'); 
+    background-size: cover;
+}
+
+#div_opaco {
+	position:				absolute;
+	top:					0px;
+	left:					0px;
+	background-color:		black;
+	z-index:				999;
+	width:					100%;
+	height:					100%;
+	/*TRANSPARENCIA*/
+    /* IE */
+    filter: 				alpha(opacity=75);
+    /* Firefox 0.9+, Safari 2.x+, Chrome, Opera 9+, IE 9+ */
+    opacity: 				0.75;
+}
+
+#div_cerrar {
+	margin-top:				-70px;
+	margin-right:			-15px;
+	text-align:				right;
+}
+
+#btn_cerrar_cre {
+	cursor:					pointer;
+}
+#dialog-title{
+	width:770px;
+	height:40px;
+	background: #fefcea; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #fefcea 0%, #f1da36 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#fefcea), color-stop(100%,#f1da36)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #fefcea 0%,#f1da36 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #fefcea 0%,#f1da36 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #fefcea 0%,#f1da36 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  #fefcea 0%,#f1da36 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	color:white;
+	font-size:				25px;
+	padding-left:5px;
+	padding-top:5px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:15px;
+	
+}
+#content-dialog{
+	margin-top:40px;
+}
+
+#div_creditos {
+	
+	width: 					800px;
+	height:					600px;
+	position:				absolute;
+	top:					50%;
+	left:					50%;
+	z-index:				1000;
+	margin-top:				-300px;
+	margin-left:			-400px;	
+	
+	font-size:				12px;
+	background-color:		#E0F2F7;
+	box-shadow:				0px 0px 20px #EBFAF9;
+	-webkit-box-shadow:		0px 0px 20px #EBFAF9;
+	-moz-box-shadow:		0px 0px 20px #EBFAF9;
+	-o-box-shadow:			0px 0px 20px #EBFAF9;
+	border-radius:			20px 0px 20px 0px;
+	-webkit-border-radius:	20px 0px 20px 0px;
+	-moz-border-radius:		20px 0px 20px 0px;
+	-o-border-radius:		20px 0px 20px 0px;
+}
+#title {
+            height: 26px;
+            width: 350px;
+        }
+        .subtitle {
+            width: 350px;
+        }

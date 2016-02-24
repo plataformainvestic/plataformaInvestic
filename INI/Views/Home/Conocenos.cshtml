@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Conocenos";
+    Layout = "~/Views/Shared/_InvConocenos.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css" media="all" />
+<link rel="stylesheet" type="text/css" href="~/Content/Invstyles/Indexbotones.css" media="all" />
+<link rel="stylesheet" type="text/css" href="~/Content/Investic/Site.css" />
+<div id="conocenos" style="position: fixed; top: 50%; width: 100%; height: 100%;">
+    <div id="informacion" style="left:40%">
+        <h1 id="tituloprimario"> ¿Quiénes Somos?</h1>
+        <p id="parraforoboto">
+            El proyecto <strong>“Fortalecimiento de la Cultura Ciudadana y Democrática en CTeI a través de la Investigación como Estrategia Pedagógica apoyada en TICs en el Departamento de Nariño” - Investic</strong>, se enmarca dentro del Plan Nacional de TIC – Colombia, y en el Plan de Desarrollo Departamental “Nariño Mejor 2012 – 2015”, que describe la importancia de los procesos de CTeI  en dos ejes fundamentales: “Nariño productivo y Competitivo’ y “Nariño solidario, incluyente y gestor de capacidades para el buen vivir”, especialmente en el programa “Sistema Educativo Regional Nariñense (S.E.R. Nariñense)”.  Investic fue presentado por la Gobernación de Nariño en el año 2013, al OCAD de Ciencia, Tecnología e Innovación para financiarse con recursos de regalías aprobado mediante acuerdo 05 del 19 de julio de 2013.
+            <br/> <br /><strong>Investic</strong> es una comunidad conformada por estudiantes, maestros, directivos y padres y madres de familia de los establecimientos educativos de los 61 municipios no certificados en Educación del Departamento de Nariño. Como comunidad, interactúan generando conocimiento mediante la investigación como estrategia pedagógica apoyada en las nuevas tecnologías de la innovación y la comunicación, propiciando así espacios colectivos que posibilitan la transformación de los procesos educativos y contribuyen al mejoramiento de la calidad educativa.
+            <center> @Html.AtrasInvestic()</center>
+        </p>
+    </div>
+    
+    @*<img src="~/images/conocenos/propuesta.png" style="display:block; margin-left:auto; margin-right:auto; margin-bottom:auto; margin-top:auto;" />*@
+</div>
+
+
+@*Este es la seccion de Equipotrabajo*@
+
+
+@*Este es la seccion de Alternativas*@
+
+
+<div id="asesoreszona" style="display: none;position: fixed; top: 8%; width: 75%; height: 100%;left: 0;">
+    @*@{
+            int id = 2;
+        }*@
+    @*<button type="button" class="info" onclick="javascript: CargarVista('@id');">Cargar Vista</button>*@
+    @*<div id="testAjax">
+
+        </div>*@
+    @{
+        INI.Models.DataBase.investicEntities db = new INI.Models.DataBase.investicEntities();
+        Html.RenderPartial("AsesoresZona", db.tblAsesorZona.Where(m => m.tblEquipo_ID == 10010).ToList());
+
+
+        //Html.RenderAction("AsesoresZona");
+        //Html.RenderAction("IntegrantesEquipos");
+    }
+    
+    @* @Html.Partial("AsesoresZona", db.tblAsesorZona.Where(n=>n.tblEquipo_ID==2).ToList())*@
+</div>
+
+
+<div id="tutorestic" style="display: none;position: fixed; top: 8%; width: 75%; height: 100%;left: 0;">
+    @{
+        Html.RenderAction("Tutores");
+
+    }
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#objetivos, #mision, #vision").mouseover(function () {
+                $(this).attr('src', $(this).attr('src').replace('1', '2'));
+            });
+
+            $("#objetivos, #mision, #vision").mouseleave(function () {
+                $(this).attr('src', $(this).attr('src').replace('2', '1'));
+                $(this).attr('src', $(this).attr('src').replace('3', '1'));
+            });
+
+            $("#objetivos, #mision, #vision").click(function () {
+                $(this).attr('src', $(this).attr('src').replace('2', '3'));
+            });
+        });
+        function CargarVista(id) {
+            $('#testAjax').load("/Home/AsesoresXZona/" + id);
+        }
+        function vertutores(id) {
+            alert("hola" + id);
+        }
+    </script>
+}

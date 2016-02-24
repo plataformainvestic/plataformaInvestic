@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Conocenos";
+    Layout = "~/Views/Shared/_Layout.Phone.cshtml";
+}
+
+<img src="~/images/mobile/aroinvestic.png" style="text-align:left;float:left;" />
+<h2 id="titlesection">Conócenos</h2>
+<ul data-role="listview">
+    <li>@Html.ActionLink("¿Quiénes Sómos?","Conocenos", "Home")</li>
+    <li>@Html.ActionLink("General", "General", "Home")</li>
+    <li>@Html.ActionLink("Equipos de Trabajo", "EquiposTrabajo", "Home")</li>
+    <li>@Html.ActionLink("Alternativas", "Alternativas", "Home")</li>
+    <li>@Html.ActionLink("Asesores de Zona", "VerAsesores", "Home")</li>
+    <li>@Html.ActionLink("Tutores de Zona", "TutoresTIC", "Home")</li>
+</ul>
+<h3>¿Quiénes Sómos?</h3><br />
+<div style="text-align:justify">
+    <p>
+        El proyecto “Fortalecimiento de la Cultura Ciudadana y Democrática en
+        CTeI a través de la Investigación como Estrategia Pedagógica apoyada en
+        TICs en el Departamento de Nariño” - Investic, se enmarca dentro del Plan Nacional de TIC – Colombia,
+        y en el Plan de Desarrollo Departamental “Nariño Mejor 2012 – 2015”, que describe la
+        importancia de los procesos de CTeI en dos ejes fundamentales: “Nariño productivo y Competitivo’
+        y “Nariño solidario, incluyente y gestor de capacidades para el buen vivir”, especialmente en el programa
+        “Sistema Educativo Regional Nariñense (S.E.R. Nariñense)”.
+    </p>
+    <p>
+        Investic fue presentado por la Gobernación de Nariño en el año 2013,
+        al OCAD de Ciencia, Tecnología e Innovación para financiarse con recursos
+        de regalías aprobado mediante acuerdo 05 del 19 de julio de 2013.
+    </p>
+    <p>
+        Investic es una comunidad conformada por estudiantes, maestros, directivos y padres y
+        madres de familia de los establecimientos educativos de los 61 municipios no certificados en
+        Educación del Departamento de Nariño.
+    </p>
+    <blockquote style="font-size:small; font-family:Roboto-light; font-style: italic; ">
+        "Como comunidad, interactúan generando conocimiento mediante la investigación
+        como estrategia pedagógica apoyada en las nuevas tecnologías de la innovación
+        y la comunicación, propiciando así espacios colectivos que posibilitan la
+        transformación de los procesos educativos y contribuyen al mejoramiento
+        de la calidad educativa".
+    </blockquote>
+</div>

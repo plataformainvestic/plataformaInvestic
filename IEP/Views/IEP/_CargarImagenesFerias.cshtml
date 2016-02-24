@@ -1,0 +1,33 @@
+﻿@model IEP.Models.DataBase.tblPropagacionGrupo
+
+@using (Html.BeginForm("CargarImagenFeria", "IEP", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <legend>Cargar Archivo</legend>
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.idGrupoInvestigacion)        
+        @Html.HiddenFor(model => model.idTipoFeria)
+        
+        <div class="grid">            
+            <div class="row">
+                <div class="span2">
+                    Archivo:
+                </div>
+                <div class="span10">
+                    <input type="file" name="Archivo" id="Archivo" accept="application/pdf,image/jpeg" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    Descripción:
+                </div>
+                <div class="span10 textarea input-control">
+                    @Html.TextAreaFor(model=>model.Descripcion)
+                </div>
+            </div>
+            <div class="row">
+                <button class="button bg-green">Enviar</button>
+            </div>
+        </div>
+    </fieldset>
+}

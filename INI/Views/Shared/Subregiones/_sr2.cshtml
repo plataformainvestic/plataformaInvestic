@@ -1,0 +1,17 @@
+﻿<img id="subregion_img" src="/images/lorraine/mapa/subregion2/subregion.png" usemap="#subregion1" />
+<map id="subregion1" name="subregion1">
+    <area id="ssh1" shape="poly" alt="Francisco Pizarro" title="Francisco Pizarro" coords="156,2,163,10,163,22,159,27,164,27,164,37,161,42,169,48,173,46,190,58,199,69,208,69,202,77,194,116,186,133,175,133,175,155,180,157,172,168,175,179,172,195,157,200,151,196,148,176,155,167,141,158,134,165,123,167,125,153,116,118,126,118,127,111,114,116,109,98,114,83,122,64,124,70,131,65,125,58,138,43,146,29,140,20" href="#" onmouseover="entersubregion(52520)" />
+    <area id="ssh2" shape="poly" alt="Tumaco" title="Tumaco" coords="186,128,182,158,190,172,188,182,196,192,200,210,208,222,198,230,198,240,220,250,228,270,224,292,234,302,226,316,244,318,250,306,260,306,260,302,264,384,252,376,250,368,196,378,192,388,194,398,186,438,160,436,134,418,130,398,86,376,72,356,78,342,56,342,50,328,64,318,54,312,42,324,12,300,12,274,56,226,104,222,104,240,146,230,154,240,164,240,172,196,166,194,174,182,170,164" href="#" onmouseover="entersubregion(52835)" />
+</map>
+<a href="~/Home/comovamos"><img src="../../../images/como%20vamos/btn_volver_apr.png" alt="" /></a>
+<script>
+    $(function () {
+        jQuery("#ssh1").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Francisco Pizarro");
+        });
+        jQuery("#ssh2").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Tumaco");
+        });
+    })(jQuery);
+</script>
+

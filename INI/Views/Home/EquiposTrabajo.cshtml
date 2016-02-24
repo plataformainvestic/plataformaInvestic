@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "EquiposTrabajo";
+    Layout = "~/Views/Shared/_InvConocenos.cshtml";
+}
+
+<div id="equipotrabajo" style="position: absolute; top: 40%;width: 100%; height: 100%;">
+    @*<div class="titulopagina" style="color:#13678C;"> Nuestro Equipo de Trabajo</div>*@
+    @{
+        //INI.Models.DataBase.investicEntities db = new INI.Models.DataBase.investicEntities();
+        Html.RenderAction("IntegrantesEquipos");
+    }
+</div>
+

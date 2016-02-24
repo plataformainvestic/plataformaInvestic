@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MAI.Models.DataBase.AspNetUsers>
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="row">
+            <table id="nuevosIntegrantes" class="table striped hover">
+                <thead>
+                    <tr>
+                        <th class="span2">Identificación</th>
+                        <th class="span2">Nombres</th>
+                        <th class="span2">Apellidos</th>
+                        <th class="span2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th class="text-center">
+                                @Html.DisplayFor(model => item.PersonalID)
+                            </th>
+                            <th>@Html.DisplayFor(model => item.Name)</th>
+                            <th>@Html.DisplayFor(model => item.SureName)</th>
+                            <th>
+                                <button>Experiencia</button>
+                                <a href="/IntegrantesGrupoInv/AgregarIntegranteGrupoInv?idUsuario=@item.Id&idGrupo=@ViewBag.tblGruposInvestigacion_ID" class="button bg-green fg-white">
+                                    Agregar
+                                    <i class="icon-plus bg-green fg-white"></i>
+                                </a>
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+    <script src="~/Scripts/Investic/mai_AddIntegranteGrupoInv.js"></script>
+}

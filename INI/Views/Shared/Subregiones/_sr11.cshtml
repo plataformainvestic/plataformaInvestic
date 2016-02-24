@@ -1,0 +1,29 @@
+﻿<img id="subregion_img" src="/images/lorraine/mapa/subregion11/subregion.png" usemap="#subregion1" />
+<map id="subregion1" name="subregion">
+    <area id="ssh1" shape="poly" alt="Arboleda" title="Arboleda" coords="107,213,115,208,118,209,127,203,130,187,127,161,139,142,154,146,158,152,164,153,162,159,163,168,174,170,178,164,189,165,198,178,175,218,161,217,153,225,142,212,122,220" href="#" onmouseover="entersubregion(52051)" />
+    <area id="ssh2" shape="poly" alt="Buesaco" title="Buesaco" coords="62,211,121,217,142,213,149,223,173,217,182,230,179,236,207,249,237,278,247,307,261,321,261,328,282,319,326,353,327,365,305,369,293,354,285,372,296,388,293,398,252,411,213,442,170,442,163,422,148,429,101,408,92,385,77,389,70,397,65,381,54,369,49,357,63,335,62,316,75,310,73,285,57,258,49,255,47,224,59,223" href="#" onmouseover="entersubregion(52110)" />
+    <area id="ssh3" shape="poly" alt="La Union" title="La Union" coords="63,30,76,19,96,16,100,11,108,14,125,13,136,6,145,13,142,21,148,30,158,27,190,25,192,20,204,19,215,2,221,10,204,30,192,36,187,38,179,45,192,68,199,72,200,83,196,94,205,101,200,108,227,117,190,124,184,112,184,96,166,87,167,105,152,114,147,130,140,135,141,141,133,132,133,126,124,101,116,92,112,71,104,59,92,60,91,53,84,54,81,53,78,42,83,42,83,31,71,28" href="#" onmouseover="entersubregion(52399)" />
+    <area id="ssh4" shape="poly" alt="San Lorenzo" title="San Lorenzo" coords="30,23,43,14,54,27,81,31,84,40,79,46,79,52,105,62,112,74,118,94,129,103,133,123,131,130,139,141,128,156,130,183,126,203,108,212,62,211,52,206,52,202,49,198,40,199,24,183,24,175,22,172,9,173,2,151,9,146,15,146,23,134,29,135,39,123,35,113,41,87,38,77,41,54,38,52,36,43,40,40,40,32" href="#" onmouseover="entersubregion(52687)" />
+    <area id="ssh5" shape="poly" alt="San Pedro Cartago" title="San Pedro Cartago" coords="139,140,150,112,162,111,166,91,182,95,185,105,183,111,188,117,188,124,207,118,215,118,220,125,216,129,219,133,210,142,203,157,206,161,196,179,189,169,186,163,177,163,177,167,167,171,162,164,162,156,158,153,154,146" href="#" onmouseover="entersubregion(52694)" />
+</map>
+<a href="~/Home/comovamos"><img src="../../../images/como%20vamos/btn_volver_apr.png" alt="" /></a>
+<script>
+    $(function () {
+        jQuery("#ssh1").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Arboleda");
+        });
+        jQuery("#ssh2").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Buesaco");
+        });
+        jQuery("#ssh3").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: La Union");
+        });
+        jQuery("#ssh4").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: San Lorenzo");
+        });
+        jQuery("#ssh5").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: San Pedro Cartago");
+        });
+    });
+</script>
+

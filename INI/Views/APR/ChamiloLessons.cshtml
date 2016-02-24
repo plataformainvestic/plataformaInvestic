@@ -1,0 +1,119 @@
+﻿
+@model IEnumerable<INI.ChamiloWS.ChamiloLesson>
+@{
+    ViewBag.Title = "ChamiloCourses";
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+
+@using INI.ChamiloWS;
+@using Microsoft.AspNet.Identity;
+@using INI.Models.DataBase;
+
+@if (Request.IsAuthenticated)
+{
+
+    var uname = User.Identity.Name;
+    IchamiloClient client = new IchamiloClient();
+    client.Open();
+    <br /><br /><br />
+    <h2 style="display:inline">@ViewBag.Name</h2>
+    var chuser = client.getUserChamilo(uname);
+    //rutval = String.Format("http://investic.udenar.edu.co/chamilolms/login2.php?user={0}&pass={1}&email={2}&fname={3}&lname={4}&status={5}", chuser.Username, chuser.Password, chuser.Email, chuser.FirstName, chuser.LasttName, chuser.Status);
+    var ccode = ViewBag.CourseCode;
+    var desc = String.Format("http://investic.udenar.edu.co/chamilolms/main/course_description/?cidReq={0}&id_session=0&gidReq=0&origin=", ccode);
+    var anun = String.Format("http://investic.udenar.edu.co/chamilolms/main/announcements/announcements.php?cidReq={0}&id_session=0&gidReq=0&origin=", ccode);
+    var agen = String.Format("http://investic.udenar.edu.co/chamilolms/main/calendar/agenda.php?cidReq={0}&id_session=0&gidReq=0&origin=", ccode);
+    <a href="@desc" target="chamilo2">Descripcion</a>
+    <a href="@anun" target="chamilo2">Anuncios</a>
+    <a href="@agen" target="chamilo2">Agenda</a>
+
+
+    if (Model.Count() > 0)
+    {
+        int c = 0;
+        ChamiloLesson l = null;
+        @Html.Display("Lecciónes:");
+    <select id="lst_leccion">
+        @foreach (var item in Model)
+        {
+            if (c == 0)
+            {
+                l = item;
+            }
+            var less = String.Format("http://investic.udenar.edu.co/chamilolms/main/newscorm/lp_controller.php?cidReq={0}&id_session=0&gidReq=0&origin=&action=view&lp_id={1} Internet", ccode, item.id);
+            @*<a href="@less" target="chamilo2">@item.name</a>*@
+            <option value="@less">@item.name</option>
+            c++;
+        }
+    </select>
+
+
+        var rutval = String.Format("http://investic.udenar.edu.co/chamilolms/main/newscorm/lp_controller.php?cidReq={0}&id_session=0&gidReq=0&origin=&action=view&lp_id={1} Internet", ccode, l.id);
+        <div>
+            <iframe id="chamilo2" style="border: none; background:#ffffff; position: relative; top: 5px;" name="chamilo2" src="@rutval" height="520" width="1024"></iframe>
+        </div>
+        <script src="~/Scripts/jquery-2.1.1.js"></script>
+        <script>
+            $(function () {
+                $("#lst_leccion").change(function (e) {
+                    e.preventDefault();
+                    $("#chamilo2").attr("src", $("#lst_leccion").val());
+                })
+            });
+        </script>
+
+
+    }
+    else
+    {
+        <p>Aun no hay lecciones para este curso</p>
+    }
+}
+
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    @if (INI.Models.DataBase.AspNetUsersRoles.IsUserInRole("Maestro", User.Identity.Name))
+    {
+        <script>
+            $(function () {
+                $("#btn_create").attr("href", "/Home/Chamilo?url=cr");
+                $("#btn_miscursos").attr("href", "/Home/Chamilo?url=mc");
+                $("#btn_catcursos").attr("href", "/Home/Chamilo?url=cc");
+
+                $("#btn_create").attr("target", "");
+                $("#btn_miscursos").attr("target", "");
+                $("#btn_catcursos").attr("target", "");
+
+                $("div.listview a").click(function (e) {
+                    e.preventdefault();
+                    var val = $("div.listview a").attr("href");
+                    alert(val);
+                });
+            });
+        </script>
+    }
+    else
+    {
+        <script>
+            $(function () {
+                $("#btn_miscursos").attr("href", "/APR/ChamiloCourses");
+                $("#btn_catcursos").attr("href", "/Home/Chamilo?url=cc");
+
+
+                $("#btn_miscursos").attr("target", "");
+                $("#btn_catcursos").attr("target", "");
+
+                $("div.listview a").click(function (e) {
+                    e.preventdefault();
+                    var val = $("div.listview a").attr("href");
+                    alert(val);
+                });
+            });
+        </script>
+    }
+}
+
+
+
+

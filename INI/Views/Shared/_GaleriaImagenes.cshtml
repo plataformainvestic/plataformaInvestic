@@ -1,0 +1,62 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblCategoriaImagenes>
+
+
+<div class="grid">
+    <div class="row">
+        <div class="span2">
+            <div style="position: fixed; font-family: Chewy; font-size: 20pt; color: #575756; width: 130pt;  left: 10px;">Categorías</div>
+            <br />
+            <div id="thumbScroller" style="max-width:130pt;">
+
+                <div class="container">
+
+                    @foreach (var item in Model)
+                    {
+
+
+                        <div class="content" style="padding-bottom: 5px; ">
+                            @{
+                        var ruta = item.cat_Imagen_Portada;
+                        var cat_ID = item.cat_ID;
+                            }
+                            @*<a class="dummyCss" href="@Url.Action("getImagesByCategory", "GaleriaImagenes", new { id = cat_ID })">*@
+                            <a href="#">
+                                <img id="img_@item.cat_ID" src="@ruta" width="200" class="thumb" style="max-width:130px;max-height:130px;" />
+                            </a>
+                            <div style="font-family: Chewy; font-size: 10pt; color: black; max-width: 130px;">
+                                @item.cat_Nombre
+                            </div>
+                            @Html.Hidden(String.Format("ht{0}", item.cat_ID), item.cat_Nombre)
+                            @Html.Hidden(String.Format("largeImg{0}", item.cat_ID), item.cat_Imagen_Portada)
+                            @Html.Hidden(String.Format("hd{0}", item.cat_ID), item.cat_Nombre)
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="panel" style="display: none;">
+                <div id="divHeader" class="panel-header bg-lightBlue fg-white">
+
+                </div>
+
+                <div id="divLargeImg" style="max-width:618px;max-height:450px; overflow-x:auto;overflow-y:auto;">
+                </div>
+
+                <div id="divContent" class="panel-content bg-lightBlue fg-white" style="max-width:618px;max-height:50px; overflow-x:auto;overflow-y:auto;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

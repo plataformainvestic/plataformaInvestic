@@ -1,0 +1,122 @@
+﻿@model IEP.Models.DataBase.tblPreguntaProyectoInvestigacion
+
+@{
+    ViewBag.Title = "Para el maestro";    
+}
+
+<div class="button-set margin10">
+    <a href="/MisGrupos" class="button">Mis grupos</a>
+    <a href="/AsistenteGruposInvestigacion/Invitaciones" class="button">Mis solicitudes</a>
+    @if (ViewBag.InfoGrupo != null)
+    {
+        <a href="/AsistenteGruposInvestigacion/ForoProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Foro</a>
+    }
+</div>
+@if (ViewBag.InfoGrupo != null)
+{
+    var infogrupo = (IEP.Models.DataBase.InformacionGrupo)ViewBag.InfoGrupo;
+    Html.RenderPartial("_InformacionGrupo", infogrupo);
+}
+<hr />
+<h4>@ViewBag.Title</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span12">
+                <strong>
+                    ¿Qué información consultada les permitió cambiar, ampliar o reformular las preguntas iniciales?
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.InformacionUno)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>
+                    Fuente 1:
+                </strong>
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(model => model.FuenteUno)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.InformacionDos)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>
+                    Fuente 2:
+                </strong>
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(model => model.FuenteDos)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.InformacionTres)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong>
+                    Fuente 3:
+                </strong>
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(model => model.FuenteTres)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <strong>
+                    Breve reflexión sobre el desarollo de la bitácora # 2 por parte del Maestro/co-investigador
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.Reflexion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <strong>
+                    Seguimiento perturbación de la ONDA
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.ConceptoAsesor, new { disabled = "diabled" })
+                @Html.ValidationMessageFor(model => model.ConceptoAsesor)
+            </div>
+            <div class="span2 input-control switch">
+                <label>
+                    <input id="Revision" type="checkbox" disabled />
+                    <span class="check"></span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <input type="submit" value="Actualizar Información" class="button large bg-green" />
+            </div>
+        </div>
+    </div>
+}

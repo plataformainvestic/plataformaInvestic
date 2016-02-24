@@ -1,0 +1,76 @@
+﻿@model INI.Models.DataBase.tblRecursosEducativos
+
+@{
+    Layout = null;
+}
+
+<div >
+    <hr />
+    <div id="back" class="span1" >
+        <h1>
+            <a href="#">
+                <i class="icon-arrow-left-3 fg-darker smaller"></i>
+            </a>
+        </h1>
+    </div>
+    <table>
+        <tr>
+            <td colspan="2">
+                <div class="recEducativos">
+                    <strong>Colección</strong>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.tblColecciones.nom_coleccion)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="recEducativos">
+                    <strong>Recurso Educativo</strong>
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td><div style="padding:10px;"><img src="@Html.DisplayFor(model => model.icono_rec_educativo)" width="64" height="64" /></div></td>
+            <td>@Html.DisplayFor(model => model.nom_rec_educativo)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="recEducativos">
+                    <strong> Descripción General</strong>
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.DisplayFor(model => model.desc_rec_educativo)</td>
+        </tr>
+
+    </table>
+    <br />
+
+    <a href="@Html.DisplayFor(model => model.archivo_rec_educativo)" class="button large primary">Descargar</a>
+
+
+
+
+
+</div>
+<script type="text/javascript">
+
+    $(function () {
+
+        $("#back").click(function () {
+            $('#divResultados2').css("visibility", 'hidden');
+
+        });
+
+    });
+
+
+
+</script>

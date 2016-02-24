@@ -1,0 +1,67 @@
+﻿@model INI.Models.DataBase.tblCategoriaImagenes
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Crear Categoría.
+        </h2>
+    </p>
+
+
+    @using (Html.BeginForm("Edit", "CategoriaImagenes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.cat_ID)
+
+            <table border="0">
+
+                <tr>
+                    <td><div class="span2">Nombre Categoría</div></td>
+                    <td>
+                        <div class="input-control text size3">
+                            @Html.EditorFor(model => model.cat_Nombre)
+                            @Html.ValidationMessageFor(model => model.cat_Nombre)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><div class="span2">Imagen</div></td>
+                    <td>
+                        <div class="input-control file size3">
+                            <input id="cat_Imagen_Portada" name="cat_Imagen_Portada" type="file" />
+                            @Html.ValidationMessageFor(model => model.cat_Imagen_Portada)
+                            <button class="btn btn-file"></button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div class="form-actions no-color">
+                <table style="background-color:transparent;">
+                    <tr>
+                        <td><input type="submit" value="Guardar" class="button large primary" /> |</td>
+                        <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    }
+
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,133 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "CaracteristicasProy", FormMethod.Post, new { id = "CaracteristicasProy" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.tblCaracteristicasProy.tblCaracteristicasProy_ID)
+
+    <div class="grid fluid">
+        @*ESTRUCTURA RESULTADOS ESPERADOS*@
+        <div class="row">
+            <div class="span2">
+                <strong>Resultados esperados</strong>
+                <span data-hint="Este apartado hace referencia a los resultados que se espera obtener con la realización del proyecto, frente la generación de nuevo conocimiento y su aplicabilidad en el contexto educativo, el fortalecimiento de la calidad educativa, la innovación didáctica y el impacto en el modelo educativo, entre otros.
+                      De igual forma, se pueden incluir como resultados esperados: la formación de redes de investigación, la realización de cursos relacionados con las temáticas del proyecto, la elaboración de artículos o libros divulgativos, cartillas, videos, programas de radio, presentación de ponencias en eventos, entre otros."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblCaracteristicasProy.carProy_resultadosEsperadosProy)
+                @*@Html.ValidationMessage("Indique los resultados que espera de la investigación")*@
+                @Html.ValidationMessageFor(m => m.tblCaracteristicasProy.carProy_resultadosEsperadosProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display:none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblCaracteristicasProy_Rev.carProy_resultadosEsperadosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblCaracteristicasProy_Rev.carProy_resultadosEsperadosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblCaracteristicasProy_Rev.carProy_resultadosEsperadosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblCaracteristicasProy_Rev.carProy_resultadosEsperadosProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*ESTRUCTURA CARACTERIZACION DE LA INVESTIGACION*@
+        <div class="row">
+            <div class="span2">
+                <strong>Caracterización de la innovación</strong>
+                <span data-hint="En esta sección se debe describir el carácter innovador de la propuesta de investigación, en cuanto a procesos, productos, prestación de servicios y/o gestión, así como también, la contribución a la generación de nuevo conocimiento o al planteamiento de métodos o soluciones novedosas tendientes a mejorar las prácticas pedagógicas."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblCaracteristicasProy.carProy_caracterizacionProy)
+                @*@Html.ValidationMessage("Características de la investigación")*@
+                @Html.ValidationMessageFor(m => m.tblCaracteristicasProy.carProy_caracterizacionProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display:none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblCaracteristicasProy_Rev.carProy_caracterizacionProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblCaracteristicasProy_Rev.carProy_caracterizacionProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblCaracteristicasProy_Rev.carProy_caracterizacionProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblCaracteristicasProy_Rev.carProy_caracterizacionProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

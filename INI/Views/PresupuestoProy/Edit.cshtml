@@ -1,0 +1,75 @@
+﻿@model INI.Models.DataBase.tblPresupuestoProy
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Edit";
+    var totalInvestic = 0;
+    var totalOtraFuente = 0;
+    var total = 0;
+}
+<div class="row">
+    <h2><strong>Presupueso</strong></h2>
+    <span data-hint="Se deben considerar los gastos de: salidas de campo, en caso de que la investigación lo amerite se asumirá gastos de viaje; materiales, insumos, papelería, fotocopias, material bibliográfico, material de laboratorio, materia prima, capacitaciones.
+      Notas:
+      Los recursos asignados a los equipos de investigación no pueden ser utilizados en dotación de equipos o materiales didácticos, construcción de infraestructura, desarrollo de actividades como talleres, convivencias y otro tipo de eventos de intervención que no formen parte del proyecto general de investigación.
+      Recuerde no exceder el valor de financiación ($4.000.000).
+      Teniendo en cuenta que los recursos otorgados a cada equipo de investigación pueden no ser suficientes para su ejecución, se recomienda en la medida de lo posible, gestionar otras fuentes financiación."
+          data-hint-position="right">
+        <i class="icon-help on-right on-left"></i>
+    </span>
+</div>
+
+<div class="row">
+    <button id="agregarPresupuestoProy" type="button" class="large bg-green fg-white">
+        Agregar Presupuesto
+        <i class="ui-icon-plus bg-green fg-white"></i>
+    </button>
+</div>
+
+<div class="grid fluid">
+    <div class="row">
+        <table id="miTablaPresupuesto" class="table striped hover">
+            <thead>
+                <tr>
+                    <th>Rubro</th>
+                    <th>Fuente</th>
+                    <th>Valor</th>
+                    <th>Justificación</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.tblRubroPresupuesto)
+                {
+                    if (string.Format("{0}", item.rubPre_fuente).ToUpper().Equals("INVESTIC"))
+                    {
+                        totalInvestic += Int32.Parse(item.rubPre_valor.ToString());
+                    }
+                    else
+                    {
+                        totalOtraFuente += Int32.Parse(item.rubPre_valor.ToString());
+                    }
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.tblRubro.Rubro)</td>
+                        <td>@Html.DisplayFor(m => item.rubPre_fuente)</td>
+                        <td class="text-right">@Html.DisplayFor(m => item.rubPre_valor)</td>
+                        <td>@Html.DisplayFor(m => item.rubPre_justificacion)</td>
+                        <th>
+                            <a href="#" onclick="javascript:BorrarRubroPresupuesto(@item.tblRubroPresupuesto_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <div>
+        @{
+            total = totalInvestic + totalOtraFuente;
+        }
+        <h3><strong>Total Aporte Investic: @totalInvestic</strong></h3>
+        <h3><strong>Total Otras Fuentes: @totalOtraFuente</strong></h3>
+        <h3><strong>Total Presupuesto: @total</strong></h3>
+    </div>
+</div>

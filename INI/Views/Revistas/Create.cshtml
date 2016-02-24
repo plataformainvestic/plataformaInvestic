@@ -1,0 +1,198 @@
+﻿@model INI.Models.DataBase.Revista
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+<br /><br /><br />
+<h2>Crear</h2>
+
+@using (Html.BeginForm("Create", "Revistas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Revista</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+
+            <strong onmouseover="tooltip.pop(this, '#title', { sticky: true })">
+                Titulo
+            </strong>
+
+
+            <div style="display:none;">
+                <div id="title">
+                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                    <b><strong>Cual es tu titulo?</strong></b><br /><br />
+                    Este campo es obligatorio. Aquí debes ingresar un titulo.
+                </div>
+            </div>
+
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+            <strong onmouseover="tooltip.pop(this, '#Description', { sticky: true })">
+                Descriptión
+            </strong>
+
+
+            <div style="display:none;">
+                <div id="Description">
+                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                    <b><strong>Cual es tu descriptión?</strong></b><br /><br />
+                    Este campo es obligatorio. Aquí debes ingresar una descriptión.
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+
+            <strong onmouseover="tooltip.pop(this, '#pdf', { sticky: true })">
+                Url pdf
+            </strong>
+
+
+            <div style="display:none;">
+                <div id="pdf">
+                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                    <b><strong>Cual es tu url pdf?</strong></b><br /><br />
+                    Este campo es obligatorio. Aquí debes ingresar una url pdf.
+                </div>
+            </div>
+
+
+
+            <div class="col-md-10">
+                <div class="input-control file">
+                    <input id="urlPdf" name="urlPdf" type="file" accept=".pdf" />
+                    <button class="btn btn-file"></button>
+                    @Html.ValidationMessageFor(model => model.urlPdf)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+
+            <strong onmouseover="tooltip.pop(this, '#front', { sticky: true })">
+                Url front
+            </strong>
+
+
+            <div style="display:none;">
+                <div id="front">
+                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                    <b><strong>Cual es tu url front?</strong></b><br /><br />
+                    Este campo es obligatorio. Aquí debes ingresar una url front.
+                </div>
+            </div>
+
+
+            <div class="col-md-10">
+                <div class="input-control file">
+                    <input id="urlfront" name="urlfront" type="file" accept=".png" />
+                    <button class="btn btn-file"></button>
+                    @Html.ValidationMessageFor(model => model.urlfront)
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <strong onmouseover="tooltip.pop(this, '#Categoria', { sticky: true })">
+                Categoria:
+            </strong>
+
+
+            <div style="display:none;">
+                <div id="Categoria">
+                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                    <b><strong>Cual es tu categoria?</strong></b><br /><br />
+                    Este campo es obligatorio. Aquí debes ingresar una categoria.
+                </div>
+            </div>
+            
+            
+            
+            @Html.DropDownList("id_Categoria", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SubCategoriaRevista.id_categoria, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+
+                <strong onmouseover="tooltip.pop(this, '#Subcategoria', { sticky: true })">
+                    Subcategoria:
+                </strong>
+
+
+                <div style="display:none;">
+                    <div id="Subcategoria">
+                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                        <b><strong>Cual es tu Subcategoria?</strong></b><br /><br />
+                        Este campo es obligatorio. Aquí debes ingresar una Subcategoria.
+                    </div>
+                </div>
+                @Html.DropDownList("id_SubCategoria", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.id_SubCategoria, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $("#id_Categoria").change(function () {
+
+                var lst_subcategoria = $("#id_SubCategoria");
+                var lst_categoria = $("#id_Categoria");
+
+                $.ajax({
+                    cache: false,
+                    type: 'GET',
+                    async: false,
+                    dataType: 'json',
+                    url: "/Revistas/GetSubcategoria/".concat(lst_categoria.val()),
+                    success: function (result) {
+                        lst_subcategoria.find("option").remove();
+                        $.each(result, function (index, item) {
+                            lst_subcategoria.append("<option value='" + item.id + "'>" + item.nombre + "</option>");
+
+                        });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("error status " + xhr.status);
+                        alert("error error trow" + thrownError);
+                    }
+                });
+            });
+        });
+    </script>
+}

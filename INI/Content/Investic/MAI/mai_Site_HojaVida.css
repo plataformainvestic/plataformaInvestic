@@ -1,0 +1,9 @@
+﻿.tableroHojaVida {
+    padding: 40px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url('../../../images/MAI/HojaVida/tableroHojaVida.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

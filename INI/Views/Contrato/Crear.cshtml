@@ -1,0 +1,31 @@
+﻿@model INI.Models.DataBase.AspNetUsers
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Datos Contrato</h4>
+
+ 
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+   
+
+       
+
+       
+   
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>

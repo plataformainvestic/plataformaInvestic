@@ -1,0 +1,60 @@
+﻿body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url('../../images/nubes.png') no-repeat top scroll;        
+    background-size: cover; 
+}
+
+
+.metro .access {
+  padding: 20px 40px 20px 60px;
+  border: 1px #ccc solid;
+  position: relative;
+  margin: 0 0 10px 0;
+  background-color: #fdfdfd !important;
+  min-height: 100px;
+}
+.metro .access:before,
+.metro .access:after {
+  display: table;
+  content: "";
+}
+.metro .access:after {
+  clear: both;
+}
+.metro .access:before {
+  position: absolute;
+  content: "Control de Acceso";
+  left: -21px;
+  top: 80px;
+  color: #999999 !important;
+  margin: 5px 10px;
+  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.02em;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.verticalSpan1{
+    height: 40px;
+}
+
+.verticalSpan2{
+    height: 80px;
+}
+
+.verticalSpan3{
+    height: 120px;
+}

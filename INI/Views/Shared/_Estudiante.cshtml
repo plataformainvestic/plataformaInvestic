@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .INVESTIC</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+</head>
+<body class="metro" style="background: url('../../images/Investiga/investigadividido-02.png') center no-repeat #558b2f;">
+
+    <nav class="navigation-bar" style="background-color:#808080">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/">
+                <img src="/favicon.png" height="16" width="16" />
+                <span style="font-size:medium;color:azure">Investic</span>
+            </a>
+            <span class="element-divider"></span>
+            <span id="textomenu" style=" font-size:x-small" class="element">Ciencia, tecnología e innovación para el buen vivir nariñense</span>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="@ViewBag.APRWebSite?@ViewBag.userID">
+                Aprendizaje
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="@ViewBag.IEPWebSite?@ViewBag.userID">
+                Investigación
+            </a>
+            <span class="element-divider place-right"></span>
+
+            <div class="no-tablet-portrait">
+                <div class="element input-element">
+                    @if (!Request.IsAuthenticated)
+                    {
+                        @Html.Partial("_LoginForm")
+                    }
+                    else
+                    {
+                        @Html.Partial("_LoginPartial")
+                    }
+                </div>
+            </div>
+
+        </nav>
+    </nav>
+    <div class="container">
+
+    </div>
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/metro-ui")
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.js"></script>
+    <script src="~/Scripts/js/Invresources.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

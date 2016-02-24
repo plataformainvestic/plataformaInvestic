@@ -1,0 +1,23 @@
+﻿@model IEP.Models.DataBase.InformacionGrupo
+
+<div id="informacion-grupo">    
+    <a class="button place-right info" href="/AsistenteGruposInvestigacion/Index/@Model.idGrupo">Volver</a>
+    <h4>Proyecto de investigación estudiantíl</h4>
+    [<small>@Model.Descripcion</small>]
+    <table class="table striped table bordered">
+        <tr>
+            <td>Nombre del grupo</td>
+            <td>Municipio</td>
+            <td>Sede educativa</td>
+        </tr>
+        <tr>
+            <td>@Model.NombreGrupo</td>
+            <td>@Model.Municipio</td>
+            <td>@Model.Institucion</td>
+        </tr>
+    </table>
+</div>
+
+
+
+<link href="~/Content/Investic/InfoGrupo.css" rel="stylesheet" />

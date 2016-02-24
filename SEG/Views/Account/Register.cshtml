@@ -1,0 +1,339 @@
+﻿@model SEG.Models.RegisterViewModel
+@using SEG.Models.DataBase
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using SEG.Models.DataBase
+@{
+
+
+
+
+
+}
+
+
+<h2>Registro</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    if (User.IsInRole("admin"))
+    {
+
+        @Html.AntiForgeryToken()
+        <h4>Crear un nuevo Coordinador</h4>
+        <hr />
+        @Html.ValidationSummary()
+   
+        <div class="grid fluid">
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong> Cedula</strong>
+                </div>
+
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Cedula)
+                    @Html.ValidationMessageFor(m => m.Cedula)
+                    <button class="btn btn-clear"></button>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong>Nombres</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Nombres)
+                    @Html.ValidationMessageFor(m => m.Nombres)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+
+
+
+                <div class="span2 text-right">
+                    <strong>Apellidos</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Apellidos)
+                    @Html.ValidationMessageFor(m => m.Apellidos)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong>Celular</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Celular)
+                    @Html.ValidationMessageFor(m => m.Celular)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+
+
+                <div class="span2 text-right">
+                    <strong>E-Mail</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                    <strong>Contraseña</strong>
+                </div>
+                <div class="span4 input-control text password">
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                    <button class="btn btn-reveal"></button> 
+                </div>
+
+
+
+
+                <div class="span2 text-right">
+                    <strong>Confirme Contraseña</strong>
+                </div>
+                <div class="span4 input-control text password">
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    <button class="btn btn-reveal"></button> 
+                </div>
+
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="span4">
+                    <strong> </strong>
+                </div>
+                <div class="span6">
+                    <input type="submit" class="btn large bg-darkBlue fg-white" value="Crear Cuenta" />
+
+                </div>
+
+
+            </div>
+
+
+        
+ </div>
+
+    }
+
+    if (User.IsInRole("coordinador"))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <h4>Crear un nuevo Contratista</h4>
+        <hr />
+        @Html.ValidationSummary()
+
+        <div class="grid fluid">
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong> Cedula</strong>
+                </div>
+
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Cedula)
+                    @Html.ValidationMessageFor(m => m.Cedula)
+                    <button class="btn btn-clear"></button>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong>Nombres</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Nombres)
+                    @Html.ValidationMessageFor(m => m.Nombres)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+
+
+
+                <div class="span2 text-right">
+                    <strong>Apellidos</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Apellidos)
+                    @Html.ValidationMessageFor(m => m.Apellidos)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong>Celular</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Celular)
+                    @Html.ValidationMessageFor(m => m.Celular)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+
+
+                <div class="span2 text-right">
+                    <strong>E-Mail</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong>Cargo</strong>
+                </div>
+                <div class="span4 input-control select">
+                    @Html.DropDownList("Cargo")
+                    @Html.ValidationMessageFor(m => m.Cargo)
+                </div>
+
+
+
+                <div class="span2 text-right">
+                    <strong>Numero de Contrato</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Contrato)
+                    @Html.ValidationMessageFor(m => m.Contrato)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong>Fecha Inicial Contrato</strong>
+                </div>
+                <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top">
+                    @Html.TextBoxFor(m => m.Fecha_IniContrato, "{0:dd/MM/yyyy}", new { @type = "text" })
+                    <button class="btn btn-date" type="button"></button>
+                    @Html.ValidationMessageFor(m => m.Fecha_IniContrato, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+
+                <div class="span2 text-right">
+                    <strong>Fecha Final Contrato</strong>
+                </div>
+                <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top">
+                    @Html.TextBoxFor(m => m.Fecha_FinContrato, "{0:dd/MM/yyyy}", new { @type = "text" })
+                    <button class="btn btn-date" type="button"></button>
+                    @Html.ValidationMessageFor(m => m.Fecha_FinContrato, "", new { @class = "text-danger" })
+                </div>
+
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="span2">
+                    <strong>Numero de CDP</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Cdp)
+                    @Html.ValidationMessageFor(m => m.Cdp)
+                    <button class="btn btn-clear"></button>
+                </div>
+
+
+
+
+                <div class="span2 text-right">
+                    <strong> </strong>
+                </div>
+                <div class="span4 input-control select no-display">
+                    @Html.DropDownList("Equipo")
+
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="span4">
+                    <strong> </strong>
+                </div>
+                <div class="span6">
+                    <input type="submit" class="btn large bg-darkBlue fg-white" value="Crear Cuenta" />
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+    }
+
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

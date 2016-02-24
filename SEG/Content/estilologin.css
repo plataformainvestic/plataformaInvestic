@@ -1,0 +1,6 @@
+﻿body {
+    background: url('/Images/bg-header.jpg') no-repeat top scroll;
+    background-size: cover;
+    padding-bottom: 20px;
+    padding-top: 0px;
+}

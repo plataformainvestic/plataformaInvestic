@@ -1,0 +1,10 @@
+﻿@model INI.Models.DataBase.InformacionGrupo
+<div>
+    <p>
+        @Html.DisplayTextFor(model => model.Pregunta)
+    </p>
+    <small><strong>@Html.DisplayFor(model => model.Descripcion)</strong></small><br />
+    <small>Nombre del Grupo: <strong>@Html.DisplayFor(model => model.NombreGrupo)</strong></small><br />
+    <small>Municipio: <strong>@Html.DisplayFor(model => model.Municipio)</strong></small><br />
+    <small>Institución: <strong>@Html.DisplayFor(model => model.Institucion)</strong></small>
+</div>

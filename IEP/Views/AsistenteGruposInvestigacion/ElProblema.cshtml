@@ -1,0 +1,60 @@
+﻿@model IEP.Models.DataBase.tblProblemaInvestigacion
+
+@{
+    ViewBag.Title = "La superposición de la Onda";    
+}
+
+<div class="button-set margin10">
+    <a href="/MisGrupos" class="button">Mis grupos</a>
+    <a href="/AsistenteGruposInvestigacion/Invitaciones" class="button">Mis solicitudes</a>
+    @if (ViewBag.InfoGrupo != null)
+    {
+        <a href="/AsistenteGruposInvestigacion/ForoProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Foro</a>
+    }
+</div>
+@if (ViewBag.InfoGrupo != null)
+{
+    var infogrupo = (IEP.Models.DataBase.InformacionGrupo)ViewBag.InfoGrupo;
+    Html.RenderPartial("_InformacionGrupo", infogrupo);
+}
+<hr />
+<h4>@ViewBag.Title</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span12">
+                <strong>
+                    Descripción del problema que se quiere investigar
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.Descripcion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <strong>
+                    Con base en el punto anterior, justifiquen la importancia de resolver el problema o avanzar en su solucion
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.Justificacion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <input type="submit" value="Actualizar información" class="button large bg-green" />
+            </div>
+        </div>
+    </div>
+}
+<div class="verticalSpan1"></div>

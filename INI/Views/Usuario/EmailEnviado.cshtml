@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "EmailEnviado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="position:absolute; left:63%;top:20%;">
+    
+    @if (Request.UrlReferrer.ToString().Contains("/Home/Contactenos"))
+    {
+        <img src="~/images/mensajes/Contactenos_CorreoEnviado.png" alt="" />
+    }
+    else
+    {
+        <img src="~/images/mensajes/Registro_CorreoEnviado.png" alt="" />        
+    }
+
+</div>
+

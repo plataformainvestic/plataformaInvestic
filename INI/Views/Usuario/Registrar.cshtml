@@ -1,0 +1,379 @@
+﻿@model INI.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Registro de Usuario";
+    Layout = "~/Views/Shared/_InvBlanco.cshtml";
+    string msj = ViewBag.Mensaje;
+}
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+<div id="bgDiv">
+    <table style="background-color:transparent;margin:auto ;">
+        <tr>
+            <td width="20%" align="left">
+                <img src="~/images/personajes/anita.png" class="span2" />
+            </td>
+            <td width="80%" align="left">
+                <div id="divFondoFormulario" class="fondoRegistroFormulario">
+                    <div class=" grid fluid">
+                        <div class="row">
+                            <table style="background-color:transparent;">
+                                <tr>
+                                    <td>
+                                        <div >
+
+                                            <div id="divTitulo" style="font-family:Chewy;color:#FF1643;font-size:16pt; text-align:center ">
+                                                @ViewBag.Title
+                                            </div>
+                                            </div>
+
+</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    @using (Html.BeginForm("Registrar", "Usuario", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="UserName" name="UserName" value="nn" />
+                        <div class="grid fluid">
+                            <div class="row">
+
+
+                                @* Inicio *@
+                                <div class="span2 text-right">
+
+
+                                    <div style="margin: auto; width: auto;">
+
+                                        
+                                            <strong onmouseover="tooltip.pop(this, '#Password1', { sticky: true })">
+                                                @Html.LabelFor(m => m.Password)
+                                            </strong>
+
+                                        
+                                        <div style="display:none;"  >
+                                            <div id="Password1">
+                                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                                <b><strong>Cual es tu clave?</strong></b><br /><br />
+                                                Este campo es obligatorio. Aquí debes ingresar una clave de seis digitos.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.PasswordFor(m => m.Password)
+                                    @Html.ValidationMessageFor(model => model.Password, String.Empty, new { @style = "color:red;!important" })
+                                    
+                                </div>
+                                @* Fin *@
+
+
+
+
+
+
+                                <div class="span2 text-right">
+
+
+                                    <div style="margin: auto; width: auto;">
+
+                                        
+                                            <strong onmouseover="tooltip.pop(this, '#ConfirmPassword1', { sticky: true })">
+                                                @Html.LabelFor(m => m.ConfirmPassword)
+                                            </strong>
+
+                                        <div style="display:none;">
+                                            <div id="ConfirmPassword1">
+                                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                                <b><strong>Cual es tu confirmación de clave?</strong></b><br /><br />
+                                                Este campo es obligatorio. Aquí debes ingresar una clave de seis digitos coinsidentes.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.PasswordFor(m => m.ConfirmPassword)
+                                    @Html.ValidationMessageFor(model => model.ConfirmPassword, String.Empty, new { @style = "color:red;!important" })
+                                </div>                                
+                            </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+
+
+                                    <div style="margin: auto; width: auto;">
+
+                                        
+                                            <strong onmouseover="tooltip.pop(this, '#Name1', { sticky: true })">
+                                                @Html.LabelFor(m => m.Name)
+                                            </strong>
+
+                                        <div style="display:none;">
+                                            <div id="Name1">
+                                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                                <b><strong>Cual son tus nombres?</strong></b><br /><br />
+                                                Este campo es obligatorio. Aquí debes ingresar tus nombre.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    
+
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.TextBoxFor(m => m.Name)
+                                    @Html.ValidationMessageFor(model => model.Name, String.Empty, new { @style = "color:red;!important" })
+                                </div>
+
+
+
+
+                                <div class="span2 text-right">
+
+                                    
+                                        <strong onmouseover="tooltip.pop(this, '#SureName1', { sticky: true })">
+                                            @Html.LabelFor(m => m.SureName)
+                                        </strong>
+                                    <div style="display:none;">
+                                        <div id="SureName1">
+                                            <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                            <b><strong>Que apellidos tienes?</strong></b><br /><br />
+                                            Este campo es obligatorio. Aquí debes ingresar apellidos.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                    
+                                
+                                <div class="span4 input-control text">
+                                    @Html.TextBoxFor(m => m.SureName)
+                                    @Html.ValidationMessageFor(model => model.SureName, String.Empty, new { @style = "color:red;!important" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                       <div class="span2 text-right">
+
+                                        <strong onmouseover="tooltip.pop(this, '#TipoDocumento', { sticky: true })">
+                                           @Html.LabelFor(m => m.TipoDoc)
+                                        </strong>
+
+
+                                        <div style="display:none;">
+                                            <div id="TipoDocumento">
+                                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                                <b><strong>Cuál es tu tipo de Identificación?</strong></b><br /><br />
+                                                Este campo es obligatorio. Aquí debes seleccionar un Tipo de Documento.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span4 input-control select ">
+                                        <select id="TipoDoc" name="TipoDoc">
+                                            <option value="0" selected="selected">Cedula de ciudadanía</option>
+                                            <option value="1">Tarjeta de Identidad</option>
+                                            <option value="2">Registro Civil de Nacimiento</option>
+                                        </select>
+                                    </div>
+                                                 <div class="span2 text-right">
+                                        <strong onmouseover="tooltip.pop(this, '#PersonalID1', { sticky: true })">
+                                            @Html.LabelFor(m => m.PersonalID)
+                                        </strong>
+                                        <div style="display:none;">
+                                            <div id="PersonalID1">
+                                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                                <b><strong>Que Identificación tienes?</strong></b><br /><br />
+                                                Este campo es obligatorio. Aquí debes ingresar documento de identificación.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span4 input-control text">
+                                        @Html.TextBoxFor(m => m.PersonalID)
+                                        @Html.ValidationMessageFor(model => model.PersonalID, String.Empty, new { @style = "color:red;!important" })
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+                                    <strong onmouseover="tooltip.pop(this, '#Genre1', { sticky: true })">
+                                        Género
+                                    </strong>
+
+
+                                    <div style="display:none;">
+                                        <div id="Genre1">
+                                            <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                            <b><strong>Cual es tu genero?</strong></b><br /><br />
+                                            Este campo es obligatorio. Aquí debes seleccionar un genero.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="input-control radio" data-role="input-control">
+                                        <label>
+                                            Mujer
+                                            <input type="radio" name="Genre" value="1" checked="">
+                                            <span class="check"></span>
+                                        </label>
+                                    </div>
+                                    <div class="input-control radio" data-role="input-control">
+                                        <label>
+                                            Hombre
+                                            <input type="radio" name="Genre" value="2">
+                                            <span class="check"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="span2 text-right">
+
+
+                                    <strong onmouseover="tooltip.pop(this, '#Mail1', { sticky: true })">
+                                        @Html.LabelFor(m => m.Mail)
+                                    </strong>
+
+
+                                    <div style="display:none;">
+                                        <div id="Mail1">
+                                            <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                            <b><strong>Cueal es tu Email?</strong></b><br /><br />
+                                            Este campo es obligatorio. Aquí debes regsitrar tu Email.
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.EditorFor(m => m.Mail)
+                                    @Html.ValidationMessageFor(model => model.Mail, String.Empty, new { @style = "color:red;!important" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+                                        <strong  onmouseover="tooltip.pop(this, '#Phone1', { sticky: true })">
+                                            @Html.LabelFor(m => m.Phone)
+                                        </strong>
+                                 <div style="display:none;">
+                                        <div id="Phone1">
+                                            <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                            <b><strong>Cual es tu numero telefonico?</strong></b><br /><br />
+                                            Este campo es obligatorio. Aquí debes regsitrar tu telefono.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.EditorFor(m => m.Phone)
+                                    @Html.ValidationMessageFor(model => model.Phone)
+                                </div>
+                                <div class="span2 text-right">
+
+
+
+                                    <strong onmouseover="tooltip.pop(this, '#Address1', { sticky: true })">
+                                        @Html.LabelFor(m => m.Address)
+                                    </strong>
+
+
+                                    <div style="display:none;">
+                                        <div id="Address1">
+                                            <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                            <b><strong>Cual es tu dirección de recidencia?</strong></b><br /><br />
+                                            Este campo es obligatorio. Aquí debes regsitrar tu dirrección.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.EditorFor(m => m.Address)
+                                    @Html.ValidationMessageFor(model => model.Address, String.Empty, new { @style = "color:red;!important" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                <div class="span2 text-right">
+
+                                    
+                                        <strong  onmouseover="tooltip.pop(this, '#BirthDay1', { sticky: true })">
+                                            @Html.LabelFor(m => m.BirthDay)
+                                        </strong>
+
+                                    
+                                    <div style="display:none;">
+                                        <div id="BirthDay1">
+                                            <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                            <b><strong>Cual es tu fecha de nacimiento?</strong></b><br /><br />
+                                            Este campo es obligatorio. Aquí debes regsitrar tu fecha de nacimiento.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                    
+                                <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top">
+                                    @Html.TextBoxFor(m => m.BirthDay, "{0:dd/MM/yyyy}", new { @type = "text" })
+                                    <button class="btn btn-date" type="button"></button>
+                                    @Html.ValidationMessageFor(m => m.BirthDay, String.Empty, new { @style = "color:red;!important" })
+                                </div>
+                                <div class="span2 text-right">
+
+                                    <strong onmouseover="tooltip.pop(this, '#Rol1', { sticky: true })">
+                                        Rol
+                                    </strong>
+
+
+                                    <div style="display:none;">
+                                        <div id="Rol1">
+                                            <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                            <b><strong>Que rol deseas tener?</strong></b><br /><br />
+                                            Este campo es obligatorio. Aquí debes seleccionar un rol.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="span4 input-control select ">
+                                    <select id="SelectedUserRoleId" name="SelectedUserRoleId">
+                                        <option value="Maestro">Maestro</option>
+                                        <option value="Estudiante" selected="selected">Estudiante</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                             
+                                <div class="span12" style="text-align:center;">
+                                    <input type="submit" class="button large bg-green" value="Registrarse">
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <center>@Html.AtrasInvestic()</center>    
+                            </div>
+
+                            <div class="row">
+                                <div class="span4 offset6">
+                                    @Html.ValidationSummary(true)
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="contenido" style="position: absolute; top: 250px; left: 0px; background-image: url('../images/img_contenedor_logos.png');background-repeat:no-repeat; width: 83px; height: 129px; ">
+    <div><a href="http:\\www.narino.gov.co" target="_blank"><img src="~/images/btn_gobernacion.png" class="links" /></a></div>
+    <div><a href="http:\\www.udenar.edu.co" target="_blank"><img src="~/images/btn_udenar.png" class="links" /></a></div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")    
+    <script>    
+        AlertMessage('@msj');
+    </script>
+}

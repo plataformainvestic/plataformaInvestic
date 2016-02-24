@@ -1,0 +1,64 @@
+﻿@model INI.Models.DataBase.tblGrupoInvestigacion
+
+@{
+    ViewBag.Title = "Grupo";
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span2">
+            <strong>
+                @Html.DisplayName("Nombre Grupo")
+            </strong>
+        </div>
+        <div class="span4">
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+        <div class="span2">
+            <strong>
+                @Html.DisplayName("Linea de Investigación")
+            </strong>
+        </div>
+        <div class="span4">
+            @Html.DisplayFor(model => model.tblLineaInvestigacion.Nombre)
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2">
+            <strong>
+                @Html.DisplayName("Municipio")
+            </strong>
+        </div>
+        <div class="span4">
+            @Html.DisplayFor(model => model.tblInstitucion.tblMunicipios.NombreMunicipio)
+        </div>
+        <div class="span2">
+            <strong>
+                @Html.DisplayName("Sede educativa")
+            </strong>
+        </div>
+        <div class="span4">
+            @Html.DisplayFor(model => model.tblInstitucion.Nombre)
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2">
+            <strong>
+                @Html.DisplayName("Maestro")
+            </strong>
+        </div>
+        <div class="span4">
+            @Html.DisplayFor(model => model.AspNetUsers.Name)
+        </div>
+        <div class="span2">
+            <strong>
+                @Html.DisplayName("Emblema")
+            </strong>
+        </div>
+        <div class="span4">
+            <img src="~/images/Avatars/@Model.Avatar" width="128" />
+        </div>
+    </div>
+</div>
+

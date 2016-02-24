@@ -1,0 +1,129 @@
+﻿@model INI.Models.DataBase.tblConceptosEstadoArte
+
+
+
+@using (Html.BeginForm("AgregarConcepto", "IEP"))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idEstadoArte)    
+
+    <div class="grid fluid">        
+        <div class="row">
+
+
+            @*<div class="span2">
+                Autor
+            </div>*@
+
+
+            <div class="span2 text-right">
+
+
+                <div style="margin: auto; width: auto;">
+
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Autor', { sticky: true })">
+                        Autor  
+                    </div>
+
+
+                    <div style="display:none;">
+                        <div id="Autor">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Autor?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar un Autor.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="span6 input-control text">
+                @Html.EditorFor(model => model.Autor)
+                @Html.ValidationMessageFor(model => model.Autor, String.Empty, new { @style = "color:red;!important" })
+            </div>
+
+
+
+            @*<div class="span2">
+                Año:
+            </div>*@
+
+            <div class="span2 text-right">
+
+
+                <div style="margin: auto; width: auto;">
+
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#ano', { sticky: true })">
+                        Año
+                    </div>
+
+
+                    <div style="display:none;">
+                        <div id="ano">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Año?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar un Año.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="span2 input-control text">
+                @Html.EditorFor(model => model.Publicacion)
+                @Html.ValidationMessageFor(model => model.Publicacion, String.Empty, new { @style = "color:red;!important" })
+                <br /><br /><br /><br />
+            </div>            
+        </div>
+        <br />
+        <div class="row">
+
+
+            @*<div class="span2">
+                Texto:
+            </div>*@
+
+
+            <div class="span2 text-right">
+
+
+                <div style="margin: auto; width: auto;">
+
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Texto', { sticky: true })">
+                        Texto
+                    </div>
+
+
+                    <div style="display:none;">
+                        <div id="Texto">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Texto?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar un Texto.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.Texto)
+                @Html.ValidationMessageFor(model => model.Texto, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Agregar" class="button large bg-green" />
+}

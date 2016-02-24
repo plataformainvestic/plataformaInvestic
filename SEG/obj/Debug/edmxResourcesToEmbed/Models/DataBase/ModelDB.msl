@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Model.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tabla_alternativas">
+      <EntityTypeMapping TypeName="Model.tabla_alternativas">
+        <MappingFragment StoreEntitySet="tabla_alternativas">
+          <ScalarProperty Name="Id_Alternativa" ColumnName="Id_Alternativa" />
+          <ScalarProperty Name="Des_Alternativa" ColumnName="Des_Alternativa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tabla_estados">
+      <EntityTypeMapping TypeName="Model.tabla_estados">
+        <MappingFragment StoreEntitySet="tabla_estados">
+          <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+          <ScalarProperty Name="Des_Estado" ColumnName="Des_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fechasreportes">
+      <EntityTypeMapping TypeName="Model.fechasreporte">
+        <MappingFragment StoreEntitySet="fechasreporte">
+          <ScalarProperty Name="Activa" ColumnName="Activa" />
+          <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+          <ScalarProperty Name="Fecha_Ini" ColumnName="Fecha_Ini" />
+          <ScalarProperty Name="Id_SemanaTrabajo" ColumnName="Id_SemanaTrabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos">
+      <EntityTypeMapping TypeName="Model.producto">
+        <MappingFragment StoreEntitySet="productos">
+          <ScalarProperty Name="Descripcion_Producto" ColumnName="Descripcion_Producto" />
+          <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
+          <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+          <ScalarProperty Name="Id_Contratista" ColumnName="Id_Contratista" />
+          <ScalarProperty Name="Id_Producto" ColumnName="Id_Producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="evidencias">
+      <EntityTypeMapping TypeName="Model.evidencia">
+        <MappingFragment StoreEntitySet="evidencias">
+          <ScalarProperty Name="Descripcion_Evidencia" ColumnName="Descripcion_Evidencia" />
+          <ScalarProperty Name="Nombre_Evidencia" ColumnName="Nombre_Evidencia" />
+          <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+          <ScalarProperty Name="Id_Contratista" ColumnName="Id_Contratista" />
+          <ScalarProperty Name="Id_Evidencia" ColumnName="Id_Evidencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Fecha_FinContrato" ColumnName="Fecha_FinContrato" />
+          <ScalarProperty Name="Fecha_IniContrato" ColumnName="Fecha_IniContrato" />
+          <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+          <ScalarProperty Name="Cdp" ColumnName="Cdp" />
+          <ScalarProperty Name="Contrato" ColumnName="Contrato" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="ConfirmedEmail" ColumnName="ConfirmedEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="equipos">
+      <EntityTypeMapping TypeName="Model.equipos">
+        <MappingFragment StoreEntitySet="equipos">
+          <ScalarProperty Name="Nombre_Coordinador" ColumnName="Nombre_Coordinador" />
+          <ScalarProperty Name="Id_Coordinador" ColumnName="Id_Coordinador" />
+          <ScalarProperty Name="Nombre_Equipo" ColumnName="Nombre_Equipo" />
+          <ScalarProperty Name="Id_Equipo" ColumnName="Id_Equipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="programa_tareas">
+      <EntityTypeMapping TypeName="Model.programa_tareas">
+        <MappingFragment StoreEntitySet="programa_tareas">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+          <ScalarProperty Name="Fecha_Ini" ColumnName="Fecha_Ini" />
+          <ScalarProperty Name="Responsabilidad" ColumnName="Responsabilidad" />
+          <ScalarProperty Name="Alternativa" ColumnName="Alternativa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id_Contratista" ColumnName="Id_Contratista" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="responsabilidades">
+      <EntityTypeMapping TypeName="Model.responsabilidade">
+        <MappingFragment StoreEntitySet="responsabilidades">
+          <ScalarProperty Name="IdentificadorResponsa" ColumnName="IdentificadorResponsa" />
+          <ScalarProperty Name="Id_Coordinador" ColumnName="Id_Coordinador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id_Contratista" ColumnName="Id_Contratista" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="actividades">
+      <EntityTypeMapping TypeName="Model.actividade">
+        <MappingFragment StoreEntitySet="actividades">
+          <ScalarProperty Name="Periodo_Reporte" ColumnName="Periodo_Reporte" />
+          <ScalarProperty Name="Des_Observaciones" ColumnName="Des_Observaciones" />
+          <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+          <ScalarProperty Name="Des_Actividad" ColumnName="Des_Actividad" />
+          <ScalarProperty Name="Des_Resp_Contratista" ColumnName="Des_Resp_Contratista" />
+          <ScalarProperty Name="Id_Alternativa" ColumnName="Id_Alternativa" />
+          <ScalarProperty Name="Id_Contratista" ColumnName="Id_Contratista" />
+          <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+          <ScalarProperty Name="Fecha_Ini" ColumnName="Fecha_Ini" />
+          <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargos">
+      <EntityTypeMapping TypeName="Model.cargo">
+        <MappingFragment StoreEntitySet="cargos">
+          <ScalarProperty Name="Nombre_Cargo" ColumnName="Nombre_Cargo" />
+          <ScalarProperty Name="Id_Cargo" ColumnName="Id_Cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

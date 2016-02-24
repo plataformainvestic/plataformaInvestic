@@ -1,0 +1,117 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+@using INI.Models.DataBase
+
+@{
+    Layout = "~/Views/Shared/_LayoutMAI_Proyectos.cshtml";
+    ViewBag.Title = "EditarProyecto";
+}
+
+<div class="grid fluid">
+
+    <div id="informeProyectoDialog">
+    </div>
+    
+    @{
+        investicEntities db = new investicEntities();
+        var grupoInvestigacion = db.tblGruposInvestigacion.Find(Model.tblGruposInvestigacion_ID);
+        @Html.Partial("~/Views/Shared/_GrupoInvestigacion.cshtml", grupoInvestigacion);
+
+    }
+
+    <h1>Complete su proyecto</h1>
+
+    @Html.Partial("~/Views/Shared/_ProyectoInvestigacion.cshtml", Model)
+
+    <div id="wizard" data-id="@Model.tblProyectosInvestigacion_ID">
+        @*Hoja 1 del wizard*@
+        <h1>PRESENTACIÓN DEL PROYECTO</h1>
+        <div class="overflow">
+            @Html.Partial("~/Views/PresentacionProyecto/Edit.cshtml", Model)
+        </div>
+
+
+        @*Hoja 2 del wizard*@
+        <h1>PROBLEMA DE INVESTIGACIÓN</h1>
+        <div class="overflow">
+            @Html.Partial("~/views/ProblemaInvestigacionProy/Edit.cshtml", Model)
+        </div>
+
+        @*Hoja 3 del wizard*@
+        <h1>MARCO DE REFERENCIA</h1>
+        <div class="overflow">
+            @Html.Partial("~/Views/MarcoReferenciaProy/Edit.cshtml", Model)
+        </div>
+
+        @*Hoja 4 del wizard*@
+        <h1>MÉTODO</h1>
+        <div class="overflow">
+            @Html.Partial("~/Views/MetodoProy/Edit.cshtml", Model)
+        </div>
+
+        @*Hoja 5 del wizard*@
+        <h1>APORTE DEL PROYECTO</h1>
+        <div class="overflow">
+            @Html.Partial("~/Views/CaracteristicasProy/Edit.cshtml", Model)
+        </div>
+
+        @*Hoja 6 CRONOGRAMA*@
+        <h1>CRONOGRAMA</h1>
+        <div class="overflow">
+            @Html.Partial("~/Views/CronogramaProy/Edit.cshtml", Model.tblCronogramaProy)
+        </div>
+
+        @*Hoja 7 PRESUPUESTO*@
+        <h1>PRESUPUESTO</h1>
+        <div class="overflow">
+            @Html.Partial("~/Views/PresupuestoProy/Edit.cshtml", Model.tblPresupuestoProy)
+        </div>
+
+
+        @*Hoja 8 del wizard*@
+        <h1>REFERENCIAS</h1>
+        <div class="overflow">
+            @Html.Partial("~/Views/ReferenciasProy/Edit.cshtml", Model)
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <h3>
+            @Html.ActionLink("Regresar", "Proyectos", "ProyectosInvestigacion", new { id = Model.tblGruposInvestigacion_ID }, null)
+        </h3>
+    </div>
+
+</div>
+
+<div id="addFechaDialog">
+    @{
+        tblFechaCronograma miNuevaFecha = new tblFechaCronograma();
+        miNuevaFecha.tblCronogramaProy_ID = Model.tblCronogramaProy_ID;
+        Html.RenderPartial("CreateFecha", miNuevaFecha);
+    }
+</div>
+
+<div id="addRubroDialog">
+    @{
+        
+        tblRubroPresupuesto miNuevoRubro = new tblRubroPresupuesto();
+        miNuevoRubro.tblPresupuestoProy_ID = Model.tblPresentacionProyecto_ID;
+        Html.RenderPartial("CreatePresupuesto", miNuevoRubro);
+    }
+</div>
+
+
+
+
+@section ScriptsMAI_PRY {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <link href="~/Content/Investic/MAI/jquery.steps.css" rel="stylesheet" />
+    <script src="~/Scripts/Investic/mai_WizardProyectos.js"></script>
+    <script src="~/Scripts/Investic/mai_MEpistemologicoCascading.js"></script>
+}
+
+

@@ -1,0 +1,322 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVESTIC</title>
+    
+    <link rel="icon" type="image/png" href="~/images/favicon.png">
+    <link href="~/Content/DataTables-1.10.4/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="~/Content/INI/Recuerdos.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    @RenderSection("Style", required: false)
+</head>
+
+@{var bodyStyle = "background: url('../../images/fondosSecciones/bg_paginicio.png') center no-repeat #558b2f;background-size: cover;";}
+@*ESTOS SON TODOS LOS FONDOS DE CONOCENOS*@
+@if (@Request.RawUrl == "/Home/Conocenos" || @Request.RawUrl == "/Home/mapaasesores" || @Request.RawUrl == "/Home/mapatutores")
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_conocenos.png') center no-repeat #558b2f;background-size: cover;";
+}
+@if (@Request.RawUrl == "/Home/EquiposTrabajo")
+{
+    bodyStyle = "background: url('../../images/conocenos/equipotrabajo/equipodetrabajo_fondo.png') center no-repeat #558b2f;background-size: cover;";
+}
+@if (@Request.RawUrl == "/Home/Alternativas")
+{
+    bodyStyle = "background: url('../../images/conocenos/alternativas/Fondo.png') center no-repeat #558b2f;background-size: cover;";
+}
+@if (@Request.RawUrl == "/Home/mapaasesores")
+{
+    bodyStyle = "background: url('../../images/conocenos/AsesoresZona/bg_asesoreszona.png') center no-repeat #558b2f;background-size: cover;";
+}
+@if (@Request.RawUrl == "/Home/mapatutores")
+{
+    bodyStyle = "background: url('../../images/conocenos/TutoresTIC/bg_fondo.png') center no-repeat #558b2f;background-size: cover;";
+}
+    @*Fondo para opciones Investiga*@
+else if (@Request.RawUrl == "/Home/BusquedaDocenteInvestigando" || @Request.RawUrl.Contains("/Home/VisualizaProyectoInvestigacion"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_docentesInvestigando.png') center repeat #558b2f;background-size: cover;";
+}
+else if (@Request.RawUrl == "/Home/BusquedaEstudiantesInvestigando" || @Request.RawUrl.Contains("/Home/VisualizarGrupoEstudiantes") || @Request.RawUrl.Contains("/Home/VisualizaProyectoInvestigacionEstudiante"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_estudiantesInvestigando.png') center no-repeat #558b2f;background-size: cover;";
+}
+@*Fondo para opciones *@
+else if (@Request.RawUrl.Contains( "/Home/CategoriasRevista") ||
+@Request.RawUrl.Contains( "/Home/SubCategorias")||
+@Request.RawUrl.Contains("/Home/Revista") || @Request.RawUrl.Contains("/Home/CategoriasRepositorio") ||
+@Request.RawUrl.Contains("/Home/SubCategoriasRepositorio") ||
+@Request.RawUrl.Contains("/Home/Repositorio"))
+{
+    bodyStyle = "background: url('../../images/InsumosPUBREV/Layouts/fondo.png');";
+}
+else if (@Request.RawUrl.Contains("/RVC") || @Request.RawUrl.Contains("/RVCWall") || @Request.RawUrl.Contains("/tbNetVirtualGroups") || @Request.RawUrl.Contains("/tbNetVirtualUsers") || @Request.RawUrl.Contains("/tbNetVirtualCategoryResources") || @Request.RawUrl.Contains("/tbNetVirtualResources"))
+{
+    bodyStyle = "background: url('../../images/InsumosPUBREV/Layouts/bg_rvc.png');";
+}
+else if (@Request.RawUrl.Contains("/PanelAdministrativo") || @Request.RawUrl.Contains("/LogAcceso"))
+{
+    bodyStyle = "background: url('../../images/InsumosPUBREV/Layouts/fondo.png');";
+}
+else if (@Request.RawUrl == "/Home/Recuerdos")
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_recuerdos.png') center no-repeat #558b2f;background-size: cover;";
+}
+else if (@Request.RawUrl == "/Home/comovamos")
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_comovamos.png') center no-repeat #558b2f;background-size: cover;";
+}
+else if (@Request.RawUrl == "/Home/Contactenos")
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_contactanos.png') center no-repeat #558b2f;background-size: cover;";
+}
+else if (@Request.RawUrl.Contains("/Home/Chamilo") || @Request.RawUrl.Contains("/RecursosEducativos") || @Request.RawUrl.Contains("/APR"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_aprendizaje.png') center no-repeat #558b2f;background-size: cover;";
+}
+else if (@Request.RawUrl == "/Home/Aprendizaje" || @Request.RawUrl == "/Home/Investigacion")
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_investiga.png') center no-repeat #558b2f; background-size: cover;";
+}
+else if (@Request.RawUrl.Contains("/Usuarios")
+    || @Request.RawUrl.Contains("/equipos")
+    || @Request.RawUrl.Contains("/cargo")
+    || @Request.RawUrl.Contains("/Contrato")
+    || @Request.RawUrl.Contains("/contractual")
+    || @Request.RawUrl.Contains("/agendar")
+    || @Request.RawUrl.Contains("/actividad")
+    || @Request.RawUrl.Contains("/Reporte")
+    || @Request.RawUrl.Contains("/Seguimiento/RegistroAdmin"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_seguimiento.png') repeat #558b2f;";
+}
+else if (@Request.RawUrl.Contains("/Usuario/"))
+{
+    //bodyStyle = "background: url('../../images/fondosSecciones/bg_seguimiento.svg') center repeat #558b2f;";
+
+    if (@Request.RawUrl == "/Usuario/Registrar")
+    {
+        bodyStyle = "background: url('../../images/fondosSecciones/bg_registrousuario.png') center repeat #558b2f;";
+    }
+
+    if (@Request.RawUrl == "/Usuario/MapaSitio")
+    {
+        bodyStyle = "background: url('../../images/fondosSecciones/bg_seguimiento.svg') center repeat #558b2f;";
+    }
+
+}
+else if (@Request.RawUrl.Contains("/MAI/"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_seguimiento.png') center repeat #558b2f;";
+}
+else if (@Request.RawUrl.Contains("/IEP"))
+{
+    bodyStyle = "background: url('../../images/IEP/bg_iep.svg') center repeat #558b2f; background-size: cover;";
+}
+else if (@Request.RawUrl.Contains("/GruposInvestigacion/") || @Request.RawUrl.Contains("/IntegrantesGrupoInv/") || @Request.RawUrl.Contains("/ProyectosInvestigacion/"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_MAI.png') center repeat #558b2f;";
+}
+    @*Fondo para opciones Editor*@
+else if (@Request.RawUrl.Contains("/Noticias")
+    || @Request.RawUrl.Contains("/Metas")
+    || @Request.RawUrl.Contains("/CategoriaImagenes")
+    || @Request.RawUrl.Contains("/GaleriaImagenes")
+    || @Request.RawUrl.Contains("/Tutores")
+    || @Request.RawUrl.Contains("/AsesorZonas")
+    || @Request.RawUrl.Contains("/Revistas")
+    || @Request.RawUrl.Contains("/Repositorios")
+    || @Request.RawUrl.Contains("/CategoriaRevistas")
+    || @Request.RawUrl.Contains("/CategoriaRepositorios")
+    || @Request.RawUrl.Contains("/SubCategoriaRevistas")
+    || @Request.RawUrl.Contains("/SubCategoriaRepositorios"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_seguimiento.png') center repeat #558b2f;";
+}
+else if (@Request.RawUrl.Contains("/Admin/Maestro"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_maestro.png') center no-repeat #558b2f; background-size: cover;";
+}
+else if (@Request.RawUrl.Contains("/Admin/Estudiante"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_estudiante.png') center no-repeat #558b2f; background-size: cover;";
+}
+else if (@Request.RawUrl.Contains("/Admin/Editor"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_editor.png') center no-repeat #558b2f; background-size: cover;";
+}
+else if (@Request.RawUrl.Contains("/Administrator/Index") || @Request.RawUrl.Contains("/Administrator"))
+{
+    bodyStyle = "background: url('../../images/fondosSecciones/bg_administrador.png') center no-repeat #558b2f; background-size: cover;";
+}
+else if (@Request.RawUrl.Contains("/Seguimiento/Index") || @Request.RawUrl.Contains("/Seguimiento"))
+{
+    if (AspNetUsersRoles.IsUserInRole("Administrador", User.Identity.Name))
+    {
+        bodyStyle = "background: url('../../images/fondosSecciones/bg_administrador.png') center no-repeat #558b2f; background-size: cover;";
+    }
+    if (AspNetUsersRoles.IsUserInRole("Coordinador", User.Identity.Name))
+    {
+        bodyStyle = "background: url('../../images/fondosSecciones/bg_coordinador.png') center no-repeat #558b2f; background-size: cover;";
+    }
+    if (AspNetUsersRoles.IsUserInRole("Contratista", User.Identity.Name))
+    {
+        bodyStyle = "background: url('../../images/fondosSecciones/bg_contratista.png') center no-repeat #558b2f; background-size: cover;";
+    }
+}
+<body class="metro" style="@bodyStyle">
+    @*
+        Inicia Barra Superior negra
+        Menú general de la plataforma
+    *@
+    <nav class="navigation-bar" style="background-color:#575756; z-index:3;">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/" style="padding:0;">
+                @*<img src="/favicon.png" height="16" width="16" />
+                    <span style="font-size:medium;color:azure">Investic</span>*@
+                <img src="~/images/logosSecciones/logo_investic.png" />
+            </a>
+            @*<span class="element-divider"></span><span id="textomenu" style=" font-size:x-small" class="element">Ciencia, tecnología e innovación para el buen vivir nariñense</span>*@
+            @if (@Request.RawUrl != "/Home/Conocenos" || @Request.RawUrl != "/Home/mapaasesores")
+            { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/Conocenos">Conócenos</a> }
+            @if (@Request.RawUrl != "/Home/Aprendizaje" 
+                && @Request.RawUrl != "/Home/Investigacion"
+                && @Request.RawUrl != "/Home/BusquedaEstudiantesInvestigando"
+                && @Request.RawUrl != "/Home/BusquedaDocenteInvestigando")
+            { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/Aprendizaje">Investiga</a> }
+            @if (@Request.RawUrl != "/Home/Contactenos")
+            { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/Contactenos">Contáctanos</a> }
+            @if (@Request.RawUrl != "/Home/Recuerdos")
+            { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/Recuerdos">Recuerdos</a> }
+            @if (@Request.RawUrl != "/Home/comovamos")
+            { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/comovamos">¿Cómo Vamos?</a> }
+
+            @if (Request.IsAuthenticated)
+            {
+                var uname = User.Identity.Name;
+
+                if (AspNetUsersRoles.IsUserInRole("Maestro", uname))
+                {
+                    if (@Request.RawUrl != "/Home/Chamilo")
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/Chamilo">Aprendizaje</a> }
+                    if (@Request.RawUrl != "/Home/MAI")
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/GruposInvestigacion/MisGrupos">MAI</a> }
+                    if (!@Request.RawUrl.Contains("/IEP"))
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/IEP">IEP</a> }
+                    if (!@Request.RawUrl.Contains("/RVC"))
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/RVC">RVC</a> }
+                }
+
+                if (AspNetUsersRoles.IsUserInRole("Estudiante", uname))
+                {
+                    if (@Request.RawUrl != "/Home/Chamilo")
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/Chamilo">Aprendizaje</a> }
+                    if (!@Request.RawUrl.Contains("/IEP"))
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/IEP">IEP</a> }
+                    if (!@Request.RawUrl.Contains("/RVC"))
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/RVC">RVC</a> }
+                }
+
+                if (AspNetUsersRoles.IsUserInRole("Editor", uname))
+                {
+                    if (@Request.RawUrl != "/Home/IEP")
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Noticias">Editor</a> }
+                }
+                if (AspNetUsersRoles.IsUserInRole("Administrator", uname))
+                {
+                    if (@Request.RawUrl != "/Home/IEP")
+                    { 
+                        <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Noticias">Editor</a> 
+                        <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/PanelAdministrativo">Panel</a>
+                    }
+                }
+
+                if (AspNetUsersRoles.IsUserInRole("Administrador", User.Identity.Name)
+                    || AspNetUsersRoles.IsUserInRole("Contratista", User.Identity.Name)
+                    || AspNetUsersRoles.IsUserInRole("Coordinador", User.Identity.Name))
+                {
+                    if (!@Request.RawUrl.Contains("/Seguimiento")
+                        || !@Request.RawUrl.Contains("/Usuarios")
+                        || !@Request.RawUrl.Contains("/equipos")
+                        || !@Request.RawUrl.Contains("/cargo")
+                        || !@Request.RawUrl.Contains("/Contrato")
+                        || !@Request.RawUrl.Contains("/contractual")
+                        || !@Request.RawUrl.Contains("/agendar")
+                        || !@Request.RawUrl.Contains("/actividad")
+                        || !@Request.RawUrl.Contains("/Reporte"))
+                    { <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Seguimiento">Seguimiento</a> }
+                }
+                <span class="element-divider"></span><a id="fuentemenu" class="element" href="~/Home/Chat">Interactua</a>
+            }
+            <span class="element-divider place-right"></span>
+            <div class="no-tablet-portrait">
+                @if (!Request.IsAuthenticated)
+                {
+                    <div class="element place-right">
+                        <a class="dropdown-toggle" href="#">
+                            <span>¿Eres Nuevo?</span>
+                        </a>
+                        <ul class="dropdown-menu place-right" data-role="dropdown">
+                            <li><a href="~/Usuario/Registrar">Registrarse</a></li>
+                            <li><a href="~/Usuario/MapaSitio">Mapa del Sitio</a></li>
+
+                        </ul>
+                    </div>
+                    @Html.Partial("_loginForm")
+                }
+                else
+                {
+                    @Html.Partial("_LoginPartial")
+
+                }
+            </div>
+        </nav>
+    </nav>
+    @*
+        Termina Barra Superior negra
+    *@
+
+    <div id="botones" style="background:url('') repeat-x; height:50px; position:absolute; width:100%; left:0;top:45px;z-index:2;">
+        <div style="background-color:#E5E5E5;position:relative; height:48px;">
+            @RenderSection("Submenu", required: false)
+            
+        </div>
+        <div style="position:absolute; right:0;top:3%;">
+            <a href="http://www.facebook.com/investic.edu" target="_blank"><img id="boton_facebook" src="~/images/boton_facebook.png" style="margin:0; float: right;margin-top:-2px;" /></a>
+            <a href="http://www.twitter.com/investic_edu" target="_blank"><img id="boton_twitter" src="~/images/boton_twitter.png" style="margin:0; float: right;margin-top:-2px;" /></a>
+            <a href="http://www.youtube.com/user/investicedu" target="_blank"><img id="boton_youtube" src="~/images/boton_youtube.png" style="margin:0; float: right;margin-top:-2px;" /></a>
+        </div>
+    </div>
+    <div>
+        <div id="tituloruta">
+            <br />
+            <br />
+            Dónde Estoy?
+            @Html.MvcSiteMap().SiteMapPath()
+
+        </div>
+
+    </div>
+    @RenderBody()
+    @*<center>@Html.AtrasInvestic()</center>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/metro-ui")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/js/Invresources.js"></script>
+    <script src="~/Scripts/Investic/iep-0.1-AlertMessage.js"></script>
+    @RenderSection("Script", required: false)
+</body>
+</html>

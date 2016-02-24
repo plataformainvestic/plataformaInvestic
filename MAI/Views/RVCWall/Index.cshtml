@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    int id = ViewBag.Id;
+}
+
+
+@Html.ActionLink("Invitar", "InvitarUsuario", "RVCWall", new {id=id }, new { @class = "button large primary" })
+

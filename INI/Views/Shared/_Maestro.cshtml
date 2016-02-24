@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .INVESTIC</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+
+</head>
+<body class="metro" style="background: url('../../images/admin/maestro/bg_maestro.png') center no-repeat #558b2f;background-size: cover;">
+
+    <nav class="navigation-bar" style="background-color:#575756;">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/">
+                <img src="/favicon.png" height="16" width="16" />
+                <span style="font-size:medium;color:azure">Investic</span>
+            </a>
+            <span class="element-divider"></span>
+            <span id="textomenu" style=" font-size:x-small" class="element">Ciencia, tecnología e innovación para el buen vivir nariñense</span>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Conocenos">
+                Aprende
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="~/Home/Contactenos">
+                Investiga
+            </a>
+            <span class="element-divider place-right"></span>
+            @if (!Request.IsAuthenticated)
+            {
+
+                <div class="element place-right">
+                    <a class="dropdown-toggle" href="#">
+                        <span>¿Eres Nuevo?</span>
+                    </a>
+                    <ul class="dropdown-menu place-right" data-role="dropdown">
+                        <li><a href="~/Usuario/Registrar">Registrarse</a></li>
+                    </ul>
+                </div>
+                @Html.Partial("_LoginForm")
+            }
+            else
+            {
+                @Html.Partial("_LoginPartial")
+
+            }
+
+
+
+
+        </nav>
+    </nav>
+    @*<div class="tile fluid bg-transparent">
+            <a href="#">
+                <div class="tile half bg-transparent">
+                    <div class="tile-content image">
+                        <img src="~/usuarios/images/2.conocenos.png" />
+                    </div>
+                </div>
+            </a>
+        </div>*@
+    <div class="container">
+  
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/metro-ui")
+    
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.js"></script>
+    <script src="~/Scripts/js/Invresources.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

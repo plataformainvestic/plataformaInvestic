@@ -1,0 +1,21 @@
+﻿@{    
+    ViewBag.Title = "INVESTIGACIÓN COMO ESTRATEGIA PEDAGÓGICA";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span12 text-center">
+            <h4>@ViewBag.Title</h4>
+        </div>
+    </div>    
+</div>
+
+<div class="button-set margin10">
+    <a href="/IEP" class="button">Mis grupos</a>
+    <a href="/IEP/Invitaciones" class="button">Mis solicitudes</a>
+</div>
+
+@RenderBody()
+
+@RenderSection("scripts", required: false)

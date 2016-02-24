@@ -1,0 +1,44 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblGaleriaImagenes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagen_titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagen_descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagen_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblCategoriaImagenes.cat_Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagen_titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagen_descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagen_url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblCategoriaImagenes.cat_Nombre)
+        </td>        
+    </tr>
+}
+
+</table>

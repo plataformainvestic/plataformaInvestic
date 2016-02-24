@@ -1,0 +1,156 @@
+﻿@model INI.Models.DataBase.tblMeta
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Crear Meta
+        </h2>
+    </p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+
+        @Html.ValidationSummary(true)
+        <div>
+
+                    <p>
+                        <h2>
+                            <strong>Investigación</strong>
+                        </h2>
+                    </p>
+       
+            <table border="0">
+                
+                <tr>
+                    <td class="span3">Municipio</td>
+                    <td>
+                        <div class="input-control select size3">
+                            @Html.DropDownList("idMunicipio", ".:Municipio:.")
+                            @Html.ValidationMessageFor(model => model.idMunicipio)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Grupos Estudiantiles</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_grupoInvestigacionEstudiantil)
+                            @Html.ValidationMessageFor(model => model.met_grupoInvestigacionEstudiantil)
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>N° Estudiantes</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_estudianteInvestigando)
+                            @Html.ValidationMessageFor(model => model.met_estudianteInvestigando)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Grupos de Docentes</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_grupoInvestigacionDocente)
+                            @Html.ValidationMessageFor(model => model.met_grupoInvestigacionDocente)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N° Docentes</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_docenteInvestigando)
+                            @Html.ValidationMessageFor(model => model.met_docenteInvestigando)
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <p>
+                <h2>
+                    <strong>Formación en las TIC</strong>
+                </h2>
+            </p>
+            <table border="0">
+                <tr>
+                    <td class="span3">Sedes Educativas</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_establecimientosEducativos)
+                            @Html.ValidationMessageFor(model => model.met_establecimientosEducativos)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N° Padres 40H</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_padresFormados40)
+                            @Html.ValidationMessageFor(model => model.met_padresFormados40)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N° Estudiantes 40H</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_estudiantesFormados40)
+                            @Html.ValidationMessageFor(model => model.met_estudiantesFormados40)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N° Docentes 120H</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_docentesFormados120)
+                            @Html.ValidationMessageFor(model => model.met_docentesFormados120)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>N° estudiantes 180H</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_estudiantesFormados180)
+                            @Html.ValidationMessageFor(model => model.met_estudiantesFormados180)
+                        </div>
+                    </td>
+                <tr>
+                    <td>N° Docentes 180H</td>
+                    <td>
+                        <div class="input-control  text size3">
+                            @Html.EditorFor(model => model.met_docentesFormados180)
+                            @Html.ValidationMessageFor(model => model.met_docentesFormados180)
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+            <br />
+        </div>
+        
+        <div class="form-actions no-color">
+            <table style="background-color:transparent;">
+                <tr>
+                    <td><input type="submit" value="Crear Meta" class="button large primary" /> |</td>
+                    <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,16 @@
+﻿@model IEP.Models.DataBase.tblConceptosEstadoArte
+
+<a href="#" class="list">
+    <div class="list-content">
+        <img src="~/images/Icon-user.png" class="icon">
+        <div class="data">
+            <span class="list-title">Autor @Model.Autor</span>
+            <div>
+                @Html.DisplayFor(model => model.Texto)
+            </div>          
+            <span class="list-remark">
+                Año: @Model.Publicacion
+            </span>
+        </div>
+    </div>
+</a>

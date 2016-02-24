@@ -1,0 +1,35 @@
+﻿@model IEnumerable<INI.Models.DataBase.MisGrupos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<table id="misGrupos" class="table striped hover">
+    <thead>
+        <tr>
+            <th class="span2"></th>
+            <th class="span2">Imagen</th>
+            <th class="span8">Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Ver Proyecto", "Index", "AsistenteGruposInvestigacion", new { id = item.id }, new { @class = "button info" })
+                </td>
+                <td class="text-center">
+                    <img src="~/images/Avatars/@item.Avatar" width="110" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Informacion, "InfoGrupo")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

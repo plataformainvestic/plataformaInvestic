@@ -1,0 +1,69 @@
+﻿@model INI.Models.DataBase.tblAsesorZona
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<h2>Eliminar Coordinador Pedagógico</h2>
+
+<h3>Usted esta seguro que desea eliminar este Coordinador?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Nombres Completos del Coordinador
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_nombre)
+        </dd>
+        
+        <dt>
+            Apellidos del Coordinador
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_apellido)
+        </dd>
+
+        <dt>
+            Correo Electrónico
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_correo)
+        </dd>
+
+        <dt>
+            Teléfono de contacto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aseZon_telefono)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.tblEquipo_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEquipo_ID)
+        </dd>*@
+        <dt>
+            Municipio al que estaba registrado:
+        </dt>
+        <dd>
+            @Html.Label(Model.tblMunicipios.NombreMunicipio)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar Coordinador" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la Lista", "Index")
+        </div>
+    }
+</div>

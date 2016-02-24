@@ -1,0 +1,91 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblIntegrante>
+
+    <div data-role="collapsible-set">
+
+    <div data-role="collapsible">
+        <h4>Coordinación General</h4>
+        @foreach (var item in Model.Where(m => m.tblEquipo_ID == 10011))
+        {
+            <address>
+                <strong>@Html.DisplayFor(modelItem => item.int_nombre) @Html.DisplayFor(modelItem => item.int_apellido)</strong><br />
+                <abbr title="Teléfono">Tel:</abbr> @Html.DisplayFor(modelItem => item.int_telefono)
+                <br />Correo:<a href="mailto:@Html.DisplayFor(modelItem => item.int_correo)">@Html.DisplayFor(modelItem => item.int_correo)</a>
+            </address>
+
+        }
+    </div>
+    <div data-role="collapsible"><h4>Equipo Administrativo</h4>
+        @foreach (var item in Model.Where(m => m.tblEquipo_ID == 10002))
+        {
+            
+                <address>
+                    <strong>@Html.DisplayFor(modelItem => item.int_nombre) @Html.DisplayFor(modelItem => item.int_apellido)</strong><br />
+                    <abbr title="Teléfono">Tel:</abbr> @Html.DisplayFor(modelItem => item.int_telefono)
+                    <br />Correo:<a href="mailto:@Html.DisplayFor(modelItem => item.int_correo)">@Html.DisplayFor(modelItem => item.int_correo)</a>
+                </address>
+
+        }
+    </div>
+    <div data-role="collapsible"><h4>Equipo de Seguimiento</h4>
+        @foreach (var item in Model.Where(m => m.tblEquipo_ID == 10003))
+        {
+
+                <address>
+                    <strong>@Html.DisplayFor(modelItem => item.int_nombre) @Html.DisplayFor(modelItem => item.int_apellido)</strong><br />
+                    <abbr title="Teléfono">Tel:</abbr> @Html.DisplayFor(modelItem => item.int_telefono)
+                    <br />Correo:<a href="mailto:@Html.DisplayFor(modelItem => item.int_correo)">@Html.DisplayFor(modelItem => item.int_correo)</a>
+                </address>
+
+        }
+    </div>
+    <div data-role="collapsible"><h4>Equipo IEP</h4>
+        @foreach (var item in Model.Where(m => m.tblEquipo_ID == 10004))
+        {
+
+                <address>
+                    <strong>@Html.DisplayFor(modelItem => item.int_nombre) @Html.DisplayFor(modelItem => item.int_apellido)</strong><br />
+                    <abbr title="Teléfono">Tel:</abbr> @Html.DisplayFor(modelItem => item.int_telefono)
+                    <br />Correo:<a href="mailto:@Html.DisplayFor(modelItem => item.int_correo)">@Html.DisplayFor(modelItem => item.int_correo)</a>
+                </address>
+
+        }
+    </div>
+    <div data-role="collapsible"><h4>Equipo de Formación TIC</h4>
+        @foreach (var item in Model.Where(m => m.tblEquipo_ID == 10006))
+        {
+
+                <address>
+                    <strong>@Html.DisplayFor(modelItem => item.int_nombre) @Html.DisplayFor(modelItem => item.int_apellido)</strong><br />
+                    <abbr title="Teléfono">Tel:</abbr> @Html.DisplayFor(modelItem => item.int_telefono)
+                    <br />Correo:<a href="mailto:@Html.DisplayFor(modelItem => item.int_correo)">@Html.DisplayFor(modelItem => item.int_correo)</a>
+                </address>
+
+        }
+    </div>
+    <div data-role="collapsible"><h4>Equipo de Infraestructura</h4>
+        @foreach (var item in Model.Where(m => m.tblEquipo_ID == 10012))
+        {
+
+                <address>
+                    <strong>@Html.DisplayFor(modelItem => item.int_nombre) @Html.DisplayFor(modelItem => item.int_apellido)</strong><br />
+                    <abbr title="Teléfono">Tel:</abbr> @Html.DisplayFor(modelItem => item.int_telefono)
+                    <br />Correo:<a href="mailto:@Html.DisplayFor(modelItem => item.int_correo)">@Html.DisplayFor(modelItem => item.int_correo)</a>
+                </address>
+
+        }
+    </div>
+    <div data-role="collapsible"><h4>Equipo de Plataforma</h4>
+        @foreach (var item in Model.Where(m => m.tblEquipo_ID == 10007))
+        {
+
+                <address>
+                    <strong>@Html.DisplayFor(modelItem => item.int_nombre) @Html.DisplayFor(modelItem => item.int_apellido)</strong><br />
+                    <abbr title="Teléfono">Tel:</abbr> @Html.DisplayFor(modelItem => item.int_telefono)
+                    <br />Correo:<a href="mailto:@Html.DisplayFor(modelItem => item.int_correo)">@Html.DisplayFor(modelItem => item.int_correo)</a>
+                </address>
+
+        }
+    </div>
+
+
+</div>

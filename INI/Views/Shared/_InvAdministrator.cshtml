@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Investic-Administrator";
+    Layout = "~/Views/Shared/_LayoutInvestic.cshtml";
+    
+}
+
+@section Submenu{
+    <img src="~/images/logosSecciones/logo_seguimiento.png" style="margin:0; float: left;" />
+    <div id="titulosmenusec" style="color: #BDBDBD">Administrador</div>
+
+   
+   
+        <div><a id="btnmenusec" href="/PanelAdministrativo">Usuarios</a></div>
+        <div><a id="btnmenusec" href="/LogAcceso">Log de acceso</a></div>        
+        
+        <div>
+
+
+        <a class="dropdown-toggle" href="#" id="btnmenusec" accesskey="g">
+            <span><b><u>G</u>estión de Lista</b></span>
+        </a>
+        <ul class="dropdown-menu place-right" data-role="dropdown">
+            <li><a href="~/ParadigmaEpistemologico/Index" accesskey="P"><u>P</u>aradigma Epistemológico</a></li>
+            <li><a href="~/TipoEstudioProy/Index" accesskey="T"><u>T</u>ipo Estudio de Proyectos</a></li>
+            <li><a href="~/EjeInvestigacion/Index" accesskey="E"><u>E</u>jes de Investigación</a></li>
+            <li><a href="~/DiseniosProy/Index" accesskey="D"><u>D</u>iseños de Proyectos</a></li>
+            <li><a href="~/ParadigmaMetodologico/Index" accesskey="M">Paradigma <u>M</u>etodológico</a></li>
+            <li><a href="~/Rubro/Index" accesskey="u">R<u>u</u>bros de Proyectos</a></li>
+            <li><a href="~/RubroPresupuesto/Index" accesskey="R"><u>R</u>ubro Presupuestal</a></li>
+            <li><a href="~/RecoleccionInformacionProyectoInvestigacions/Index" accesskey="I">Recolección <u>I</u>nformación de Proyectos Investigación</a></li>
+            <li><a href="~/HerramientasRecoleccionInformacion/Index" accesskey="H"><u>H</u>erramientas de Recolección de Información</a></li>
+
+        </ul>
+    </div>
+        @*<div><a id="btnmenusec" href="/Contrato/Seleccionar">Datos Contrato</a></div>
+        <div><a id="btnmenusec" href="/contractual/Create">Asignar Responsabilidades</a></div>
+        <div><a id="btnmenusec" href="/agendar/Seleccionar">Agendar Tarea</a></div>
+        <div><a id="btnmenusec" href="/Usuarios/Index">Usuarios</a></div>*@
+
+    
+    <div style="padding-bottom:15px;padding-top:14px;margin:0; color:#E5E5E5;"></div>
+
+}
+<div>
+    <div id="tituloruta">
+        Dónde Estoy?
+        <font id="ruta">@Html.MvcSiteMap().SiteMapPath()</font>
+
+    </div>
+
+</div>
+<div class="container">
+    @RenderBody()
+</div>
+
+@section Script{
+    @RenderSection("scripts", required: false)
+}

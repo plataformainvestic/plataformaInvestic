@@ -1,0 +1,59 @@
+﻿@model IEnumerable<INI.Models.Mymodels.RedVirtualGrupoOwner>
+@{
+    ViewBag.Title = "Aprovar";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<table id="rvc" class="table">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Fecha
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Action("DowloadFile", "tbNetVirtualGroups", new { id = item.id, FileId = "photo" })" width="100px"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>               
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>                    
+                    <button class="button large primary btnrvc" id="@item.id">Aprobar</button>                  
+                    @Html.ActionLink(" ", "Details", "tbNetVirtualGroups", new { id = item.id }, new { @class = "glyphicon glyphicon-list" }) |                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#rvc').DataTable();
+            $(".button large primary btnrvc").click(function () {
+                var id = $(this).attr("id");
+                console.log(id);
+                $.get("/RVC/ChangeState", id, function (data) {
+                    alert(data.rta);
+                });
+            });
+        });
+    </script>
+}
+
+
+
+

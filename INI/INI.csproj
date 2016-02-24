@@ -1,0 +1,2896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B1905781-EFEE-40EC-87E9-88E4874074F7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>INI</RootNamespace>
+    <AssemblyName>INI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CatagorizrMvc4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CatagorizrMvc4.1.0.3\lib\net40\CatagorizrMvc4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML">
+      <HintPath>..\packages\ClosedXML.0.75.0\lib\net40-client\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider, Version=4.6.18.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.18\lib\net45\MvcSiteMapProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.4.6.18\lib\net45\MvcSiteMapProvider.WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebActivator, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CatagorizrBoot.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MetroUICSSBundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BitacoraReport.cs" />
+    <Compile Include="BottonAtrasInvestic.cs" />
+    <Compile Include="Controllers\Administracion\AdminController.cs" />
+    <Compile Include="Controllers\Administracion\AdministratorController.cs" />
+    <Compile Include="Controllers\Administracion\LogAccesoController.cs" />
+    <Compile Include="Controllers\Administracion\PanelAdministrativoController.cs" />
+    <Compile Include="Controllers\Aprendizaje\APRController.cs" />
+    <Compile Include="Controllers\Aprendizaje\JsonController.cs" />
+    <Compile Include="Controllers\Asesores\AsesorZonasController.cs" />
+    <Compile Include="Controllers\CategoriaImagenes\CategoriaImagenesController.cs" />
+    <Compile Include="Controllers\Colecciones\ColeccionesController.cs" />
+    <Compile Include="Controllers\Cursos\CursosController.cs" />
+    <Compile Include="Controllers\DiseniosProyController.cs" />
+    <Compile Include="Controllers\Edicion\EditController.cs" />
+    <Compile Include="Controllers\EjeInvestigacionController.cs" />
+    <Compile Include="Controllers\Equipos\EquipoController.cs" />
+    <Compile Include="Controllers\GaleriaImagenes\GaleriaImagenesController.cs" />
+    <Compile Include="Controllers\GruposInvestigacion\InvestigacionGruposController.cs" />
+    <Compile Include="Controllers\HerramientasRecoleccionInformacionController.cs" />
+    <Compile Include="Controllers\IEP\IEPController.cs" />
+    <Compile Include="Controllers\Integrantes\IntegrantesController.cs" />
+    <Compile Include="Controllers\MAI\CaracteristicasProyController.cs" />
+    <Compile Include="Controllers\MAI\CronogramaProyController.cs" />
+    <Compile Include="Controllers\MAI\FechasCronogramaController.cs" />
+    <Compile Include="Controllers\MAI\GruposInvestigacionController.cs" />
+    <Compile Include="Controllers\MAI\IntegrantesGrupoInvController.cs" />
+    <Compile Include="Controllers\MAI\MAIController.cs" />
+    <Compile Include="Controllers\MAI\MarcoReferenciaProyController.cs" />
+    <Compile Include="Controllers\MAI\MetodoProyController.cs" />
+    <Compile Include="Controllers\MAI\PresentacionProyectoController.cs" />
+    <Compile Include="Controllers\MAI\PresupuestoProyController.cs" />
+    <Compile Include="Controllers\MAI\ProblemaInvestigacionProyController.cs" />
+    <Compile Include="Controllers\MAI\ProyectosInvestigacionController.cs" />
+    <Compile Include="Controllers\MAI\ProyectosInvestigacion_RevController.cs" />
+    <Compile Include="Controllers\MAI\ReferenciasProyController.cs" />
+    <Compile Include="Controllers\MAI\RubrosPresupuestoController.cs" />
+    <Compile Include="Controllers\Metas\MetasController.cs" />
+    <Compile Include="Controllers\Noticias\NoticiasController.cs" />
+    <Compile Include="Controllers\ParadigmaEpistemologicoController.cs" />
+    <Compile Include="Controllers\ParadigmaMetodologicoController.cs" />
+    <Compile Include="Controllers\PDFBitacoraController.cs" />
+    <Compile Include="Controllers\PruebasController.cs" />
+    <Compile Include="Controllers\RecoleccionInformacionProyectoInvestigacionsController.cs" />
+    <Compile Include="Controllers\RecursosEducativos\RecursosEducativosController.cs" />
+    <Compile Include="Controllers\RepositorioDigital\CategoriaRepositoriosController.cs" />
+    <Compile Include="Controllers\RepositorioDigital\RepositoriosController.cs" />
+    <Compile Include="Controllers\RepositorioDigital\SubCategoriaRepositoriosController.cs" />
+    <Compile Include="Controllers\RevistaDigital\CategoriaRevistasController.cs" />
+    <Compile Include="Controllers\RevistaDigital\RevistasController.cs" />
+    <Compile Include="Controllers\RevistaDigital\SubCategoriaRevistasController.cs" />
+    <Compile Include="Controllers\RubroController.cs" />
+    <Compile Include="Controllers\RVC\RVCController.cs" />
+    <Compile Include="Controllers\RVC\RVCWallController.cs" />
+    <Compile Include="Controllers\RVC\tbNetVirtualCategoryResourcesController.cs" />
+    <Compile Include="Controllers\RVC\tbNetVirtualGroupsController.cs" />
+    <Compile Include="Controllers\RVC\tbNetVirtualResourcesController.cs" />
+    <Compile Include="Controllers\RVC\tbNetVirtualUsersController.cs" />
+    <Compile Include="Controllers\SEG\actividadController.cs" />
+    <Compile Include="Controllers\SEG\agendarController.cs" />
+    <Compile Include="Controllers\SEG\cargoController.cs" />
+    <Compile Include="Controllers\SEG\contractualController.cs" />
+    <Compile Include="Controllers\SEG\ContratoController.cs" />
+    <Compile Include="Controllers\SEG\equiposController.cs" />
+    <Compile Include="Controllers\SEG\evidenciasController.cs" />
+    <Compile Include="Controllers\SEG\produtoController.cs" />
+    <Compile Include="Controllers\SEG\repoController.cs" />
+    <Compile Include="Controllers\SEG\ReporteController.cs" />
+    <Compile Include="Controllers\SEG\responsaController.cs" />
+    <Compile Include="Controllers\SEG\SeguimientoController.cs" />
+    <Compile Include="Controllers\SEG\UsuariosController.cs" />
+    <Compile Include="Controllers\tblConceptosEstadoArtesController.cs" />
+    <Compile Include="Controllers\tblEstadoArteProyectoInvestigacionsController.cs" />
+    <Compile Include="Controllers\tblPropagacionGrupoesController.cs" />
+    <Compile Include="Controllers\tblRecoleccionInformacionProyectoInvestigacionsController.cs" />
+    <Compile Include="Controllers\TipoEstudioProyController.cs" />
+    <Compile Include="Controllers\Tutores\TutoresController.cs" />
+    <Compile Include="Controllers\Usuarios\RolesController.cs" />
+    <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
+    <Compile Include="Controllers\Usuarios\UsuariosRolesController.cs" />
+    <Compile Include="Controllers\UtilidadesController.cs" />
+    <Compile Include="Extensions\ActionResults\JsonNetResult.cs" />
+    <Compile Include="Extensions\ActionResults\PdfResultController.cs" />
+    <Compile Include="Extensions\Controllers\NewtomSofController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hubs\ChatHub.cs" />
+    <Compile Include="Infrastructure\ScriptHelper.cs" />
+    <Compile Include="LogReport.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\Adds\CategoriaCursos.cs" />
+    <Compile Include="Models\Adds\Tutores.cs" />
+    <Compile Include="Models\Adds\TutoresAsesores.cs" />
+    <Compile Include="Models\Adds\Usuarios.cs" />
+    <Compile Include="Models\Adds\VerinfoCursos.cs" />
+    <Compile Include="Models\Admin\LogAcceso.cs" />
+    <Compile Include="Models\Admin\UserAdmin.cs" />
+    <Compile Include="Models\BusquedaInvestigacion\SearchProyect.cs" />
+    <Compile Include="Models\Chat\MessageDetail.cs" />
+    <Compile Include="Models\Chat\UserDetail.cs" />
+    <Compile Include="Models\DataBase\AspNetRoles.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\AspNetUserClaims.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\AspNetUserLogins.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\AspNetUserRoles.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\AspNetUsers.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CategoriaRepositorio.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CategoriaRevista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Chamilo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chamilo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Chamilo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Chamilo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chamilo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_category.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_field.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_field_values.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_module.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_rel_class.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_rel_user.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_request.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\course_type.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\c_course_description.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\c_course_setting.cs">
+      <DependentUpon>Chamilo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\InvesticModelExtend.cs" />
+    <Compile Include="Models\DataBase\MisGrupos.cs" />
+    <Compile Include="Models\DataBase\ReflexionDeLaOnda.cs" />
+    <Compile Include="Models\DataBase\Repositorio.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Revista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\SubCategoriaRepositorio.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\SubCategoriaRevista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\sysdiagrams.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblActividadContratista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblAlternativas.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblAreaConocimiento.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblAsesor.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblAsesorGrupoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblAsesorZona.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblAsesorZonaMunicipio.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblBitacoraGrupoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCaracteristicasProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCaracteristicasProy_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCargos.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCategoriaImagenes.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCategoriaProductos.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCentrosPoblado.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCoInvestigadorGrupoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblColecciones.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblComentarioGrupo.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblConceptosEstadoArte.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCriticoSocial.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCronogramaProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblCronogramaProy_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblDiseniosProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblDocumentosSoporte.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEjeInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEquipo.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEquiposTrabajo.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEstado.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEstadoArteProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEstadoTarea.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEventosAcademicos.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblEvidenciasContratista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblExperienciaProyectos.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblFechaCronograma.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblForoProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblGaleriaImagenes.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblGrupoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblGruposInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblHerramientasRecoleccionInformacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblHistoricoHermeneutico.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblHojaVida.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblIdiomas.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblInstitucion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblInstitucionEducativa.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblIntegrante.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblIntegrantesGrupoInv.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblInvitacionGrupo.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblLenguas.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblLineaInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblLogAcceso.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMaestroCoInvestigador.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMarcoReferenciaProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMarcoReferenciaProy_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMeta.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMetodoProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMetodoProy_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMiembroGrupo.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblMunicipios.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblNivel.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblNivelAcademicoEducacionSuperior.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblNivelIdioma.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblNivelLengua.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblNoticias.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblParadigmaEpistemologico.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblParadigmaMetodologico.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPreguntaInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPreguntaProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPresentacionProyecto.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPresentacionProyecto_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPresupuestoProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPresupuestoProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPresupuestoProy_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProblemaInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProblemaInvestigacionProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProblemaInvestigacionProy_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProblemaProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProductosAcademicos.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProductosContratista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProgramaTareasContratista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblPropagacionGrupo.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProyectosGruposInvstigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProyectosInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblProyectosInvestigacion_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblRecoleccionInformacionProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblRecursosEducativos.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblReferenciasProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblReferenciasProy_Rev.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblReflexionOnda.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblReflexionProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblRegion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblResponsabContratista.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblRol.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblRubro.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblRubroPresupuesto.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblSedeEducativa.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblSeguimientoProyectoInvestigacion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblTipoEstablecimiento.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblTipoEstudioProy.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblTipoFeria.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblTipoInstitucion.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblTituloEducacionSuperior.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblTutorZona.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblTutorZonaSedeEducativa.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Investic.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Investic.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Investic.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Investic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Investic.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tblZona.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualCategoryResource.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualForo.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualGroup.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualMessage.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualResource.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualUser.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualUserGroup.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbNetVirtualWall.cs">
+      <DependentUpon>Investic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataTableAjaxModels\Binder\RqDatatableModelBinder.cs" />
+    <Compile Include="Models\DataTableAjaxModels\RequestModel.cs" />
+    <Compile Include="Models\DataTableAjaxModels\ResponseErrorModel.cs" />
+    <Compile Include="Models\DataTableAjaxModels\ResponseModel.cs" />
+    <Compile Include="Models\DataTableAjaxModels\RqColumn.cs" />
+    <Compile Include="Models\DataTableAjaxModels\RqOrder.cs" />
+    <Compile Include="Models\DataTableAjaxModels\RqSearch.cs" />
+    <Compile Include="Models\FileMetaData.cs" />
+    <Compile Include="Models\IdentityModel.cs" />
+    <Compile Include="Models\DataBase\Motivacion.cs" />
+    <Compile Include="Models\DateRange\DateRange.cs" />
+    <Compile Include="Models\Mymodels\DigitalMagazine.cs" />
+    <Compile Include="Models\Mymodels\RedVirtualGrupo.cs" />
+    <Compile Include="Models\Mymodels\RVCTotal.cs" />
+    <Compile Include="Models\Reflexion.cs" />
+    <Compile Include="Models\Reporte.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="seg_GeneratePassword.cs" />
+    <Compile Include="seg_pdfPage.cs" />
+    <Compile Include="seg_PDFReports.cs" />
+    <Compile Include="seg_WeekMonth.cs" />
+    <Compile Include="Service References\ChamiloWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\Chat\login.mp3" />
+    <Content Include="Audio\Chat\logout.mp3" />
+    <Content Include="Audio\Chat\newmsj.mp3" />
+    <Content Include="bin\ClassLibrary.dll" />
+    <Content Include="bin\ClosedXML.dll" />
+    <Content Include="bin\DocumentFormat.OpenXml.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\INI.dll" />
+    <Content Include="bin\INI.pdb" />
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\MySql.Data.Entity.EF5.dll" />
+    <Content Include="bin\MySql.Data.Entity.EF6.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ChatStyle.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.autoFill.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.autoFill.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.colReorder.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.colReorder.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.colVis.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.colVis.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.fixedColumns.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.fixedHeader.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.keyTable.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.keyTable.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.responsive.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.scroller.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.scroller.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.tableTools.css" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.tableTools.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.3\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.3\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\AutoFill\css\dataTables.autoFill.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\AutoFill\css\dataTables.autoFill.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\AutoFill\images\filler.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\ColReorder\images\insert.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\ColVis\css\dataTables.colVis.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\ColVis\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\ColVis\css\dataTables.colVis.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\FixedColumns\css\dataTables.fixedColumns.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\FixedColumns\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\FixedHeader\css\dataTables.fixedHeader.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\FixedHeader\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\KeyTable\css\dataTables.keyTable.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\Scroller\css\dataTables.scroller.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\Scroller\css\dataTables.scroller.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\Scroller\images\loading-background.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\background.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\collection.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\collection_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\copy.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\copy_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\csv.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\csv_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\pdf.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\pdf_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\print.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\print_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\xls.png" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\xls_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\background.png" />
+    <Content Include="Content\DataTables-1.10.3\images\back_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\images\back_enabled.png" />
+    <Content Include="Content\DataTables-1.10.3\images\back_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\collection.png" />
+    <Content Include="Content\DataTables-1.10.3\images\collection_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\copy.png" />
+    <Content Include="Content\DataTables-1.10.3\images\copy_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\csv.png" />
+    <Content Include="Content\DataTables-1.10.3\images\csv_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\details_close.png" />
+    <Content Include="Content\DataTables-1.10.3\images\details_open.png" />
+    <Content Include="Content\DataTables-1.10.3\images\filler.png" />
+    <Content Include="Content\DataTables-1.10.3\images\forward_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\images\forward_enabled.png" />
+    <Content Include="Content\DataTables-1.10.3\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\insert.png" />
+    <Content Include="Content\DataTables-1.10.3\images\loading-background.png" />
+    <Content Include="Content\DataTables-1.10.3\images\pdf.png" />
+    <Content Include="Content\DataTables-1.10.3\images\pdf_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\print.png" />
+    <Content Include="Content\DataTables-1.10.3\images\print_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\images\sort_asc.png" />
+    <Content Include="Content\DataTables-1.10.3\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\images\sort_both.png" />
+    <Content Include="Content\DataTables-1.10.3\images\sort_desc.png" />
+    <Content Include="Content\DataTables-1.10.3\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\images\xls.png" />
+    <Content Include="Content\DataTables-1.10.3\images\xls_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\media\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.3\media\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.3\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables-1.10.3\media\css\jquery.dataTables_themeroller.min.css" />
+    <Content Include="Content\DataTables-1.10.3\media\images\back_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\back_enabled.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\back_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\favicon.ico" />
+    <Content Include="Content\DataTables-1.10.3\media\images\forward_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\forward_enabled.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\sort_asc.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\sort_both.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\sort_desc.png" />
+    <Content Include="Content\DataTables-1.10.3\media\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.3\swf\copy_csv_xls.swf" />
+    <Content Include="Content\DataTables-1.10.3\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.autoFill.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.autoFill.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.colReorder.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.colReorder.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.colVis.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.colVis.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.fixedColumns.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.fixedHeader.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.keyTable.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.keyTable.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.responsive.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.scroller.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.scroller.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.tableTools.css" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.tableTools.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables-1.10.4\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables-1.10.4\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables-1.10.4\images\background.png" />
+    <Content Include="Content\DataTables-1.10.4\images\back_disabled.png" />
+    <Content Include="Content\DataTables-1.10.4\images\back_enabled.png" />
+    <Content Include="Content\DataTables-1.10.4\images\back_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\images\collection.png" />
+    <Content Include="Content\DataTables-1.10.4\images\collection_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\images\copy.png" />
+    <Content Include="Content\DataTables-1.10.4\images\copy_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\images\csv.png" />
+    <Content Include="Content\DataTables-1.10.4\images\csv_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\images\details_close.png" />
+    <Content Include="Content\DataTables-1.10.4\images\details_open.png" />
+    <Content Include="Content\DataTables-1.10.4\images\filler.png" />
+    <Content Include="Content\DataTables-1.10.4\images\forward_disabled.png" />
+    <Content Include="Content\DataTables-1.10.4\images\forward_enabled.png" />
+    <Content Include="Content\DataTables-1.10.4\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\images\insert.png" />
+    <Content Include="Content\DataTables-1.10.4\images\loading-background.png" />
+    <Content Include="Content\DataTables-1.10.4\images\pdf.png" />
+    <Content Include="Content\DataTables-1.10.4\images\pdf_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\images\print.png" />
+    <Content Include="Content\DataTables-1.10.4\images\print_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\images\sort_asc.png" />
+    <Content Include="Content\DataTables-1.10.4\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.4\images\sort_both.png" />
+    <Content Include="Content\DataTables-1.10.4\images\sort_desc.png" />
+    <Content Include="Content\DataTables-1.10.4\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables-1.10.4\images\xls.png" />
+    <Content Include="Content\DataTables-1.10.4\images\xls_hover.png" />
+    <Content Include="Content\DataTables-1.10.4\swf\copy_csv_xls.swf" />
+    <Content Include="Content\DataTables-1.10.4\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Content\INI\Recuerdos.css" />
+    <Content Include="Content\Investic\Comentarios.css" />
+    <Content Include="Content\Investic\fonts.css" />
+    <Content Include="Content\Investic\iep-info-grupos.css" />
+    <Content Include="Content\Investic\IEP\iep_Site.css" />
+    <Content Include="Content\Investic\investicmobile.min.css" />
+    <Content Include="Content\Investic\MAI\jquery.steps.css" />
+    <Content Include="Content\Investic\jquery.steps.css" />
+    <Content Include="Content\Investic\jsCarousel-2.0.0.css" />
+    <Content Include="Content\Investic\MAI\mai_Site.css" />
+    <Content Include="Content\Investic\MAI\mai_Site_EditProyecto.css" />
+    <Content Include="Content\Investic\MAI\mai_Site_HojaVida.css" />
+    <Content Include="Content\Investic\MAI\mai_Site_Proyecto.css" />
+    <Content Include="Content\Investic\mai_Site.css" />
+    <Content Include="Content\Investic\mai_Site_HojaVida.css" />
+    <Content Include="Content\Investic\mai_Site_Proyecto.css" />
+    <Content Include="Content\Investic\RVC\RVC.css" />
+    <Content Include="Content\Investic\Site.css" />
+    <Content Include="Content\Invstyles\Indexbotones.css" />
+    <Content Include="Content\Invstyles\slider-vertical.css" />
+    <Content Include="Content\lorraine\Lorraine.css" />
+    <Content Include="Content\lorraine\mapa.css" />
+    <Content Include="Content\metro-ui\css\iconFont.min.css" />
+    <Content Include="Content\metro-ui\css\metro-bootstrap-responsive.css" />
+    <Content Include="Content\metro-ui\css\metro-bootstrap-responsive.min.css" />
+    <Content Include="Content\metro-ui\css\metro-bootstrap.css" />
+    <Content Include="Content\metro-ui\css\metro-bootstrap.min.css" />
+    <Content Include="Content\metro-ui\fonts\iconFont.dev.svg" />
+    <Content Include="Content\metro-ui\fonts\iconFont.svg" />
+    <Content Include="Content\metro-ui\fonts\metroSysIcons.svg" />
+    <Content Include="Content\perfect-scrollbar.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\tooltip.css" />
+    <Content Include="Content\TURNJS\css\basic.css" />
+    <Content Include="favicon.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="images\1.index.png" />
+    <Content Include="images\10.recuerdos_accion.png" />
+    <Content Include="images\11.comovamos_accion.png" />
+    <Content Include="images\12.menu.png" />
+    <Content Include="images\13.enterate.png" />
+    <Content Include="images\14.enterate_accion.png" />
+    <Content Include="images\2.conocenos.png" />
+    <Content Include="images\3.investiga.png" />
+    <Content Include="images\4.contactanos.png" />
+    <Content Include="images\5.recuerdos.png" />
+    <Content Include="images\6.comovamos.png" />
+    <Content Include="images\7.conocenos_accion.png" />
+    <Content Include="images\8.invetica_accion.png" />
+    <Content Include="images\9.contactanos_accion.png" />
+    <Content Include="images\admin\bg_editor.png" />
+    <Content Include="images\alternativas\Alternativa1.1.png" />
+    <Content Include="images\alternativas\Alternativa2.1.png" />
+    <Content Include="images\alternativas\Alternativa3.1.png" />
+    <Content Include="images\alternativas\Alternativa4.1.png" />
+    <Content Include="images\alternativas\Alternativa5.1.png" />
+    <Content Include="images\alternativas\Alternativa6.1.png" />
+    <Content Include="images\alternativas\Alternativa7.1.png" />
+    <Content Include="images\alternativas\Alternativa8.1.png" />
+    <Content Include="images\alternativas\Btn_alternativa1.png" />
+    <Content Include="images\alternativas\Btn_alternativa2.png" />
+    <Content Include="images\alternativas\Btn_alternativa3.png" />
+    <Content Include="images\alternativas\Btn_alternativa4.png" />
+    <Content Include="images\alternativas\Btn_alternativa5.png" />
+    <Content Include="images\alternativas\Btn_alternativa6.png" />
+    <Content Include="images\alternativas\Btn_alternativa7.png" />
+    <Content Include="images\alternativas\Btn_alternativa8.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa1.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa2.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa3.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa4.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa5.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa6.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa7.png" />
+    <Content Include="images\alternativas\Btn_hover_alternativa8.png" />
+    <Content Include="images\beto.png" />
+    <Content Include="images\betoGif.gif" />
+    <Content Include="images\bg_apr.png" />
+    <Content Include="images\false.png" />
+    <Content Include="images\fondosSecciones\bg_seguimiento.svg" />
+    <Content Include="images\img\1920\blue.jpg" />
+    <Content Include="images\img\1920\purple.jpg" />
+    <Content Include="images\img\1920\red.jpg" />
+    <Content Include="images\img\a01.png" />
+    <Content Include="images\img\a02.png" />
+    <Content Include="images\img\a03.png" />
+    <Content Include="images\img\a04.png" />
+    <Content Include="images\img\a06.png" />
+    <Content Include="images\img\a07.png" />
+    <Content Include="images\img\a08.png" />
+    <Content Include="images\img\a09.png" />
+    <Content Include="images\img\a10.png" />
+    <Content Include="images\img\a11.png" />
+    <Content Include="images\img\a12.png" />
+    <Content Include="images\img\a13.png" />
+    <Content Include="images\img\a14.png" />
+    <Content Include="images\img\a15.png" />
+    <Content Include="images\img\a16.png" />
+    <Content Include="images\img\a17.png" />
+    <Content Include="images\img\a18.png" />
+    <Content Include="images\img\a19.png" />
+    <Content Include="images\img\a20.png" />
+    <Content Include="images\img\a21.png" />
+    <Content Include="images\img\a22.png" />
+    <Content Include="images\img\alila\01.jpg" />
+    <Content Include="images\img\alila\02.jpg" />
+    <Content Include="images\img\alila\03.jpg" />
+    <Content Include="images\img\alila\04.jpg" />
+    <Content Include="images\img\alila\05.jpg" />
+    <Content Include="images\img\alila\06.jpg" />
+    <Content Include="images\img\alila\07.jpg" />
+    <Content Include="images\img\alila\08.jpg" />
+    <Content Include="images\img\alila\09.jpg" />
+    <Content Include="images\img\alila\10.jpg" />
+    <Content Include="images\img\alila\11.jpg" />
+    <Content Include="images\img\alila\12.jpg" />
+    <Content Include="images\img\alila\13.jpg" />
+    <Content Include="images\img\alila\14.jpg" />
+    <Content Include="images\img\alila\15.jpg" />
+    <Content Include="images\img\alila\16.jpg" />
+    <Content Include="images\img\alila\17.jpg" />
+    <Content Include="images\img\alila\18.jpg" />
+    <Content Include="images\img\alila\19.jpg" />
+    <Content Include="images\img\alila\20.jpg" />
+    <Content Include="images\img\alila\21.jpg" />
+    <Content Include="images\img\alila\22.jpg" />
+    <Content Include="images\img\alila\23.jpg" />
+    <Content Include="images\img\alila\24.jpg" />
+    <Content Include="images\img\alila\25.jpg" />
+    <Content Include="images\img\alila\26.jpg" />
+    <Content Include="images\img\alila\27.jpg" />
+    <Content Include="images\img\alila\28.jpg" />
+    <Content Include="images\img\alila\29.jpg" />
+    <Content Include="images\img\alila\30.jpg" />
+    <Content Include="images\img\alila\thumb-01.jpg" />
+    <Content Include="images\img\alila\thumb-02.jpg" />
+    <Content Include="images\img\alila\thumb-03.jpg" />
+    <Content Include="images\img\alila\thumb-04.jpg" />
+    <Content Include="images\img\alila\thumb-05.jpg" />
+    <Content Include="images\img\alila\thumb-06.jpg" />
+    <Content Include="images\img\alila\thumb-07.jpg" />
+    <Content Include="images\img\alila\thumb-08.jpg" />
+    <Content Include="images\img\alila\thumb-09.jpg" />
+    <Content Include="images\img\alila\thumb-10.jpg" />
+    <Content Include="images\img\alila\thumb-11.jpg" />
+    <Content Include="images\img\alila\thumb-12.jpg" />
+    <Content Include="images\img\alila\thumb-13.jpg" />
+    <Content Include="images\img\alila\thumb-14.jpg" />
+    <Content Include="images\img\alila\thumb-15.jpg" />
+    <Content Include="images\img\alila\thumb-16.jpg" />
+    <Content Include="images\img\alila\thumb-17.jpg" />
+    <Content Include="images\img\alila\thumb-18.jpg" />
+    <Content Include="images\img\alila\thumb-19.jpg" />
+    <Content Include="images\img\alila\thumb-20.jpg" />
+    <Content Include="images\img\alila\thumb-21.jpg" />
+    <Content Include="images\img\alila\thumb-22.jpg" />
+    <Content Include="images\img\alila\thumb-23.jpg" />
+    <Content Include="images\img\alila\thumb-24.jpg" />
+    <Content Include="images\img\alila\thumb-25.jpg" />
+    <Content Include="images\img\alila\thumb-26.jpg" />
+    <Content Include="images\img\alila\thumb-27.jpg" />
+    <Content Include="images\img\alila\thumb-28.jpg" />
+    <Content Include="images\img\alila\thumb-29.jpg" />
+    <Content Include="images\img\alila\thumb-30.jpg" />
+    <Content Include="images\img\ancient-lady\005.jpg" />
+    <Content Include="images\img\ancient-lady\006.jpg" />
+    <Content Include="images\img\ancient-lady\011.jpg" />
+    <Content Include="images\img\ancient-lady\013.jpg" />
+    <Content Include="images\img\ancient-lady\014.jpg" />
+    <Content Include="images\img\ancient-lady\019.jpg" />
+    <Content Include="images\img\ancient-lady\020.jpg" />
+    <Content Include="images\img\ancient-lady\021.jpg" />
+    <Content Include="images\img\ancient-lady\022.jpg" />
+    <Content Include="images\img\ancient-lady\024.jpg" />
+    <Content Include="images\img\ancient-lady\025.jpg" />
+    <Content Include="images\img\ancient-lady\027.jpg" />
+    <Content Include="images\img\ancient-lady\029.jpg" />
+    <Content Include="images\img\ancient-lady\030.jpg" />
+    <Content Include="images\img\ancient-lady\031.jpg" />
+    <Content Include="images\img\ancient-lady\032.jpg" />
+    <Content Include="images\img\ancient-lady\034.jpg" />
+    <Content Include="images\img\ancient-lady\038.jpg" />
+    <Content Include="images\img\ancient-lady\039.jpg" />
+    <Content Include="images\img\ancient-lady\043.jpg" />
+    <Content Include="images\img\ancient-lady\044.jpg" />
+    <Content Include="images\img\ancient-lady\047.jpg" />
+    <Content Include="images\img\ancient-lady\050.jpg" />
+    <Content Include="images\img\appicon\01.png" />
+    <Content Include="images\img\appicon\02.png" />
+    <Content Include="images\img\appicon\03.png" />
+    <Content Include="images\img\b02.png" />
+    <Content Include="images\img\b03.png" />
+    <Content Include="images\img\b05.png" />
+    <Content Include="images\img\b06.png" />
+    <Content Include="images\img\b07.png" />
+    <Content Include="images\img\b10.png" />
+    <Content Include="images\img\b11.png" />
+    <Content Include="images\img\b12.png" />
+    <Content Include="images\img\b13.png" />
+    <Content Include="images\img\b14.png" />
+    <Content Include="images\img\b16.png" />
+    <Content Include="images\img\b17.png" />
+    <Content Include="images\img\b18.png" />
+    <Content Include="images\img\b20.png" />
+    <Content Include="images\img\b21.png" />
+    <Content Include="images\img\back.jpg" />
+    <Content Include="images\img\browser-icons.png" />
+    <Content Include="images\img\close.png" />
+    <Content Include="images\img\home\01.jpg" />
+    <Content Include="images\img\home\02.jpg" />
+    <Content Include="images\img\home\03.jpg" />
+    <Content Include="images\img\home\04.jpg" />
+    <Content Include="images\img\home\back-dice-02.jpg" />
+    <Content Include="images\img\home\back-dice.png" />
+    <Content Include="images\img\home\moc-ipad.png" />
+    <Content Include="images\img\home\moc-iphone.png" />
+    <Content Include="images\img\Icon-Slider-12-jQuery.png" />
+    <Content Include="images\img\Icon-Slider-12-No-jQuery.png" />
+    <Content Include="images\img\landscape\01.jpg" />
+    <Content Include="images\img\landscape\02.jpg" />
+    <Content Include="images\img\landscape\03.jpg" />
+    <Content Include="images\img\landscape\04.jpg" />
+    <Content Include="images\img\landscape\05.jpg" />
+    <Content Include="images\img\landscape\06.jpg" />
+    <Content Include="images\img\landscape\07.jpg" />
+    <Content Include="images\img\landscape\08.jpg" />
+    <Content Include="images\img\landscape\09.jpg" />
+    <Content Include="images\img\landscape\10.jpg" />
+    <Content Include="images\img\landscape\11.jpg" />
+    <Content Include="images\img\landscape\12.jpg" />
+    <Content Include="images\img\landscape\thumb-01.jpg" />
+    <Content Include="images\img\landscape\thumb-02.jpg" />
+    <Content Include="images\img\landscape\thumb-03.jpg" />
+    <Content Include="images\img\landscape\thumb-04.jpg" />
+    <Content Include="images\img\landscape\thumb-05.jpg" />
+    <Content Include="images\img\landscape\thumb-06.jpg" />
+    <Content Include="images\img\landscape\thumb-07.jpg" />
+    <Content Include="images\img\landscape\thumb-08.jpg" />
+    <Content Include="images\img\landscape\thumb-09.jpg" />
+    <Content Include="images\img\landscape\thumb-10.jpg" />
+    <Content Include="images\img\landscape\thumb-11.jpg" />
+    <Content Include="images\img\landscape\thumb-12.jpg" />
+    <Content Include="images\img\loading.gif" />
+    <Content Include="images\img\loading2.gif" />
+    <Content Include="images\img\logo\amazon.jpg" />
+    <Content Include="images\img\logo\android.jpg" />
+    <Content Include="images\img\logo\bitly.jpg" />
+    <Content Include="images\img\logo\blogger.jpg" />
+    <Content Include="images\img\logo\dnn.jpg" />
+    <Content Include="images\img\logo\drupal.jpg" />
+    <Content Include="images\img\logo\ebay.jpg" />
+    <Content Include="images\img\logo\facebook.jpg" />
+    <Content Include="images\img\logo\google.jpg" />
+    <Content Include="images\img\logo\ibm.jpg" />
+    <Content Include="images\img\logo\ios.jpg" />
+    <Content Include="images\img\logo\joomla.jpg" />
+    <Content Include="images\img\logo\jssor.png" />
+    <Content Include="images\img\logo\linkedin.jpg" />
+    <Content Include="images\img\logo\mac.jpg" />
+    <Content Include="images\img\logo\magento.jpg" />
+    <Content Include="images\img\logo\pinterest.jpg" />
+    <Content Include="images\img\logo\samsung.jpg" />
+    <Content Include="images\img\logo\twitter.jpg" />
+    <Content Include="images\img\logo\windows.jpg" />
+    <Content Include="images\img\logo\wordpress.jpg" />
+    <Content Include="images\img\logo\youtube.jpg" />
+    <Content Include="images\img\major\find-out-more-bt.png" />
+    <Content Include="images\img\major\main_bg.jpg" />
+    <Content Include="images\img\major\main_bg.png" />
+    <Content Include="images\img\major\s1.jpg" />
+    <Content Include="images\img\major\s1t.jpg" />
+    <Content Include="images\img\major\s2.png" />
+    <Content Include="images\img\major\s2t.jpg" />
+    <Content Include="images\img\major\s3.png" />
+    <Content Include="images\img\major\s3t.jpg" />
+    <Content Include="images\img\major\s4.png" />
+    <Content Include="images\img\major\s4t.jpg" />
+    <Content Include="images\img\major\s5.png" />
+    <Content Include="images\img\major\s5t.jpg" />
+    <Content Include="images\img\major\s6.png" />
+    <Content Include="images\img\major\s6t.jpg" />
+    <Content Include="images\img\major\s7.png" />
+    <Content Include="images\img\major\s7t.jpg" />
+    <Content Include="images\img\major\s8.png" />
+    <Content Include="images\img\major\s8t.jpg" />
+    <Content Include="images\img\motor\001.jpg" />
+    <Content Include="images\img\motor\002.jpg" />
+    <Content Include="images\img\motor\003.jpg" />
+    <Content Include="images\img\motor\004.jpg" />
+    <Content Include="images\img\motor\005.jpg" />
+    <Content Include="images\img\motor\006.jpg" />
+    <Content Include="images\img\motor\007.jpg" />
+    <Content Include="images\img\motor\008.jpg" />
+    <Content Include="images\img\motor\thumb-001.jpg" />
+    <Content Include="images\img\motor\thumb-002.jpg" />
+    <Content Include="images\img\motor\thumb-003.jpg" />
+    <Content Include="images\img\motor\thumb-004.jpg" />
+    <Content Include="images\img\motor\thumb-005.jpg" />
+    <Content Include="images\img\motor\thumb-006.jpg" />
+    <Content Include="images\img\motor\thumb-007.jpg" />
+    <Content Include="images\img\motor\thumb-008.jpg" />
+    <Content Include="images\img\nested-thumb\landscape.jpg" />
+    <Content Include="images\img\nested-thumb\motor.jpg" />
+    <Content Include="images\img\nested-thumb\photography.jpg" />
+    <Content Include="images\img\new-site\c-finger-pointing.png" />
+    <Content Include="images\img\new-site\c-fruit.png" />
+    <Content Include="images\img\new-site\c-jssor-slider.png" />
+    <Content Include="images\img\new-site\c-navigator-horizontal.png" />
+    <Content Include="images\img\new-site\c-navigator.png" />
+    <Content Include="images\img\new-site\c-phone-horizontal.png" />
+    <Content Include="images\img\new-site\c-phone.png" />
+    <Content Include="images\img\new-site\c-slide-1.jpg" />
+    <Content Include="images\img\new-site\c-slide-2.jpg" />
+    <Content Include="images\img\new-site\c-slide-3.jpg" />
+    <Content Include="images\img\new-site\c-text.png" />
+    <Content Include="images\img\new-site\cool-guy.png" />
+    <Content Include="images\img\paint\01.jpg" />
+    <Content Include="images\img\paint\02.jpg" />
+    <Content Include="images\img\paint\03.jpg" />
+    <Content Include="images\img\paint\04.jpg" />
+    <Content Include="images\img\paint\05.jpg" />
+    <Content Include="images\img\paint\06.jpg" />
+    <Content Include="images\img\paint\07.jpg" />
+    <Content Include="images\img\paint\08.jpg" />
+    <Content Include="images\img\paint\09.jpg" />
+    <Content Include="images\img\paint\10.jpg" />
+    <Content Include="images\img\paint\11.jpg" />
+    <Content Include="images\img\photography\001.jpg" />
+    <Content Include="images\img\photography\002.jpg" />
+    <Content Include="images\img\photography\003.jpg" />
+    <Content Include="images\img\photography\004.jpg" />
+    <Content Include="images\img\photography\005.jpg" />
+    <Content Include="images\img\photography\006.jpg" />
+    <Content Include="images\img\photography\007.jpg" />
+    <Content Include="images\img\photography\008.jpg" />
+    <Content Include="images\img\photography\009.jpg" />
+    <Content Include="images\img\photography\010.jpg" />
+    <Content Include="images\img\photography\011.jpg" />
+    <Content Include="images\img\photography\012.jpg" />
+    <Content Include="images\img\photography\013.jpg" />
+    <Content Include="images\img\photography\014.jpg" />
+    <Content Include="images\img\photography\015.jpg" />
+    <Content Include="images\img\photography\thumb-001.jpg" />
+    <Content Include="images\img\photography\thumb-002.jpg" />
+    <Content Include="images\img\photography\thumb-003.jpg" />
+    <Content Include="images\img\photography\thumb-004.jpg" />
+    <Content Include="images\img\photography\thumb-005.jpg" />
+    <Content Include="images\img\photography\thumb-006.jpg" />
+    <Content Include="images\img\photography\thumb-007.jpg" />
+    <Content Include="images\img\photography\thumb-008.jpg" />
+    <Content Include="images\img\photography\thumb-009.jpg" />
+    <Content Include="images\img\photography\thumb-010.jpg" />
+    <Content Include="images\img\photography\thumb-011.jpg" />
+    <Content Include="images\img\photography\thumb-012.jpg" />
+    <Content Include="images\img\photography\thumb-013.jpg" />
+    <Content Include="images\img\photography\thumb-014.jpg" />
+    <Content Include="images\img\photography\thumb-015.jpg" />
+    <Content Include="images\img\play.png" />
+    <Content Include="images\img\qr\full-width-slider.png" />
+    <Content Include="images\img\qr\jssor.com.png" />
+    <Content Include="images\img\share\share-icons.png" />
+    <Content Include="images\img\t01.png" />
+    <Content Include="images\img\travel\01.jpg" />
+    <Content Include="images\img\travel\02.jpg" />
+    <Content Include="images\img\travel\03.jpg" />
+    <Content Include="images\img\travel\04.jpg" />
+    <Content Include="images\img\travel\05.jpg" />
+    <Content Include="images\img\travel\06.jpg" />
+    <Content Include="images\img\travel\07.jpg" />
+    <Content Include="images\img\travel\08.jpg" />
+    <Content Include="images\img\travel\09.jpg" />
+    <Content Include="images\img\travel\10.jpg" />
+    <Content Include="images\img\travel\11.jpg" />
+    <Content Include="images\img\travel\12.jpg" />
+    <Content Include="images\img\travel\13.jpg" />
+    <Content Include="images\img\travel\14.jpg" />
+    <Content Include="images\img\travel\15.jpg" />
+    <Content Include="images\img\travel\16.jpg" />
+    <Content Include="images\img\travel\17.jpg" />
+    <Content Include="images\img\travel\18.jpg" />
+    <Content Include="images\img\travel\19.jpg" />
+    <Content Include="images\img\travel\thumb-01.jpg" />
+    <Content Include="images\img\travel\thumb-02.jpg" />
+    <Content Include="images\img\travel\thumb-03.jpg" />
+    <Content Include="images\img\travel\thumb-04.jpg" />
+    <Content Include="images\img\travel\thumb-05.jpg" />
+    <Content Include="images\img\travel\thumb-06.jpg" />
+    <Content Include="images\img\travel\thumb-07.jpg" />
+    <Content Include="images\img\travel\thumb-08.jpg" />
+    <Content Include="images\img\travel\thumb-09.jpg" />
+    <Content Include="images\img\travel\thumb-10.jpg" />
+    <Content Include="images\img\travel\thumb-11.jpg" />
+    <Content Include="images\img\travel\thumb-12.jpg" />
+    <Content Include="images\img\travel\thumb-13.jpg" />
+    <Content Include="images\img\travel\thumb-14.jpg" />
+    <Content Include="images\img\travel\thumb-15.jpg" />
+    <Content Include="images\img\travel\thumb-16.jpg" />
+    <Content Include="images\img\travel\thumb-17.jpg" />
+    <Content Include="images\img\travel\thumb-18.jpg" />
+    <Content Include="images\img\travel\thumb-19.jpg" />
+    <Content Include="images\InsumosPUBREV\Iicono_volver.png" />
+    <Content Include="images\InsumosPUBREV\Layouts\fondo.png" />
+    <Content Include="images\InsumosPUBREV\publicaciones.png" />
+    <Content Include="images\InsumosPUBREV\repositorio.png" />
+    <Content Include="images\logo_investic.png" />
+    <Content Include="images\botonesSecciones\aprendizaje.png" />
+    <Content Include="images\botonesSecciones\comovamos.png" />
+    <Content Include="images\botonesSecciones\conocenos.png" />
+    <Content Include="images\botonesSecciones\contactanos.png" />
+    <Content Include="images\botonesSecciones\editor.png" />
+    <Content Include="images\botonesSecciones\iep.png" />
+    <Content Include="images\botonesSecciones\interactua.png" />
+    <Content Include="images\botonesSecciones\investiga.png" />
+    <Content Include="images\botonesSecciones\mai.png" />
+    <Content Include="images\botonesSecciones\recuerdos.png" />
+    <Content Include="images\botonesSecciones\seguimiento.png" />
+    <Content Include="images\Boton_comovamos.png" />
+    <Content Include="images\Boton_conocenos.png" />
+    <Content Include="images\Boton_contactanos.png" />
+    <Content Include="images\boton_enterate_acción.png" />
+    <Content Include="images\boton_facebook.png" />
+    <Content Include="images\Boton_investiga.png" />
+    <Content Include="images\Boton_recuerdos.png" />
+    <Content Include="images\boton_twitter.png" />
+    <Content Include="images\boton_volver.png" />
+    <Content Include="images\boton_youtube.png" />
+    <Content Include="images\btn_enterate.png" />
+    <Content Include="images\btn_gobernacion.png" />
+    <Content Include="images\btn_over_enterate.png" />
+    <Content Include="images\btn_udenar.png" />
+    <Content Include="images\como vamos\bg_comovamos.png" />
+    <Content Include="images\como vamos\etiqueta_logos.png" />
+    <Content Include="images\como vamos\img_numeros-08.png" />
+    <Content Include="images\como vamos\img_pipe.png" />
+    <Content Include="images\como vamos\logo.png" />
+    <Content Include="images\conocenos\alternativas.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 1.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 1.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 1.2.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 2.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 2.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 2.2.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 3.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 3.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 3.2.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 4.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 4.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 4.2.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 5.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 5.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 5.2.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 6.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 6.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 6.2.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 7.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 7.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 7.2.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 8.0.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 8.1.png" />
+    <Content Include="images\conocenos\alternativas\Alternativa 8.2.png" />
+    <Content Include="images\conocenos\alternativas\AlternativasActivo.png" />
+    <Content Include="images\conocenos\alternativas\Fondo.png" />
+    <Content Include="images\conocenos\asesoresZona.png" />
+    <Content Include="images\conocenos\AsesoresZona\asesores_activo.png" />
+    <Content Include="images\conocenos\AsesoresZona\bg_asesoreszona.png" />
+    <Content Include="images\conocenos\AsesoresZona\bg_fondo.png" />
+    <Content Include="images\conocenos\conocenos.png" />
+    <Content Include="images\conocenos\equipoTrabajo.png" />
+    <Content Include="images\conocenos\equipotrabajo\boton_activo.png" />
+    <Content Include="images\conocenos\equipotrabajo\btn_equipodetrabajo.png" />
+    <Content Include="images\conocenos\equipotrabajo\btn_hover_equipodetrabajo.png" />
+    <Content Include="images\conocenos\equipotrabajo\equipodetrabajo_fondo.png" />
+    <Content Include="images\conocenos\equipotrabajo\fondo.png" />
+    <Content Include="images\conocenos\fondo.png" />
+    <Content Include="images\conocenos\fondo_menu.png" />
+    <Content Include="images\conocenos\general.png" />
+    <Content Include="images\conocenos\general\bg_componente.png" />
+    <Content Include="images\conocenos\general\bg_especificos.png" />
+    <Content Include="images\conocenos\general\bg_objetivo.png" />
+    <Content Include="images\conocenos\general\img_componentes.png" />
+    <Content Include="images\conocenos\general\img_objetivogeneral.png" />
+    <Content Include="images\conocenos\general\img_objetivosespecificos.png" />
+    <Content Include="images\conocenos\general\mision1.png" />
+    <Content Include="images\conocenos\general\mision2.png" />
+    <Content Include="images\conocenos\general\mision3.png" />
+    <Content Include="images\conocenos\general\objetivos1.png" />
+    <Content Include="images\conocenos\general\objetivos2.png" />
+    <Content Include="images\conocenos\general\objetivos3.png" />
+    <Content Include="images\conocenos\general\vision1.png" />
+    <Content Include="images\conocenos\general\vision2.png" />
+    <Content Include="images\conocenos\general\vision3.png" />
+    <Content Include="images\conocenos\general_activo.png" />
+    <Content Include="images\conocenos\img_fondo.png" />
+    <Content Include="images\conocenos\logoconocenos.png" />
+    <Content Include="images\conocenos\propuesta.png" />
+    <Content Include="images\conocenos\tutoresTIC.png" />
+    <Content Include="images\conocenos\TutoresTIC\bg_fondo.png" />
+    <Content Include="images\conocenos\TutoresTIC\fondo.png" />
+    <Content Include="images\conocenos\TutoresTIC\Lbl_Tutores.png" />
+    <Content Include="images\conocenos\TutoresTIC\tutores_activo.png" />
+    <Content Include="images\Contactanos\bg_Contactanos.png" />
+    <Content Include="images\Contactanos\btn_contactanos.png" />
+    <Content Include="images\Contactanos\contactos-01.png" />
+    <Content Include="images\Contactanos\contactos-02.png" />
+    <Content Include="images\Contactanos\contactos-03.png" />
+    <Content Include="images\Contactanos\contactos-04.png" />
+    <Content Include="images\Contactanos\contactos-05.png" />
+    <Content Include="images\Contactanos\contactos-06.png" />
+    <Content Include="images\Contactanos\contactos-07.png" />
+    <Content Include="images\Contactanos\contactos-08.png" />
+    <Content Include="images\Contactanos\contactos-09.png" />
+    <Content Include="images\Contactanos\contactos-10.png" />
+    <Content Include="images\Contactanos\contactos-11.png" />
+    <Content Include="images\Contactanos\contactos-12.png" />
+    <Content Include="images\Contactanos\contactos-13.png" />
+    <Content Include="images\Contactanos\contactos-14.png" />
+    <Content Include="images\Contactanos\contactos-15.png" />
+    <Content Include="images\Contactanos\contactos-16.png" />
+    <Content Include="images\Contactanos\contactos-17.png" />
+    <Content Include="images\Contactanos\contactos-18.png" />
+    <Content Include="images\Contactanos\contactos-19.png" />
+    <Content Include="images\Contactanos\contactos-20.png" />
+    <Content Include="images\Contactanos\contactos-21.png" />
+    <Content Include="images\Contactanos\contactos-22.png" />
+    <Content Include="images\Contactanos\contactos-23.png" />
+    <Content Include="images\Contactanos\contactos-24.png" />
+    <Content Include="images\Contactanos\contactos-25.png" />
+    <Content Include="images\Contactanos\contactos-26.png" />
+    <Content Include="images\Contactanos\contactos-27.png" />
+    <Content Include="images\Contactanos\contactos-28.png" />
+    <Content Include="images\Contactanos\contactos-29.png" />
+    <Content Include="images\Contactanos\contactos-30.png" />
+    <Content Include="images\Contactanos\contactos-31.png" />
+    <Content Include="images\Contactanos\contactos-32.png" />
+    <Content Include="images\Contactanos\contactos-33.png" />
+    <Content Include="images\Contactanos\contactos-34.png" />
+    <Content Include="images\Contactanos\img_contenedor_logos.png" />
+    <Content Include="images\Contactanos\logocontactanos.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\enterate.png" />
+    <Content Include="images\etiqueta_investic.png" />
+    <Content Include="images\Flecha-arriba.png" />
+    <Content Include="images\Flecha_abajo.png" />
+    <Content Include="images\Fondo.png" />
+    <Content Include="images\fondosSecciones\bg_aprendizaje.png" />
+    <Content Include="images\fondosSecciones\bg_comovamos.png" />
+    <Content Include="images\fondosSecciones\bg_conocenos.png" />
+    <Content Include="images\fondosSecciones\bg_contactanos.png" />
+    <Content Include="images\fondosSecciones\bg_estudiante.png" />
+    <Content Include="images\fondosSecciones\bg_formulario_nuevousuario.png" />
+    <Content Include="images\fondosSecciones\bg_investiga.png" />
+    <Content Include="images\fondosSecciones\bg_maestro.png" />
+    <Content Include="images\fondosSecciones\bg_MAI.png" />
+    <Content Include="images\fondosSecciones\bg_paginicio.png" />
+    <Content Include="images\fondosSecciones\bg_paginicio_logged.png" />
+    <Content Include="images\fondosSecciones\bg_recuerdos.png" />
+    <Content Include="images\fondosSecciones\bg_registrousuario.png" />
+    <Content Include="images\fondosSecciones\bg_seguimiento.png" />
+    <Content Include="images\fondo_cordillera-01.png" />
+    <Content Include="images\fondo_enterate.png" />
+    <Content Include="images\fondo_personajes.png" />
+    <Content Include="images\fondo_sabana-01.png" />
+    <Content Include="images\foto.png" />
+    <Content Include="images\Icon-user.png" />
+    <Content Include="images\IEP\bg_iep.svg" />
+    <Content Include="images\IEP\bg_iep_1280.png" />
+    <Content Include="images\IEP\bg_iep_1280.svg" />
+    <Content Include="images\IEP\bg_iep_1500.png" />
+    <Content Include="images\IEP\bg_iep_1500.svg" />
+    <Content Include="images\IEP\left.png" />
+    <Content Include="images\IEP\libro.png" />
+    <Content Include="images\IEP\right.png" />
+    <Content Include="images\img_contenedor_logos.png" />
+    <Content Include="images\index para guiarse.jpg" />
+    <Content Include="images\inicio de sesion-02.png" />
+    <Content Include="images\inicio de sesion-03.png" />
+    <Content Include="images\inicio de sesion-04.png" />
+    <Content Include="images\inicio.png" />
+    <Content Include="images\investic.png" />
+    <Content Include="images\investiga.png" />
+    <Content Include="images\Investiga\aprendizaje_off.png" />
+    <Content Include="images\Investiga\aprendizaje_over.png" />
+    <Content Include="images\Investiga\apr\ajax-loader.gif" />
+    <Content Include="images\Investiga\apr\ava\2cnaturales.png" />
+    <Content Include="images\Investiga\apr\cuaderno_cerrado.png" />
+    <Content Include="images\Investiga\apr\docentes_investigando.png" />
+    <Content Include="images\Investiga\apr\estudiantes_investigando.png" />
+    <Content Include="images\Investiga\apr\icono_ambientes.png" />
+    <Content Include="images\Investiga\apr\ava\7investigacion.png" />
+    <Content Include="images\Investiga\apr\ava\5lenguaje.png" />
+    <Content Include="images\Investiga\apr\ava\3matematicas.png" />
+    <Content Include="images\Investiga\apr\ava\8otros.png" />
+    <Content Include="images\Investiga\apr\ava\6proytransversales.png" />
+    <Content Include="images\Investiga\apr\ava\4csociales.png" />
+    <Content Include="images\Investiga\apr\ava\1tecnologia.png" />
+    <Content Include="images\Investiga\catalogo_off.png" />
+    <Content Include="images\Investiga\catalogo_over.png" />
+    <Content Include="images\Investiga\Cursos_ over.png" />
+    <Content Include="images\Investiga\cursos_off.png" />
+    <Content Include="images\Investiga\docinv\ambientes_virtuales.png" />
+    <Content Include="images\Investiga\docinv\catalogo_derecursos.png" />
+    <Content Include="images\Investiga\investiga dividido-03.png" />
+    <Content Include="images\Investiga\investiga dividido-04.png" />
+    <Content Include="images\Investiga\investiga dividido-06.png" />
+    <Content Include="images\Investiga\investiga dividido-07.png" />
+    <Content Include="images\Investiga\investiga dividido-08.png" />
+    <Content Include="images\Investiga\investiga dividido-09.png" />
+    <Content Include="images\Investiga\investiga dividido-10.png" />
+    <Content Include="images\Investiga\investiga dividido-11.png" />
+    <Content Include="images\Investiga\investiga dividido-12.png" />
+    <Content Include="images\Investiga\investiga dividido-13.png" />
+    <Content Include="images\Investiga\investiga dividido-18.png" />
+    <Content Include="images\Investiga\investiga dividido-19.png" />
+    <Content Include="images\Investiga\investiga dividido-20.png" />
+    <Content Include="images\Investiga\investiga dividido-27.png" />
+    <Content Include="images\Investiga\investiga dividido-28.png" />
+    <Content Include="images\Investiga\investiga dividido-29.png" />
+    <Content Include="images\Investiga\investiga dividido-30.png" />
+    <Content Include="images\Investiga\investiga dividido-31.png" />
+    <Content Include="images\Investiga\investiga dividido-32.png" />
+    <Content Include="images\Investiga\investigacion_off.png" />
+    <Content Include="images\Investiga\investigacion_over.png" />
+    <Content Include="images\Investiga\investigadividido-02.png" />
+    <Content Include="images\Investiga\investigadividido-05.png" />
+    <Content Include="images\Investiga\investigadividido-14.png" />
+    <Content Include="images\Investiga\investigadividido-17.png" />
+    <Content Include="images\Investiga\separador.png" />
+    <Content Include="images\login.png" />
+    <Content Include="images\logosSecciones\logo_aprendizaje.png" />
+    <Content Include="images\logosSecciones\logo_comovamos.png" />
+    <Content Include="images\logosSecciones\logo_conocenos.png" />
+    <Content Include="images\logosSecciones\logo_contactanos.png" />
+    <Content Include="images\logosSecciones\logo_editor.png" />
+    <Content Include="images\logosSecciones\logo_hv.png" />
+    <Content Include="images\logosSecciones\logo_iep.png" />
+    <Content Include="images\logosSecciones\logo_investic.png" />
+    <Content Include="images\logosSecciones\logo_investiga.png" />
+    <Content Include="images\logosSecciones\logo_mai.png" />
+    <Content Include="images\logosSecciones\logo_recuerdos.png" />
+    <Content Include="images\logosSecciones\logo_seguimiento.png" />
+    <Content Include="images\logos_enlaces.png" />
+    <Content Include="images\logo_udenar.png" />
+    <Content Include="images\lorraine\Beto_Aprende.png" />
+    <Content Include="images\lorraine\Beto_comunidad_investic.png" />
+    <Content Include="images\lorraine\Beto_Consulta.png" />
+    <Content Include="images\lorraine\Beto_docente.png" />
+    <Content Include="images\lorraine\Beto_Investiga.png" />
+    <Content Include="images\lorraine\Beto_registra_tu_GI.png" />
+    <Content Include="images\lorraine\Beto_sigue_tu_GI.png" />
+    <Content Include="images\lorraine\blok de notas.png" />
+    <Content Include="images\lorraine\Botn1_Aprende.png" />
+    <Content Include="images\lorraine\Botn1_Consulta.png" />
+    <Content Include="images\lorraine\Botn1_Investiga.png" />
+    <Content Include="images\lorraine\Botn2_Aprende.png" />
+    <Content Include="images\lorraine\Botn2_Consulta.png" />
+    <Content Include="images\lorraine\Botn2_Investiga.png" />
+    <Content Include="images\lorraine\Boton_comunidad_investic.png" />
+    <Content Include="images\lorraine\Boton_docente.png" />
+    <Content Include="images\lorraine\Boton_registra_tu_GI.png" />
+    <Content Include="images\lorraine\Boton_sigue_tu_GI.png" />
+    <Content Include="images\lorraine\en_construccion.jpg" />
+    <Content Include="images\lorraine\hoja 1.1.png" />
+    <Content Include="images\lorraine\hoja 1.png" />
+    <Content Include="images\lorraine\loading.gif" />
+    <Content Include="images\lorraine\Lorraine.png" />
+    <Content Include="images\lorraine\mapa\background.png" />
+    <Content Include="images\lorraine\mapa\cerrar.png" />
+    <Content Include="images\lorraine\mapa\Narino.png" />
+    <Content Include="images\lorraine\mapa\subregion10\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion10\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion11\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion11\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion12\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion12\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion13\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion13\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion1\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion1\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion2\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion2\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion3\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion3\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion4\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion4\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion5\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion5\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion6\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion6\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion7\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion7\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion8\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion8\subregion.png" />
+    <Content Include="images\lorraine\mapa\subregion9\submap.html" />
+    <Content Include="images\lorraine\mapa\subregion9\subregion.png" />
+    <Content Include="images\lorraine\mapa\subtitle1.png" />
+    <Content Include="images\lorraine\mapa\subtitle10.png" />
+    <Content Include="images\lorraine\mapa\subtitle11.png" />
+    <Content Include="images\lorraine\mapa\subtitle12.png" />
+    <Content Include="images\lorraine\mapa\subtitle13.png" />
+    <Content Include="images\lorraine\mapa\subtitle2.png" />
+    <Content Include="images\lorraine\mapa\subtitle3.png" />
+    <Content Include="images\lorraine\mapa\subtitle4.png" />
+    <Content Include="images\lorraine\mapa\subtitle5.png" />
+    <Content Include="images\lorraine\mapa\subtitle6.png" />
+    <Content Include="images\lorraine\mapa\subtitle7.png" />
+    <Content Include="images\lorraine\mapa\subtitle8.png" />
+    <Content Include="images\lorraine\mapa\subtitle9.png" />
+    <Content Include="images\lorraine\mapa\title.png" />
+    <Content Include="images\lorraine\Mensaje_Aprende.png" />
+    <Content Include="images\lorraine\Mensaje_Aprende1.png" />
+    <Content Include="images\lorraine\Mensaje_Consulta.png" />
+    <Content Include="images\lorraine\Mensaje_Consulta1.png" />
+    <Content Include="images\lorraine\Mensaje_Investiga.png" />
+    <Content Include="images\lorraine\Mensaje_Investiga1.png" />
+    <Content Include="images\lorraine\Msj_comunidad_investic.png" />
+    <Content Include="images\lorraine\Msj_docente.png" />
+    <Content Include="images\lorraine\Msj_registra_tu_GI.png" />
+    <Content Include="images\lorraine\Msj_sigue_tu_GI.png" />
+    <Content Include="images\lorraine\Mundo.png" />
+    <Content Include="images\lorraine\PAGINA-EN-CONSTRUCCION-2.jpg" />
+    <Content Include="images\lorraine\Titulo_Investiga.png" />
+    <Content Include="images\losentimos.png" />
+    <Content Include="images\MAI\HojaVida\personajeHojaVida.png" />
+    <Content Include="images\MAI\HojaVida\tableroHojaVida.png" />
+    <Content Include="images\MAI\Proyecto\fondoProyecto.png" />
+    <Content Include="images\MAI\Proyecto\personajeProyecto.png" />
+    <Content Include="images\mapasitio\bg_seguimiento.svg" />
+    <Content Include="images\mapasitio\Papa.svg" />
+    <Content Include="images\mensajes\Contactenos_CorreoEnviado.png" />
+    <Content Include="images\mensajes\Registro_CorreoEnviado.png" />
+    <Content Include="images\Menu.png" />
+    <Content Include="images\menu_background.png" />
+    <Content Include="images\mobile\aroinvestic.png" />
+    <Content Include="images\mobile\logo_mobile.png" />
+    <Content Include="images\noticias\bajar_noticia.png" />
+    <Content Include="images\noticias\boton.gif" />
+    <Content Include="images\noticias\subir_noticia.png" />
+    <Content Include="images\Personajes.png" />
+    <Content Include="images\personajes\anita.png" />
+    <Content Include="images\personajes\Papa.svg" />
+    <Content Include="images\recuerdos.png" />
+    <Content Include="images\recuerdos\bg_recuerdos.png" />
+    <Content Include="images\registro\Notificacion.png" />
+    <Content Include="images\SEG\img_semaforo_amarillo.png" />
+    <Content Include="images\SEG\img_semaforo_rojo.png" />
+    <Content Include="images\SEG\img_semaforo_verde.png" />
+    <Content Include="images\SEG\logo_udenar.png" />
+    <Content Include="images\ToolTip\closeBtn.gif" />
+    <Content Include="images\ToolTip\closeBtn.png" />
+    <Content Include="images\ToolTip\loading.gif" />
+    <Content Include="images\ToolTip\p1.svg" />
+    <Content Include="images\ToolTip\p10.svg" />
+    <Content Include="images\ToolTip\p11.svg" />
+    <Content Include="images\ToolTip\p12.svg" />
+    <Content Include="images\ToolTip\p13.svg" />
+    <Content Include="images\ToolTip\p2.svg" />
+    <Content Include="images\ToolTip\p3.svg" />
+    <Content Include="images\ToolTip\p4.svg" />
+    <Content Include="images\ToolTip\p5.svg" />
+    <Content Include="images\ToolTip\p6.svg" />
+    <Content Include="images\ToolTip\p7.svg" />
+    <Content Include="images\ToolTip\p8.svg" />
+    <Content Include="images\ToolTip\p9.svg" />
+    <Content Include="images\true.png" />
+    <Content Include="images\volver.png" />
+    <Content Include="images\volver_accion.png" />
+    <Content Include="Lang\es-CO.txt" />
+    <Content Include="Content\metro-ui\fonts\metroSysIcons.woff" />
+    <Content Include="Content\metro-ui\fonts\metroSysIcons.ttf" />
+    <Content Include="Content\metro-ui\fonts\iconFont.woff" />
+    <Content Include="Content\metro-ui\fonts\iconFont.ttf" />
+    <Content Include="Content\metro-ui\fonts\iconFont.json" />
+    <Content Include="Content\metro-ui\fonts\iconFont.eot" />
+    <EntityDeploy Include="Models\DataBase\Investic.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Investic.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataBase\Investic.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Investic.edmx</DependentUpon>
+      <LastGenOutput>Investic.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBase\Investic.edmx.diagram">
+      <DependentUpon>Investic.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DataBase\Investic.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Investic.edmx</DependentUpon>
+      <LastGenOutput>Investic.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\Roboto\Roboto-Black.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Italic.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="fonts\Roboto\Roboto-Thin.ttf" />
+    <Content Include="fonts\Chewy.ttf" />
+    <Content Include="Content\Investic\fonts\Chewy\Chewy.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-Black.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-Italic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-Thin.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\RobotoCondensed-Bold.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\RobotoCondensed-BoldItalic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\RobotoCondensed-Italic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\RobotoCondensed-Light.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\RobotoCondensed-LightItalic.ttf" />
+    <Content Include="Content\Investic\fonts\Roboto\RobotoCondensed-Regular.ttf" />
+    <EntityDeploy Include="Models\DataBase\Chamilo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Chamilo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataBase\Chamilo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Chamilo.edmx</DependentUpon>
+      <LastGenOutput>Chamilo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBase\Chamilo.edmx.diagram">
+      <DependentUpon>Chamilo.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DataBase\Chamilo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Chamilo.edmx</DependentUpon>
+      <LastGenOutput>Chamilo.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.responsive.scss" />
+    <Content Include="Content\DataTables-1.10.4\css\dataTables.jqueryui.scss" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.jqueryui.scss" />
+    <Content Include="Content\DataTables-1.10.3\css\dataTables.responsive.scss" />
+    <Content Include="Content\DataTables-1.10.3\extensions\Responsive\css\dataTables.responsive.scss" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\psd\collection.psd" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\psd\copy document.psd" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\psd\file_types.psd" />
+    <Content Include="Content\DataTables-1.10.3\extensions\TableTools\images\psd\printer.psd" />
+    <Content Include="Content\DataTables-1.10.3\media\images\Sorting icons.psd" />
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\Ini.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\AutoFill\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\ColReorder\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\ColVis\js\dataTables.colVis.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\ColVis\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\FixedColumns\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\FixedHeader\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\KeyTable\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\Responsive\Readme.md" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\Scroller\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\TableTools\Readme.txt" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="Scripts\DataTables-1.10.3\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Scripts\DataTables-1.10.3\media\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables-1.10.3\media\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables-1.10.3\media\js\jquery.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.colVis.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.colVis.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.tableTools.js" />
+    <Content Include="Scripts\DataTables-1.10.4\dataTables.tableTools.min.js" />
+    <Content Include="Scripts\DataTables-1.10.4\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables-1.10.4\jquery.dataTables.min.js" />
+    <Content Include="Scripts\Investic\BinnacleTwo.js" />
+    <Content Include="Scripts\Investic\iep-0.1-AlertMessage.js" />
+    <Content Include="Scripts\Investic\iep-0.1-BinnacleTwo.js" />
+    <Content Include="Scripts\Investic\iep-0.1-bitacoracreador.js" />
+    <Content Include="Scripts\Investic\iep-0.1-CoReserachTeacher.js" />
+    <Content Include="Scripts\Investic\iep-0.1-foroproyecto.js" />
+    <Content Include="Scripts\Investic\iep-0.1-GroupMember.js" />
+    <Content Include="Scripts\Investic\iep-0.1-hojadevida.js" />
+    <Content Include="Scripts\Investic\iep-0.1-index.js" />
+    <Content Include="Scripts\Investic\iep-0.1-invitaciones.js" />
+    <Content Include="Scripts\Investic\iep-0.1-Presupuesto.js" />
+    <Content Include="Scripts\Investic\iep-0.1.comentarioproyecto.js" />
+    <Content Include="Scripts\Investic\mai_AddIntegranteGrupoInv.js" />
+    <Content Include="Scripts\Investic\mai_AlertMessage.js" />
+    <Content Include="Scripts\Investic\mai_Autocomplete.js" />
+    <Content Include="Scripts\Investic\mai_BorrarMiembroGrupInv.js" />
+    <Content Include="Scripts\Investic\mai_BorrarRegistrosHojaVida.js" />
+    <Content Include="Scripts\Investic\mai_BorrarRegistrosInvestigacion.js" />
+    <Content Include="Scripts\Investic\mai_FechaCronograma.js" />
+    <Content Include="Scripts\Investic\mai_GruposInvestigacion.js" />
+    <Content Include="Scripts\Investic\mai_InformeProyecto.js" />
+    <Content Include="Scripts\Investic\mai_MEpistemologicoCascading.js" />
+    <Content Include="Scripts\Investic\mai_MisGrupos.js" />
+    <Content Include="Scripts\Investic\mai_MisTablas.js" />
+    <Content Include="Scripts\Investic\mai_ProyectosInvestigacion.js" />
+    <Content Include="Scripts\Investic\mai_TablasHojaVida.js" />
+    <Content Include="Scripts\Investic\mai_TablasInvestigacion.js" />
+    <Content Include="Scripts\Investic\mai_WizardProyectos.js" />
+    <Content Include="Scripts\Investic\mai_WizardRevision.js" />
+    <Content Include="Scripts\Investic\seg-0.1-mitabla.js" />
+    <Content Include="Scripts\Investic\seg_AlertMessage.js" />
+    <Content Include="Scripts\Investic\seg_mitabla.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Scripts\jquery-ui-1.11.1.js" />
+    <Content Include="Scripts\jquery-ui-1.11.3.js" />
+    <Content Include="Scripts\jquery-ui-1.11.3.min.js" />
+    <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
+    <Content Include="Scripts\jquery.backstretch.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\jquery.steps.js" />
+    <Content Include="Scripts\jquery.steps.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\Invresources.js" />
+    <Content Include="Scripts\js\jsCarousel-2.0.0.js" />
+    <Content Include="Scripts\js\slider-vertical.js" />
+    <Content Include="Scripts\knockout-3.2.0.debug.js" />
+    <Content Include="Scripts\knockout-3.2.0.js" />
+    <Content Include="Scripts\lorraine\Inicio.js" />
+    <Content Include="Scripts\lorraine\mapa.js" />
+    <Content Include="Scripts\metro-ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\metro-ui\metro.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\perfect-scrollbar.min.js" />
+    <Content Include="Scripts\RVC\foroproyecto.js" />
+    <Content Include="Scripts\Slider\jssor.js" />
+    <Content Include="Scripts\Slider\jssor.slider.js" />
+    <Content Include="Scripts\tinymce\langs\en.js" />
+    <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\advhr\css\advhr.css" />
+    <Content Include="Scripts\tinymce\plugins\advhr\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\advhr\js\rule.js" />
+    <Content Include="Scripts\tinymce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\advhr\rule.htm" />
+    <Content Include="Scripts\tinymce\plugins\advimage\css\advimage.css" />
+    <Content Include="Scripts\tinymce\plugins\advimage\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\advimage\image.htm" />
+    <Content Include="Scripts\tinymce\plugins\advimage\img\sample.gif" />
+    <Content Include="Scripts\tinymce\plugins\advimage\js\image.js" />
+    <Content Include="Scripts\tinymce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\advlink\css\advlink.css" />
+    <Content Include="Scripts\tinymce\plugins\advlink\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\advlink\js\advlink.js" />
+    <Content Include="Scripts\tinymce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\advlink\link.htm" />
+    <Content Include="Scripts\tinymce\plugins\advlist\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\advlist\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\langs\en.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\emotions\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\emotions\emotions.htm" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="Scripts\tinymce\plugins\emotions\js\emotions.js" />
+    <Content Include="Scripts\tinymce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\example\dialog.htm" />
+    <Content Include="Scripts\tinymce\plugins\example\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\example\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\example\img\example.gif" />
+    <Content Include="Scripts\tinymce\plugins\example\js\dialog.js" />
+    <Content Include="Scripts\tinymce\plugins\example\langs\en.js" />
+    <Content Include="Scripts\tinymce\plugins\example\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\fullpage.htm" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="Scripts\tinymce\plugins\iespell\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="Scripts\tinymce\plugins\inlinepopups\template.htm" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\media\css\media.css" />
+    <Content Include="Scripts\tinymce\plugins\media\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\media\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\media\js\embed.js" />
+    <Content Include="Scripts\tinymce\plugins\media\js\media.js" />
+    <Content Include="Scripts\tinymce\plugins\media\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\media\media.htm" />
+    <Content Include="Scripts\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\js\pastetext.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\js\pasteword.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\pastetext.htm" />
+    <Content Include="Scripts\tinymce\plugins\paste\pasteword.htm" />
+    <Content Include="Scripts\tinymce\plugins\preview\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\example.html" />
+    <Content Include="Scripts\tinymce\plugins\preview\jscripts\embed.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\preview.html" />
+    <Content Include="Scripts\tinymce\plugins\print\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\print\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\save\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\save\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\css\content.css" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="Scripts\tinymce\plugins\style\css\props.css" />
+    <Content Include="Scripts\tinymce\plugins\style\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\style\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\style\js\props.js" />
+    <Content Include="Scripts\tinymce\plugins\style\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\style\props.htm" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\table\cell.htm" />
+    <Content Include="Scripts\tinymce\plugins\table\css\cell.css" />
+    <Content Include="Scripts\tinymce\plugins\table\css\row.css" />
+    <Content Include="Scripts\tinymce\plugins\table\css\table.css" />
+    <Content Include="Scripts\tinymce\plugins\table\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\table\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\table\js\cell.js" />
+    <Content Include="Scripts\tinymce\plugins\table\js\merge_cells.js" />
+    <Content Include="Scripts\tinymce\plugins\table\js\row.js" />
+    <Content Include="Scripts\tinymce\plugins\table\js\table.js" />
+    <Content Include="Scripts\tinymce\plugins\table\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\table\merge_cells.htm" />
+    <Content Include="Scripts\tinymce\plugins\table\row.htm" />
+    <Content Include="Scripts\tinymce\plugins\table\table.htm" />
+    <Content Include="Scripts\tinymce\plugins\template\blank.htm" />
+    <Content Include="Scripts\tinymce\plugins\template\css\template.css" />
+    <Content Include="Scripts\tinymce\plugins\template\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\template\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\template\js\template.js" />
+    <Content Include="Scripts\tinymce\plugins\template\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\plugins\template\template.htm" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="Scripts\tinymce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\about.htm" />
+    <Content Include="Scripts\tinymce\themes\advanced\anchor.htm" />
+    <Content Include="Scripts\tinymce\themes\advanced\charmap.htm" />
+    <Content Include="Scripts\tinymce\themes\advanced\color_picker.htm" />
+    <Content Include="Scripts\tinymce\themes\advanced\editor_template.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\editor_template_src.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\image.htm" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\flash.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\icons.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\iframe.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\pagebreak.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\quicktime.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\realmedia.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\shockwave.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\trans.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\video.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\img\windowsmedia.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\js\about.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\js\anchor.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\js\charmap.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\js\color_picker.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\js\image.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\js\link.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\js\source_editor.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\langs\en.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="Scripts\tinymce\themes\advanced\link.htm" />
+    <Content Include="Scripts\tinymce\themes\advanced\shortcuts.htm" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\content.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\default\ui.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\highcontrast\content.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\highcontrast\dialog.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\highcontrast\ui.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="Scripts\tinymce\themes\advanced\source_editor.htm" />
+    <Content Include="Scripts\tinymce\themes\simple\editor_template.js" />
+    <Content Include="Scripts\tinymce\themes\simple\editor_template_src.js" />
+    <Content Include="Scripts\tinymce\themes\simple\img\icons.gif" />
+    <Content Include="Scripts\tinymce\themes\simple\langs\en.js" />
+    <Content Include="Scripts\tinymce\themes\simple\skins\default\content.css" />
+    <Content Include="Scripts\tinymce\themes\simple\skins\default\ui.css" />
+    <Content Include="Scripts\tinymce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="Scripts\tinymce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="Scripts\tinymce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="Scripts\tinymce\tiny_mce.js" />
+    <Content Include="Scripts\tinymce\tiny_mce_popup.js" />
+    <Content Include="Scripts\tinymce\tiny_mce_src.js" />
+    <Content Include="Scripts\tinymce\utils\editable_selects.js" />
+    <Content Include="Scripts\tinymce\utils\form_utils.js" />
+    <Content Include="Scripts\tinymce\utils\mctabs.js" />
+    <Content Include="Scripts\tinymce\utils\validate.js" />
+    <Content Include="Scripts\tooltip.js" />
+    <Content Include="Scripts\TURNJS\jGestures-license.txt" />
+    <Content Include="Scripts\TURNJS\jgestures.min.js" />
+    <Content Include="Scripts\TURNJS\jquery-ui-1.8.20.custom.min.js" />
+    <Content Include="Scripts\TURNJS\jquery.min.1.7.js" />
+    <Content Include="Scripts\TURNJS\jquery.mousewheel.min.js" />
+    <Content Include="Scripts\TURNJS\Lib\hash.js" />
+    <Content Include="Scripts\TURNJS\Lib\scissor.js" />
+    <Content Include="Scripts\TURNJS\Lib\scissor.min.js" />
+    <Content Include="Scripts\TURNJS\Lib\turn.html4.js" />
+    <Content Include="Scripts\TURNJS\Lib\turn.html4.min.js" />
+    <Content Include="Scripts\TURNJS\Lib\turn.js" />
+    <Content Include="Scripts\TURNJS\Lib\turn.min.js" />
+    <Content Include="Scripts\TURNJS\Lib\zoom.js" />
+    <Content Include="Scripts\TURNJS\Lib\zoom.min.js" />
+    <Content Include="Scripts\TURNJS\modernizr.2.5.3.min.js" />
+    <Content Include="Scripts\TURNJS\script\js\basic.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\TURNJS\Lib\compress.sh" />
+    <None Include="Service References\ChamiloWS\chamilo.disco" />
+    <None Include="Service References\ChamiloWS\chamilo.wsdl" />
+    <None Include="Service References\ChamiloWS\chamilo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChamiloWS\chamilo1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChamiloWS\chamilo2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChamiloWS\chamilo3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChamiloWS\configuration91.svcinfo" />
+    <None Include="Service References\ChamiloWS\configuration.svcinfo" />
+    <Content Include="Service References\ChamiloWS\INI.ChamiloWS.ChamiloUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ChamiloWS\INI.ChamiloWS.chamiloCource.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ChamiloWS\INI.ChamiloWS.chamiloDescriptionCatalog.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ChamiloWS\INI.ChamiloWS.ChamiloLesson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ChamiloWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\PanelAdministrativo\Create.cshtml" />
+    <Content Include="Views\PanelAdministrativo\Delete.cshtml" />
+    <Content Include="Views\PanelAdministrativo\Details.cshtml" />
+    <Content Include="Views\PanelAdministrativo\Edit.cshtml" />
+    <Content Include="Views\PanelAdministrativo\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Usuario\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Usuario\AdministrarCuenta.cshtml" />
+    <Content Include="Views\Usuario\IniciarSesion.cshtml" />
+    <Content Include="Views\Usuario\Registrar.cshtml" />
+    <Content Include="Views\Integrantes\Index.cshtml" />
+    <Content Include="Views\Integrantes\Create.cshtml" />
+    <Content Include="Views\Equipo\Create.cshtml" />
+    <Content Include="Views\Equipo\Index.cshtml" />
+    <Content Include="Views\AsesorZonas\Create.cshtml" />
+    <Content Include="Views\AsesorZonas\Delete.cshtml" />
+    <Content Include="Views\AsesorZonas\Details.cshtml" />
+    <Content Include="Views\AsesorZonas\Edit.cshtml" />
+    <Content Include="Views\AsesorZonas\Index.cshtml" />
+    <Content Include="Views\Home\Conocenos.cshtml" />
+    <Content Include="Views\Home\General.cshtml" />
+    <Content Include="Views\Home\EquiposTrabajo.cshtml" />
+    <Content Include="Views\Home\Alternativas.cshtml" />
+    <Content Include="Views\Shared\_Investiga.cshtml" />
+    <Content Include="Views\Shared\_Conocenos.cshtml" />
+    <Content Include="Views\Home\AsesoresZona.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\_Integrantes.cshtml" />
+    <Content Include="Views\Home\Investiga.mobile.cshtml" />
+    <Content Include="Views\Home\Contactenos.cshtml" />
+    <Content Include="Views\Home\Recuerdos.cshtml" />
+    <Content Include="Views\Shared\_Contacto.cshtml" />
+    <Content Include="Views\Shared\_loginForm.cshtml" />
+    <Content Include="Views\Shared\_Subregion.cshtml" />
+    <Content Include="Views\Home\comovamos.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr1.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr10.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr11.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr12.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr13.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr2.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr3.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr4.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr5.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr6.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr7.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr8.cshtml" />
+    <Content Include="Views\Shared\Subregiones\_sr9.cshtml" />
+    <Content Include="Views\Edit\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\UsuariosRoles\Create.cshtml" />
+    <Content Include="Views\UsuariosRoles\Delete.cshtml" />
+    <Content Include="Views\UsuariosRoles\Index.cshtml" />
+    <Content Include="Views\Shared\_Editor.cshtml" />
+    <Content Include="Views\Usuario\Confirmado.cshtml" />
+    <Content Include="Views\Usuario\EmailEnviado.cshtml" />
+    <Content Include="Views\Admin\Editor.cshtml" />
+    <Content Include="Views\Admin\Contratista.cshtml" />
+    <Content Include="Views\Admin\Maestro.cshtml" />
+    <Content Include="Views\Admin\Estudiante.cshtml" />
+    <Content Include="Views\Shared\_Comovamos.cshtml" />
+    <Content Include="Views\Home\_Tutores.cshtml" />
+    <Content Include="Views\Noticias\Create.cshtml" />
+    <Content Include="Views\Noticias\Delete.cshtml" />
+    <Content Include="Views\Noticias\Details.cshtml" />
+    <Content Include="Views\Noticias\Edit.cshtml" />
+    <Content Include="Views\Noticias\Index.cshtml" />
+    <Content Include="Views\Home\Ambientes.cshtml" />
+    <Content Include="Views\Home\_Cursos.cshtml" />
+    <Content Include="Views\Home\Aprendizaje.cshtml" />
+    <Content Include="Views\Home\Investigacion.cshtml" />
+    <Content Include="Views\CategoriaImagenes\Create.cshtml" />
+    <Content Include="Views\CategoriaImagenes\Delete.cshtml" />
+    <Content Include="Views\CategoriaImagenes\Details.cshtml" />
+    <Content Include="Views\CategoriaImagenes\Edit.cshtml" />
+    <Content Include="Views\CategoriaImagenes\Index.cshtml" />
+    <Content Include="Views\GaleriaImagenes\Create.cshtml" />
+    <Content Include="Views\GaleriaImagenes\Delete.cshtml" />
+    <Content Include="Views\GaleriaImagenes\Details.cshtml" />
+    <Content Include="Views\GaleriaImagenes\Edit.cshtml" />
+    <Content Include="Views\GaleriaImagenes\getImagesByCategory.cshtml" />
+    <Content Include="Views\GaleriaImagenes\Index.cshtml" />
+    <Content Include="Views\Shared\_CategoriaImagenes.cshtml" />
+    <Content Include="Views\Shared\_Estudiante.cshtml" />
+    <Content Include="Views\Shared\_GaleriaImagenes.cshtml" />
+    <Content Include="Views\Shared\_GaleriaImagenesRecuerdos.cshtml" />
+    <Content Include="Views\Shared\_GaleriaRecuerdos.cshtml" />
+    <Content Include="Views\Shared\_Metas.cshtml" />
+    <Content Include="Views\Shared\_Noticias.cshtml" />
+    <Content Include="Views\Shared\_NoticiasLayout.cshtml" />
+    <Content Include="Views\Shared\_recuerdos.cshtml" />
+    <Content Include="Views\Shared\_Registro.cshtml" />
+    <Content Include="Views\actividad\BorrarEvidencia.cshtml" />
+    <Content Include="Views\actividad\BorrarProducto.cshtml" />
+    <Content Include="Views\actividad\Create.cshtml" />
+    <Content Include="Views\actividad\Delete.cshtml" />
+    <Content Include="Views\actividad\Details.cshtml" />
+    <Content Include="Views\actividad\Edit.cshtml" />
+    <Content Include="Views\actividad\Index.cshtml" />
+    <Content Include="Views\actividad\Seleccionar.cshtml" />
+    <Content Include="Views\actividad\SeleccionarTarea.cshtml" />
+    <Content Include="Views\agendar\Delete.cshtml" />
+    <Content Include="Views\agendar\Details.cshtml" />
+    <Content Include="Views\agendar\Edit.cshtml" />
+    <Content Include="Views\agendar\Index.cshtml" />
+    <Content Include="Views\agendar\Seleccionar.cshtml" />
+    <Content Include="Views\agendar\tarea.cshtml" />
+    <Content Include="Views\CaracteristicasProy\Edit.cshtml" />
+    <Content Include="Views\cargo\Create.cshtml" />
+    <Content Include="Views\cargo\Delete.cshtml" />
+    <Content Include="Views\cargo\Details.cshtml" />
+    <Content Include="Views\cargo\Edit.cshtml" />
+    <Content Include="Views\cargo\Index.cshtml" />
+    <Content Include="Views\contractual\Create.cshtml" />
+    <Content Include="Views\contractual\Delete.cshtml" />
+    <Content Include="Views\contractual\Details.cshtml" />
+    <Content Include="Views\contractual\Edit.cshtml" />
+    <Content Include="Views\contractual\Index.cshtml" />
+    <Content Include="Views\CronogramaProy\Edit.cshtml" />
+    <Content Include="Views\equipos\Create.cshtml" />
+    <Content Include="Views\equipos\Delete.cshtml" />
+    <Content Include="Views\equipos\Details.cshtml" />
+    <Content Include="Views\equipos\Edit.cshtml" />
+    <Content Include="Views\equipos\Index.cshtml" />
+    <Content Include="Views\evidencias\Create.cshtml" />
+    <Content Include="Views\evidencias\Delete.cshtml" />
+    <Content Include="Views\evidencias\Details.cshtml" />
+    <Content Include="Views\evidencias\Edit.cshtml" />
+    <Content Include="Views\evidencias\Index.cshtml" />
+    <Content Include="Views\FechasCronograma\Create.cshtml" />
+    <Content Include="Views\IEP\BitacoraColaborador.cshtml" />
+    <Content Include="Views\IEP\BitacoraCreador.cshtml" />
+    <Content Include="Views\IEP\ComentarioProyecto.cshtml" />
+    <Content Include="Views\IEP\Comentarios.cshtml" />
+    <Content Include="Views\IEP\DocumentosSoporte.cshtml" />
+    <Content Include="Views\IEP\ForoProyecto.cshtml" />
+    <Content Include="Views\IEP\Grupo.cshtml" />
+    <Content Include="Views\IEP\HojaDeVida.cshtml" />
+    <Content Include="Views\IEP\Index.cshtml" />
+    <Content Include="Views\IEP\Invitaciones.cshtml" />
+    <Content Include="Views\IEP\MaestroCoinvestigador.cshtml" />
+    <Content Include="Views\IEP\MiGrupo.cshtml" />
+    <Content Include="Views\IEP\ParaElMaestro.cshtml" />
+    <Content Include="Views\IEP\_AgregarConcepto.cshtml" />
+    <Content Include="Views\IEP\_AgregarEstadoArte.cshtml" />
+    <Content Include="Views\IEP\_AgregarPresupuesto.cshtml" />
+    <Content Include="Views\IEP\_CargarImagenesFerias.cshtml" />
+    <Content Include="Views\IEP\_CrearComentario.cshtml" />
+    <Content Include="Views\IEP\_CrearForo.cshtml" />
+    <Content Include="Views\IEP\_InformacionGrupo.cshtml" />
+    <Content Include="Views\IEP\_ListaComentarios.cshtml" />
+    <Content Include="Views\IEP\_ModificarGrupo.cshtml" />
+    <Content Include="Views\IEP\_RecoleccionInformacion.cshtml" />
+    <Content Include="Views\IEP\_RegistrarGrupo.cshtml" />
+    <Content Include="Views\IEP\_SeleccionarCoInvestigador.cshtml" />
+    <Content Include="Views\IntegrantesGrupoInv\AgregarIntegrantes.cshtml" />
+    <Content Include="Views\IntegrantesGrupoInv\Index.cshtml" />
+    <Content Include="Views\IntegrantesGrupoInv\Integrantes.cshtml" />
+    <Content Include="Views\MAI\AdicionarEventoAcademico.cshtml" />
+    <Content Include="Views\MAI\AdicionarIdioma.cshtml" />
+    <Content Include="Views\MAI\AdicionarLengua.cshtml" />
+    <Content Include="Views\MAI\AdicionarProductoAcademico.cshtml" />
+    <Content Include="Views\MAI\AdicionarProyecto.cshtml" />
+    <Content Include="Views\MAI\AdicionarTitulo.cshtml" />
+    <Content Include="Views\MAI\EditarHojaVida.cshtml" />
+    <Content Include="Views\MAI\FormacionYExperiencia.cshtml" />
+    <Content Include="Views\MAI\Investigacion.cshtml" />
+    <Content Include="Views\MAI\ModificarEventoAcademico.cshtml" />
+    <Content Include="Views\MAI\ModificarIdioma.cshtml" />
+    <Content Include="Views\MAI\ModificarLengua.cshtml" />
+    <Content Include="Views\MAI\ModificarProductoAcademico.cshtml" />
+    <Content Include="Views\MAI\ModificarProyecto.cshtml" />
+    <Content Include="Views\MAI\ModificarTitulo.cshtml" />
+    <Content Include="Views\MarcoReferenciaProy\Edit.cshtml" />
+    <Content Include="Views\MetodoProy\Edit.cshtml" />
+    <Content Include="Views\PresentacionProyecto\Edit.cshtml" />
+    <Content Include="Views\PresupuestoProy\Edit.cshtml" />
+    <Content Include="Views\ProblemaInvestigacionProy\Edit.cshtml" />
+    <Content Include="Views\produto\Create.cshtml" />
+    <Content Include="Views\produto\Delete.cshtml" />
+    <Content Include="Views\produto\Details.cshtml" />
+    <Content Include="Views\produto\Edit.cshtml" />
+    <Content Include="Views\produto\Index.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion\CrearProyecto.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion\CreateFecha.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion\EditarProyecto.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion\Index.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion\InformeProyecto.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion\Proyectos.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion_Rev\MisProyectosRevision.cshtml" />
+    <Content Include="Views\Pruebas\Index.cshtml" />
+    <Content Include="Views\ReferenciasProy\Edit.cshtml" />
+    <Content Include="Views\Reporte\Reporte.cshtml" />
+    <Content Include="Views\repo\Index.cshtml" />
+    <Content Include="Views\repo\Reporte.cshtml" />
+    <Content Include="Views\responsa\Create.cshtml" />
+    <Content Include="Views\responsa\Delete.cshtml" />
+    <Content Include="Views\responsa\Details.cshtml" />
+    <Content Include="Views\responsa\Edit.cshtml" />
+    <Content Include="Views\responsa\Index.cshtml" />
+    <Content Include="Views\Revision\RevisarProyecto.cshtml" />
+    <Content Include="Views\Revision\RevisionProyectos.cshtml" />
+    <Content Include="Views\RubrosPresupuesto\Create.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\InfoGrupo.cshtml" />
+    <Content Include="Views\Shared\lista.cshtml" />
+    <Content Include="Views\Shared\listaev.cshtml" />
+    <Content Include="Views\Shared\listares.cshtml" />
+    <Content Include="Views\Shared\_Contratista.cshtml" />
+    <Content Include="Views\Shared\_EditorLayout.cshtml" />
+    <Content Include="Views\Shared\_evidencia.cshtml" />
+    <Content Include="Views\Shared\_FormacionYExperiencia.cshtml" />
+    <Content Include="Views\Shared\_GrupoInvestigacion.cshtml" />
+    <Content Include="Views\Shared\_InfoGrupoInvestigacion.cshtml" />
+    <Content Include="Views\Shared\_InfoLiderGrupo.cshtml" />
+    <Content Include="Views\Shared\_InformeProyecto2.cshtml" />
+    <Content Include="Views\Shared\_Investigacion_HojaVida.cshtml" />
+    <Content Include="Views\Shared\_LayoutGrupo.cshtml" />
+    <Content Include="Views\Shared\_LayoutIEP.cshtml" />
+    <Content Include="Views\Shared\_LayoutMAI_HojaVida.cshtml" />
+    <Content Include="Views\Shared\_LayoutSEG.cshtml" />
+    <Content Include="Views\Shared\_Maestro.cshtml" />
+    <Content Include="Views\Shared\_NoticiasFull.cshtml" />
+    <Content Include="Views\Shared\_producto.cshtml" />
+    <Content Include="Views\Shared\_ProyectoInvestigacion.cshtml" />
+    <Content Include="Views\Shared\_responsabilidad.cshtml" />
+    <Content Include="Views\InvestigacionGrupos\Index.cshtml" />
+    <Content Include="Views\Metas\Create.cshtml" />
+    <Content Include="Views\Metas\Delete.cshtml" />
+    <Content Include="Views\Metas\Details.cshtml" />
+    <Content Include="Views\Metas\Edit.cshtml" />
+    <Content Include="Views\Metas\Index.cshtml" />
+    <Content Include="Views\GruposInvestigacion\CrearGrupoInv.cshtml" />
+    <Content Include="Views\GruposInvestigacion\DetallesGrupo.cshtml" />
+    <Content Include="Views\GruposInvestigacion\MisGrupos.cshtml" />
+    <Content Include="Views\Shared\_LayoutMAI_Proyectos.cshtml" />
+    <Content Include="Views\Shared\_InvMAI.cshtml" />
+    <Content Include="Views\Shared\_LayoutInvestic.cshtml" />
+    <Content Include="Views\Shared\_InvInvestiga.cshtml" />
+    <Content Include="Views\Shared\_InvIEP.cshtml" />
+    <Content Include="Views\Home\Chamilo.cshtml" />
+    <Content Include="Views\Shared\_InvCuenta.cshtml" />
+    <Content Include="Views\Shared\_InvRecuerdos.cshtml" />
+    <Content Include="Views\Shared\_InvContactanos.cshtml" />
+    <Content Include="Views\Shared\_InvComoVamos.cshtml" />
+    <Content Include="Views\Shared\_InvChamilo.cshtml" />
+    <Content Include="Views\Shared\_InvConocenos.cshtml" />
+    <Content Include="Views\Shared\_InvInvestiga.cshtml" />
+    <Content Include="Views\Contrato\Crear.cshtml" />
+    <Content Include="Views\Contrato\Datos.cshtml" />
+    <Content Include="Views\Contrato\Delete.cshtml" />
+    <Content Include="Views\Contrato\Details.cshtml" />
+    <Content Include="Views\Contrato\Edit.cshtml" />
+    <Content Include="Views\Contrato\Index.cshtml" />
+    <Content Include="Views\Contrato\Seleccionar.cshtml" />
+    <Content Include="Views\Home\Contactenos.mobile.cshtml" />
+    <Content Include="Views\Home\descripcioncursos.cshtml" />
+    <Content Include="Views\Home\Mapa.cshtml" />
+    <Content Include="Views\Home\TutoresTIC.cshtml" />
+    <Content Include="Views\Seguimiento\Index.cshtml" />
+    <Content Include="Views\Seguimiento\RegistroAdmin.cshtml" />
+    <Content Include="Views\Shared\_InvSeguimiento.cshtml" />
+    <Content Include="Views\Shared\_InvBlanco.cshtml" />
+    <Content Include="Views\Home\resultadoBusquedaGruposEstudiante.cshtml" />
+    <Content Include="Views\Home\VisualizarGrupoEstudiantes.cshtml" />
+    <Content Include="Views\Home\_cuentacomovamos.cshtml" />
+    <Content Include="Views\Home\_cuentamunicipios.cshtml" />
+    <Content Include="Views\Home\_VerTutores.cshtml" />
+    <Content Include="Views\Home\resultadoBusquedaProyectosInvestigacion.cshtml" />
+    <Content Include="Views\Home\VisualizaProyectoInvestigacion.cshtml" />
+    <Content Include="Views\IEP\MiembroGrupo.cshtml" />
+    <Content Include="Views\IEP\_AgregarMiembroGrupo.cshtml" />
+    <Content Include="Views\IEP\Estudiante.cshtml" />
+    <Content Include="Views\IEP\_SeleccionarEstudiante.cshtml" />
+    <Content Include="Views\IEP\CrearMaestro.cshtml" />
+    <Content Include="Views\IEP\Pregunta.cshtml" />
+    <Content Include="Views\IEP\_EditarPreguntaInvestigacion.cshtml" />
+    <Content Include="Views\IEP\PreguntaParaElMaestro.cshtml" />
+    <Content Include="Views\IEP\ElProblema.cshtml" />
+    <Content Include="Views\IEP\ElProblemaParaElProfesor.cshtml" />
+    <Content Include="Views\IEP\PresupuestoDetallado.cshtml" />
+    <Content Include="Views\Home\BusquedaProyectosInvestigacion.cshtml" />
+    <Content Include="Views\ProyectosInvestigacion\CreatePresupuesto.cshtml" />
+    <Content Include="Views\Home\BusquedaDocenteInvestigando.cshtml" />
+    <Content Include="Views\Shared\_InvEditor.cshtml" />
+    <Content Include="Views\Home\_VerAsesores.cshtml" />
+    <Content Include="Views\Home\mapaasesores.cshtml" />
+    <Content Include="Views\Home\mapatutores.cshtml" />
+    <Content Include="Views\Home\_Cursosporcat.cshtml" />
+    <Content Include="Views\Home\_CursosTitle.cshtml" />
+    <Content Include="Views\Home\_micuentacursos.cshtml" />
+    <Content Include="Views\Home\BusquedaEstudiantesInvestigando.cshtml" />
+    <Content Include="Views\Home\getDetail.cshtml" />
+    <Content Include="Views\Home\VisualizaProyectoInvestigacionEstudiante.cshtml" />
+    <Content Include="Views\Home\resultadoBusquedaEstudiantesInvestigando.cshtml" />
+    <Content Include="Views\Home\Chat.cshtml" />
+    <Content Include="Views\Colecciones\Create.cshtml" />
+    <Content Include="Views\Colecciones\Delete.cshtml" />
+    <Content Include="Views\Colecciones\Details.cshtml" />
+    <Content Include="Views\Colecciones\Edit.cshtml" />
+    <Content Include="Views\Colecciones\Index.cshtml" />
+    <Content Include="Views\RecursosEducativos\Create.cshtml" />
+    <Content Include="Views\RecursosEducativos\Delete.cshtml" />
+    <Content Include="Views\RecursosEducativos\Details.cshtml" />
+    <Content Include="Views\RecursosEducativos\DetalleRecursoEducativo.cshtml" />
+    <Content Include="Views\RecursosEducativos\Detalles.cshtml" />
+    <Content Include="Views\RecursosEducativos\Edit.cshtml" />
+    <Content Include="Views\RecursosEducativos\Index.cshtml" />
+    <Content Include="Views\RecursosEducativos\_RecursosEducativos.cshtml" />
+    <Content Include="Views\Tutores\Create.cshtml" />
+    <Content Include="Views\Tutores\Delete.cshtml" />
+    <Content Include="Views\Tutores\Details.cshtml" />
+    <Content Include="Views\Tutores\Edit.cshtml" />
+    <Content Include="Views\Tutores\Index.cshtml" />
+    <Content Include="Views\APR\_chamiloCourses.cshtml" />
+    <Content Include="Views\APR\_chamiloLessons.cshtml" />
+    <Content Include="Views\APR\Index.cshtml" />
+    <Content Include="Views\APR\ChamiloCourses.cshtml" />
+    <Content Include="Views\APR\ChamiloLessons.cshtml" />
+    <Content Include="Views\tblConceptosEstadoArtes\Create.cshtml" />
+    <Content Include="Views\tblConceptosEstadoArtes\Delete.cshtml" />
+    <Content Include="Views\tblConceptosEstadoArtes\Details.cshtml" />
+    <Content Include="Views\tblConceptosEstadoArtes\Edit.cshtml" />
+    <Content Include="Views\tblConceptosEstadoArtes\Index.cshtml" />
+    <Content Include="Views\tblRecoleccionInformacionProyectoInvestigacions\Create.cshtml" />
+    <Content Include="Views\tblRecoleccionInformacionProyectoInvestigacions\Delete.cshtml" />
+    <Content Include="Views\tblRecoleccionInformacionProyectoInvestigacions\Details.cshtml" />
+    <Content Include="Views\tblRecoleccionInformacionProyectoInvestigacions\Edit.cshtml" />
+    <Content Include="Views\tblRecoleccionInformacionProyectoInvestigacions\Index.cshtml" />
+    <Content Include="Views\tblEstadoArteProyectoInvestigacions\Create.cshtml" />
+    <Content Include="Views\tblEstadoArteProyectoInvestigacions\Delete.cshtml" />
+    <Content Include="Views\tblEstadoArteProyectoInvestigacions\Details.cshtml" />
+    <Content Include="Views\tblEstadoArteProyectoInvestigacions\Edit.cshtml" />
+    <Content Include="Views\tblEstadoArteProyectoInvestigacions\Index.cshtml" />
+    <Content Include="Views\Shared\_Conceptos.cshtml" />
+    <Content Include="Views\tblPropagacionGrupoes\Create.cshtml" />
+    <Content Include="Views\tblPropagacionGrupoes\Delete.cshtml" />
+    <Content Include="Views\tblPropagacionGrupoes\Details.cshtml" />
+    <Content Include="Views\tblPropagacionGrupoes\Edit.cshtml" />
+    <Content Include="Views\tblPropagacionGrupoes\Index.cshtml" />
+    <Content Include="Views\IEP\_NuevaPropagacion.cshtml" />
+    <Content Include="Views\IEP\_ResumenIEP.cshtml" />
+    <Content Include="Views\Shared\_InformeProyecto - Copia.cshtml" />
+    <Content Include="Views\IEP\_UploadFile.cshtml" />
+    <Content Include="Views\Revistas\Create.cshtml" />
+    <Content Include="Views\Revistas\Delete.cshtml" />
+    <Content Include="Views\Revistas\Details.cshtml" />
+    <Content Include="Views\Revistas\Edit.cshtml" />
+    <Content Include="Views\Revistas\Index.cshtml" />
+    <Content Include="Views\CategoriaRevistas\Create.cshtml" />
+    <Content Include="Views\CategoriaRevistas\Delete.cshtml" />
+    <Content Include="Views\CategoriaRevistas\Details.cshtml" />
+    <Content Include="Views\CategoriaRevistas\Edit.cshtml" />
+    <Content Include="Views\CategoriaRevistas\Index.cshtml" />
+    <Content Include="Views\SubCategoriaRevistas\Create.cshtml" />
+    <Content Include="Views\SubCategoriaRevistas\Delete.cshtml" />
+    <Content Include="Views\SubCategoriaRevistas\Details.cshtml" />
+    <Content Include="Views\SubCategoriaRevistas\Edit.cshtml" />
+    <Content Include="Views\SubCategoriaRevistas\Index.cshtml" />
+    <Content Include="Views\Home\CategoriasRevista.cshtml" />
+    <Content Include="Views\Home\SubCategorias.cshtml" />
+    <Content Include="Views\Home\Revista.cshtml" />
+    <Content Include="Views\Shared\_LayoutRevista.cshtml" />
+    <Content Include="Views\Shared\_LayoutRevistaFlip.cshtml" />
+    <Content Include="Views\Home\RevistaFlip.cshtml" />
+    <Content Include="Views\Shared\_InformeProyectoEstudiante.cshtml" />
+    <Content Include="Views\Shared\_LayoutMAI.cshtml" />
+    <Content Include="Views\Home\VisualizarGrupoEstudiantes2.cshtml" />
+    <Content Include="Views\Usuario\MapaSitio.cshtml" />
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\DisplayTemplates\BootstrapMenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BootstrapSiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Repositorios\Create.cshtml" />
+    <Content Include="Views\Repositorios\Delete.cshtml" />
+    <Content Include="Views\Repositorios\Details.cshtml" />
+    <Content Include="Views\Repositorios\Edit.cshtml" />
+    <Content Include="Views\Repositorios\Index.cshtml" />
+    <Content Include="Views\CategoriaRepositorios\Create.cshtml" />
+    <Content Include="Views\CategoriaRepositorios\Delete.cshtml" />
+    <Content Include="Views\CategoriaRepositorios\Details.cshtml" />
+    <Content Include="Views\CategoriaRepositorios\Edit.cshtml" />
+    <Content Include="Views\CategoriaRepositorios\Index.cshtml" />
+    <Content Include="Views\SubCategoriaRepositorios\Create.cshtml" />
+    <Content Include="Views\SubCategoriaRepositorios\Delete.cshtml" />
+    <Content Include="Views\SubCategoriaRepositorios\Details.cshtml" />
+    <Content Include="Views\SubCategoriaRepositorios\Edit.cshtml" />
+    <Content Include="Views\SubCategoriaRepositorios\Index.cshtml" />
+    <Content Include="Views\Home\CategoriasRepositorio.cshtml" />
+    <Content Include="Views\Home\Repositorio.cshtml" />
+    <Content Include="Views\Home\RepositorioPage.cshtml" />
+    <Content Include="Views\Home\SubCategoriasRepositorio.cshtml" />
+    <Content Include="Views\Shared\_LayoutRepositorio.cshtml" />
+    <Content Include="Views\Shared\_InvAdministrator.cshtml" />
+    <Content Include="Views\Administrator\Index.cshtml" />
+    <Content Include="Views\LogAcceso\Index.cshtml" />
+    <Content Include="Views\TipoEstudioProy\Create.cshtml" />
+    <Content Include="Views\TipoEstudioProy\Delete.cshtml" />
+    <Content Include="Views\TipoEstudioProy\Details.cshtml" />
+    <Content Include="Views\TipoEstudioProy\Edit.cshtml" />
+    <Content Include="Views\TipoEstudioProy\Index.cshtml" />
+    <Content Include="Views\Rubro\Create.cshtml" />
+    <Content Include="Views\Rubro\Delete.cshtml" />
+    <Content Include="Views\Rubro\Details.cshtml" />
+    <Content Include="Views\Rubro\Edit.cshtml" />
+    <Content Include="Views\Rubro\Index.cshtml" />
+    <Content Include="Views\RecoleccionInformacionProyectoInvestigacions\Create.cshtml" />
+    <Content Include="Views\RecoleccionInformacionProyectoInvestigacions\Delete.cshtml" />
+    <Content Include="Views\RecoleccionInformacionProyectoInvestigacions\Details.cshtml" />
+    <Content Include="Views\RecoleccionInformacionProyectoInvestigacions\Edit.cshtml" />
+    <Content Include="Views\RecoleccionInformacionProyectoInvestigacions\Index.cshtml" />
+    <Content Include="Views\ParadigmaEpistemologico\Create.cshtml" />
+    <Content Include="Views\ParadigmaEpistemologico\Delete.cshtml" />
+    <Content Include="Views\ParadigmaEpistemologico\Details.cshtml" />
+    <Content Include="Views\ParadigmaEpistemologico\Edit.cshtml" />
+    <Content Include="Views\ParadigmaEpistemologico\Index.cshtml" />
+    <Content Include="Views\ParadigmaMetodologico\Create.cshtml" />
+    <Content Include="Views\ParadigmaMetodologico\Delete.cshtml" />
+    <Content Include="Views\ParadigmaMetodologico\Details.cshtml" />
+    <Content Include="Views\ParadigmaMetodologico\Edit.cshtml" />
+    <Content Include="Views\ParadigmaMetodologico\Index.cshtml" />
+    <Content Include="Views\HerramientasRecoleccionInformacion\Create.cshtml" />
+    <Content Include="Views\HerramientasRecoleccionInformacion\Delete.cshtml" />
+    <Content Include="Views\HerramientasRecoleccionInformacion\Details.cshtml" />
+    <Content Include="Views\HerramientasRecoleccionInformacion\Edit.cshtml" />
+    <Content Include="Views\HerramientasRecoleccionInformacion\Index.cshtml" />
+    <Content Include="Views\EjeInvestigacion\Create.cshtml" />
+    <Content Include="Views\EjeInvestigacion\Delete.cshtml" />
+    <Content Include="Views\EjeInvestigacion\Details.cshtml" />
+    <Content Include="Views\EjeInvestigacion\Edit.cshtml" />
+    <Content Include="Views\EjeInvestigacion\Index.cshtml" />
+    <Content Include="Views\DiseniosProy\Create.cshtml" />
+    <Content Include="Views\DiseniosProy\Delete.cshtml" />
+    <Content Include="Views\DiseniosProy\Details.cshtml" />
+    <Content Include="Views\DiseniosProy\Edit.cshtml" />
+    <Content Include="Views\DiseniosProy\Index.cshtml" />
+    <Content Include="Views\PanelAdministrativo\RegistroAdmin.cshtml" />
+    <Content Include="Views\Shared\_LogAccesoReporte.cshtml" />
+    <Content Include="Views\Usuario\MapaSitioAutenticado.cshtml" />
+    <Content Include="Views\Usuario\OffLine.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
+    <Content Include="Views\RVCWall\Index.cshtml" />
+    <Content Include="Views\RVCWall\InvitarUsuario.cshtml" />
+    <Content Include="Views\RVC\Aprobar.cshtml" />
+    <Content Include="Views\RVC\Index.cshtml" />
+    <Content Include="Views\tbNetVirtualGroups\Create.cshtml" />
+    <Content Include="Views\tbNetVirtualGroups\Delete.cshtml" />
+    <Content Include="Views\tbNetVirtualGroups\Details.cshtml" />
+    <Content Include="Views\tbNetVirtualGroups\Edit.cshtml" />
+    <Content Include="Views\tbNetVirtualGroups\Index.cshtml" />
+    <Content Include="Views\tbNetVirtualUsers\Create.cshtml" />
+    <Content Include="Views\tbNetVirtualUsers\Delete.cshtml" />
+    <Content Include="Views\tbNetVirtualUsers\Details.cshtml" />
+    <Content Include="Views\tbNetVirtualUsers\Edit.cshtml" />
+    <Content Include="Views\tbNetVirtualUsers\Index.cshtml" />
+    <Content Include="Views\Shared\RVC\Invitaciones.cshtml" />
+    <Content Include="Views\Shared\RVC\MisRedes.cshtml" />
+    <Content Include="Views\Shared\RVC\OtrasRedes.cshtml" />
+    <Content Include="Views\Shared\RVC\RedesColaboracion.cshtml" />
+    <Content Include="Views\Shared\_InvRVC.cshtml" />
+    <Content Include="Views\Shared\RVCWall\Comentarios.cshtml" />
+    <Content Include="Views\Shared\RVCWall\Solicitudes.cshtml" />
+    <Content Include="Views\Shared\RVCWall\Recursos.cshtml" />
+    <Content Include="Views\tbNetVirtualCategoryResources\Create.cshtml" />
+    <Content Include="Views\tbNetVirtualCategoryResources\Delete.cshtml" />
+    <Content Include="Views\tbNetVirtualCategoryResources\Details.cshtml" />
+    <Content Include="Views\tbNetVirtualCategoryResources\Edit.cshtml" />
+    <Content Include="Views\tbNetVirtualCategoryResources\Index.cshtml" />
+    <Content Include="Views\tbNetVirtualResources\Create.cshtml" />
+    <Content Include="Views\tbNetVirtualResources\Delete.cshtml" />
+    <Content Include="Views\tbNetVirtualResources\Details.cshtml" />
+    <Content Include="Views\tbNetVirtualResources\Edit.cshtml" />
+    <Content Include="Views\tbNetVirtualResources\Index.cshtml" />
+    <Content Include="Views\Shared\RVC\Solicitudes.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Upload.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Bool.cshtml" />
+    <Content Include="Views\RVCWall\ForoRVC.cshtml" />
+    <Content Include="Views\RVCWall\_CrearForoRVC.cshtml" />
+    <Content Include="Views\Shared\RVCWall\Participantes.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\RubroPresupuesto\Create.cshtml" />
+    <Content Include="Views\RubroPresupuesto\Delete.cshtml" />
+    <Content Include="Views\RubroPresupuesto\Details.cshtml" />
+    <Content Include="Views\RubroPresupuesto\Edit.cshtml" />
+    <Content Include="Views\RubroPresupuesto\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutRevistaFlip - Copia.cshtml" />
+    <Content Include="Views\Home\Index.tv.cshtml" />
+    <Content Include="Views\Home\Index.mobile.cshtml" />
+    <Content Include="Views\Home\Index.tablet.cshtml" />
+    <Content Include="Views\Shared\_Layout.tablet.cshtml" />
+    <Content Include="Views\Shared\_Layout.Phone.cshtml" />
+    <Content Include="Views\Home\Conocenos.mobile.cshtml" />
+    <Content Include="Views\Shared\_Noticias.mobile.cshtml" />
+    <Content Include="Views\Home\Recuerdos.mobile.cshtml" />
+    <Content Include="Views\Home\comovamos.mobile.cshtml" />
+    <Content Include="Views\Home\General.mobile.cshtml" />
+    <Content Include="Views\Home\EquiposTrabajo.mobile.cshtml" />
+    <Content Include="Views\Home\_Integrantes.mobile.cshtml" />
+    <None Include="WebSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Audio\Noticias\" />
+    <Folder Include="images\Gallery\Categorias\Portadas\" />
+    <Folder Include="images\Gallery\large\" />
+    <Folder Include="images\Gallery\Noticias\" />
+    <Folder Include="images\Gallery\Recuerdos\" />
+    <Folder Include="images\Gallery\thumbs\" />
+    <Folder Include="images\Repositorio\" />
+    <Folder Include="images\Revista\" />
+    <Folder Include="Views\Cursos\" />
+    <Folder Include="Views\JsonNetResult\" />
+    <Folder Include="Views\Json\" />
+    <Folder Include="Views\NewtomSof\" />
+    <Folder Include="Views\PdfResult\" />
+    <Folder Include="Views\Rubropresupuestal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ChamiloWS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{0bd5c2a4-a39b-4665-b29c-5c755dd1f296}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59946</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59946/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

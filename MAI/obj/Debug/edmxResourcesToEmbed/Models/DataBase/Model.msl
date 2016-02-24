@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="investicModelStoreContainer" CdmEntityContainer="investicEntities">
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="investicModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Fecha_FinContrato" ColumnName="Fecha_FinContrato" />
+          <ScalarProperty Name="Fecha_IniContrato" ColumnName="Fecha_IniContrato" />
+          <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+          <ScalarProperty Name="Cdp" ColumnName="Cdp" />
+          <ScalarProperty Name="Contrato" ColumnName="Contrato" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+          <ScalarProperty Name="SureName" ColumnName="SureName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCaracteristicasProy">
+      <EntityTypeMapping TypeName="investicModel.tblCaracteristicasProy">
+        <MappingFragment StoreEntitySet="tblCaracteristicasProy">
+          <ScalarProperty Name="carProy_caracterizacionProy" ColumnName="carProy_caracterizacionProy" />
+          <ScalarProperty Name="carProy_resultadosEsperadosProy" ColumnName="carProy_resultadosEsperadosProy" />
+          <ScalarProperty Name="tblCaracteristicasProy_ID" ColumnName="tblCaracteristicasProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCaracteristicasProy_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblCaracteristicasProy_Rev">
+        <MappingFragment StoreEntitySet="tblCaracteristicasProy_Rev">
+          <ScalarProperty Name="carProy_caracterizacionProy" ColumnName="carProy_caracterizacionProy" />
+          <ScalarProperty Name="carProy_resultadosEsperadosProy" ColumnName="carProy_resultadosEsperadosProy" />
+          <ScalarProperty Name="tblCaracteristicasProy_Rev_ID" ColumnName="tblCaracteristicasProy_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCriticoSocial">
+      <EntityTypeMapping TypeName="investicModel.tblCriticoSocial">
+        <MappingFragment StoreEntitySet="tblCriticoSocial">
+          <ScalarProperty Name="critSoc_nombre" ColumnName="critSoc_nombre" />
+          <ScalarProperty Name="tblCriticoSocial_ID" ColumnName="tblCriticoSocial_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCronogramaProy">
+      <EntityTypeMapping TypeName="investicModel.tblCronogramaProy">
+        <MappingFragment StoreEntitySet="tblCronogramaProy">
+          <ScalarProperty Name="tblCronogramaProy_ID" ColumnName="tblCronogramaProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCronogramaProy_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblCronogramaProy_Rev">
+        <MappingFragment StoreEntitySet="tblCronogramaProy_Rev">
+          <ScalarProperty Name="croProy_revision" ColumnName="croProy_revision" />
+          <ScalarProperty Name="tblCronogramaProy_Rev_ID" ColumnName="tblCronogramaProy_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDiseniosProy">
+      <EntityTypeMapping TypeName="investicModel.tblDiseniosProy">
+        <MappingFragment StoreEntitySet="tblDiseniosProy">
+          <ScalarProperty Name="disProy_nombre" ColumnName="disProy_nombre" />
+          <ScalarProperty Name="tblDiseniosProy_ID" ColumnName="tblDiseniosProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEjeInvestigacion">
+      <EntityTypeMapping TypeName="investicModel.tblEjeInvestigacion">
+        <MappingFragment StoreEntitySet="tblEjeInvestigacion">
+          <ScalarProperty Name="ejeInv_nombre" ColumnName="ejeInv_nombre" />
+          <ScalarProperty Name="tblEjeInvestigacion_ID" ColumnName="tblEjeInvestigacion_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEstado">
+      <EntityTypeMapping TypeName="investicModel.tblEstado">
+        <MappingFragment StoreEntitySet="tblEstado">
+          <ScalarProperty Name="est_nombre" ColumnName="est_nombre" />
+          <ScalarProperty Name="tblEstado_ID" ColumnName="tblEstado_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEventosAcademicos">
+      <EntityTypeMapping TypeName="investicModel.tblEventosAcademicos">
+        <MappingFragment StoreEntitySet="tblEventosAcademicos">
+          <ScalarProperty Name="tblHojaVida_ID" ColumnName="tblHojaVida_ID" />
+          <ScalarProperty Name="eveaca_anoTerminacion" ColumnName="eveaca_anoTerminacion" />
+          <ScalarProperty Name="eveaca_lugarEvento" ColumnName="eveaca_lugarEvento" />
+          <ScalarProperty Name="eveaca_evento" ColumnName="eveaca_evento" />
+          <ScalarProperty Name="eveaca_tituloEvento" ColumnName="eveaca_tituloEvento" />
+          <ScalarProperty Name="tblEventosAcademicos_ID" ColumnName="tblEventosAcademicos_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblExperienciaProyectos">
+      <EntityTypeMapping TypeName="investicModel.tblExperienciaProyectos">
+        <MappingFragment StoreEntitySet="tblExperienciaProyectos">
+          <ScalarProperty Name="tblHojaVida_ID" ColumnName="tblHojaVida_ID" />
+          <ScalarProperty Name="exppro_anoTerminacion" ColumnName="exppro_anoTerminacion" />
+          <ScalarProperty Name="exppro_tituloProyecto" ColumnName="exppro_tituloProyecto" />
+          <ScalarProperty Name="tblExperienciaProyectos_ID" ColumnName="tblExperienciaProyectos_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFechaCronograma">
+      <EntityTypeMapping TypeName="investicModel.tblFechaCronograma">
+        <MappingFragment StoreEntitySet="tblFechaCronograma">
+          <ScalarProperty Name="cro_Indicador" ColumnName="cro_Indicador" />
+          <ScalarProperty Name="cro_FechaFin" ColumnName="cro_FechaFin" />
+          <ScalarProperty Name="cro_FechaInicio" ColumnName="cro_FechaInicio" />
+          <ScalarProperty Name="cro_Actividad" ColumnName="cro_Actividad" />
+          <ScalarProperty Name="tblCronogramaProy_ID" ColumnName="tblCronogramaProy_ID" />
+          <ScalarProperty Name="tblFechaCronograma_ID" ColumnName="tblFechaCronograma_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGruposInvestigacion">
+      <EntityTypeMapping TypeName="investicModel.tblGruposInvestigacion">
+        <MappingFragment StoreEntitySet="tblGruposInvestigacion">
+          <ScalarProperty Name="gruInv_proyectos" ColumnName="gruInv_proyectos" />
+          <ScalarProperty Name="gruInv_fechaCreacion" ColumnName="gruInv_fechaCreacion" />
+          <ScalarProperty Name="tblEstado_ID" ColumnName="tblEstado_ID" />
+          <ScalarProperty Name="gruInv_emblema" ColumnName="gruInv_emblema" />
+          <ScalarProperty Name="gruInv_nombreGrupo" ColumnName="gruInv_nombreGrupo" />
+          <ScalarProperty Name="tblUsuarioPlataforma_ID" ColumnName="tblUsuarioPlataforma_ID" />
+          <ScalarProperty Name="tblGruposInvestigacion_ID" ColumnName="tblGruposInvestigacion_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHistoricoHermeneutico">
+      <EntityTypeMapping TypeName="investicModel.tblHistoricoHermeneutico">
+        <MappingFragment StoreEntitySet="tblHistoricoHermeneutico">
+          <ScalarProperty Name="hisHerm_nombre" ColumnName="hisHerm_nombre" />
+          <ScalarProperty Name="tblHistoricoHermeneutico_ID" ColumnName="tblHistoricoHermeneutico_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHojaVida">
+      <EntityTypeMapping TypeName="investicModel.tblHojaVida">
+        <MappingFragment StoreEntitySet="tblHojaVida">
+          <ScalarProperty Name="hojVid_Institucion_ID" ColumnName="hojVid_Institucion_ID" />
+          <ScalarProperty Name="tblUsuarioPlataforma_ID" ColumnName="tblUsuarioPlataforma_ID" />
+          <ScalarProperty Name="hojVid_tituloSecundaria" ColumnName="hojVid_tituloSecundaria" />
+          <ScalarProperty Name="hojVid_anoGradoSecundaria" ColumnName="hojVid_anoGradoSecundaria" />
+          <ScalarProperty Name="tblHojaVida_ID" ColumnName="tblHojaVida_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblIdiomas">
+      <EntityTypeMapping TypeName="investicModel.tblIdiomas">
+        <MappingFragment StoreEntitySet="tblIdiomas">
+          <ScalarProperty Name="idi_descripcion" ColumnName="idi_descripcion" />
+          <ScalarProperty Name="idi_nombre" ColumnName="idi_nombre" />
+          <ScalarProperty Name="tblIdiomas_ID" ColumnName="tblIdiomas_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblInstitucion">
+      <EntityTypeMapping TypeName="investicModel.tblInstitucion">
+        <MappingFragment StoreEntitySet="tblInstitucion">
+          <ScalarProperty Name="SitioWeb" ColumnName="SitioWeb" />
+          <ScalarProperty Name="CorreoDirector" ColumnName="CorreoDirector" />
+          <ScalarProperty Name="TelefonoDirector" ColumnName="TelefonoDirector" />
+          <ScalarProperty Name="NombreDirector" ColumnName="NombreDirector" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="idZona" ColumnName="idZona" />
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+          <ScalarProperty Name="idTipoInstitucion" ColumnName="idTipoInstitucion" />
+          <ScalarProperty Name="NombreSede" ColumnName="NombreSede" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ConsecutivoSede" ColumnName="ConsecutivoSede" />
+          <ScalarProperty Name="CodigoDane" ColumnName="CodigoDane" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblIntegrantesGrupoInv">
+      <EntityTypeMapping TypeName="investicModel.tblIntegrantesGrupoInv">
+        <MappingFragment StoreEntitySet="tblIntegrantesGrupoInv">
+          <ScalarProperty Name="intGruInv_fechaVinculacion" ColumnName="intGruInv_fechaVinculacion" />
+          <ScalarProperty Name="tblUsuarioPlataforma_ID" ColumnName="tblUsuarioPlataforma_ID" />
+          <ScalarProperty Name="tblGruposInvestigacion_ID" ColumnName="tblGruposInvestigacion_ID" />
+          <ScalarProperty Name="tblIntegrantesGrupoInv_ID" ColumnName="tblIntegrantesGrupoInv_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLenguas">
+      <EntityTypeMapping TypeName="investicModel.tblLenguas">
+        <MappingFragment StoreEntitySet="tblLenguas">
+          <ScalarProperty Name="len_descripcion" ColumnName="len_descripcion" />
+          <ScalarProperty Name="len_nombre" ColumnName="len_nombre" />
+          <ScalarProperty Name="tblLenguas_ID" ColumnName="tblLenguas_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMarcoReferenciaProy">
+      <EntityTypeMapping TypeName="investicModel.tblMarcoReferenciaProy">
+        <MappingFragment StoreEntitySet="tblMarcoReferenciaProy">
+          <ScalarProperty Name="marRefProy_marcoConceptualProy" ColumnName="marRefProy_marcoConceptualProy" />
+          <ScalarProperty Name="marRefProy_marcoAntecedentesProy" ColumnName="marRefProy_marcoAntecedentesProy" />
+          <ScalarProperty Name="marRefProy_marcoTeoricoProy" ColumnName="marRefProy_marcoTeoricoProy" />
+          <ScalarProperty Name="tblMarcoReferenciaProy_ID" ColumnName="tblMarcoReferenciaProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMarcoReferenciaProy_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblMarcoReferenciaProy_Rev">
+        <MappingFragment StoreEntitySet="tblMarcoReferenciaProy_Rev">
+          <ScalarProperty Name="marRefProy_marcoConceptualProy" ColumnName="marRefProy_marcoConceptualProy" />
+          <ScalarProperty Name="marRefProy_marcoAntecedentesProy" ColumnName="marRefProy_marcoAntecedentesProy" />
+          <ScalarProperty Name="marRefProy_marcoTeoricoProy" ColumnName="marRefProy_marcoTeoricoProy" />
+          <ScalarProperty Name="tblMarcoReferenciaProy_Rev_ID" ColumnName="tblMarcoReferenciaProy_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMetodoProy">
+      <EntityTypeMapping TypeName="investicModel.tblMetodoProy">
+        <MappingFragment StoreEntitySet="tblMetodoProy">
+          <ScalarProperty Name="metProy_planAnalisisDatosProy" ColumnName="metProy_planAnalisisDatosProy" />
+          <ScalarProperty Name="metProy_procedimientoProy" ColumnName="metProy_procedimientoProy" />
+          <ScalarProperty Name="metProy_tecnicasInstrumentosProy" ColumnName="metProy_tecnicasInstrumentosProy" />
+          <ScalarProperty Name="metProy_poblacionMuestraProy" ColumnName="metProy_poblacionMuestraProy" />
+          <ScalarProperty Name="metProy_paradigmaEpistemologicoProy" ColumnName="metProy_paradigmaEpistemologicoProy" />
+          <ScalarProperty Name="tblCriticoSocial" ColumnName="tblCriticoSocial" />
+          <ScalarProperty Name="tblHistoricoHermeneutico" ColumnName="tblHistoricoHermeneutico" />
+          <ScalarProperty Name="tblDisenioProy_ID" ColumnName="tblDisenioProy_ID" />
+          <ScalarProperty Name="tblTipoEstudioProy_ID" ColumnName="tblTipoEstudioProy_ID" />
+          <ScalarProperty Name="tblParadigmaEpistemologico_ID" ColumnName="tblParadigmaEpistemologico_ID" />
+          <ScalarProperty Name="metProy_paradigmaMetodologicoProy" ColumnName="metProy_paradigmaMetodologicoProy" />
+          <ScalarProperty Name="tblParadigmaMetodologico_ID" ColumnName="tblParadigmaMetodologico_ID" />
+          <ScalarProperty Name="tblMetodoProy_ID" ColumnName="tblMetodoProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMetodoProy_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblMetodoProy_Rev">
+        <MappingFragment StoreEntitySet="tblMetodoProy_Rev">
+          <ScalarProperty Name="metProy_planAnalisisDatosProy" ColumnName="metProy_planAnalisisDatosProy" />
+          <ScalarProperty Name="metProy_procedimientoProy" ColumnName="metProy_procedimientoProy" />
+          <ScalarProperty Name="metProy_tecnicasInstrumentosProy" ColumnName="metProy_tecnicasInstrumentosProy" />
+          <ScalarProperty Name="metProy_poblacionMuestraProy" ColumnName="metProy_poblacionMuestraProy" />
+          <ScalarProperty Name="metProy_paradigmaEpistemologicoProy" ColumnName="metProy_paradigmaEpistemologicoProy" />
+          <ScalarProperty Name="metProy_paradigmaMetodologicoProy" ColumnName="metProy_paradigmaMetodologicoProy" />
+          <ScalarProperty Name="tblMetodoProy_Rev_ID" ColumnName="tblMetodoProy_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNivel">
+      <EntityTypeMapping TypeName="investicModel.tblNivel">
+        <MappingFragment StoreEntitySet="tblNivel">
+          <ScalarProperty Name="tblNivel_nivel" ColumnName="tblNivel_nivel" />
+          <ScalarProperty Name="tblNivel_ID" ColumnName="tblNivel_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNivelAcademicoEducacionSuperior">
+      <EntityTypeMapping TypeName="investicModel.tblNivelAcademicoEducacionSuperior">
+        <MappingFragment StoreEntitySet="tblNivelAcademicoEducacionSuperior">
+          <ScalarProperty Name="nivAcaEduSup_nombre" ColumnName="nivAcaEduSup_nombre" />
+          <ScalarProperty Name="tblNivelAcademicoEducacionSuperior_ID" ColumnName="tblNivelAcademicoEducacionSuperior_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNivelIdioma">
+      <EntityTypeMapping TypeName="investicModel.tblNivelIdioma">
+        <MappingFragment StoreEntitySet="tblNivelIdioma">
+          <ScalarProperty Name="tblNivel_ID" ColumnName="tblNivel_ID" />
+          <ScalarProperty Name="tblIdiomas_ID" ColumnName="tblIdiomas_ID" />
+          <ScalarProperty Name="tblHojaVida_ID" ColumnName="tblHojaVida_ID" />
+          <ScalarProperty Name="tblNivelIdioma_ID" ColumnName="tblNivelIdioma_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNivelLengua">
+      <EntityTypeMapping TypeName="investicModel.tblNivelLengua">
+        <MappingFragment StoreEntitySet="tblNivelLengua">
+          <ScalarProperty Name="tblNivel_ID" ColumnName="tblNivel_ID" />
+          <ScalarProperty Name="tblLenguas_ID" ColumnName="tblLenguas_ID" />
+          <ScalarProperty Name="tblHojaVida_ID" ColumnName="tblHojaVida_ID" />
+          <ScalarProperty Name="tblNivelLengua_ID" ColumnName="tblNivelLengua_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblParadigmaEpistemologico">
+      <EntityTypeMapping TypeName="investicModel.tblParadigmaEpistemologico">
+        <MappingFragment StoreEntitySet="tblParadigmaEpistemologico">
+          <ScalarProperty Name="parEpi_nombre" ColumnName="parEpi_nombre" />
+          <ScalarProperty Name="tblParadigmaEpistemologico_ID" ColumnName="tblParadigmaEpistemologico_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblParadigmaMetodologico">
+      <EntityTypeMapping TypeName="investicModel.tblParadigmaMetodologico">
+        <MappingFragment StoreEntitySet="tblParadigmaMetodologico">
+          <ScalarProperty Name="parMet_nombre" ColumnName="parMet_nombre" />
+          <ScalarProperty Name="tblParadigmaMetodologico_ID" ColumnName="tblParadigmaMetodologico_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPresentacionProyecto">
+      <EntityTypeMapping TypeName="investicModel.tblPresentacionProyecto">
+        <MappingFragment StoreEntitySet="tblPresentacionProyecto">
+          <ScalarProperty Name="preProy_ejeInvestigacionProy" ColumnName="preProy_ejeInvestigacionProy" />
+          <ScalarProperty Name="tblEjeInvestigacion_ID" ColumnName="tblEjeInvestigacion_ID" />
+          <ScalarProperty Name="preProy_palabrasClavesProy" ColumnName="preProy_palabrasClavesProy" />
+          <ScalarProperty Name="preProy_resumenProy" ColumnName="preProy_resumenProy" />
+          <ScalarProperty Name="preProy_tituloProy" ColumnName="preProy_tituloProy" />
+          <ScalarProperty Name="tblPresentacionProyecto_ID" ColumnName="tblPresentacionProyecto_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPresentacionProyecto_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblPresentacionProyecto_Rev">
+        <MappingFragment StoreEntitySet="tblPresentacionProyecto_Rev">
+          <ScalarProperty Name="preProy_ejeInvestigacionProy" ColumnName="preProy_ejeInvestigacionProy" />
+          <ScalarProperty Name="preProy_palabrasClavesProy" ColumnName="preProy_palabrasClavesProy" />
+          <ScalarProperty Name="preProy_resumenProy" ColumnName="preProy_resumenProy" />
+          <ScalarProperty Name="preProy_tituloProy" ColumnName="preProy_tituloProy" />
+          <ScalarProperty Name="tblPresentacionProyecto_Rev_ID" ColumnName="tblPresentacionProyecto_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPresupuestoProy">
+      <EntityTypeMapping TypeName="investicModel.tblPresupuestoProy">
+        <MappingFragment StoreEntitySet="tblPresupuestoProy">
+          <ScalarProperty Name="pre_total" ColumnName="pre_total" />
+          <ScalarProperty Name="pre_totalOtraFuente" ColumnName="pre_totalOtraFuente" />
+          <ScalarProperty Name="pre_totatInvestic" ColumnName="pre_totatInvestic" />
+          <ScalarProperty Name="pre_financiacionInvestic" ColumnName="pre_financiacionInvestic" />
+          <ScalarProperty Name="tblPresupuestoProy_ID" ColumnName="tblPresupuestoProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPresupuestoProy_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblPresupuestoProy_Rev">
+        <MappingFragment StoreEntitySet="tblPresupuestoProy_Rev">
+          <ScalarProperty Name="preProy_revision" ColumnName="preProy_revision" />
+          <ScalarProperty Name="tblPresupuestoProy_Rev_ID" ColumnName="tblPresupuestoProy_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProblemaInvestigacionProy">
+      <EntityTypeMapping TypeName="investicModel.tblProblemaInvestigacionProy">
+        <MappingFragment StoreEntitySet="tblProblemaInvestigacionProy">
+          <ScalarProperty Name="proInvProy_objetivosEspecificosProy" ColumnName="proInvProy_objetivosEspecificosProy" />
+          <ScalarProperty Name="proInvProy_objetivoGeneralProy" ColumnName="proInvProy_objetivoGeneralProy" />
+          <ScalarProperty Name="proInvProy_justificacionProy" ColumnName="proInvProy_justificacionProy" />
+          <ScalarProperty Name="proInvProy_subpreguntaInvestigacionProy" ColumnName="proInvProy_subpreguntaInvestigacionProy" />
+          <ScalarProperty Name="proInvProy_preguntaInvestigacionProy" ColumnName="proInvProy_preguntaInvestigacionProy" />
+          <ScalarProperty Name="proInvProy_planteamientoProblemaProy" ColumnName="proInvProy_planteamientoProblemaProy" />
+          <ScalarProperty Name="tblProblemaInvestigacionProy_ID" ColumnName="tblProblemaInvestigacionProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProblemaInvestigacionProy_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblProblemaInvestigacionProy_Rev">
+        <MappingFragment StoreEntitySet="tblProblemaInvestigacionProy_Rev">
+          <ScalarProperty Name="proInvProy_objetivosEspecificosProy" ColumnName="proInvProy_objetivosEspecificosProy" />
+          <ScalarProperty Name="proInvProy_objetivoGeneralProy" ColumnName="proInvProy_objetivoGeneralProy" />
+          <ScalarProperty Name="proInvProy_justificacionProy" ColumnName="proInvProy_justificacionProy" />
+          <ScalarProperty Name="proInvProy_subpreguntaInvestigacionProy" ColumnName="proInvProy_subpreguntaInvestigacionProy" />
+          <ScalarProperty Name="proInvProy_preguntaInvestigacionProy" ColumnName="proInvProy_preguntaInvestigacionProy" />
+          <ScalarProperty Name="proInvProy_planteamientoProblemaProy" ColumnName="proInvProy_planteamientoProblemaProy" />
+          <ScalarProperty Name="tblProblemaInvestigacionProy_Rev_ID" ColumnName="tblProblemaInvestigacionProy_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductosAcademicos">
+      <EntityTypeMapping TypeName="investicModel.tblProductosAcademicos">
+        <MappingFragment StoreEntitySet="tblProductosAcademicos">
+          <ScalarProperty Name="tblHojaVida_ID" ColumnName="tblHojaVida_ID" />
+          <ScalarProperty Name="tblCategoriaProductos_ID" ColumnName="tblCategoriaProductos_ID" />
+          <ScalarProperty Name="proaca_anoTerminacion" ColumnName="proaca_anoTerminacion" />
+          <ScalarProperty Name="proaca_tituloProducto" ColumnName="proaca_tituloProducto" />
+          <ScalarProperty Name="tblProductosAcademicos_ID" ColumnName="tblProductosAcademicos_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProyectosInvestigacion">
+      <EntityTypeMapping TypeName="investicModel.tblProyectosInvestigacion">
+        <MappingFragment StoreEntitySet="tblProyectosInvestigacion">
+          <ScalarProperty Name="proyInv_fechaUltimaModificacion" ColumnName="proyInv_fechaUltimaModificacion" />
+          <ScalarProperty Name="proyInv_fechaCreacion" ColumnName="proyInv_fechaCreacion" />
+          <ScalarProperty Name="proyInv_nombreProyecto" ColumnName="proyInv_nombreProyecto" />
+          <ScalarProperty Name="tblEvaluacionProyEvaluador2_ID" ColumnName="tblEvaluacionProyEvaluador2_ID" />
+          <ScalarProperty Name="tblEvaluacionProyEvaluador1_ID" ColumnName="tblEvaluacionProyEvaluador1_ID" />
+          <ScalarProperty Name="tblEvaluacionProyInvestic_ID" ColumnName="tblEvaluacionProyInvestic_ID" />
+          <ScalarProperty Name="tblEvaluacionProyColciencias_ID" ColumnName="tblEvaluacionProyColciencias_ID" />
+          <ScalarProperty Name="tblReferenciasProy_ID" ColumnName="tblReferenciasProy_ID" />
+          <ScalarProperty Name="tblPresupuestoProy_ID" ColumnName="tblPresupuestoProy_ID" />
+          <ScalarProperty Name="tblCronogramaProy_ID" ColumnName="tblCronogramaProy_ID" />
+          <ScalarProperty Name="tblCaracteristicasProy_ID" ColumnName="tblCaracteristicasProy_ID" />
+          <ScalarProperty Name="tblMetodoProy_ID" ColumnName="tblMetodoProy_ID" />
+          <ScalarProperty Name="tblMarcoReferenciaProy_ID" ColumnName="tblMarcoReferenciaProy_ID" />
+          <ScalarProperty Name="tblProblemaInvestigacionProy_ID" ColumnName="tblProblemaInvestigacionProy_ID" />
+          <ScalarProperty Name="tblPresentacionProyecto_ID" ColumnName="tblPresentacionProyecto_ID" />
+          <ScalarProperty Name="tblEstado_ID" ColumnName="tblEstado_ID" />
+          <ScalarProperty Name="tblGruposInvestigacion_ID" ColumnName="tblGruposInvestigacion_ID" />
+          <ScalarProperty Name="tblProyectosInvestigacion_ID" ColumnName="tblProyectosInvestigacion_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProyectosInvestigacion_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblProyectosInvestigacion_Rev">
+        <MappingFragment StoreEntitySet="tblProyectosInvestigacion_Rev">
+          <ScalarProperty Name="proyInvRev_fechaUltimaEvaluacion" ColumnName="proyInvRev_fechaUltimaEvaluacion" />
+          <ScalarProperty Name="proyInvRev_fechaLimiteEvaluacion" ColumnName="proyInvRev_fechaLimiteEvaluacion" />
+          <ScalarProperty Name="proyInvRev_fechaAsignacion" ColumnName="proyInvRev_fechaAsignacion" />
+          <ScalarProperty Name="tblUsuarioPlataforma_Evaluador_ID" ColumnName="tblUsuarioPlataforma_Evaluador_ID" />
+          <ScalarProperty Name="tblReferenciasProy_Rev_ID" ColumnName="tblReferenciasProy_Rev_ID" />
+          <ScalarProperty Name="tblPresupuestoProy_Rev_ID" ColumnName="tblPresupuestoProy_Rev_ID" />
+          <ScalarProperty Name="tblCronogramaProy_Rev_ID" ColumnName="tblCronogramaProy_Rev_ID" />
+          <ScalarProperty Name="tblCaracteristicasProy_Rev_ID" ColumnName="tblCaracteristicasProy_Rev_ID" />
+          <ScalarProperty Name="tblMetodoProy_Rev_ID" ColumnName="tblMetodoProy_Rev_ID" />
+          <ScalarProperty Name="tblMarcoReferenciaProy_Rev_ID" ColumnName="tblMarcoReferenciaProy_Rev_ID" />
+          <ScalarProperty Name="tblProblemaInvestigacionProy_Rev_ID" ColumnName="tblProblemaInvestigacionProy_Rev_ID" />
+          <ScalarProperty Name="tblPresentacionProyecto_Rev_ID" ColumnName="tblPresentacionProyecto_Rev_ID" />
+          <ScalarProperty Name="tblEstado_ID" ColumnName="tblEstado_ID" />
+          <ScalarProperty Name="tblProyectosInvestigacion_ID" ColumnName="tblProyectosInvestigacion_ID" />
+          <ScalarProperty Name="tblProyectosInvestigacion_Rev_ID" ColumnName="tblProyectosInvestigacion_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblReferenciasProy">
+      <EntityTypeMapping TypeName="investicModel.tblReferenciasProy">
+        <MappingFragment StoreEntitySet="tblReferenciasProy">
+          <ScalarProperty Name="refProy_referencias" ColumnName="refProy_referencias" />
+          <ScalarProperty Name="tblReferenciasProy_ID" ColumnName="tblReferenciasProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblReferenciasProy_Rev">
+      <EntityTypeMapping TypeName="investicModel.tblReferenciasProy_Rev">
+        <MappingFragment StoreEntitySet="tblReferenciasProy_Rev">
+          <ScalarProperty Name="refProy_referencias" ColumnName="refProy_referencias" />
+          <ScalarProperty Name="tblReferenciasProy_Rev_ID" ColumnName="tblReferenciasProy_Rev_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRubro">
+      <EntityTypeMapping TypeName="investicModel.tblRubro">
+        <MappingFragment StoreEntitySet="tblRubro">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Rubro" ColumnName="Rubro" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRubroPresupuesto">
+      <EntityTypeMapping TypeName="investicModel.tblRubroPresupuesto">
+        <MappingFragment StoreEntitySet="tblRubroPresupuesto">
+          <ScalarProperty Name="rubPre_justificacion" ColumnName="rubPre_justificacion" />
+          <ScalarProperty Name="rubPre_fuente" ColumnName="rubPre_fuente" />
+          <ScalarProperty Name="rubPre_valor" ColumnName="rubPre_valor" />
+          <ScalarProperty Name="tblRubro_ID" ColumnName="tblRubro_ID" />
+          <ScalarProperty Name="tblPresupuestoProy_ID" ColumnName="tblPresupuestoProy_ID" />
+          <ScalarProperty Name="tblRubroPresupuesto_ID" ColumnName="tblRubroPresupuesto_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTituloEducacionSuperior">
+      <EntityTypeMapping TypeName="investicModel.tblTituloEducacionSuperior">
+        <MappingFragment StoreEntitySet="tblTituloEducacionSuperior">
+          <ScalarProperty Name="tblNivelAcademicoEducacionSuperior_ID" ColumnName="tblNivelAcademicoEducacionSuperior_ID" />
+          <ScalarProperty Name="tblHojaVida_ID" ColumnName="tblHojaVida_ID" />
+          <ScalarProperty Name="titEduSup_anoGraduacion" ColumnName="titEduSup_anoGraduacion" />
+          <ScalarProperty Name="titEduSup_nombre" ColumnName="titEduSup_nombre" />
+          <ScalarProperty Name="tblTituloEducacionSuperior_ID" ColumnName="tblTituloEducacionSuperior_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="investicModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="investicModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="investicModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="investicModel.AspNetUserRoles">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCategoriaProductos">
+      <EntityTypeMapping TypeName="investicModel.tblCategoriaProductos">
+        <MappingFragment StoreEntitySet="tblCategoriaProductos">
+          <ScalarProperty Name="catpro_nombre" ColumnName="catpro_nombre" />
+          <ScalarProperty Name="tblCategoriaProductos_ID" ColumnName="tblCategoriaProductos_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTipoEstudioProy">
+      <EntityTypeMapping TypeName="investicModel.tblTipoEstudioProy">
+        <MappingFragment StoreEntitySet="tblTipoEstudioProy">
+          <ScalarProperty Name="tipEst_nombre" ColumnName="tipEst_nombre" />
+          <ScalarProperty Name="tblTipoEstudioProy_ID" ColumnName="tblTipoEstudioProy_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

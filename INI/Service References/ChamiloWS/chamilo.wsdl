@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="chamilo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://investic.udenar.edu.co/chamilo/chamilo.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Ichamilo_insertUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertUser" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_insertUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_deleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteUser" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_deleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_updateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateUser" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_updateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getUserChamilo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserChamilo" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getUserChamilo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserChamiloResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getAllCources_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCources" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getAllCources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllCourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getCourcesByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCourcesByUser" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getCourcesByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCourcesByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getCourceByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCourceByRole" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getCourceByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCourceByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getLessonByCource_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLessonByCource" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getLessonByCource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLessonByCourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getTutorCource_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTutorCource" />
+  </wsdl:message>
+  <wsdl:message name="Ichamilo_getTutorCource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTutorCourceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Ichamilo">
+    <wsdl:operation name="insertUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/insertUser" message="tns:Ichamilo_insertUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/insertUserResponse" message="tns:Ichamilo_insertUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/deleteUser" message="tns:Ichamilo_deleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/deleteUserResponse" message="tns:Ichamilo_deleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/updateUser" message="tns:Ichamilo_updateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/updateUserResponse" message="tns:Ichamilo_updateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserChamilo">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/getUserChamilo" message="tns:Ichamilo_getUserChamilo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/getUserChamiloResponse" message="tns:Ichamilo_getUserChamilo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCources">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/getAllCources" message="tns:Ichamilo_getAllCources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/getAllCourcesResponse" message="tns:Ichamilo_getAllCources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCourcesByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/getCourcesByUser" message="tns:Ichamilo_getCourcesByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/getCourcesByUserResponse" message="tns:Ichamilo_getCourcesByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCourceByRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/getCourceByRole" message="tns:Ichamilo_getCourceByRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/getCourceByRoleResponse" message="tns:Ichamilo_getCourceByRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLessonByCource">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/getLessonByCource" message="tns:Ichamilo_getLessonByCource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/getLessonByCourceResponse" message="tns:Ichamilo_getLessonByCource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTutorCource">
+      <wsdl:input wsaw:Action="http://tempuri.org/Ichamilo/getTutorCource" message="tns:Ichamilo_getTutorCource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Ichamilo/getTutorCourceResponse" message="tns:Ichamilo_getTutorCource_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Ichamilo" type="tns:Ichamilo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="insertUser">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/insertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/deleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/updateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserChamilo">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/getUserChamilo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCources">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/getAllCources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCourcesByUser">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/getCourcesByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCourceByRole">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/getCourceByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLessonByCource">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/getLessonByCource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTutorCource">
+      <soap:operation soapAction="http://tempuri.org/Ichamilo/getTutorCource" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="chamilo">
+    <wsdl:port name="BasicHttpBinding_Ichamilo" binding="tns:BasicHttpBinding_Ichamilo">
+      <soap:address location="http://investic.udenar.edu.co/chamilo/chamilo.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

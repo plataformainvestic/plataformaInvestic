@@ -1,0 +1,99 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblTutorZona>
+
+@{
+    ViewBag.Title = "Tutores TIC";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br /><br /><br />
+
+<p>
+    @Html.ActionLink("Registrar Tutor", "Create")
+</p>
+    <table id="Tabla_1" class="table striped hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Correo
+                </th>
+                <th>
+                    Telefono
+                </th>
+                <th>
+                    Institucion
+                </th>
+
+
+                <th width="10%">
+                    Está Activo
+                </th>
+
+                <th ></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tutZon_nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tutZon_apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tutZon_correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tutZon_telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblInstitucion.CodigoDane)
+                </td>
+                <td align="center" >
+                    @* Tutor *@
+                    @if (item.estaActivo != null)
+                    { @Html.DisplayFor(modelItem => item.estaActivo.Value)
+                    }
+                    
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.tblTutorZona_ID }) |
+                    @Html.ActionLink("Ver", "Details", new { id = item.tblTutorZona_ID }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.tblTutorZona_ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @section Scripts{
+        <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+        <script>
+            $(function () {
+                $('#Tabla_1').dataTable({
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sUrl": "../../Lang/es-CO.txt"
+                    }
+                });
+
+
+                $(function () {
+                    $('#Tabla_2').dataTable({
+                        "sPaginationType": "full_numbers",
+                        "oLanguage": {
+                            "sUrl": "../../Lang/es-CO.txt"
+                        }
+                    });
+
+                });
+            });
+
+        </script>
+    }

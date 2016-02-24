@@ -1,0 +1,80 @@
+﻿@model MAI.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Iniciar Sesion";
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span1 offset1">
+            <h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="icon-arrow-left-3 fg-darker smaller"></i>
+                </a>
+            </h1>
+        </div>
+        <div class="span8">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</div>
+
+<section id="loginForm">
+    @using (Html.BeginForm("IniciarSesion", "Usuario", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <div class="grid">
+            <div class="row">
+                <div class="span2 offset3">
+                    <strong>
+                        @Html.LabelFor(m => m.UserName)
+                    </strong>
+                </div>
+                <div class="span4 input-control text" data-role="input-control">
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Usuario" })
+                    <button class="btn-clear" tabindex="-1" type="button"></button>
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2 offset3">
+                    <strong>
+                        @Html.LabelFor(m => m.Password)
+                    </strong>
+                </div>
+                <div class="span4 input-control text" data-role="input-control">
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Contraseña" })
+                    <button class="btn-reveal" tabindex="-1" type="button"></button>
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="span2">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 offset5">
+                    <input type="submit" value="Iniciar Sesión" class="button large" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 offset5">
+                <p>
+                    @Html.ActionLink("Registrese", "Registrar") si aún no tiene una cuenta.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 offset5">
+                @Html.ValidationSummary(true)
+            </div>
+        </div>
+    }
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

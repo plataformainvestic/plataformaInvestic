@@ -1,0 +1,94 @@
+﻿@model INI.Models.DataBase.tblRecursosEducativos
+
+@{
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>
+                Editar Recurso Educativo
+            </strong>
+        </h2>
+    </p>
+    @using (Html.BeginForm("Edit", "RecursosEducativos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>tblRecursosEducativos</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.id_rec_educativo)
+
+
+            <table style="background-color:transparent;">
+                <tr>
+                    <td class="span3">Colección</td>
+                    <td>
+                        <div class="input-control select size3">
+                            @Html.DropDownList("id_coleccion", ".:Colección:.")
+                            @Html.ValidationMessageFor(model => model.id_coleccion, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td>
+                        <div class="input-control text size8">
+                            @Html.EditorFor(model => model.nom_rec_educativo)
+                            @Html.ValidationMessageFor(model => model.nom_rec_educativo, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>Descripción</td>
+                    <td>
+                        <div class="input-control text size8">
+                            @Html.EditorFor(model => model.desc_rec_educativo)
+                            @Html.ValidationMessageFor(model => model.desc_rec_educativo, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+
+                <tr><td><br /></td></tr>
+                <tr>
+                    <td>
+                        <div class="span2">
+                            Archivo
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-control text size8">
+                            <div class="input-control file">
+                                <input id="archivo_rec_educativo" name="archivo_rec_educativo" type="file" />
+                                <button class="btn btn-file"></button>
+                                @Html.ValidationMessageFor(model => model.archivo_rec_educativo, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+               
+
+            </table>
+            <br />
+
+            <div class="form-actions no-color">
+                <table style="background-color:transparent;">
+                    <tr>
+                        <td><input type="submit" value="Guardar" class="button large primary" /> |</td>
+                        <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </div>
+    }
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

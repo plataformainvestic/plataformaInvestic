@@ -1,0 +1,38 @@
+﻿@model IEnumerable<INI.ChamiloWS.chamiloCource>
+@{
+    var obj = new INI.ChamiloWS.IchamiloClient();
+    obj.Open();
+}
+@if (Model.Count() > 0)
+{
+    <div class="grid">
+        <div class="row">
+            <div class="span5">
+                <div class="listview">
+                    @foreach (var item in Model)
+                    {
+                        var tutorname = obj.getTutorCource(item.code);
+                        <a href="/APR/ChamiloLessons?coursecode=@item.code&name=@item.title" class="list shadow">
+                            <div class="list-content">
+                                <img src="http://investic.udenar.edu.co/chamilolms/main/img/icons/48/blackboard.png" class="icon" />
+                            </div>
+                            <div class="data">
+                                <span class="list-title">
+                                    @item.title
+                                </span>
+                                <img src="http://investic.udenar.edu.co/chamilolms/main/img/icons/16/teacher.png" alt="Profesor" title="Profesor">
+                                <span class="list-remark">
+                                    @tutorname.name_complete
+                                </span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>No esta inscrito en ningun curso</p>
+}

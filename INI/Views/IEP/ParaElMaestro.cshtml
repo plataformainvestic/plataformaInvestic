@@ -1,0 +1,205 @@
+﻿@model INI.Models.DataBase.tblReflexionProyectoInvestigacion
+
+@{
+    ViewBag.Title = "Bitacora - Para el maestro";
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+}
+
+<h4>@ViewBag.Title</h4>
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+    @Html.HiddenFor(model => model.FechaInicio)
+    @Html.HiddenFor(model => model.UltimaModificacion)
+    @Html.HiddenFor(model => model.ConceptoAsesor)
+
+    <div class="grid fluid">
+        
+            
+                
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: 650px;" onmouseover="tooltip.pop(this, '#cuenta', { sticky: true })">
+
+
+                        <strong>
+        
+                            @Html.Label("3.1 Dé cuenta del proceso que hubo en su institucion para conformar el grupo de investigacion")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="cuenta">
+                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Dé cuenta del proceso que hubo ?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresarel proceso de tu institucion para crear el grupo de investigacion.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+            
+        
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.Proceso)
+                @Html.ValidationMessageFor(model => model.Proceso)
+            </div>
+        </div>
+
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: 516px;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Explique', { sticky: true })">
+                            @Html.Label("3.2 Explique cuales fueron los motivos que lo llevaron a participar en Ondas")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Explique">
+                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu Explicación?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una Explicación .
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+         
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @*@Html.TextAreaFor(model => model.Motivacion)*@
+                <textarea cols="20" id="Motivacion" name="Motivacion" rows="2" required title="Ingrese los motivos que lo llevaron a participar en Ondas">@Model.Motivacion</textarea>                
+                @Html.ValidationMessageFor(model => model.Motivacion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+  
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: 604px;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#reflexion', { sticky: true })">
+                            @Html.Label("3.3 Breve reflexión sobre el grupo de investigación, por parte del Maesto/Coinvestigador")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="reflexion">
+                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu reflexión?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una reflexión.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @*@Html.TextAreaFor(model => model.Reflexion)*@
+                <textarea cols="20" id="Reflexion" name="Reflexion" rows="2" required title="Ingrese una una reflexión">@Model.Reflexion</textarea>
+                @Html.ValidationMessageFor(model => model.Reflexion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span10">
+                @*<strong>
+                    
+                </strong>*@
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: 212px;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Seguimiento', { sticky: true })">
+                            @Html.Label("Seguimiento estar en la Onda")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Seguimiento">
+                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu Seguimiento?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un Seguimiento.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="span2">
+                <strong>
+                    @Html.Label("Revisión")
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.ConceptoAsesor, new { disabled = "diabled" })
+                @Html.ValidationMessageFor(model => model.ConceptoAsesor)
+            </div>
+            <div class="span2 input-control switch">
+                <label>
+                    <input id="txtRev" type="checkbox" disabled />
+                    <span class="check"></span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <input type="submit" value="Actualizar información" class="button bg-green" />
+            </div>
+        </div>
+    </div>
+}

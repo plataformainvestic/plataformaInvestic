@@ -1,0 +1,123 @@
+﻿@model IEP.Models.DataBase.MiembroGrupo
+
+@using (Html.BeginForm("RegistrarMiembroGrupo", "AsistenteGruposInvestigacion"))
+{    
+    @Html.HiddenFor(m => Model.Informacion.id)
+    @Html.HiddenFor(m => Model.Informacion.idUsuario)
+    @Html.HiddenFor(m => Model.Informacion.idGrupoInvestigacion)
+    @Html.HiddenFor(m => Model.Informacion.idRol)
+    @Html.HiddenFor(m => Model.User.Password)
+    @Html.HiddenFor(m => Model.User.ConfirmPassword)
+    @Html.HiddenFor(m => Model.User.UserName)
+
+    @Html.AntiForgeryToken()
+    <div class="grid fluid">       
+        <div class="row">
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.Name)
+                </strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.TextBoxFor(m => m.User.Name)
+            </div>
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.SureName)
+                </strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.TextBoxFor(m => m.User.SureName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.PersonalID)
+                </strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.TextBoxFor(m => m.User.PersonalID)
+            </div>
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.Genre)
+                </strong>
+            </div>
+            <div class="span4">
+                <div class="input-control radio" data-role="input-control">
+                    <label>
+                        Mujer
+                        <input type="radio" name="User.Genre" value="1" checked="">
+                        <span class="check"></span>
+                    </label>
+                </div>
+                <div class="input-control radio" data-role="input-control">
+                    <label>
+                        Hombre
+                        <input type="radio" name="User.Genre" value="2">
+                        <span class="check"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.Mail)
+                </strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.EditorFor(m => m.User.Mail)
+            </div>
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.Phone)
+                </strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.EditorFor(m => m.User.Phone)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.Address)
+                </strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.EditorFor(m => m.User.Address)
+            </div>
+            <div class="span2 text-right">
+                <strong>
+                    @Html.LabelFor(m => m.User.BirthDay)
+                </strong>
+            </div>
+            <div class="span3 input-control text">
+                @Html.EditorFor(m => m.User.BirthDay)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2 text-right">
+                <strong>
+                    @Html.Label("Grado")
+                </strong>
+            </div>
+            <div class="span4 input-control select">
+                @Html.DropDownListFor(m => m.Informacion.Grado, Model.GradesItems, "Seleccionar Grado")
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 offset6">
+                <input type="submit" class="button large bg-green" value="Registrase" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 offset6">
+                @Html.ValidationSummary()
+            </div>
+        </div>
+    </div>
+}
+
+

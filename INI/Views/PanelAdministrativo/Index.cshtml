@@ -1,0 +1,151 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvAdministrator.cshtml";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Usuario", "RegistroAdmin")
+</p>
+<input id="ntfmsj" type="hidden" value="@ViewBag.Msj"/>
+<button id="btn_test">test</button>
+<table id="tblAdmin">
+    <thead>
+        <tr>
+            <th>
+                Documento
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Género
+            </th>
+            <th>
+                Correo
+            </th>
+            <th>
+                Dirección
+            </th>
+            <th>
+                Fecha nacimiento
+            </th>
+            <th>
+                Rol
+            </th>    
+            <th>
+
+            </th>        
+        </tr>
+    </thead>
+
+    <tbody>        
+    </tbody>
+    
+</table>
+@section scripts{
+    <script src="~/Scripts/moment.js"></script>
+    <script>    
+        $(function () {
+            var msj = $("#ntfmsj").val();
+            console.log(msj);
+
+            if (msj != "") {
+                var not = $.Notify({
+                    caption: "",
+                    content: msj,
+                    timeout: 5000 // 10 seconds
+                });;
+
+            }
+
+           
+
+            $.fn.dataTable.moment('HH:mm MMM D, YY');
+            $.fn.dataTable.moment('dddd, MMMM Do, YYYY');
+                $('#tblAdmin').DataTable({
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax": {
+                        "url": "/PanelAdministrativo/getUsers",
+                        "type": "POST"
+                    },
+                    "columns": [
+                        { "data": "PersonalID" },
+                        { "data": "Name" },
+                        { "data": "SureName" },
+                        { "data": "Genre" },
+                        { "data": "Email" },                        
+                        { "data": "Address" },
+                        { "data": "BirthDay" },
+                        { "data": "Rol" },
+                        {
+                            "class": "details-control",
+                            "orderable": false,
+                            "data": null,
+                            "defaultContent": "<button onclick=redirect_action(this,1)>Editar</button> <button onclick=redirect_action(this,2)>Eliminar</button> <button onclick=redirect_action(this,3)>Detalles</button>"
+                        }
+                    ]
+                    
+                    
+                });
+            
+            
+        });
+
+        (function ($) {
+
+            $.fn.dataTable.moment = function (format, locale) {
+                var types = $.fn.dataTable.ext.type;
+
+                // Add type detection
+                types.detect.unshift(function (d) {
+                    // Null and empty values are acceptable
+                    if (d === '' || d === null) {
+                        return 'moment-' + format;
+                    }
+
+                    return moment(d.replace ? d.replace(/<.*?>/g, '') : d, format, locale, true).isValid() ?
+                        'moment-' + format :
+                        null;
+                });
+
+                // Add sorting method - use an integer for the sorting
+                types.order['moment-' + format + '-pre'] = function (d) {
+                    return d === '' || d === null ?
+                        -Infinity :
+                        parseInt(moment(d.replace ? d.replace(/<.*?>/g, '') : d, format, locale, true).format('x'), 10);
+                };
+            };
+
+        }(jQuery));
+
+        function redirect_action(obj,action) {
+            var mobj = $(obj).closest("tr");
+            var id=mobj.attr('id');
+            console.log(obj);
+            console.log(mobj);
+            console.log(mobj.attr('id'));
+            switch (action) {
+                case 1:
+                    window.location.href = '/PanelAdministrativo/Edit/' + id;
+                    break;
+                case 2:
+                    window.location.href = '/PanelAdministrativo/Delete/' + id;
+                    break;
+                case 3:
+                    window.location.href = '/PanelAdministrativo/Details/' + id;
+                    break;
+            }
+            
+
+        }
+    </script>
+}

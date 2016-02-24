@@ -1,0 +1,52 @@
+﻿@model INI.Models.DataBase.tblEquipo
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Ingresar Equipo de Trabajo</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span1">
+                @Html.DisplayName("Nombre Equipo:")
+            </div>
+            <div class="span4">
+                <div class="input-control text size4">
+                    @Html.TextBoxFor(m => m.equ_descripcion)                    
+                </div>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="span1">                
+                @Html.DisplayName("Observación:")                
+            </div>
+            <div class="span4">
+                   <div class="input-control textarea size4">
+                       @Html.TextAreaFor(m => m.equ_Observacion)
+                   </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span1">
+                <div class="button-set ">
+                    <button class="button size3" >Ingresar Equipo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

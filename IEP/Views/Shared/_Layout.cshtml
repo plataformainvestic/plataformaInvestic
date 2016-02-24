@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNet.Identity
+@using IEP.Models.DataBase
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .NET</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+</head>
+<body class="metro">
+    <nav class="navigation-bar dark">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/">
+                <img src="/favicon.png" height="16" width="16">
+                INVESTIC <sub>beta</sub>
+            </a>
+            <span class="element-divider"></span>
+            <a class="element" href="/">Inicio</a>
+            <a class="element" href="/MisGrupos">Investigacion</a>
+            @if (!Request.IsAuthenticated)
+            {
+                @Html.Partial("_LoginForm")
+            }
+        </nav>
+    </nav>
+    @Html.Partial("_LoginPartial")
+    <div class="container">
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/metro-ui")
+        <script src="~/Scripts/modernizr-2.8.3.js"></script>
+        <script src="~/Scripts/Investic/iep-0.1-AlertMessage.js"></script>
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

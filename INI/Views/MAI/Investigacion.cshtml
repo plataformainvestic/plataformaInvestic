@@ -1,0 +1,31 @@
+﻿@model INI.Models.DataBase.tblHojaVida
+
+@{
+    Layout = "~/Views/Shared/_InvCuenta.cshtml";
+    ViewBag.Title = "Investigación";
+}
+
+<div class="verticalSpan2"></div>
+
+<div class="fondoHojaVida">
+    <table style="background-color:transparent; margin:auto;">
+        <tr>
+            <td width="80%" align="left">
+                <div class="tableroHojaVida">
+                    @Html.Partial("~/Views/Shared/_Investigacion_HojaVida.cshtml", Model)
+                </div>
+            </td>
+            <td width="20%" align="left">
+                <img src="~/images/MAI/HojaVida/personajeHojaVida.png" />
+            </td>
+        </tr>
+        <tr><td><center>@Html.AtrasInvestic()</center></td></tr>
+    </table>
+</div>
+
+@section scripts{
+    <link href="~/Content/Investic/MAI/mai_Site_HojaVida.css" rel="stylesheet" />
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Investic/mai_TablasInvestigacion.js"></script>
+    <script src="~/Scripts/Investic/mai_BorrarRegistrosInvestigacion.js"></script>
+}

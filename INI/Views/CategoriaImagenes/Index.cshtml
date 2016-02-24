@@ -1,0 +1,68 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblCategoriaImagenes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Categorías.
+        </h2>
+    </p>
+
+    <p>
+        @Html.ActionLink("Nueva Categoría", "Create")
+    </p>
+
+
+    <table id="Tabla" class="table striped hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Imagen de Portada
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cat_Nombre)
+                    </td>
+                    <td align="left" width="60%">
+                        @Html.DisplayFor(modelItem => item.cat_Imagen_Portada)
+                    </td>
+                    <td align="center" width="20%">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.cat_ID }) |
+                        @Html.ActionLink("Ver", "Details", new { id = item.cat_ID }) |
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.cat_ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script>
+        $(function () {
+            $('#Tabla').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+
+        });
+
+  
+</script>
+}

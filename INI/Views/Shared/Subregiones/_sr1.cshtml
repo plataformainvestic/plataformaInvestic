@@ -1,0 +1,30 @@
+﻿<img id="subregion_img" src="/images/lorraine/mapa/subregion1/subregion.png" usemap="#subregion1" />
+<map id="subregion1" name="subregion1">
+    <area id="ssh1" shape="poly" alt="Mosquera" title="Mosquera" coords="4,150,6,210,112,282,90,232,124,202,116,186,136,144,138,98,112,74,98,44,70,44,70,62,44,86,42,102,32,102,22,100,14,114,12,128,12,140,0,144" href="#" onmouseover="entersubregion(52473)" />
+    <area id="ssh2" shape="poly" alt="Olaya Herrera" title="Olaya Herrera" coords="116,286,90,230,122,204,116,186,138,142,136,134,142,98,126,84,108,42,146,12,162,56,176,50,196,100,198,128,220,132,220,148,210,178,218,194,216,222,206,232,214,248,220,276,214,294,218,318,214,372,180,382,152,374,134,344,136,320,116,308,114,296" href="#" onmouseover="entersubregion(52490)" />
+    <area id="ssh3" shape="poly" alt="La Tola" title="La Tola" coords="216,372,216,316,208,296,218,282,208,228,216,222,210,208,218,192,212,182,222,138,202,122,202,88,192,78,190,62,182,60,184,46,176,46,162,26,162,6,168,10,200,6,200,28,230,52,226,82,246,96,240,120,248,132,244,266,240,284,228,300,230,316,234,334,228,350,232,364,228,372" href="#" onmouseover="entersubregion(52390)" />
+    <area id="ssh4" shape="poly" alt="El Charco" title="El Charco" coords="230,82,244,104,240,120,246,144,244,166,246,198,242,286,230,296,234,324,292,354,322,342,356,368,394,352,392,366,416,372,424,438,536,438,550,412,616,438,646,408,690,410,698,396,716,410,724,384,716,364,724,334,728,264,668,256,624,294,568,294,558,324,580,368,576,378,548,368,500,394,396,332,392,290,348,214,318,198,294,152,310,130,288,100,294,96,276,50,268,44,266,26,256,14,216,6,228,22,222,40,238,56" href="#" onmouseover="entersubregion(52250)" />
+    <area id="ssh5" shape="poly" alt="Santa Barbara" title="Santa Barbara" coords="286,104,282,48,274,36,276,20,300,38,316,22,350,12,382,26,388,88,384,118,396,148,390,162,412,182,402,192,414,234,428,262,426,288,450,298,458,306,482,318,552,294,568,302,550,322,564,336,564,346,574,368,570,376,548,368,528,370,496,396,482,378,398,330,392,292,344,218,320,204,294,160,310,138,308,130" href="#" onmouseover="entersubregion(52696)" />
+</map>
+
+<a href="~/Home/comovamos"><img src="../../../images/como%20vamos/btn_volver_apr.png" alt="" /></a>
+
+<script>
+    $(function() {
+        jQuery("#ssh1").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Mosquera");
+        });
+        jQuery("#ssh2").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Olaya Herrera");
+        });
+        jQuery("#ssh3").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: La Tola");
+        });
+        jQuery("#ssh4").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: El Charco");
+        });
+        jQuery("#ssh5").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Santa Barbara");
+        });
+    });    
+</script>

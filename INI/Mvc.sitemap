@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Inicio" controller="Home" action="Index" >
+    <mvcSiteMapNode title="Conocenos" controller="Home" action="Conocenos">
+      <mvcSiteMapNode title="¿Quiénes Somos?" controller="Home" action="Conocenos"/>
+       <mvcSiteMapNode title="General" controller="Home" action="General"/>
+      <mvcSiteMapNode title="Equipos de Trabajo" controller="Home" action="EquiposTrabajo"/>
+      <mvcSiteMapNode title="Alternativas" controller="Home" action="Alternativas"/>
+      <mvcSiteMapNode title="Asesores de Zona" controller="Home" action="mapaasesores"/>
+      <mvcSiteMapNode title="Tutores TIC" controller="Home" action="mapatutores"/>
+   </mvcSiteMapNode >
+
+<mvcSiteMapNode title="Investiga" controller="Home" action="Aprendizaje">
+    <mvcSiteMapNode title="Aprendizaje" controller="Home" action="Aprendizaje">
+      <mvcSiteMapNode title="Ambientes Virtuales de Aprendizaje" controller="Home" action="Aprendizaje"/>
+      <mvcSiteMapNode title="Catálogo de recursos educativos" controller="Home" action="Aprendizaje"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Investigación" controller="Home" action="Investigacion">
+      <mvcSiteMapNode title="Estudiantes investigando" controller="Home" action="BusquedaEstudiantesInvestigando"/>
+      <mvcSiteMapNode title="Docentes investigando" controller="Home" action="BusquedaDocenteInvestigando"/>
+    </mvcSiteMapNode>
+ </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Contáctenos" controller="Home" action="Contactenos">
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Recuerdos" controller="Home" action="Recuerdos">
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="¿Cómo Vamos?" controller="Home" action="comovamos">
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Maestro Investigador" controller="GruposInvestigacion" action="MisGrupos" role="Administrador, Editor">
+      <mvcSiteMapNode title="Mis Grupos" controller="GruposInvestigacion" action="MisGrupos"/>
+          <mvcSiteMapNode title="Integrantes del Grupo" controller="IntegrantesGrupoInv" action="Integrantes"/>
+          <mvcSiteMapNode title="Proyectos" controller="ProyectosInvestigacion" action="Proyectos"/>
+    </mvcSiteMapNode>
+     <mvcSiteMapNode title="Investigación como Estrategia Pedagógica" controller="IEP" action="Index">
+          <mvcSiteMapNode title="Mis Grupos" controller="IEP" action="Index"/>
+          <mvcSiteMapNode title="Mis invitaciones" controller="IEP" action="Invitaciones"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Red Virtual de Conocimiento" controller="tbNetVirtualGroups" action="Index">
+          <mvcSiteMapNode title="Crear Red Virtual" controller="tbNetVirtualGroups" action="Create"/>
+          <mvcSiteMapNode title="Recursos de la Red" controller="tbNetVirtualResources" action="Index"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Interactúa" controller="Home" action="Chat">
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Hoja de Vida" controller="Usuario" action="AdministrarCuenta">
+      <mvcSiteMapNode title="Mi Perfil" controller="Usuario" action="AdministrarCuenta"/>
+    <mvcSiteMapNode title="Formación" controller="MAI" action="EditarHojaVida"/>
+    <mvcSiteMapNode title="Experiencia" controller="MAI" action="Investigacion"/>
+    </mvcSiteMapNode>
+
+
+    <mvcSiteMapNode title="Iniciar Sesión" controller="Usuario" action="IniciarSesion">
+      <mvcSiteMapNode title="Registrar" controller="Usuario" action="Registrar"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="¿Eres Nuevo?" controller="Usuario" action="Registrar">
+      <mvcSiteMapNode title="Registrar" controller="Usuario" action="Registrar"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Nuestras Entidades" url="#" action="#">
+      <mvcSiteMapNode title="Gobernación de Nariño" url="http://www.narino.gov.co/" action="_blank" />
+      <mvcSiteMapNode title="Universidad de Nariño" url="http://www.udenar.edu.co/" action="_blank" />
+
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Nuestras Redes de comunicación" url="~/home" action="#" >
+       <mvcSiteMapNode title="Youtube" url="http://www.youtube.com/user/investicedu" action="_blank" />
+       <mvcSiteMapNode title="Facebook" url="http://www.facebook.com/investic.edu" action="_blank" />
+        <mvcSiteMapNode title="Twitter" url="http://www.twitter.com/investic_edu" action="_blank" />
+
+    </mvcSiteMapNode>
+    
+
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

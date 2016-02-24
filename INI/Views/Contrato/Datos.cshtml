@@ -1,0 +1,166 @@
+﻿@model INI.Models.DataBase.AspNetUsers
+
+@{
+    ViewBag.Title = "Datos";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+<h2>Datos</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="grid fluid">
+        @Html.HiddenFor(model=>model.Id)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.SureName)
+        @Html.HiddenFor(model => model.PersonalID)
+        @Html.HiddenFor(model => model.Genre)
+        @Html.HiddenFor(model => model.Address)
+        @Html.HiddenFor(model => model.BirthDay)
+        @Html.HiddenFor(model => model.Email)
+        @Html.HiddenFor(model => model.EmailConfirmed)
+        @Html.HiddenFor(model => model.PasswordHash)
+        @Html.HiddenFor(model => model.SecurityStamp)
+        @Html.HiddenFor(model => model.PhoneNumber)
+        @Html.HiddenFor(model => model.PhoneNumberConfirmed)
+        @Html.HiddenFor(model => model.TwoFactorEnabled)
+        @Html.HiddenFor(model => model.LockoutEndDateUtc)
+        @Html.HiddenFor(model => model.LockoutEnabled)
+        @Html.HiddenFor(model => model.AccessFailedCount)
+        @Html.HiddenFor(model => model.UserName)
+        @Html.HiddenFor(model => model.LastName)
+        @Html.HiddenFor(model => model.Celular)
+        @Html.HiddenFor(model => model.Cedula)
+        @Html.HiddenFor(model => model.Nombres)
+        @Html.HiddenFor(model => model.Apellidos)
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="span2">
+                <strong>Usuario</strong>
+            </div>
+
+            <div class="span4 input-control select">
+                @Html.DisplayFor(m => m.LastName)
+            </div>
+
+            <div class="span2 text-right">
+                <strong> </strong>
+            </div>
+            <div class="span4 input-control select display">
+                @Html.DropDownList("Equipo")
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="span2">
+                <strong>Cargo</strong>
+            </div>
+            <div class="span4 input-control select">
+                @Html.DropDownList("Cargo")
+                @Html.ValidationMessageFor(m => m.Cargo)
+            </div>
+
+
+
+            <div class="span2 text-right">
+                <strong>Numero de Contrato</strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.TextBoxFor(m => m.Contrato)
+                @Html.ValidationMessageFor(m => m.Contrato)
+                <button class="btn btn-clear"></button>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="span2">
+                <strong>Fecha Inicial Contrato</strong>
+            </div>
+            <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top">
+                @Html.TextBoxFor(m => m.Fecha_IniContrato, "{0:dd/MM/yyyy}", new { @type = "text" })
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessageFor(m => m.Fecha_IniContrato, "", new { @class = "text-danger" })
+            </div>
+
+
+
+
+
+            <div class="span2 text-right">
+                <strong>Fecha Final Contrato</strong>
+            </div>
+            <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top">
+                @Html.TextBoxFor(m => m.Fecha_FinContrato, "{0:dd/MM/yyyy}", new { @type = "text" })
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessageFor(m => m.Fecha_FinContrato, "", new { @class = "text-danger" })
+            </div>
+
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="span2">
+                <strong>Numero de CDP</strong>
+            </div>
+            <div class="span4 input-control text">
+                @Html.TextBoxFor(m => m.Cdp)
+                @Html.ValidationMessageFor(m => m.Cdp)
+                <button class="btn btn-clear"></button>
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="span4">
+                <strong> </strong>
+            </div>
+            <div class="span6">
+                <input type="submit" class="btn large bg-darkBlue fg-white" value="Grabar" />
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Seleccionar")
+</div>

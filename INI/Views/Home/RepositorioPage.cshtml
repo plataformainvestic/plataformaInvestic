@@ -1,0 +1,30 @@
+﻿@model IEnumerable<String>
+@{
+    ViewBag.Title = "RevistaFlip";
+    Layout = "~/Views/Shared/_LayoutRevistaFlip.cshtml";
+}
+<div class="flipbook-viewport">
+    <div class="container">
+        
+        <div class="flipbook">            
+            @foreach(var item in Model) { 
+                <div style="background-image:url(@item)"></div>
+            }
+            
+           
+        </div>
+    </div>
+</div>
+
+@*<div class="flipbook-viewport">
+    <div class="container">
+        <div class="flipbook">
+            @foreach (var item in Model)
+            {
+                <div style="background-image:url(@item)"></div>
+            }            
+            
+        </div>
+    </div>
+</div>*@
+

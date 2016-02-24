@@ -1,0 +1,65 @@
+﻿@model SEG.Models.DataBase.producto
+@using SEG.Models.DataBase
+@{
+    var db = new Entities();
+}
+
+<h4>Esta seguro de borrar este producto?</h4>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Archivo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Producto)
+        </dd>
+
+        <dt>
+            Descripcion
+        </dt>
+
+
+        @if (Model.Descripcion_Producto == null)
+        {
+            <dd>
+                No hay descripción
+            </dd>
+        }
+        else
+        {
+            <dd>@Html.DisplayFor(model => model.Descripcion_Producto)
+                
+            </dd>
+        }
+
+
+
+
+
+    </dl>
+
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirmar" class="btn btn-default" /> |
+            @{
+                int idActividad = (from a in db.productos where a.Nombre_Producto.Equals(Model.Nombre_Producto) select a.Id_Actividad).SingleOrDefault();
+            
+                                    
+            @Html.ActionLink("Regresar", "Create", new { id = idActividad });
+            
+            }
+
+
+        </div>
+    }
+</div>

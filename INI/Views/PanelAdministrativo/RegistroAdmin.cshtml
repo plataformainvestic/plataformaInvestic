@@ -1,0 +1,191 @@
+﻿@model INI.Models.RegisterViewModel
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Registro de Usuario";
+    Layout = "~/Views/Shared/_InvAdministrator.cshtml";
+
+}
+<div id="bgDiv">
+    <table style="background-color:transparent;margin:auto ;">
+        <tr>
+
+            <td width="80%" align="left">
+                <div id="divFondoFormulario" class="fondoRegistroFormulario">
+                    <div class=" grid fluid">
+                        <div class="row">
+                            <table style="background-color:transparent;">
+                                <tr>
+                                    <td>
+                                        <div class="span1">
+                                            <h1>
+                                                <a href="javascript:history.go(-1)">
+                                                    <i class="icon-arrow-left-3 fg-darker smaller"></i>
+                                                </a>
+                                            </h1>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div id="divTitulo" style="font-family:Chewy;color:#FF1643;font-size:16pt;">
+                                            @ViewBag.Title
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="UserName" name="UserName" value="nn" />
+                        <div class="grid fluid">
+                            <div class="row">
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.Password)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.PasswordFor(m => m.Password)
+                                    @Html.ValidationMessageFor(model => model.Password)
+                                </div>
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.ConfirmPassword)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.PasswordFor(m => m.ConfirmPassword)
+                                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.Name)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.TextBoxFor(m => m.Name)
+                                    @Html.ValidationMessageFor(model => model.Name)
+                                </div>
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.SureName)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.TextBoxFor(m => m.SureName)
+                                    @Html.ValidationMessageFor(model => model.SureName)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.PersonalID)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.TextBoxFor(m => m.PersonalID)
+                                    @Html.ValidationMessageFor(model => model.PersonalID)
+                                </div>
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.Genre)
+                                    </strong>
+                                </div>
+                                <div class="span4">
+                                    <div class="input-control radio" data-role="input-control">
+                                        <label>
+                                            Mujer
+                                            <input type="radio" name="Genre" value="1" checked="">
+                                            <span class="check"></span>
+                                        </label>
+                                    </div>
+                                    <div class="input-control radio" data-role="input-control">
+                                        <label>
+                                            Hombre
+                                            <input type="radio" name="Genre" value="2">
+                                            <span class="check"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.Mail)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.EditorFor(m => m.Mail)
+                                    @Html.ValidationMessageFor(model => model.Mail)
+                                </div>
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.Phone)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.EditorFor(m => m.Phone)
+                                    @Html.ValidationMessageFor(model => model.Phone)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.Address)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text">
+                                    @Html.EditorFor(m => m.Address)
+                                    @Html.ValidationMessageFor(model => model.Address)
+                                </div>
+                                <div class="span2 text-right">
+                                    <strong>
+                                        @Html.LabelFor(m => m.BirthDay)
+                                    </strong>
+                                </div>
+                                <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top">
+                                    @Html.TextBoxFor(m => m.BirthDay, "{0:dd/MM/yyyy}", new { @type = "text" })
+                                    <button class="btn btn-date" type="button"></button>
+                                    @Html.ValidationMessageFor(m => m.BirthDay, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span2 text-right">
+                                    <strong>
+                                        Rol
+                                    </strong>
+                                </div>
+
+                                <div class="span4 input-control select ">
+                                    @Html.DropDownList("RolId", null, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                <div class="span2 offset2">
+                                    <input type="submit" class="button large bg-blue" value="Registrar" />
+                                </div>
+                            </div>
+                            <div class="row">
+
+                            </div>
+                            <div class="row">
+                                <div class="span4 offset6">
+                                    @Html.ValidationSummary(true)
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

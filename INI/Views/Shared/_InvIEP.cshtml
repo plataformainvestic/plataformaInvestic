@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+@{
+    
+    Layout = "~/Views/Shared/_LayoutInvestic.cshtml";
+}
+@section Style{
+    @RenderSection("Style", required: false)
+}
+
+@section Submenu{
+        <img src="~/images/logosSecciones/logo_iep.png" style="margin:0; float: left;" />
+        <div id="titulosmenusec" style="color:#FF6C00"> IEP</div>
+        <div><a id="btnmenusec" href="~/IEP">Mis Grupos </a></div>
+        <div><a id="btnmenusec" href="~/IEP/Invitaciones">Mis Invitaciones </a></div>
+        @*<div><a id="btnmenusec" href="~/IEP/ForoProyecto">Foros </a></div>
+        <div><a id="btnmenusec" href="~/IEP/ComentarioProyecto">Comentarios </a></div>*@
+        <div style="padding-bottom:15px;padding-top:14px;margin:0; color:#E5E5E5;"></div>
+}
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@section Script{
+    @RenderSection("Scripts", required: false)
+}

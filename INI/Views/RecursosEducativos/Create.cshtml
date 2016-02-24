@@ -1,0 +1,225 @@
+﻿@using Microsoft.AspNet.Identity
+@model INI.Models.DataBase.tblRecursosEducativos
+
+@{
+    ViewBag.Title = "Crear Recurso Educativo";
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+<style>
+    .inputClass input {
+        width: 100%;
+    }
+</style>
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+@using (Html.BeginForm("Create", "RecursosEducativos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    <div class="divMetas">
+        <p>
+            <h2>
+                <strong>
+                    Crear Recurso Educativo
+                </strong>
+            </h2>
+        </p>
+        <hr />
+       
+
+        <table id="Tabla" class="table striped hover" style="width:100%">
+            <thead>
+                <tr>
+                    <td>
+                        
+
+                        <div class="span2 text-right">
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Coleccion', { sticky: true })">
+                                    Colección
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Coleccion">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu Colección?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes seleccionar una Colección.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                    </td>
+                    <td>
+                        <div class="input-control select size3">
+                            @Html.DropDownList("id_coleccion", ".:Colección:.")
+                            @Html.ValidationMessageFor(model => model.id_coleccion, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+
+
+                        <div class="span2 text-right">
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Nombre', { sticky: true })">
+                                    Nombre
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Nombre">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu Nombre?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes ingresar  un nombre.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                    </td>
+                    <td>
+                        <div class="input-control text size8">
+                            @Html.EditorFor(model => model.nom_rec_educativo)
+                            @Html.ValidationMessageFor(model => model.nom_rec_educativo, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+
+                        <div class="span2 text-right">
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Descripcion', { sticky: true })">
+                                    Descripción
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Descripcion">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu Descripción?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes ingresar una Descripción.1
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </td>
+                    <td>
+                        <div class="input-control text size8">
+                            @Html.EditorFor(model => model.desc_rec_educativo)
+                            @Html.ValidationMessageFor(model => model.desc_rec_educativo, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @*<div class="span2">
+                            Archivo
+                        </div>*@
+
+                        <div class="span2 text-right">
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Archivo', { sticky: true })">
+                                    Archivo
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Archivo">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu Archivo?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes Seleccionar un Archivo.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </td>
+                    <td>
+                        <div class="col-md-10">
+                            <div class="input-control file">
+                                <input id="not_urlimage" name="not_urlimage" type="file" required  message="Error Usted no selecciono el archivo [pdf,image/jpeg]"/>
+                                <button class="btn btn-file"></button>
+                                @Html.ValidationMessageFor(model => model.archivo_rec_educativo, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                @*<tr>
+                    <td>
+                        <div class="span2">
+                            Autor
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-control text size6">
+                            @Html.Display(User.Identity.Name)
+                        @Html.EditorFor(model => model.autor_rec_educativo)
+                            @Html.ValidationMessageFor(model => model.autor_rec_educativo)
+                    </div>
+                </td>
+            </tr>*@
+
+
+    </table>
+    <br />
+    <table style="background-color:transparent;">
+        <tr>
+            <td><input type="submit" value="Guardar" class="button large primary" /> |</td>
+            <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+        </tr>
+    </table>
+</div>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

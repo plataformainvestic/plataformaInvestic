@@ -1,0 +1,13 @@
+﻿@model IEP.Models.DataBase.tblRecoleccionInformacionProyectoInvestigacion
+
+<a href="~/Upload/@Model.Evidencia" target="_blank" class="list">
+    <div class="list-content">
+        <img src="~/images/Avatars/imagen-no-disponible.jpg" class="icon" width="32">
+        <div class="data">
+            <span class="list-title">Instrumento: @Model.tblHerramientasRecoleccionInformacion.HerramientaRecoleccion</span>
+            <div>
+                @Html.DisplayFor(model => model.Descripcion)
+            </div>            
+        </div>
+    </div>
+</a>

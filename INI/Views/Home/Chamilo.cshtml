@@ -1,0 +1,41 @@
+﻿@using INI.ChamiloWS;
+@using Microsoft.AspNet.Identity;
+@using INI.Models.DataBase;
+
+@{
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+@if (Request.IsAuthenticated){
+    
+    var uname = User.Identity.Name;
+    IchamiloClient client = new IchamiloClient();
+    client.Open();
+
+    var chuser = client.getUserChamilo(uname);
+    var rutval = String.Format("http://investic.udenar.edu.co/chamilolms/login2.php?user={0}&pass={1}&email={2}&fname={3}&lname={4}&status={5}", chuser.Username, chuser.Password, chuser.Email, chuser.FirstName, chuser.LasttName, chuser.Status);
+    if (ViewBag.Direction != "")
+    {
+        rutval = ViewBag.Direction;
+    }
+    
+    <div id="chamilocontainer" style="background: url('../Images/bg_apr.png') no-repeat; height:540px; width:1024px; position:relative; top:50px;">
+        <iframe id="chamilo" style="border: none; background:#ffffff; position: relative; top: 5px;" name="chamilo" src="@rutval" height="520" width="1024"></iframe>
+        <br />
+        <br />
+        <center>@Html.AtrasInvestic()</center>
+    </div>
+}
+
+@section Scripts {
+    @if (Request.IsAuthenticated)
+    {
+        if (!AspNetUsersRoles.IsUserInRole("Maestro", User.Identity.Name)) { 
+            <script>
+                $(function () {
+                    $("#chamilocontainer").hidden();
+                    window.location = "~/APR/ChamiloCourses";
+                });
+            </script>
+        }
+    }
+}

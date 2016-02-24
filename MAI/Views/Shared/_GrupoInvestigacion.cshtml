@@ -1,0 +1,55 @@
+﻿@model INI.Models.DataBase.tblGruposInvestigacion
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "_GrupoInvestigacion";
+}
+
+
+<div>
+    <h2>Mi Grupo de investigación</h2>
+</div>
+
+<div>
+    <h3>@Html.DisplayFor(model => model.gruInv_nombreGrupo)</h3>
+</div>
+<div class="row">
+    <div class="span2">
+        <img src="~/images/logo_Grupo/@Model.gruInv_emblema" width="110" />
+    </div>
+    <div class="span10">
+        <dl class="horizontal">
+            <dt>
+                @Html.DisplayName("Creado el:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.gruInv_fechaCreacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Proyectos:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.gruInv_proyectos)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Estado del Grupo:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tblEstado.est_nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Grupo creado por:")
+            </dt>
+
+            <dd>
+                @Html.DisplayName(AspNetUsers.GetName(Model.AspNetUsers.UserName))
+            </dd>
+        </dl>
+    </div>
+</div>

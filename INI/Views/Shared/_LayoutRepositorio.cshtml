@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "_InvRecuerdos";
+    Layout = "~/Views/Shared/_LayoutInvestic.cshtml";
+}
+
+@section Submenu{
+    @*<img src="~/images/logosSecciones/logo_recuerdos.png" style="margin:0; float: left;" />
+    <div id="titulosmenusec" style="color: #8BBE37;"> Recuerdos</div>
+    <div style="padding-bottom:15px;padding-top:14px;margin:0; color:#E5E5E5;"></div>*@   
+    <div>
+        <div style="height: 48px;    width: 105px;    background-color: #E61B73; float:left">            
+            <img src="~/images/InsumosPUBREV/repositorio.png" width="30px" style="margin: 3px 0px 0px 34px;" />
+        </div>
+        <div style="height:48px;width:400px;color:#E61B73;padding-top:8px"><span style="font-family:Chewy;font-size:x-large;margin-left:32px">Repositorios digitales</span></div>
+    </div> 
+<div>
+    <div id="tituloruta">
+        Dónde Estoy?
+        <font id="ruta">@Html.MvcSiteMap().SiteMapPath()</font>
+    </div>
+
+</div>
+    
+}
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@section Script{
+    @RenderSection("scripts", required: false)
+}

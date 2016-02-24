@@ -1,0 +1,73 @@
+﻿@model INI.Models.Mymodels.RVCTotal
+
+@{
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+    String ctrl=ViewBag.ControllerName;
+	var modelName = "tbl_"+ctrl;
+    ViewBag.Title = "Index";
+}
+<br /><br />
+<h1>Red virtual de conocimiento</h1>
+@if (INI.Models.DataBase.AspNetUsersRoles.IsUserInRole("Maestro", User.Identity.Name) || INI.Models.DataBase.AspNetUsersRoles.IsUserInRole("Administrador", User.Identity.Name)) { 
+    @Html.ActionLink("Crear RVC", "Create", "tbNetVirtualGroups", null, new { @class = "button large primary" })
+}
+@Html.ActionLink("Mis recursos", "Index", "tbNetVirtualResources", null, new { @class = "button large primary" })
+<div class="tab-control" data-role="tab-control">
+    <ul class="tabs">
+        <li class="active"><a href="#_page_1">Mis redes</a></li>
+        <li><a href="#_page_2">Redes de colaboración</a></li>
+        <li><a href="#_page_3">Invitaciones</a></li>
+        <li><a href="#_page_4">Mis solicitudes</a></li>
+        <li><a href="#_page_5">Otras RVC</a></li>
+    </ul>
+
+    <div class="frames">
+        <div class="frame" id="_page_1">
+            @Html.Partial("~/Views/Shared/RVC/MisRedes.cshtml",Model.Misrvc)                        
+        </div>
+        <div class="frame" id="_page_2">
+            @Html.Partial("~/Views/Shared/RVC/RedesColaboracion.cshtml",Model.rvcMiembro)            
+        </div>
+        <div class="frame" id="_page_3">
+            @Html.Partial("~/Views/Shared/RVC/Invitaciones.cshtml",Model.rvcInvitaciones)            
+        </div>
+        <div class="frame" id="_page_4">
+            @Html.Partial("~/Views/Shared/RVC/Solicitudes.cshtml", Model.rvcSolicitudes)
+        </div>
+        <div class="frame" id="_page_5">
+            @Html.Partial("~/Views/Shared/RVC/OtrasRedes.cshtml",Model.rvcOtros)
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tbl_mr').DataTable();
+            $('#tbl_rc').DataTable();
+            $('#tbl_inv').DataTable();
+            $('#tbl_or').DataTable();
+            $('#tbl_sol').DataTable();
+            //Other networks
+            $(".btnrvcor").click(function () {
+                var obj1 = $(this);
+                var id = $(this).attr("id");
+                console.log(id);
+                $.get("/RVC/RequestBelong/" + id, function (data) {
+                    obj1.hide();
+                    var not1 = $.Notify.show(data.rta);
+                });
+            });
+            //Acept Invitation
+            $(".btnrvcinv").click(function () {
+                var obj2 = $(this);
+                var id = $(this).attr("id");
+                console.log(id);
+                $.get("/RVC/AceptRequest/" + id, function (data) {
+                    obj2.hide();
+                    var not2 = $.Notify.show(data.rta);
+                });
+            });
+        });
+    </script>
+}

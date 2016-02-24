@@ -1,0 +1,47 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblInvitacionGrupo>
+
+@{
+    Layout = "~/Views/Shared/_LayoutIEP.cshtml";
+    ViewBag.Title = "Mis Invitaciones";    
+}
+
+<h1>@ViewBag.Title</h1>
+<hr />
+
+
+<table id="invitaciones" class="table striped hovered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Estado")
+            </th>
+            <th>
+                @Html.DisplayName("Nombre Grupo")
+            </th>
+            <th>
+                @Html.DisplayName("Institución")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aceptada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGrupoInvestigacion.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGrupoInvestigacion.tblInstitucion.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Aceptar", "Aceptar", new { id = item.id }) |
+                    @Html.ActionLink("Rechazar", "Rechazar", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

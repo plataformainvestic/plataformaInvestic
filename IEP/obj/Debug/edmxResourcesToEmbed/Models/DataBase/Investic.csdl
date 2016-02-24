@@ -1,0 +1,1273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InvesticModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="InvesticEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="InvesticModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="InvesticModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="InvesticModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="InvesticModel.AspNetUsers" />
+    <EntitySet Name="tblAreaConocimiento" EntityType="InvesticModel.tblAreaConocimiento" />
+    <EntitySet Name="tblAsesor" EntityType="InvesticModel.tblAsesor" />
+    <EntitySet Name="tblAsesorGrupoInvestigacion" EntityType="InvesticModel.tblAsesorGrupoInvestigacion" />
+    <EntitySet Name="tblCentrosPoblado" EntityType="InvesticModel.tblCentrosPoblado" />
+    <EntitySet Name="tblCoInvestigadorGrupoInvestigacion" EntityType="InvesticModel.tblCoInvestigadorGrupoInvestigacion" />
+    <EntitySet Name="tblDocumentosSoporte" EntityType="InvesticModel.tblDocumentosSoporte" />
+    <EntitySet Name="tblGrupoInvestigacion" EntityType="InvesticModel.tblGrupoInvestigacion" />
+    <EntitySet Name="tblInstitucion" EntityType="InvesticModel.tblInstitucion" />
+    <EntitySet Name="tblInvitacionGrupo" EntityType="InvesticModel.tblInvitacionGrupo" />
+    <EntitySet Name="tblLineaInvestigacion" EntityType="InvesticModel.tblLineaInvestigacion" />
+    <EntitySet Name="tblMaestroCoInvestigador" EntityType="InvesticModel.tblMaestroCoInvestigador" />
+    <EntitySet Name="tblMiembroGrupo" EntityType="InvesticModel.tblMiembroGrupo" />
+    <EntitySet Name="tblMunicipios" EntityType="InvesticModel.tblMunicipios" />
+    <EntitySet Name="tblPreguntaInvestigacion" EntityType="InvesticModel.tblPreguntaInvestigacion" />
+    <EntitySet Name="tblPreguntaProyectoInvestigacion" EntityType="InvesticModel.tblPreguntaProyectoInvestigacion" />
+    <EntitySet Name="tblProblemaInvestigacion" EntityType="InvesticModel.tblProblemaInvestigacion" />
+    <EntitySet Name="tblProblemaProyectoInvestigacion" EntityType="InvesticModel.tblProblemaProyectoInvestigacion" />
+    <EntitySet Name="tblProyectoInvestigacion" EntityType="InvesticModel.tblProyectoInvestigacion" />
+    <EntitySet Name="tblRol" EntityType="InvesticModel.tblRol" />
+    <EntitySet Name="tblSeguimientoProyectoInvestigacion" EntityType="InvesticModel.tblSeguimientoProyectoInvestigacion" />
+    <EntitySet Name="tblTipoInstitucion" EntityType="InvesticModel.tblTipoInstitucion" />
+    <EntitySet Name="tblZona" EntityType="InvesticModel.tblZona" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="InvesticModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="InvesticModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAsesor_AspNetUsers" Association="InvesticModel.FK_tblAsesor_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblAsesor" EntitySet="tblAsesor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCoInvestigadorGrupoInvestigacion_AspNetUsers" Association="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblCoInvestigadorGrupoInvestigacion" EntitySet="tblCoInvestigadorGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGrupoInvestigacion_AspNetUsers" Association="InvesticModel.FK_tblGrupoInvestigacion_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblInvitacionGrupo_AspNetUsers" Association="InvesticModel.FK_tblInvitacionGrupo_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblInvitacionGrupo" EntitySet="tblInvitacionGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMaestroCoInvestigador_AspNetUsers" Association="InvesticModel.FK_tblMaestroCoInvestigador_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblMaestroCoInvestigador" EntitySet="tblMaestroCoInvestigador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMiembroGrupo_AspNetUsers" Association="InvesticModel.FK_tblMiembroGrupo_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblMiembroGrupo" EntitySet="tblMiembroGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMaestroCoInvestigador_tblAreaConocimiento" Association="InvesticModel.FK_tblMaestroCoInvestigador_tblAreaConocimiento">
+      <End Role="tblAreaConocimiento" EntitySet="tblAreaConocimiento" />
+      <End Role="tblMaestroCoInvestigador" EntitySet="tblMaestroCoInvestigador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAsesorGrupoInvestigacion_tblAsesor" Association="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblAsesor">
+      <End Role="tblAsesor" EntitySet="tblAsesor" />
+      <End Role="tblAsesorGrupoInvestigacion" EntitySet="tblAsesorGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAsesorGrupoInvestigacion_tblProyectoInvestigacion" Association="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblProyectoInvestigacion">
+      <End Role="tblProyectoInvestigacion" EntitySet="tblProyectoInvestigacion" />
+      <End Role="tblAsesorGrupoInvestigacion" EntitySet="tblAsesorGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCoInvestigadorGrupoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblCoInvestigadorGrupoInvestigacion" EntitySet="tblCoInvestigadorGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocumentosSoporte_tblGrupoInvestigacion" Association="InvesticModel.FK_tblDocumentosSoporte_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblDocumentosSoporte" EntitySet="tblDocumentosSoporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGrupoInvestigacion_tblInstitucion" Association="InvesticModel.FK_tblGrupoInvestigacion_tblInstitucion">
+      <End Role="tblInstitucion" EntitySet="tblInstitucion" />
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGrupoInvestigacion_tblLineaInvestigacion" Association="InvesticModel.FK_tblGrupoInvestigacion_tblLineaInvestigacion">
+      <End Role="tblLineaInvestigacion" EntitySet="tblLineaInvestigacion" />
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGrupoInvestigacion_tblPreguntaInvestigacion" Association="InvesticModel.FK_tblGrupoInvestigacion_tblPreguntaInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblPreguntaInvestigacion" EntitySet="tblPreguntaInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblInvitacionGrupo_tblGrupoInvestigacion" Association="InvesticModel.FK_tblInvitacionGrupo_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblInvitacionGrupo" EntitySet="tblInvitacionGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMiembroGrupo_tblGrupoInvestigacion" Association="InvesticModel.FK_tblMiembroGrupo_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblMiembroGrupo" EntitySet="tblMiembroGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPreguntaProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblPreguntaProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblPreguntaProyectoInvestigacion" EntitySet="tblPreguntaProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProblemaInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblProblemaInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblProblemaInvestigacion" EntitySet="tblProblemaInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProblemaProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblProblemaProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblProblemaProyectoInvestigacion" EntitySet="tblProblemaProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblProyectoInvestigacion" EntitySet="tblProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSeguimientoProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblSeguimientoProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblSeguimientoProyectoInvestigacion" EntitySet="tblSeguimientoProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblInstitucion_tblMunicipios" Association="InvesticModel.FK_tblInstitucion_tblMunicipios">
+      <End Role="tblMunicipios" EntitySet="tblMunicipios" />
+      <End Role="tblInstitucion" EntitySet="tblInstitucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblInstitucion_tblTipoInstitucion" Association="InvesticModel.FK_tblInstitucion_tblTipoInstitucion">
+      <End Role="tblTipoInstitucion" EntitySet="tblTipoInstitucion" />
+      <End Role="tblInstitucion" EntitySet="tblInstitucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblInstitucion_tblZona" Association="InvesticModel.FK_tblInstitucion_tblZona">
+      <End Role="tblZona" EntitySet="tblZona" />
+      <End Role="tblInstitucion" EntitySet="tblInstitucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMaestroCoInvestigador_tblInstitucion" Association="InvesticModel.FK_tblMaestroCoInvestigador_tblInstitucion">
+      <End Role="tblInstitucion" EntitySet="tblInstitucion" />
+      <End Role="tblMaestroCoInvestigador" EntitySet="tblMaestroCoInvestigador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblInvitacionGrupo_tblRol" Association="InvesticModel.FK_tblInvitacionGrupo_tblRol">
+      <End Role="tblRol" EntitySet="tblRol" />
+      <End Role="tblInvitacionGrupo" EntitySet="tblInvitacionGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMiembroGrupo_tblRol" Association="InvesticModel.FK_tblMiembroGrupo_tblRol">
+      <End Role="tblRol" EntitySet="tblRol" />
+      <End Role="tblMiembroGrupo" EntitySet="tblMiembroGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="InvesticModel.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="tblConceptosEstadoArte" EntityType="InvesticModel.tblConceptosEstadoArte" />
+    <EntitySet Name="tblEstadoArteProyectoInvestigacion" EntityType="InvesticModel.tblEstadoArteProyectoInvestigacion" />
+    <EntitySet Name="tblHerramientasRecoleccionInformacion" EntityType="InvesticModel.tblHerramientasRecoleccionInformacion" />
+    <EntitySet Name="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" EntityType="InvesticModel.tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" />
+    <EntitySet Name="tblPresupuestoProyectoInvestigacion" EntityType="InvesticModel.tblPresupuestoProyectoInvestigacion" />
+    <EntitySet Name="tblRecoleccionInformacionProyectoInvestigacion" EntityType="InvesticModel.tblRecoleccionInformacionProyectoInvestigacion" />
+    <EntitySet Name="tblRubro" EntityType="InvesticModel.tblRubro" />
+    <AssociationSet Name="FK_tblConceptosEstadoArte_tblEstadoArteProyectoInvestigacion" Association="InvesticModel.FK_tblConceptosEstadoArte_tblEstadoArteProyectoInvestigacion">
+      <End Role="tblEstadoArteProyectoInvestigacion" EntitySet="tblEstadoArteProyectoInvestigacion" />
+      <End Role="tblConceptosEstadoArte" EntitySet="tblConceptosEstadoArte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" EntitySet="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPresupuestoProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblPresupuestoProyectoInvestigacion" EntitySet="tblPresupuestoProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRecoleccionInformacionProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblRecoleccionInformacionProyectoInvestigacion" EntitySet="tblRecoleccionInformacionProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRecoleccionInformacionProyectoInvestigacion_tblHerramientasRecoleccionInformacion" Association="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblHerramientasRecoleccionInformacion">
+      <End Role="tblHerramientasRecoleccionInformacion" EntitySet="tblHerramientasRecoleccionInformacion" />
+      <End Role="tblRecoleccionInformacionProyectoInvestigacion" EntitySet="tblRecoleccionInformacionProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPresupuestoProyectoInvestigacion_tblRubro" Association="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblRubro">
+      <End Role="tblRubro" EntitySet="tblRubro" />
+      <End Role="tblPresupuestoProyectoInvestigacion" EntitySet="tblPresupuestoProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEstadoArteProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblEstadoArteProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblEstadoArteProyectoInvestigacion" EntitySet="tblEstadoArteProyectoInvestigacion" />
+    </AssociationSet>
+    <EntitySet Name="tblForoProyectoInvestigacion" EntityType="InvesticModel.tblForoProyectoInvestigacion" />
+    <AssociationSet Name="FK_tblForoProyectoInvestigacion_AspNetUsers" Association="InvesticModel.FK_tblForoProyectoInvestigacion_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblForoProyectoInvestigacion" EntitySet="tblForoProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForoProyectoInvestigacion_tblForoProyectoInvestigacion" Association="InvesticModel.FK_tblForoProyectoInvestigacion_tblForoProyectoInvestigacion">
+      <End Role="tblForoProyectoInvestigacion" EntitySet="tblForoProyectoInvestigacion" />
+      <End Role="tblForoProyectoInvestigacion1" EntitySet="tblForoProyectoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForoProyectoInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblForoProyectoInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblForoProyectoInvestigacion" EntitySet="tblForoProyectoInvestigacion" />
+    </AssociationSet>
+    <EntitySet Name="C__MigrationHistory" EntityType="InvesticModel.C__MigrationHistory" />
+    <EntitySet Name="sysdiagrams" EntityType="InvesticModel.sysdiagrams" />
+    <EntitySet Name="tblReflexionProyectoInvestigacion" EntityType="InvesticModel.tblReflexionProyectoInvestigacion" />
+    <AssociationSet Name="FK_tblReflexionInvestigacion_tblGrupoInvestigacion" Association="InvesticModel.FK_tblReflexionInvestigacion_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblReflexionProyectoInvestigacion" EntitySet="tblReflexionProyectoInvestigacion" />
+    </AssociationSet>
+    <EntitySet Name="tblComentarioGrupo" EntityType="InvesticModel.tblComentarioGrupo" />
+    <AssociationSet Name="FK_tblComentarioGrupo_AspNetUsers" Association="InvesticModel.FK_tblComentarioGrupo_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblComentarioGrupo" EntitySet="tblComentarioGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblComentarioGrupo_tblGrupoInvestigacion" Association="InvesticModel.FK_tblComentarioGrupo_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblComentarioGrupo" EntitySet="tblComentarioGrupo" />
+    </AssociationSet>
+    <EntitySet Name="tblPropagacionGrupo" EntityType="InvesticModel.tblPropagacionGrupo" />
+    <EntitySet Name="tblTipoFeria" EntityType="InvesticModel.tblTipoFeria" />
+    <AssociationSet Name="FK_tblPropagacionGrupo_tblGrupoInvestigacion" Association="InvesticModel.FK_tblPropagacionGrupo_tblGrupoInvestigacion">
+      <End Role="tblGrupoInvestigacion" EntitySet="tblGrupoInvestigacion" />
+      <End Role="tblPropagacionGrupo" EntitySet="tblPropagacionGrupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPropagacionGrupo_tblTipoFeria" Association="InvesticModel.FK_tblPropagacionGrupo_tblTipoFeria">
+      <End Role="tblTipoFeria" EntitySet="tblTipoFeria" />
+      <End Role="tblPropagacionGrupo" EntitySet="tblPropagacionGrupo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SureName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PersonalID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Genre" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDay" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="InvesticModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="InvesticModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="tblAsesor" Relationship="InvesticModel.FK_tblAsesor_AspNetUsers" FromRole="AspNetUsers" ToRole="tblAsesor" />
+    <NavigationProperty Name="tblCoInvestigadorGrupoInvestigacion" Relationship="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_AspNetUsers" FromRole="AspNetUsers" ToRole="tblCoInvestigadorGrupoInvestigacion" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblGrupoInvestigacion_AspNetUsers" FromRole="AspNetUsers" ToRole="tblGrupoInvestigacion" />
+    <NavigationProperty Name="tblInvitacionGrupo" Relationship="InvesticModel.FK_tblInvitacionGrupo_AspNetUsers" FromRole="AspNetUsers" ToRole="tblInvitacionGrupo" />
+    <NavigationProperty Name="tblMaestroCoInvestigador" Relationship="InvesticModel.FK_tblMaestroCoInvestigador_AspNetUsers" FromRole="AspNetUsers" ToRole="tblMaestroCoInvestigador" />
+    <NavigationProperty Name="tblMiembroGrupo" Relationship="InvesticModel.FK_tblMiembroGrupo_AspNetUsers" FromRole="AspNetUsers" ToRole="tblMiembroGrupo" />
+    <NavigationProperty Name="AspNetRoles" Relationship="InvesticModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <NavigationProperty Name="tblForoProyectoInvestigacion" Relationship="InvesticModel.FK_tblForoProyectoInvestigacion_AspNetUsers" FromRole="AspNetUsers" ToRole="tblForoProyectoInvestigacion" />
+    <NavigationProperty Name="tblComentarioGrupo" Relationship="InvesticModel.FK_tblComentarioGrupo_AspNetUsers" FromRole="AspNetUsers" ToRole="tblComentarioGrupo" />
+  </EntityType>
+  <EntityType Name="tblAreaConocimiento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblMaestroCoInvestigador" Relationship="InvesticModel.FK_tblMaestroCoInvestigador_tblAreaConocimiento" FromRole="tblAreaConocimiento" ToRole="tblMaestroCoInvestigador" />
+  </EntityType>
+  <EntityType Name="tblAsesor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblAsesor_AspNetUsers" FromRole="tblAsesor" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblAsesorGrupoInvestigacion" Relationship="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblAsesor" FromRole="tblAsesor" ToRole="tblAsesorGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblAsesorGrupoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProyectoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="idAsesor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblAsesor" Relationship="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblAsesor" FromRole="tblAsesorGrupoInvestigacion" ToRole="tblAsesor" />
+    <NavigationProperty Name="tblProyectoInvestigacion" Relationship="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblProyectoInvestigacion" FromRole="tblAsesorGrupoInvestigacion" ToRole="tblProyectoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblCentrosPoblado">
+    <Key>
+      <PropertyRef Name="CodigoCentroPoblado" />
+    </Key>
+    <Property Name="CodigoDepartamento" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="CodigoMunicipio" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="CodigoCentroPoblado" Type="String" Nullable="false" MaxLength="8" FixedLength="true" Unicode="true" />
+    <Property Name="NombreDepartamento" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NombreMunicipio" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NombreCentroPoblado" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblCoInvestigadorGrupoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_AspNetUsers" FromRole="tblCoInvestigadorGrupoInvestigacion" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_tblGrupoInvestigacion" FromRole="tblCoInvestigadorGrupoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblDocumentosSoporte">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CartaCompromiso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CartaAceptacion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblDocumentosSoporte_tblGrupoInvestigacion" FromRole="tblDocumentosSoporte" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblGrupoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TipoGrupo" Type="Int32" Nullable="false" />
+    <Property Name="Avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="idInstitucion" Type="Int32" Nullable="false" />
+    <Property Name="idLineaInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblGrupoInvestigacion_AspNetUsers" FromRole="tblGrupoInvestigacion" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblCoInvestigadorGrupoInvestigacion" Relationship="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblCoInvestigadorGrupoInvestigacion" />
+    <NavigationProperty Name="tblDocumentosSoporte" Relationship="InvesticModel.FK_tblDocumentosSoporte_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblDocumentosSoporte" />
+    <NavigationProperty Name="tblInstitucion" Relationship="InvesticModel.FK_tblGrupoInvestigacion_tblInstitucion" FromRole="tblGrupoInvestigacion" ToRole="tblInstitucion" />
+    <NavigationProperty Name="tblLineaInvestigacion" Relationship="InvesticModel.FK_tblGrupoInvestigacion_tblLineaInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblLineaInvestigacion" />
+    <NavigationProperty Name="tblPreguntaInvestigacion" Relationship="InvesticModel.FK_tblGrupoInvestigacion_tblPreguntaInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblPreguntaInvestigacion" />
+    <NavigationProperty Name="tblInvitacionGrupo" Relationship="InvesticModel.FK_tblInvitacionGrupo_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblInvitacionGrupo" />
+    <NavigationProperty Name="tblMiembroGrupo" Relationship="InvesticModel.FK_tblMiembroGrupo_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblMiembroGrupo" />
+    <NavigationProperty Name="tblPreguntaProyectoInvestigacion" Relationship="InvesticModel.FK_tblPreguntaProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblPreguntaProyectoInvestigacion" />
+    <NavigationProperty Name="tblProblemaInvestigacion" Relationship="InvesticModel.FK_tblProblemaInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblProblemaInvestigacion" />
+    <NavigationProperty Name="tblProblemaProyectoInvestigacion" Relationship="InvesticModel.FK_tblProblemaProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblProblemaProyectoInvestigacion" />
+    <NavigationProperty Name="tblProyectoInvestigacion" Relationship="InvesticModel.FK_tblProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblProyectoInvestigacion" />
+    <NavigationProperty Name="tblSeguimientoProyectoInvestigacion" Relationship="InvesticModel.FK_tblSeguimientoProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblSeguimientoProyectoInvestigacion" />
+    <NavigationProperty Name="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" Relationship="InvesticModel.FK_tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" />
+    <NavigationProperty Name="tblPresupuestoProyectoInvestigacion" Relationship="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblPresupuestoProyectoInvestigacion" />
+    <NavigationProperty Name="tblRecoleccionInformacionProyectoInvestigacion" Relationship="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblRecoleccionInformacionProyectoInvestigacion" />
+    <NavigationProperty Name="tblEstadoArteProyectoInvestigacion" Relationship="InvesticModel.FK_tblEstadoArteProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblEstadoArteProyectoInvestigacion" />
+    <NavigationProperty Name="tblForoProyectoInvestigacion" Relationship="InvesticModel.FK_tblForoProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblForoProyectoInvestigacion" />
+    <NavigationProperty Name="tblReflexionProyectoInvestigacion" Relationship="InvesticModel.FK_tblReflexionInvestigacion_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblReflexionProyectoInvestigacion" />
+    <NavigationProperty Name="tblComentarioGrupo" Relationship="InvesticModel.FK_tblComentarioGrupo_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblComentarioGrupo" />
+    <NavigationProperty Name="tblPropagacionGrupo" Relationship="InvesticModel.FK_tblPropagacionGrupo_tblGrupoInvestigacion" FromRole="tblGrupoInvestigacion" ToRole="tblPropagacionGrupo" />
+  </EntityType>
+  <EntityType Name="tblInstitucion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodigoDane" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConsecutivoSede" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NombreSede" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="idTipoInstitucion" Type="Int32" Nullable="false" />
+    <Property Name="idMunicipio" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="idZona" Type="Int32" />
+    <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Latitud" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Longitud" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NombreDirector" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TelefonoDirector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CorreoDirector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SitioWeb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblGrupoInvestigacion_tblInstitucion" FromRole="tblInstitucion" ToRole="tblGrupoInvestigacion" />
+    <NavigationProperty Name="tblMunicipios" Relationship="InvesticModel.FK_tblInstitucion_tblMunicipios" FromRole="tblInstitucion" ToRole="tblMunicipios" />
+    <NavigationProperty Name="tblTipoInstitucion" Relationship="InvesticModel.FK_tblInstitucion_tblTipoInstitucion" FromRole="tblInstitucion" ToRole="tblTipoInstitucion" />
+    <NavigationProperty Name="tblZona" Relationship="InvesticModel.FK_tblInstitucion_tblZona" FromRole="tblInstitucion" ToRole="tblZona" />
+    <NavigationProperty Name="tblMaestroCoInvestigador" Relationship="InvesticModel.FK_tblMaestroCoInvestigador_tblInstitucion" FromRole="tblInstitucion" ToRole="tblMaestroCoInvestigador" />
+  </EntityType>
+  <EntityType Name="tblInvitacionGrupo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="idGrupo" Type="Int32" Nullable="false" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+    <Property Name="Aceptada" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblInvitacionGrupo_AspNetUsers" FromRole="tblInvitacionGrupo" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblInvitacionGrupo_tblGrupoInvestigacion" FromRole="tblInvitacionGrupo" ToRole="tblGrupoInvestigacion" />
+    <NavigationProperty Name="tblRol" Relationship="InvesticModel.FK_tblInvitacionGrupo_tblRol" FromRole="tblInvitacionGrupo" ToRole="tblRol" />
+  </EntityType>
+  <EntityType Name="tblLineaInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Categoria" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblGrupoInvestigacion_tblLineaInvestigacion" FromRole="tblLineaInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblMaestroCoInvestigador">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TiempoOndas" Type="Int32" />
+    <Property Name="Pregrado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Postgrado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Otro" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="idAreaConocimiento" Type="Int32" Nullable="false" />
+    <Property Name="ExperienciaAreaConocimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idInstitucion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblMaestroCoInvestigador_AspNetUsers" FromRole="tblMaestroCoInvestigador" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblAreaConocimiento" Relationship="InvesticModel.FK_tblMaestroCoInvestigador_tblAreaConocimiento" FromRole="tblMaestroCoInvestigador" ToRole="tblAreaConocimiento" />
+    <NavigationProperty Name="tblInstitucion" Relationship="InvesticModel.FK_tblMaestroCoInvestigador_tblInstitucion" FromRole="tblMaestroCoInvestigador" ToRole="tblInstitucion" />
+  </EntityType>
+  <EntityType Name="tblMiembroGrupo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+    <Property Name="Grado" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblMiembroGrupo_AspNetUsers" FromRole="tblMiembroGrupo" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblMiembroGrupo_tblGrupoInvestigacion" FromRole="tblMiembroGrupo" ToRole="tblGrupoInvestigacion" />
+    <NavigationProperty Name="tblRol" Relationship="InvesticModel.FK_tblMiembroGrupo_tblRol" FromRole="tblMiembroGrupo" ToRole="tblRol" />
+  </EntityType>
+  <EntityType Name="tblMunicipios">
+    <Key>
+      <PropertyRef Name="idMunicipio" />
+    </Key>
+    <Property Name="idMunicipio" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="idDepartamento" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="NombreMunicipio" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NombreDepartamento" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblInstitucion" Relationship="InvesticModel.FK_tblInstitucion_tblMunicipios" FromRole="tblMunicipios" ToRole="tblInstitucion" />
+  </EntityType>
+  <EntityType Name="tblPreguntaInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Consecutivo" Type="Int32" Nullable="false" />
+    <Property Name="Pregunta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+    <Property Name="PreguntaPrincipal" Type="Boolean" Nullable="false" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblGrupoInvestigacion_tblPreguntaInvestigacion" FromRole="tblPreguntaInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblPreguntaProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InformacionUno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FuenteUno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InformacionDos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FuenteDos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InformacionTres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FuenteTres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reflexion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConceptoAsesor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Revision" Type="Boolean" Nullable="false" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblPreguntaProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblPreguntaProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblProblemaInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Justificacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblProblemaInvestigacion_tblGrupoInvestigacion" FromRole="tblProblemaInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblProblemaProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Como" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reflexion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConceptoAsesor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Revision" Type="Boolean" Nullable="false" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblProblemaProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblProblemaProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaFinalizacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tblAsesorGrupoInvestigacion" Relationship="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblProyectoInvestigacion" FromRole="tblProyectoInvestigacion" ToRole="tblAsesorGrupoInvestigacion" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblRol">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblInvitacionGrupo" Relationship="InvesticModel.FK_tblInvitacionGrupo_tblRol" FromRole="tblRol" ToRole="tblInvitacionGrupo" />
+    <NavigationProperty Name="tblMiembroGrupo" Relationship="InvesticModel.FK_tblMiembroGrupo_tblRol" FromRole="tblRol" ToRole="tblMiembroGrupo" />
+  </EntityType>
+  <EntityType Name="tblSeguimientoProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="0" />
+    <Property Name="Origen" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Motivacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reflexion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblSeguimientoProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblSeguimientoProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblTipoInstitucion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblInstitucion" Relationship="InvesticModel.FK_tblInstitucion_tblTipoInstitucion" FromRole="tblTipoInstitucion" ToRole="tblInstitucion" />
+  </EntityType>
+  <EntityType Name="tblZona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblInstitucion" Relationship="InvesticModel.FK_tblInstitucion_tblZona" FromRole="tblZona" ToRole="tblInstitucion" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="InvesticModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="InvesticModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAsesor_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblAsesor" Role="tblAsesor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblAsesor">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCoInvestigadorGrupoInvestigacion_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblCoInvestigadorGrupoInvestigacion" Role="tblCoInvestigadorGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblCoInvestigadorGrupoInvestigacion">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGrupoInvestigacion_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblGrupoInvestigacion">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblInvitacionGrupo_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblInvitacionGrupo" Role="tblInvitacionGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblInvitacionGrupo">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMaestroCoInvestigador_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblMaestroCoInvestigador" Role="tblMaestroCoInvestigador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblMaestroCoInvestigador">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMiembroGrupo_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblMiembroGrupo" Role="tblMiembroGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblMiembroGrupo">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMaestroCoInvestigador_tblAreaConocimiento">
+    <End Type="InvesticModel.tblAreaConocimiento" Role="tblAreaConocimiento" Multiplicity="1" />
+    <End Type="InvesticModel.tblMaestroCoInvestigador" Role="tblMaestroCoInvestigador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAreaConocimiento">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblMaestroCoInvestigador">
+        <PropertyRef Name="idAreaConocimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAsesorGrupoInvestigacion_tblAsesor">
+    <End Type="InvesticModel.tblAsesor" Role="tblAsesor" Multiplicity="1" />
+    <End Type="InvesticModel.tblAsesorGrupoInvestigacion" Role="tblAsesorGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAsesor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAsesorGrupoInvestigacion">
+        <PropertyRef Name="idAsesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAsesorGrupoInvestigacion_tblProyectoInvestigacion">
+    <End Type="InvesticModel.tblProyectoInvestigacion" Role="tblProyectoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblAsesorGrupoInvestigacion" Role="tblAsesorGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProyectoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAsesorGrupoInvestigacion">
+        <PropertyRef Name="idProyectoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCoInvestigadorGrupoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblCoInvestigadorGrupoInvestigacion" Role="tblCoInvestigadorGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCoInvestigadorGrupoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocumentosSoporte_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblDocumentosSoporte" Role="tblDocumentosSoporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblDocumentosSoporte">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGrupoInvestigacion_tblInstitucion">
+    <End Type="InvesticModel.tblInstitucion" Role="tblInstitucion" Multiplicity="1" />
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblInstitucion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblGrupoInvestigacion">
+        <PropertyRef Name="idInstitucion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGrupoInvestigacion_tblLineaInvestigacion">
+    <End Type="InvesticModel.tblLineaInvestigacion" Role="tblLineaInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLineaInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblGrupoInvestigacion">
+        <PropertyRef Name="idLineaInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGrupoInvestigacion_tblPreguntaInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblPreguntaInvestigacion" Role="tblPreguntaInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPreguntaInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblInvitacionGrupo_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblInvitacionGrupo" Role="tblInvitacionGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblInvitacionGrupo">
+        <PropertyRef Name="idGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMiembroGrupo_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblMiembroGrupo" Role="tblMiembroGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblMiembroGrupo">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPreguntaProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblPreguntaProyectoInvestigacion" Role="tblPreguntaProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPreguntaProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProblemaInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblProblemaInvestigacion" Role="tblProblemaInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblProblemaInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProblemaProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblProblemaProyectoInvestigacion" Role="tblProblemaProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblProblemaProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblProyectoInvestigacion" Role="tblProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSeguimientoProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblSeguimientoProyectoInvestigacion" Role="tblSeguimientoProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblSeguimientoProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblInstitucion_tblMunicipios">
+    <End Type="InvesticModel.tblMunicipios" Role="tblMunicipios" Multiplicity="1" />
+    <End Type="InvesticModel.tblInstitucion" Role="tblInstitucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMunicipios">
+        <PropertyRef Name="idMunicipio" />
+      </Principal>
+      <Dependent Role="tblInstitucion">
+        <PropertyRef Name="idMunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblInstitucion_tblTipoInstitucion">
+    <End Type="InvesticModel.tblTipoInstitucion" Role="tblTipoInstitucion" Multiplicity="1" />
+    <End Type="InvesticModel.tblInstitucion" Role="tblInstitucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTipoInstitucion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblInstitucion">
+        <PropertyRef Name="idTipoInstitucion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblInstitucion_tblZona">
+    <End Type="InvesticModel.tblZona" Role="tblZona" Multiplicity="0..1" />
+    <End Type="InvesticModel.tblInstitucion" Role="tblInstitucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblZona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblInstitucion">
+        <PropertyRef Name="idZona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMaestroCoInvestigador_tblInstitucion">
+    <End Type="InvesticModel.tblInstitucion" Role="tblInstitucion" Multiplicity="1" />
+    <End Type="InvesticModel.tblMaestroCoInvestigador" Role="tblMaestroCoInvestigador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblInstitucion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblMaestroCoInvestigador">
+        <PropertyRef Name="idInstitucion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblInvitacionGrupo_tblRol">
+    <End Type="InvesticModel.tblRol" Role="tblRol" Multiplicity="1" />
+    <End Type="InvesticModel.tblInvitacionGrupo" Role="tblInvitacionGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblInvitacionGrupo">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMiembroGrupo_tblRol">
+    <End Type="InvesticModel.tblRol" Role="tblRol" Multiplicity="1" />
+    <End Type="InvesticModel.tblMiembroGrupo" Role="tblMiembroGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRol">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblMiembroGrupo">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="InvesticModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityType Name="tblConceptosEstadoArte">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEstadoArte" Type="Int32" Nullable="false" />
+    <Property Name="Autor" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Publicacion" Type="Int32" Nullable="false" />
+    <Property Name="Texto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEstadoArteProyectoInvestigacion" Relationship="InvesticModel.FK_tblConceptosEstadoArte_tblEstadoArteProyectoInvestigacion" FromRole="tblConceptosEstadoArte" ToRole="tblEstadoArteProyectoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblEstadoArteProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="TemaInvestigacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MapaConceptual" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblConceptosEstadoArte" Relationship="InvesticModel.FK_tblConceptosEstadoArte_tblEstadoArteProyectoInvestigacion" FromRole="tblEstadoArteProyectoInvestigacion" ToRole="tblConceptosEstadoArte" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblEstadoArteProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblEstadoArteProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblHerramientasRecoleccionInformacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HerramientaRecoleccion" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblRecoleccionInformacionProyectoInvestigacion" Relationship="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblHerramientasRecoleccionInformacion" FromRole="tblHerramientasRecoleccionInformacion" ToRole="tblRecoleccionInformacionProyectoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="Lectura" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Analisis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion_tblGrupoInvestigacion" FromRole="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <EntityType Name="tblPresupuestoProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="idRubro" Type="Int32" Nullable="false" />
+    <Property Name="DescripcionGasto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ValorRubro" Type="Double" Nullable="false" />
+    <Property Name="ValorUnitario" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblPresupuestoProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+    <NavigationProperty Name="tblRubro" Relationship="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblRubro" FromRole="tblPresupuestoProyectoInvestigacion" ToRole="tblRubro" />
+  </EntityType>
+  <EntityType Name="tblRecoleccionInformacionProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="idInstrumento" Type="Int32" Nullable="false" />
+    <Property Name="Evidencia" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblRecoleccionInformacionProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+    <NavigationProperty Name="tblHerramientasRecoleccionInformacion" Relationship="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblHerramientasRecoleccionInformacion" FromRole="tblRecoleccionInformacionProyectoInvestigacion" ToRole="tblHerramientasRecoleccionInformacion" />
+  </EntityType>
+  <EntityType Name="tblRubro">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rubro" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblPresupuestoProyectoInvestigacion" Relationship="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblRubro" FromRole="tblRubro" ToRole="tblPresupuestoProyectoInvestigacion" />
+  </EntityType>
+  <Association Name="FK_tblConceptosEstadoArte_tblEstadoArteProyectoInvestigacion">
+    <End Type="InvesticModel.tblEstadoArteProyectoInvestigacion" Role="tblEstadoArteProyectoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblConceptosEstadoArte" Role="tblConceptosEstadoArte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstadoArteProyectoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblConceptosEstadoArte">
+        <PropertyRef Name="idEstadoArte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" Role="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPresupuestoProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblPresupuestoProyectoInvestigacion" Role="tblPresupuestoProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPresupuestoProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRecoleccionInformacionProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblRecoleccionInformacionProyectoInvestigacion" Role="tblRecoleccionInformacionProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblRecoleccionInformacionProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRecoleccionInformacionProyectoInvestigacion_tblHerramientasRecoleccionInformacion">
+    <End Type="InvesticModel.tblHerramientasRecoleccionInformacion" Role="tblHerramientasRecoleccionInformacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblRecoleccionInformacionProyectoInvestigacion" Role="tblRecoleccionInformacionProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHerramientasRecoleccionInformacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblRecoleccionInformacionProyectoInvestigacion">
+        <PropertyRef Name="idInstrumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPresupuestoProyectoInvestigacion_tblRubro">
+    <End Type="InvesticModel.tblRubro" Role="tblRubro" Multiplicity="1" />
+    <End Type="InvesticModel.tblPresupuestoProyectoInvestigacion" Role="tblPresupuestoProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRubro">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPresupuestoProyectoInvestigacion">
+        <PropertyRef Name="idRubro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEstadoArteProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblEstadoArteProyectoInvestigacion" Role="tblEstadoArteProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblEstadoArteProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblForoProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUser" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="Titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mensaje" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Respuestas" Type="Int32" Nullable="false" />
+    <Property Name="idForo" Type="Int32" />
+    <Property Name="FechaUltimaRespuesta" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblForoProyectoInvestigacion_AspNetUsers" FromRole="tblForoProyectoInvestigacion" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblForoProyectoInvestigacion1" Relationship="InvesticModel.FK_tblForoProyectoInvestigacion_tblForoProyectoInvestigacion" FromRole="tblForoProyectoInvestigacion" ToRole="tblForoProyectoInvestigacion1" />
+    <NavigationProperty Name="tblForoProyectoInvestigacion2" Relationship="InvesticModel.FK_tblForoProyectoInvestigacion_tblForoProyectoInvestigacion" FromRole="tblForoProyectoInvestigacion1" ToRole="tblForoProyectoInvestigacion" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblForoProyectoInvestigacion_tblGrupoInvestigacion" FromRole="tblForoProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <Association Name="FK_tblForoProyectoInvestigacion_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblForoProyectoInvestigacion" Role="tblForoProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblForoProyectoInvestigacion">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForoProyectoInvestigacion_tblForoProyectoInvestigacion">
+    <End Type="InvesticModel.tblForoProyectoInvestigacion" Role="tblForoProyectoInvestigacion" Multiplicity="0..1" />
+    <End Type="InvesticModel.tblForoProyectoInvestigacion" Role="tblForoProyectoInvestigacion1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForoProyectoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForoProyectoInvestigacion1">
+        <PropertyRef Name="idForo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForoProyectoInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblForoProyectoInvestigacion" Role="tblForoProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForoProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblReflexionProyectoInvestigacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UltimaModificacion" Type="DateTime" Precision="0" />
+    <Property Name="Proceso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Motivacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reflexion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConceptoAsesor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Revisado" Type="Boolean" Nullable="false" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblReflexionInvestigacion_tblGrupoInvestigacion" FromRole="tblReflexionProyectoInvestigacion" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <Association Name="FK_tblReflexionInvestigacion_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblReflexionProyectoInvestigacion" Role="tblReflexionProyectoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblReflexionProyectoInvestigacion">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblComentarioGrupo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupo" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Aprobado" Type="Boolean" />
+    <NavigationProperty Name="AspNetUsers" Relationship="InvesticModel.FK_tblComentarioGrupo_AspNetUsers" FromRole="tblComentarioGrupo" ToRole="AspNetUsers" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblComentarioGrupo_tblGrupoInvestigacion" FromRole="tblComentarioGrupo" ToRole="tblGrupoInvestigacion" />
+  </EntityType>
+  <Association Name="FK_tblComentarioGrupo_AspNetUsers">
+    <End Type="InvesticModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="InvesticModel.tblComentarioGrupo" Role="tblComentarioGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblComentarioGrupo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblComentarioGrupo_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblComentarioGrupo" Role="tblComentarioGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblComentarioGrupo">
+        <PropertyRef Name="idGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblPropagacionGrupo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGrupoInvestigacion" Type="Int32" Nullable="false" />
+    <Property Name="idTipoFeria" Type="Int32" Nullable="false" />
+    <Property Name="Archivo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblGrupoInvestigacion" Relationship="InvesticModel.FK_tblPropagacionGrupo_tblGrupoInvestigacion" FromRole="tblPropagacionGrupo" ToRole="tblGrupoInvestigacion" />
+    <NavigationProperty Name="tblTipoFeria" Relationship="InvesticModel.FK_tblPropagacionGrupo_tblTipoFeria" FromRole="tblPropagacionGrupo" ToRole="tblTipoFeria" />
+  </EntityType>
+  <EntityType Name="tblTipoFeria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoFeria" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblPropagacionGrupo" Relationship="InvesticModel.FK_tblPropagacionGrupo_tblTipoFeria" FromRole="tblTipoFeria" ToRole="tblPropagacionGrupo" />
+  </EntityType>
+  <Association Name="FK_tblPropagacionGrupo_tblGrupoInvestigacion">
+    <End Type="InvesticModel.tblGrupoInvestigacion" Role="tblGrupoInvestigacion" Multiplicity="1" />
+    <End Type="InvesticModel.tblPropagacionGrupo" Role="tblPropagacionGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGrupoInvestigacion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPropagacionGrupo">
+        <PropertyRef Name="idGrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPropagacionGrupo_tblTipoFeria">
+    <End Type="InvesticModel.tblTipoFeria" Role="tblTipoFeria" Multiplicity="1" />
+    <End Type="InvesticModel.tblPropagacionGrupo" Role="tblPropagacionGrupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTipoFeria">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPropagacionGrupo">
+        <PropertyRef Name="idTipoFeria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

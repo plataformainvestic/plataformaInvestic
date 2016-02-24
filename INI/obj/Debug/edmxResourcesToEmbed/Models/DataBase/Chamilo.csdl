@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="chamiloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="c_course_description">
+    <Key>
+      <PropertyRef Name="c_id" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="session_id" Type="Int32" />
+    <Property Name="description_type" Type="Byte" Nullable="false" />
+    <Property Name="progress" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="c_course_setting">
+    <Key>
+      <PropertyRef Name="c_id" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="variable" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subkey" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="category" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="subkeytext" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="course">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="directory" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="db_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="course_language" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="category_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="visibility" Type="SByte" />
+    <Property Name="show_score" Type="Int32" Nullable="false" />
+    <Property Name="tutor_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="visual_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="department_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="department_url" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+    <Property Name="disk_quota" Type="Decimal" />
+    <Property Name="last_visit" Type="DateTime" />
+    <Property Name="last_edit" Type="DateTime" />
+    <Property Name="creation_date" Type="DateTime" />
+    <Property Name="expiration_date" Type="DateTime" />
+    <Property Name="target_course_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="subscribe" Type="SByte" Nullable="false" />
+    <Property Name="unsubscribe" Type="SByte" Nullable="false" />
+    <Property Name="registration_code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="legal" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activate_legal" Type="Int32" Nullable="false" />
+    <Property Name="course_type_id" Type="Int64" />
+  </EntityType>
+  <EntityType Name="course_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="parent_id" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="tree_pos" Type="Int64" />
+    <Property Name="children_count" Type="Int16" />
+    <Property Name="auth_course_child" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="auth_cat_child" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="course_field">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="field_type" Type="Int32" Nullable="false" />
+    <Property Name="field_variable" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="field_display_text" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="field_default_value" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="field_order" Type="Int32" />
+    <Property Name="field_visible" Type="SByte" />
+    <Property Name="field_changeable" Type="SByte" />
+    <Property Name="field_filter" Type="SByte" />
+    <Property Name="tms" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_field_values">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="course_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="field_id" Type="Int32" Nullable="false" />
+    <Property Name="field_value" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="tms" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_module">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="row" Type="Int64" Nullable="false" />
+    <Property Name="column" Type="Int64" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_rel_class">
+    <Key>
+      <PropertyRef Name="course_code" />
+      <PropertyRef Name="class_id" />
+    </Key>
+    <Property Name="course_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="class_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_rel_user">
+    <Key>
+      <PropertyRef Name="course_code" />
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="relation_type" />
+    </Key>
+    <Property Name="course_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_id" Type="Int64" Nullable="false" />
+    <Property Name="status" Type="SByte" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="group_id" Type="Int32" Nullable="false" />
+    <Property Name="tutor_id" Type="Int64" Nullable="false" />
+    <Property Name="sort" Type="Int32" />
+    <Property Name="user_course_cat" Type="Int32" />
+    <Property Name="relation_type" Type="Int32" Nullable="false" />
+    <Property Name="legal_agreement" Type="Int32" />
+  </EntityType>
+  <EntityType Name="course_request">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_id" Type="Int64" Nullable="false" />
+    <Property Name="directory" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="db_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="course_language" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="category_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="tutor_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="visual_code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="request_date" Type="DateTime" Nullable="false" />
+    <Property Name="objetives" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="target_audience" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int64" Nullable="false" />
+    <Property Name="info" Type="Int64" Nullable="false" />
+    <Property Name="exemplary_content" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="translation_var" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="props" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="chamiloEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="c_course_description" EntityType="Self.c_course_description" />
+    <EntitySet Name="c_course_setting" EntityType="Self.c_course_setting" />
+    <EntitySet Name="course" EntityType="Self.course" />
+    <EntitySet Name="course_category" EntityType="Self.course_category" />
+    <EntitySet Name="course_field" EntityType="Self.course_field" />
+    <EntitySet Name="course_field_values" EntityType="Self.course_field_values" />
+    <EntitySet Name="course_module" EntityType="Self.course_module" />
+    <EntitySet Name="course_rel_class" EntityType="Self.course_rel_class" />
+    <EntitySet Name="course_rel_user" EntityType="Self.course_rel_user" />
+    <EntitySet Name="course_request" EntityType="Self.course_request" />
+    <EntitySet Name="course_type" EntityType="Self.course_type" />
+  </EntityContainer>
+</Schema>

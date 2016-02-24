@@ -1,0 +1,31 @@
+﻿@model INI.Models.DataBase.tbNetVirtualGroup
+
+@{
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+    ViewBag.Title = "Delete";
+    String ctrl=ViewBag.ControllerName;
+}
+
+
+<br /><br /><br />
+<h3>Esta seguro de eliminar esta red?</h3>@Html.ActionLink("Atraz", "Index", null, new { @class = "button large primary" })
+<div>    
+    <br />
+    <div class="panel">
+        <div class="panel-header">
+            @Model.name
+        </div>
+        <div class="panel-content" style="background-color:white">
+            <img src="@Url.Action("DowloadFile", "tbNetVirtualGroups", new { id = Model.id, FileId = "photo" })" width="200px" />
+            @Html.Raw(Model.description)
+        </div>
+    </div>    
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="button large primary" />        
+        </div>
+    }
+</div>

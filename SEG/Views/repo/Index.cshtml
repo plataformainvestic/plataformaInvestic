@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Reportes</h2>
+@using (Html.BeginForm("Reporte", "repo", FormMethod.Post))
+
+{
+    @Html.AntiForgeryToken()
+
+
+    <p><a href="/repo/pdf" class="btn btn-primary btn-lg">prueba</a></p>
+
+}
+

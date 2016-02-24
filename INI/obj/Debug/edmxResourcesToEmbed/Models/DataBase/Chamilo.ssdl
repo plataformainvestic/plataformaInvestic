@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="chamiloModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="c_course_description">
+    <Key>
+      <PropertyRef Name="c_id" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="c_id" Type="int" Nullable="false" />
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="content" Type="text" />
+    <Property Name="session_id" Type="int" />
+    <Property Name="description_type" Type="utinyint" Nullable="false" />
+    <Property Name="progress" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="c_course_setting">
+    <Key>
+      <PropertyRef Name="c_id" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="c_id" Type="int" Nullable="false" />
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="variable" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="subkey" Type="varchar" MaxLength="255" />
+    <Property Name="type" Type="varchar" MaxLength="255" />
+    <Property Name="category" Type="varchar" MaxLength="255" />
+    <Property Name="value" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="255" />
+    <Property Name="subkeytext" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="course">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="directory" Type="varchar" MaxLength="40" />
+    <Property Name="db_name" Type="varchar" MaxLength="40" />
+    <Property Name="course_language" Type="varchar" MaxLength="20" />
+    <Property Name="title" Type="varchar" MaxLength="250" />
+    <Property Name="description" Type="text" />
+    <Property Name="category_code" Type="varchar" MaxLength="40" />
+    <Property Name="visibility" Type="tinyint" />
+    <Property Name="show_score" Type="int" Nullable="false" />
+    <Property Name="tutor_name" Type="varchar" MaxLength="200" />
+    <Property Name="visual_code" Type="varchar" MaxLength="40" />
+    <Property Name="department_name" Type="varchar" MaxLength="30" />
+    <Property Name="department_url" Type="varchar" MaxLength="180" />
+    <Property Name="disk_quota" Type="ubigint" />
+    <Property Name="last_visit" Type="datetime" Precision="0" />
+    <Property Name="last_edit" Type="datetime" Precision="0" />
+    <Property Name="creation_date" Type="datetime" Precision="0" />
+    <Property Name="expiration_date" Type="datetime" Precision="0" />
+    <Property Name="target_course_code" Type="varchar" MaxLength="40" />
+    <Property Name="subscribe" Type="tinyint" Nullable="false" />
+    <Property Name="unsubscribe" Type="tinyint" Nullable="false" />
+    <Property Name="registration_code" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="legal" Type="text" Nullable="false" />
+    <Property Name="activate_legal" Type="int" Nullable="false" />
+    <Property Name="course_type_id" Type="uint" />
+  </EntityType>
+  <EntityType Name="course_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="parent_id" Type="varchar" MaxLength="40" />
+    <Property Name="tree_pos" Type="uint" />
+    <Property Name="children_count" Type="smallint" />
+    <Property Name="auth_course_child" Type="enum" />
+    <Property Name="auth_cat_child" Type="enum" />
+  </EntityType>
+  <EntityType Name="course_field">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="field_type" Type="int" Nullable="false" />
+    <Property Name="field_variable" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="field_display_text" Type="varchar" MaxLength="64" />
+    <Property Name="field_default_value" Type="text" />
+    <Property Name="field_order" Type="int" />
+    <Property Name="field_visible" Type="tinyint" />
+    <Property Name="field_changeable" Type="tinyint" />
+    <Property Name="field_filter" Type="tinyint" />
+    <Property Name="tms" Type="datetime" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_field_values">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="course_code" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="field_id" Type="int" Nullable="false" />
+    <Property Name="field_value" Type="text" />
+    <Property Name="tms" Type="datetime" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_module">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="link" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="image" Type="varchar" MaxLength="100" />
+    <Property Name="row" Type="uint" Nullable="false" />
+    <Property Name="column" Type="uint" Nullable="false" />
+    <Property Name="position" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_rel_class">
+    <Key>
+      <PropertyRef Name="course_code" />
+      <PropertyRef Name="class_id" />
+    </Key>
+    <Property Name="course_code" Type="char" MaxLength="40" Nullable="false" />
+    <Property Name="class_id" Type="umediumint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_rel_user">
+    <Key>
+      <PropertyRef Name="course_code" />
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="relation_type" />
+    </Key>
+    <Property Name="course_code" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="user_id" Type="uint" Nullable="false" />
+    <Property Name="status" Type="tinyint" Nullable="false" />
+    <Property Name="role" Type="varchar" MaxLength="60" />
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="tutor_id" Type="uint" Nullable="false" />
+    <Property Name="sort" Type="int" />
+    <Property Name="user_course_cat" Type="int" />
+    <Property Name="relation_type" Type="int" Nullable="false" />
+    <Property Name="legal_agreement" Type="int" />
+  </EntityType>
+  <EntityType Name="course_request">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="user_id" Type="uint" Nullable="false" />
+    <Property Name="directory" Type="varchar" MaxLength="40" />
+    <Property Name="db_name" Type="varchar" MaxLength="40" />
+    <Property Name="course_language" Type="varchar" MaxLength="20" />
+    <Property Name="title" Type="varchar" MaxLength="250" />
+    <Property Name="description" Type="text" />
+    <Property Name="category_code" Type="varchar" MaxLength="40" />
+    <Property Name="tutor_name" Type="varchar" MaxLength="200" />
+    <Property Name="visual_code" Type="varchar" MaxLength="40" />
+    <Property Name="request_date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="objetives" Type="text" />
+    <Property Name="target_audience" Type="text" />
+    <Property Name="status" Type="uint" Nullable="false" />
+    <Property Name="info" Type="uint" Nullable="false" />
+    <Property Name="exemplary_content" Type="uint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="course_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="translation_var" Type="char" MaxLength="40" />
+    <Property Name="description" Type="text" />
+    <Property Name="props" Type="text" />
+  </EntityType>
+  <EntityContainer Name="chamiloModelStoreContainer">
+    <EntitySet Name="c_course_description" EntityType="Self.c_course_description" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="c_course_setting" EntityType="Self.c_course_setting" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course" EntityType="Self.course" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_category" EntityType="Self.course_category" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_field" EntityType="Self.course_field" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_field_values" EntityType="Self.course_field_values" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_module" EntityType="Self.course_module" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_rel_class" EntityType="Self.course_rel_class" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_rel_user" EntityType="Self.course_rel_user" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_request" EntityType="Self.course_request" Schema="chamilo" store:Type="Tables" />
+    <EntitySet Name="course_type" EntityType="Self.course_type" Schema="chamilo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,55 @@
+﻿@model INI.Models.DataBase.Revista
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<br /><br /><br />
+<h2>Detalles</h2>
+
+<div>
+    <h4>Revista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.urlPdf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlPdf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.urlfront)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.urlfront)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoriaRevista.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoriaRevista.nombre)
+        </dd>
+        
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

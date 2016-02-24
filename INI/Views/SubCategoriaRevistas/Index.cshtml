@@ -1,0 +1,73 @@
+﻿@model IEnumerable<INI.Models.DataBase.SubCategoriaRevista>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<br /><br /><br />
+<a class="button large bg-green" href="/Revistas">Gestionar Revistas</a>
+<a class="button large bg-green" href="/CategoriaRevistas">Gestionar Categorias</a>
+<h2>Subcategoria revista</h2>
+
+<p>
+    @Html.ActionLink("Nueva Subcategoria", "Create")
+</p>
+<table class="table" id="tbl_subcategoria">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.urlimg)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaRevista.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urlimg)
+                </td>               
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts{
+    <script>
+        $(function () {
+
+            $('#tbl_subcategoria').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+
+
+        });
+    </script>
+}
+
+

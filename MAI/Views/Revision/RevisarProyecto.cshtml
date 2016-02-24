@@ -1,0 +1,954 @@
+﻿@model DataBase.tblProyectosInvestigacion
+
+@{
+    ViewBag.Title = "Revisión de Proyecto";
+}
+
+
+<h1>
+    Revisión de Proyecto
+</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true);
+
+    <div id="wizard">
+        @*Hoja 1 del wizard*@
+        <h1>PRESENTACIÓN DEL PROYECTO</h1>
+        <div class="overflow">
+            <div class="grid fluid">
+                @*<div class="overflow">*@
+                @*Estructura de titulo*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Titulo</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_nombreProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_nombreProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_nombreProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_nombreProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_nombreProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura resumen*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Resumen</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_resumenProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_resumenProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_resumenProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_resumenProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_resumenProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura palabras claves*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Palabras Claves</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_palabrasClavesProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_palabrasClavesProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_palabrasClavesProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_palabrasClavesProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_palabrasClavesProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura Eje de investigacion*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Eje de Investigación</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.tblEjeInvestigacion.ejeInv_nombre)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_ejeInvestigacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_ejeInvestigacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_ejeInvestigacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_ejeInvestigacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*hoja 2 del wizard*@
+        <h1>PROBLEMA DE INVESTIGACIÓN</h1>
+        <div class="overflow">
+            <div class="grid fluid">
+
+                @*Estructura planteaminto del problema*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Planteamiento del problema</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_planteamientoProblemaProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_planteamientoProblemaProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_planteamientoProblemaProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_planteamientoProblemaProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_planteamientoProblemaProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura pregunta de investigacion*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Pregunta de Investigación</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_preguntaInvestigacionProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_preguntaInvestigacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_preguntaInvestigacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_preguntaInvestigacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_preguntaInvestigacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura subpreguntas de investigacion*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Subpreguntas de Investigación</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_subpreguntaInvestigacionProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_subpreguntaInvestigacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_subpreguntaInvestigacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_subpreguntaInvestigacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_subpreguntaInvestigacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura justificacion*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Justificación</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_justificacionProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_justificacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_justificacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_justificacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_justificacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura objetivo general*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Objetivo General</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_objetivoGeneralProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_objetivoGeneralProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_objetivoGeneralProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_objetivoGeneralProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_objetivoGeneralProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*Estructura objetivos especificos*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Objetivos Específicos</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_objetivosEspecificosProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_objetivosEspecificosProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_objetivosEspecificosProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_objetivosEspecificosProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_objetivosEspecificosProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*hoja 3 del wizard*@
+        <h1>MARCO DE REFERENCIA</h1>
+        <div class="overflow">
+            <div class="grid fluid">
+                @*ESTRUCTURA MARCO TEORICO*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Marco Teórico</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_marcoTeoricoProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_marcoTeoricoProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_marcoTeoricoProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_marcoTeoricoProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_marcoTeoricoProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*ESTRUCTURA MARCO DE ANTECEDENTES*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Marco de Antecedentes</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_marcoAntecedentesProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_marcoAntecedentesProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_marcoAntecedentesProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_marcoAntecedentesProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_marcoAntecedentesProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*ESTRUCTURA MARCO CONTEXTUAL*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Marco Contextual</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_marcoContextualProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_marcoContxtualProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_marcoContxtualProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_marcoContxtualProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_marcoContxtualProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        @*hoja 4 del wizard*@
+        <h1>MÉTODO</h1>
+        <div class="overflow">
+            Consultar cascade para realizar esta parte
+            <div class="grid fluid">
+                @*ESTRUCTURA PARADIGMA EPISTEMOLOGICO*@
+
+
+
+                @*ESTRUCTURA PARADIGMA METODOLÓGICO*@
+
+
+
+                @*ESTRUCTURA TIPO DE ESTUDIO*@
+
+
+
+                @*ESTRUCTURA DISEÑO DE INVESTIGACION*@
+
+
+
+                @*ESTRUCTURA POBLACION Y MUESTRA*@
+
+
+
+                @*ESTRUCTURA TECNICAS O INSTRUMENTOS DE RECOLECCIÓN DE INFORMACIÓN*@
+
+
+
+                @*ESTRUCTURA PROCEDIMIENTO*@
+
+
+
+                @*ESTRUCTURA PLAN DE ANALISIS DE DATOS O INFORMACION*@
+
+
+
+
+            </div>
+        </div>
+
+
+        @*hoja 5 del wizard*@
+        <h1>CARACTERÍSTICAS</h1>
+        <div class="overflow">
+            <div class="grid fluid">
+                @*ESTRUCTURA RESULTADOS ESPERADOS*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Resultados esperados</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_resultadosEsperadosProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_resultadosEsperadosProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_resultadosEsperadosProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_resultadosEsperadosProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_resultadosEsperadosProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+                @*ESTRUCTURA CARACTERIZACION DE LA INVESTIGACION*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Caracterización de la Investigación</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_caracterizacionProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_caracterizacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_caracterizacionProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_caracterizacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_caracterizacionProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        @*hoja 6 del wizard*@
+        <h1>ASPECTOS ADMINISTRATIVOS</h1>
+        <div class="overflow">
+            <div class="grid fluid">
+                @*ESTRUCTURA CRONOGRAMA*@
+                vista parcial de cronograma <br />
+
+
+                @*ESTRUCTURA PRESUPUESTO*@
+                vista parcial de presupuesto
+
+
+
+            </div>
+        </div>
+
+        @*hoja 7 del wizard*@
+        <h1>REFERENCIAS</h1>
+        <div class="overflow">
+            <div class="grid fluid">
+                @*ESTRUCTURA REFERENCIAS*@
+                <div class="row">
+                    <div class="span2">
+                        <strong>Referencias</strong>
+                    </div>
+                    <div class="span10">
+                        @Html.DisplayFor(m => m.proInv_referenciasProy)
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span3">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            <strong>Retroalimentación asesores Investic</strong>
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                        }
+                        else
+                        {
+                            <strong>Sugerencia Evaluador</strong>
+                        }
+                    </div>
+                    <div class="span9 input-control textarea">
+                        @if (ViewBag.usuario == "Investic")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionInvestic.proInvRev_referenciasProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else if (ViewBag.usuario == "Colciencias")
+                        {
+                            @Html.TextAreaFor(m => m.tblProyInvRevisionColciencias.proInvRev_referenciasProy)
+                            @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                        }
+                        else
+                        {
+                            if (Model.tblProyInvRevisionEvaluador1.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador1.proInvRev_referenciasProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                            else if (Model.tblProyInvRevisionEvaluador2.tblEstado_ID == 3)
+                            {
+                                @Html.TextAreaFor(m => m.tblProyInvRevisionEvaluador2.proInvRev_referenciasProy)
+                                @Html.ValidationMessage("Agrege un Resumen de su Proyecto")
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <link href="~/Content/Investic/jquery.steps.css" rel="stylesheet" />
+    <script src="~/Scripts/Investic/mai_WizardRevision.js"></script>
+
+}
+

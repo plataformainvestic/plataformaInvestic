@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Investiga";
+    Layout = "~/Views/Shared/_LayoutInvestic.cshtml";
+}
+
+@section Submenu{
+    @if (@Request.RawUrl == "/Usuario/Registrar")
+    {
+        <div id="titulosmenusec" style="color: #CD1626;"> Registrar nuevo usuario</div>
+    <div>
+        <div id="tituloruta">
+            Dónde Estoy?
+            <font id="ruta">@Html.MvcSiteMap().SiteMapPath()</font>
+        </div>
+
+    </div>
+    }
+}
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@section Script{
+    @RenderSection("scripts", required: false)
+}

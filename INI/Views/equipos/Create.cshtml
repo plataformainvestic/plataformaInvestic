@@ -1,0 +1,124 @@
+﻿@model INI.Models.DataBase.tblEquiposTrabajo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m=>m.Id_Coordinador)    
+    
+    
+    
+    
+        <h4>Nuevo Equipo</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="grid fluid">
+
+            <div class="row">
+                <div class="span2">
+                    <strong>Nombre Equipo</strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Nombre_Equipo)
+                    @Html.ValidationMessageFor(m => m.Nombre_Equipo)
+
+                    <button class="btn btn-clear"></button>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="span2">
+                   <strong>Coordinador</strong>
+                </div>
+                <div class="span2 input-control select">
+                    @Html.DropDownList("Nombre_Coordinador")
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="span2">
+
+                </div>
+                <div class="span2">
+                    <input type="submit" class="btn large bg-darkBlue fg-white" value="Crear Equipo" />
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+   
+
+       
+
+      
+
+    
+
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+
+@*<script type="text/jscript">
+        $('#Id_Coordinador').change(function () {
+            var ddvalue = $(this).options[$('#Id_Coordinador').selectedIndex];
+            $.ajax({
+                type: 'GET',
+                data: 'value=' + ddvalue,
+                url: '@Url.Action("ListaNombre", "equipos")',
+                dataType: 'json',
+                success: function (data) {
+                    $('#Nombres').html('');
+                    $(data).each(function (value) {
+                        $('#Nombres').append('<option value="' + value + '</option>');
+
+                    }); // you can change this loop as per your response data type
+                },
+                error: function() { alert('No se pudo',ddvalue); }
+            });
+        });
+
+    </script>*@
+
+
+
+<script type="text/jscript">
+            $(function () {
+                $('#Id_Coordinador').change(function () {
+                    $.getJSON('/equipos/ListaNombre/' + $(this).options[$('#Id_Coordinador').selectedIndex], function (data) {
+                        var items = '<option>Selecccione</option>';
+                        $.each(data, function (i, nombres) {
+                            items += "<option>" + nombres.Value + "</option>";
+                        });
+                        $('#Nombres').html(items);
+                    });
+                });
+
+
+            });
+        </script>
+
+
+    }

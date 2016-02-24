@@ -1,0 +1,152 @@
+﻿@font-face {
+font-family: Roboto;
+src: url('../../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+.container {
+    padding: 20px;
+}
+
+/* @group slide-vertical */
+.slider-vertical {
+    padding: 0;
+}
+
+    .slider-vertical h3 {
+        margin-bottom: 10px;
+    }
+
+    .slider-vertical img {
+        float: left;
+    }
+
+    .slider-vertical .vinculo-especial2 {
+        margin-right: 32px;
+    }
+
+.contenedor-slider {
+    height: 151px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    background: #f1f1f1 url(../images/fondo.jpg) repeat-x 0 0;
+    /*border-left: 1px solid #bbb;*/
+    background-color: transparent;
+}
+
+.contenedor-slider_Full {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    background: #f1f1f1 url(../images/fondo.jpg) repeat-x 0 0;
+    /*border-left: 1px solid #bbb;*/
+    background-color: transparent;
+}
+
+.bloque-slider {
+    position: relative;
+    top: 0;
+    background-color: transparent;
+    overflow: hidden;
+    max-width: 283px;
+    overflow-x: auto;
+}
+
+.modulo-slider {
+    height: 150px;
+    max-width: 280px;
+    overflow-x: auto;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    margin: 0 25px 0 0;
+
+}
+
+.modulo-slider_Full {
+    height: auto;
+    max-width: 280px;
+    /*overflow-x: auto;*/
+    max-height: 150px;
+    /*overflow-y: auto;*/
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    margin: 0 25px 0 0;
+
+}
+
+/*.modulo-slider h4 {
+	margin-top: 0;
+
+}*/
+.mover-slider-vertical {
+    position: absolute;
+    width: 30px;
+    right: 0;
+    top: 0;
+    margin: 0;
+    background: #fff url(../images/slider-vertical-bg.jpg) no-repeat 0 4px;
+}
+
+.divsubir-slider {
+    position: absolute;
+    width: 25px;
+    right: 0;
+    top: 0;
+    margin: 0;
+    align-content: flex-start;
+}
+
+.divbajar-slider {
+    position: absolute;
+    width: 25px;
+    right: 0;
+    top: 260px;
+    margin: 0;
+}
+
+
+.mover-slider-vertical a {
+    display: block;
+    width: 21px;
+    height: 21px;
+    margin: 10px 0 40px 10px;
+    text-indent: -9999em;
+    outline: none;
+    background-image: url(../../images/noticias/boton.gif);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    line-height: 0;
+    font-size: 0;
+}
+
+    .mover-slider-vertical a:hover {
+        /*background-color: #F1F0DE;*/
+    }
+
+.subir-slider {
+    background-position: 0 0;
+}
+
+    .subir-slider:hover {
+        background-position: 0 -21px;
+    }
+
+    .subir-slider:active {
+        background-position: 0 0;
+    }
+
+.bajar-slider {
+    background-position: -21px 0;
+}
+
+    .bajar-slider:hover {
+        background-position: -21px -21px;
+    }
+
+    .bajar-slider:active {
+        background-position: -21px 0;
+    }
+/* @end slide-vertical */

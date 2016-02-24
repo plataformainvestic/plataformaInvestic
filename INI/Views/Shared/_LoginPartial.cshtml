@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+@{
+    var role = "Invitado";
+    var uname = User.Identity.GetUserName();
+    string UserId = AspNetUsers.GetUserId(uname);
+    
+    if (AspNetUsersRoles.IsUserInRole("Maestro", uname))
+    {
+        role = "Maestro";
+    }
+    else if (AspNetUsersRoles.IsUserInRole("Estudiante", uname))
+    {
+        role = "Estudiante";
+    }
+    else if (AspNetUsersRoles.IsUserInRole("Editor", uname))
+    {
+        role = "Editor";
+    }
+    else if (AspNetUsersRoles.IsUserInRole("Administrador", User.Identity.Name))
+    {
+        role = "Administrador";
+    }
+    else if (AspNetUsersRoles.IsUserInRole("Contratista", User.Identity.Name))
+    {
+        role = "Contratista";
+    }
+    else if (AspNetUsersRoles.IsUserInRole("Coordinador", User.Identity.Name))
+    {
+        role = "Coordinador";
+    }
+    else if (AspNetUsersRoles.IsUserInRole("Administrator", User.Identity.Name))
+    {
+        role = "Administrator";
+    }
+                
+}
+@if (Request.IsAuthenticated)
+{
+    <span class="element-divider place-right"></span>
+    <div style="position:fixed;top:0pt;right:0pt;">
+        <table style="background-color:black;">
+            <tr>
+                <td><img src="/images/icon-user.png" class="element place-right" width="45" /></td>
+                <td>
+                    <small class=" element place-right">
+                        @Html.ActionLink(string.Format("Soy {0} - "+@role, AspNetUsers.GetName(@User.Identity.Name)), "AdministrarCuenta", "Usuario")
+                    </small>
+                </td>
+                <td>
+                    @using (Html.BeginForm("Salir", "Usuario", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <small class="element place-right">
+                            <a href="javascript:document.getElementById('logoutForm').submit()" title="Salir">Cerrar Sesión</a>
+                        </small>
+                    }
+            </td>
+        </tr>
+    </table>
+
+
+    @*<br />*@
+    @*<div class="input-control select element place-right size2">
+            @Html.DropDownList("Roles", new SelectList(AspNetUsersRoles.GetRoles(UserId)))
+        </div>*@
+    @*<br />*@
+
+</div>
+
+}

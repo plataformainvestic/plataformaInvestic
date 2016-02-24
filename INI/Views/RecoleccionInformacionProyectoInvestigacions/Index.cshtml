@@ -1,0 +1,80 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblRecoleccionInformacionProyectoInvestigacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br /><br /><br />
+<h2>Recolección Información Proyecto Investigación</h2>
+
+<p>
+    @Html.ActionLink("Nuevo elemento de lista", "Create")
+</p>
+<table id="Tabla_1" class="table striped hover" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Evidencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.tblGrupoInvestigacion.Codigo)
+            </th>
+            <th width="20%">
+                @Html.DisplayNameFor(model => model.tblHerramientasRecoleccionInformacion.HerramientaRecoleccion)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evidencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGrupoInvestigacion.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblHerramientasRecoleccionInformacion.HerramientaRecoleccion)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+</table>
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script>
+            $(function () {
+                $('#Tabla_1').dataTable({
+                    "sPaginationType": "full_numbers",
+                    "oLanguage": {
+                        "sUrl": "../../Lang/es-CO.txt"
+                    }
+                });
+
+
+                $(function () {
+                    $('#Tabla_2').dataTable({
+                        "sPaginationType": "full_numbers",
+                        "oLanguage": {
+                            "sUrl": "../../Lang/es-CO.txt"
+                        }
+                    });
+
+                });
+            });
+
+    </script>
+}

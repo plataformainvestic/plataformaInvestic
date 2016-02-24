@@ -1,0 +1,33 @@
+﻿@model INI.Models.DataBase.tbNetVirtualGroup
+
+@{
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+    ViewBag.Title = "Details";
+    String ctrl=ViewBag.ControllerName;
+}
+<br /><br /><br />
+@if(INI.Models.DataBase.AspNetUsersRoles.IsUserInRole("Administrator", User.Identity.Name) || INI.Models.DataBase.AspNetUsersRoles.IsUserInRole("Editor", User.Identity.Name))
+{
+    @Html.ActionLink("Atraz", "Aprobar", "RVC", null, new { @class = "button large primary" })
+}
+else
+{
+    @Html.ActionLink("Atraz", "Index", null, new { @class = "button large primary" })
+}
+
+<br /><br />
+<div class="panel">
+    <div class="panel-header">
+       @Model.name
+    </div>
+    <div class="panel-content" style="background-color:white">
+        <img src="@Url.Action("DowloadFile", "tbNetVirtualGroups", new { id = Model.id, FileId = "photo" })" width="200px" />
+        @Html.Raw(Model.description)
+    </div>
+</div>    
+
+<p>
+    @if (Model.state) { 
+        @Html.ActionLink("Editar", "Edit", new {id=Model.id }, new { @class = "button large primary" })     
+    }
+</p>

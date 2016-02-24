@@ -1,0 +1,108 @@
+﻿@model INI.Models.DataBase.tblDocumentosSoporte
+
+@{
+    ViewBag.Title = "Documentos de soporte";
+    Layout = "~/Views/Shared/_InvIEP.cshtml";      
+}
+<br />
+<div class="grid fluid">
+    <div class="row">
+        <div class="span1 offset1">
+            <h1>
+                <a href="/IEP/IrABitacoras/@Model.idGrupoInvestigacion">
+                    <i class="icon-arrow-left-3 fg-darker smaller"></i>
+                </a>
+            </h1>
+        </div>
+        <div class="span8">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span8 offset2">
+            <p class="text-alert">
+                <strong>
+                    @ViewBag.Message
+                </strong>
+            </p>
+        </div>
+        <div class="span2">
+        </div>
+    </div>
+</div>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+    @Html.AntiForgeryToken()
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span3 offset2">
+                <strong>Carta de compromiso</strong>
+            </div>
+            <div class="span2">
+                <a class="image-button size2" href="~/Upload/@Model.CartaCompromiso" target="_blank">
+                    Descargar
+                    <i class="icon-download-2 bg-red fg-white"></i>
+                </a>
+            </div>
+            <div class="span4">
+                <a href="#" class="image-button size4" onclick="javascript:UploadCommitment(@Model.id);" title="Cargar Archivo">
+                    Cargar carta de compromiso
+                    <i class="icon-upload-3 bg-green fg-white"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3 offset2">
+                <strong>Carta de aceptación</strong>
+            </div>
+            <div class="span2">
+                <a class="image-button size2" href="~/Upload/@Model.CartaAceptacion" target="_blank">
+                    Descargar
+                    <i class="icon-download-2 bg-red fg-white"></i>
+                </a>
+            </div>
+            <div class="span4">
+                <a href="#" class="image-button size4" onclick="javascript:UploadAcceptance(@Model.id);" title="Cargar Archivo">
+                    Cargar carta de aceptación
+                    <i class="icon-upload-3 bg-green fg-white"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+<div id="UploadFile">
+
+</div>
+@section Scripts{        
+    <script>
+    $(function () {
+        $('#UploadFile').dialog({
+            autoOpen: false,
+            height: 420,
+            width: 980,
+            modal: true,
+            title: "Subir archivo",
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+    });
+    function UploadAcceptance(id) {
+        $('#UploadFile').load("/IEP/UploadFileAceptance/".concat(id));
+        $('#UploadFile').dialog('open');
+    }
+    function UploadCommitment(id) {
+        $('#UploadFile').load("/IEP/UploadFileCommitment/".concat(id));
+        $('#UploadFile').dialog('open');
+    }
+    </script>
+}

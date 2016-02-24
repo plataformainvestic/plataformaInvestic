@@ -1,0 +1,31 @@
+﻿@model  IEnumerable<INI.Models.Adds.VerinfoCursos>
+
+
+
+    @foreach (var item in Model)
+    {
+        <div style="width: 50%;float: left;">
+            <img src="../../images/Investiga/apr/icono_ambientes.png" alt="" style=" vertical-align:middle;" />
+            <strong style="font-size: 1.5em;"><a style="cursor:pointer;" onclick="descurso(@item.idCurso);">@Html.DisplayFor(modelItem => item.NombreCurso)</a></strong><br />
+            <strong style="font-size: 0.5em;">Profesor: </strong> @item.Profesor <br />
+            <strong style="font-size: 0.5em;">Sede Educativa: </strong> @item.SedeEducativa<br />
+            <strong style="font-size: 0.5em;">Municipio: </strong>@item.municipio<br />
+            <strong style ="font-size: 0.5em;">Fecha de creación:</strong>@item.Fcreacion<br />
+
+        </div>
+
+    }
+
+
+
+    <script>
+        function descurso(id) {
+            
+            $("#descripcurso").load("/Home/getDetail/" + id);
+            $("#miscursos").hide();
+            $("#descripcurso").show();
+            
+        }
+</script>
+    
+

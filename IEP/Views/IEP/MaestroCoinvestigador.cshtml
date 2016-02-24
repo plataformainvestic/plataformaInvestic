@@ -1,0 +1,91 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblMiembroGrupo>
+
+@using IEP.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.Title = "Datos Maestro(s) Coinvestigador(es)";
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+    string msj = ViewBag.Message;
+}
+            
+<h4>@ViewBag.Title</h4>
+
+<div class="grid">
+    <div class="row">
+        <div class="span7">
+            <div class="button-set">
+                <button class="image-button primary fg-white size3" onclick="javascript: $('#AddMember').dialog('open');">
+                    Agregar Colaborador
+                    <i class="icon-plus bg-cobalt"></i>
+                </button>               
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<table id="MemberGroupTable" class="table">
+    <thead>
+        <tr>            
+            <th>
+                @Html.DisplayName("Nombres")
+            </th>
+            <th>
+                @Html.DisplayName("Apellidos")
+            </th>
+            <th>
+                @Html.DisplayName("Dirección")
+            </th>
+            <th>
+                @Html.DisplayName("Rol")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.SureName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblRol.Nombre)
+                </td>
+                <td>
+                    @if (item.idRol != 1) { 
+                        <a class="button" href="/ResearchGroupWizard/" title="Modificar"><i class="icon-pencil"></i></a>
+                        <a class="button" href="/ResearchGroupWizard/" title="Detalles"><i class="icon-list"></i></a>
+                        <a class="button" href="#" onclick="javascript:DeleteMember(@item.id);" title="Eliminar"><i class="icon-remove"></i></a>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+<div id="AddMember">
+    @{
+        InvesticEntities db = new InvesticEntities();
+        var mg = new IEP.Models.DataBase.MiembrosGrupoCoinvestigador();
+        mg.idGrupoInvestigacion = Model.First().idGrupoInvestigacion;
+        mg.Usuarios = db.AspNetUsers.Where(m => m.UserName != User.Identity.Name).ToList();
+    }
+    @Html.Partial("_SeleccionarCoInvestigador", mg)
+</div>
+
+@section Scripts {        
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Investic/CoResearchTeacher.js"></script>
+    <script>
+        AlertMessage('@msj');    
+    </script>
+}
+
+

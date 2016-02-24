@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+ <!--<![endif]-->
+<head>
+    <title>Revista</title>
+    <meta name="viewport" content="width = 1050, user-scalable = no" />    
+    @*<script src="~/turnjs4/extras/jquery.min.1.7.js"></script>    
+    <script src="~/turnjs4/extras/modernizr.2.5.3.min.js"></script>*@
+    <script src="~/Scripts/TURNJS/jquery.min.1.7.js"></script>
+    <script src="~/Scripts/TURNJS/modernizr.2.5.3.min.js"></script>
+    <script src="~/Scripts/TURNJS/Lib/hash.js"></script>
+</head>
+
+<body>
+    
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+    
+    
+
+    
+</body>
+</html>

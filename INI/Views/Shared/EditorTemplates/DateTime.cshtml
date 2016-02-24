@@ -1,0 +1,27 @@
+﻿@using datatabletes.Infrastructure
+@model DateTime?
+
+@Html.AddScriptFile("datetimepicker_plugin", "~/Scripts/jquery.datetimepicker.js")
+@Html.AddScript("init_DateTime_Editor"
+    , @"    $(function () {
+        $('.datetimepicker').datetimepicker({
+            lang: 'es',
+            format: 'Y/m/d H:i',
+            formatDate: 'Y/m/d',
+            dayOfWeekStart: 1,
+            mask: false
+        });
+    });")
+
+@*@Html.TextBoxFor(m => m, "yyyy/MM/dd hh:mm", new { @class = "datetimepicker" })*@
+@{
+    DateTime dt = DateTime.Now;    
+    if (Model != null)
+    {
+        dt = (System.DateTime)Model;
+
+    }    
+    String ff=String.Format("{0}/{1}{2}/{3}{4} {5}{6}:{7}{8}",dt.Year,dt.Month/10,dt.Month%10,dt.Day/10,dt.Day%10,dt.Hour/10,dt.Hour%10,dt.Minute/10,dt.Minute%10);
+    @Html.TextBox("", String.Format("{0}", ff),
+             new { @class = "datetimepicker" })
+} 

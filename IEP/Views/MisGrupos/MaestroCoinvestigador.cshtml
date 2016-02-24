@@ -1,0 +1,115 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblMiembroGrupo>
+
+@using IEP.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.Title = "2. Datos Maestro(s) Coinvestigador(es)";
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span1 offset1">
+            <h1>
+                <a href="/AsistenteGrupoInvestigacion">
+                    <i class="icon-arrow-left-3 fg-darker smaller"></i>
+                </a>
+            </h1>
+        </div>
+        <div class="span10">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span10 offset2">
+            <p class="text-alert">
+                <strong>
+                    @ViewBag.Message
+                </strong>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="grid">
+    <div class="row">
+        <div class="span8">
+            <div class="button-set">
+                <button class="image-button primary fg-white size3" onclick="javascript: $('#AddMember').dialog('open');">
+                    Agregar Colaborador
+                    <i class="icon-plus bg-cobalt"></i>
+                </button>               
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<table id="MemberGroupTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Usuario")
+            </th>
+            <th>
+                @Html.DisplayName("Nombre")
+            </th>
+            <th>
+                @Html.DisplayName("Apellido")
+            </th>
+            <th>
+                @Html.DisplayName("Dirección")
+            </th>
+            <th>
+                @Html.DisplayName("Rol")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.SureName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblRol.Nombre)
+                </td>
+                <td>
+                    <a href="/ResearchGroupWizard/" title="Modificar"><i class="icon-pencil"></i></a> |
+                    <a href="/ResearchGroupWizard/" title="Detalles"><i class="icon-list"></i></a> |
+                    <a href="#" onclick="javascript:DeleteMember(@item.id);" title="Eliminar"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+<div id="AddMember">
+    @{
+        InvesticEntities db = new InvesticEntities();
+        var mg = new IEP.Models.DataBase.MiembrosGrupoCoinvestigador();
+        mg.idGrupoInvestigacion = Model.First().idGrupoInvestigacion;
+        mg.Usuarios = db.AspNetUsers.Where(m => m.UserName != User.Identity.Name).ToList();
+    }
+    @Html.Partial("_SeleccionarCoInvestigador", mg)
+</div>
+
+@section Scripts {
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery.ui.theme.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery.ui.dialog.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+    <script src="~/Scripts/DataTables-1.10.0/media/js/jquery.dataTables.js"></script>    
+    <script src="~/Scripts/Investic/CoResearchTeacher.js"></script>
+}
+
+

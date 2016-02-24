@@ -1,0 +1,49 @@
+﻿@model MAI.Models.DataBase.tblNivelIdioma
+
+@{
+    ViewBag.Title = "ModificarIdioma";
+}
+
+<div class="grid fluid">
+    <h2>Modificar Idioma</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.tblNivelIdioma_ID)
+        @Html.Hidden("tblHojaVida_ID", (object)ViewBag.idHojaVida)
+        @Html.Hidden("tblIdiomas_ID", (object)ViewBag.idIdioma)
+
+        <hr />
+
+        <div class="form-control">
+            <div class="form-group span6">
+                @Html.Label("Idioma")
+                <div class="text">
+                    @Html.DisplayFor(model => model.tblIdiomas.idi_nombre)
+                </div>
+            </div>
+
+            <div class="form-group span6">
+                @Html.Label("Nivel")
+                <div class="input-control select">
+                    @Html.DropDownList("tblNivel_ID")
+                    @Html.ValidationMessageFor(model => model.tblNivel_ID)
+                </div>
+            </div>
+
+            <button class="large bg-green fg-white" type="submit">
+                Guardar Cambios
+                <i class="icon-upload-3 bg-green fg-white"></i>
+            </button>
+
+            <div class="form-group">
+                <h3>
+                    @Html.ActionLink("Regresar", "FormacionYExperiencia", new { id = (object)ViewBag.idUsuarioPlataforma })
+                </h3>
+            </div>
+        </div>
+    }
+</div>

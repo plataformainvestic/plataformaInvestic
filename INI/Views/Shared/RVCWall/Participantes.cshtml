@@ -1,0 +1,48 @@
+﻿@model IEnumerable<INI.Models.Mymodels.UserRVC>
+
+
+<table id="usrrvc" class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Email
+            </th>                                    
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>                                 
+                    
+                    @if (item.IsOwner)
+                    {
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.Id, FileId = "photo" })" width="50px" />
+                        <a href="#" data-hint="Owner|Este usuario es el creador de esta red" data-hint-position="bottom" class="icon-user-3">
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.Id, FileId = "photo" })" width="50px" />
+                    }
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <button class="button large primary btnusrrvc" id="@item.Id" data-hint="Redes|Si presionas en este boton podras visualizar las redes en las que participa este usuario" data-hint-position="bottom">Redes</button>                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

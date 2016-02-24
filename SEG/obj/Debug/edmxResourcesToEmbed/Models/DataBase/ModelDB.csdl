@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="tabla_alternativas">
+    <Key>
+      <PropertyRef Name="Id_Alternativa" />
+    </Key>
+    <Property Name="Id_Alternativa" Type="Int32" Nullable="false" />
+    <Property Name="Des_Alternativa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="programa_tareas" Relationship="Model.FK_dbo_programa_tareas_dbo_tabla_alternativas" FromRole="tabla_alternativas" ToRole="programa_tareas" />
+    <NavigationProperty Name="actividades" Relationship="Model.FK_dbo_actividades_dbo_tabla_alternativas" FromRole="tabla_alternativas" ToRole="actividade" />
+  </EntityType>
+  <EntityType Name="tabla_estados">
+    <Key>
+      <PropertyRef Name="Id_Estado" />
+    </Key>
+    <Property Name="Id_Estado" Type="Int32" Nullable="false" />
+    <Property Name="Des_Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="actividades" Relationship="Model.FK_dbo_actividades_dbo_tabla_estados" FromRole="tabla_estados" ToRole="actividade" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="tabla_alternativas" EntityType="Self.tabla_alternativas" />
+    <EntitySet Name="tabla_estados" EntityType="Self.tabla_estados" />
+    <EntitySet Name="fechasreportes" EntityType="Model.fechasreporte" />
+    <EntitySet Name="productos" EntityType="Model.producto" />
+    <EntitySet Name="evidencias" EntityType="Model.evidencia" />
+    <EntitySet Name="AspNetUsers" EntityType="Model.AspNetUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_evidencias_dbo_AspNetUsers" Association="Model.FK_dbo_evidencias_dbo_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="evidencia" EntitySet="evidencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_productos_dbo_AspNetUsers" Association="Model.FK_dbo_productos_dbo_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="producto" EntitySet="productos" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Model.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="equipos" EntityType="Model.equipos" />
+    <AssociationSet Name="FK_dbo_equipos_dbo_AspNetUsers" Association="Model.FK_dbo_equipos_dbo_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="equipos" EntitySet="equipos" />
+    </AssociationSet>
+    <EntitySet Name="programa_tareas" EntityType="Model.programa_tareas" />
+    <AssociationSet Name="FK_dbo_programa_tareas_dbo_AspNetUsers" Association="Model.FK_dbo_programa_tareas_dbo_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="programa_tareas" EntitySet="programa_tareas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_programa_tareas_dbo_tabla_alternativas" Association="Model.FK_dbo_programa_tareas_dbo_tabla_alternativas">
+      <End Role="tabla_alternativas" EntitySet="tabla_alternativas" />
+      <End Role="programa_tareas" EntitySet="programa_tareas" />
+    </AssociationSet>
+    <EntitySet Name="responsabilidades" EntityType="Model.responsabilidade" />
+    <AssociationSet Name="FK_dbo_responsabilidade_dbo_AspNetUsers" Association="Model.FK_dbo_responsabilidade_dbo_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="responsabilidade" EntitySet="responsabilidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_programa_tareas_dbo_responsabilidades" Association="Model.FK_dbo_programa_tareas_dbo_responsabilidades">
+      <End Role="responsabilidade" EntitySet="responsabilidades" />
+      <End Role="programa_tareas" EntitySet="programa_tareas" />
+    </AssociationSet>
+    <EntitySet Name="actividades" EntityType="Model.actividade" />
+    <AssociationSet Name="FK_dbo_actividades_dbo_AspNetUsers" Association="Model.FK_dbo_actividades_dbo_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="actividade" EntitySet="actividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_evidencias_dbo_actividades" Association="Model.FK_dbo_evidencias_dbo_actividades">
+      <End Role="actividade" EntitySet="actividades" />
+      <End Role="evidencia" EntitySet="evidencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_productos_dbo_actividades" Association="Model.FK_dbo_productos_dbo_actividades">
+      <End Role="actividade" EntitySet="actividades" />
+      <End Role="producto" EntitySet="productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_actividades_dbo_responsabilidades" Association="Model.FK_dbo_actividades_dbo_responsabilidades">
+      <End Role="responsabilidade" EntitySet="responsabilidades" />
+      <End Role="actividade" EntitySet="actividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_actividades_dbo_tabla_alternativas" Association="Model.FK_dbo_actividades_dbo_tabla_alternativas">
+      <End Role="tabla_alternativas" EntitySet="tabla_alternativas" />
+      <End Role="actividade" EntitySet="actividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_actividades_dbo_tabla_estados" Association="Model.FK_dbo_actividades_dbo_tabla_estados">
+      <End Role="tabla_estados" EntitySet="tabla_estados" />
+      <End Role="actividade" EntitySet="actividades" />
+    </AssociationSet>
+    <EntitySet Name="cargos" EntityType="Model.cargo" />
+  </EntityContainer>
+  <EntityType Name="fechasreporte">
+    <Key>
+      <PropertyRef Name="Id_SemanaTrabajo" />
+    </Key>
+    <Property Name="Id_SemanaTrabajo" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Ini" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Fin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Activa" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="Id_Producto" />
+    </Key>
+    <Property Name="Id_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Contratista" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+    <Property Name="Nombre_Producto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion_Producto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_productos_dbo_AspNetUsers" FromRole="producto" ToRole="AspNetUser" />
+    <NavigationProperty Name="actividade" Relationship="Model.FK_dbo_productos_dbo_actividades" FromRole="producto" ToRole="actividade" />
+  </EntityType>
+  <EntityType Name="evidencia">
+    <Key>
+      <PropertyRef Name="Id_Evidencia" />
+    </Key>
+    <Property Name="Id_Evidencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Contratista" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+    <Property Name="Nombre_Evidencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion_Evidencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_evidencias_dbo_AspNetUsers" FromRole="evidencia" ToRole="AspNetUser" />
+    <NavigationProperty Name="actividade" Relationship="Model.FK_dbo_evidencias_dbo_actividades" FromRole="evidencia" ToRole="actividade" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedEmail" Type="Boolean" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="Int32" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Cedula" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Nombres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Celular" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cargo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contrato" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cdp" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Equipo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha_IniContrato" Type="DateTime" Precision="3" />
+    <Property Name="Fecha_FinContrato" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="evidencias" Relationship="Model.FK_dbo_evidencias_dbo_AspNetUsers" FromRole="AspNetUser" ToRole="evidencia" />
+    <NavigationProperty Name="productos" Relationship="Model.FK_dbo_productos_dbo_AspNetUsers" FromRole="AspNetUser" ToRole="producto" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="equipos" Relationship="Model.FK_dbo_equipos_dbo_AspNetUsers" FromRole="AspNetUser" ToRole="equipos" />
+    <NavigationProperty Name="programa_tareas" Relationship="Model.FK_dbo_programa_tareas_dbo_AspNetUsers" FromRole="AspNetUser" ToRole="programa_tareas" />
+    <NavigationProperty Name="responsabilidades" Relationship="Model.FK_dbo_responsabilidade_dbo_AspNetUsers" FromRole="AspNetUser" ToRole="responsabilidade" />
+    <NavigationProperty Name="actividades" Relationship="Model.FK_dbo_actividades_dbo_AspNetUsers" FromRole="AspNetUser" ToRole="actividade" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_evidencias_dbo_AspNetUsers">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.evidencia" Role="evidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="evidencia">
+        <PropertyRef Name="Id_Contratista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_productos_dbo_AspNetUsers">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.producto" Role="producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="Id_Contratista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="equipos">
+    <Key>
+      <PropertyRef Name="Id_Equipo" />
+    </Key>
+    <Property Name="Id_Equipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Equipo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Coordinador" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre_Coordinador" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_equipos_dbo_AspNetUsers" FromRole="equipos" ToRole="AspNetUser" />
+  </EntityType>
+  <Association Name="FK_dbo_equipos_dbo_AspNetUsers">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.equipos" Role="equipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="equipos">
+        <PropertyRef Name="Id_Coordinador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="programa_tareas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Contratista" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Alternativa" Type="Int32" Nullable="false" />
+    <Property Name="Responsabilidad" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Ini" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Fin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_programa_tareas_dbo_AspNetUsers" FromRole="programa_tareas" ToRole="AspNetUser" />
+    <NavigationProperty Name="tabla_alternativas" Relationship="Model.FK_dbo_programa_tareas_dbo_tabla_alternativas" FromRole="programa_tareas" ToRole="tabla_alternativas" />
+    <NavigationProperty Name="responsabilidade" Relationship="Model.FK_dbo_programa_tareas_dbo_responsabilidades" FromRole="programa_tareas" ToRole="responsabilidade" />
+  </EntityType>
+  <Association Name="FK_dbo_programa_tareas_dbo_AspNetUsers">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.programa_tareas" Role="programa_tareas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="programa_tareas">
+        <PropertyRef Name="Id_Contratista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_programa_tareas_dbo_tabla_alternativas">
+    <End Type="Model.tabla_alternativas" Role="tabla_alternativas" Multiplicity="1" />
+    <End Type="Model.programa_tareas" Role="programa_tareas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tabla_alternativas">
+        <PropertyRef Name="Id_Alternativa" />
+      </Principal>
+      <Dependent Role="programa_tareas">
+        <PropertyRef Name="Alternativa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="responsabilidade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Contratista" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Coordinador" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdentificadorResponsa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_responsabilidade_dbo_AspNetUsers" FromRole="responsabilidade" ToRole="AspNetUser" />
+    <NavigationProperty Name="programa_tareas" Relationship="Model.FK_dbo_programa_tareas_dbo_responsabilidades" FromRole="responsabilidade" ToRole="programa_tareas" />
+    <NavigationProperty Name="actividades" Relationship="Model.FK_dbo_actividades_dbo_responsabilidades" FromRole="responsabilidade" ToRole="actividade" />
+  </EntityType>
+  <Association Name="FK_dbo_responsabilidade_dbo_AspNetUsers">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.responsabilidade" Role="responsabilidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="responsabilidade">
+        <PropertyRef Name="Id_Contratista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_programa_tareas_dbo_responsabilidades">
+    <End Type="Model.responsabilidade" Role="responsabilidade" Multiplicity="1" />
+    <End Type="Model.programa_tareas" Role="programa_tareas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="responsabilidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="programa_tareas">
+        <PropertyRef Name="Responsabilidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="actividade">
+    <Key>
+      <PropertyRef Name="Id_Actividad" />
+    </Key>
+    <Property Name="Id_Actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Ini" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Fecha_Fin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id_Contratista" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Alternativa" Type="Int32" Nullable="false" />
+    <Property Name="Des_Resp_Contratista" Type="Int32" Nullable="false" />
+    <Property Name="Des_Actividad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Estado" Type="Int32" Nullable="false" />
+    <Property Name="Des_Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Periodo_Reporte" Type="Int32" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_actividades_dbo_AspNetUsers" FromRole="actividade" ToRole="AspNetUser" />
+    <NavigationProperty Name="evidencias" Relationship="Model.FK_dbo_evidencias_dbo_actividades" FromRole="actividade" ToRole="evidencia" />
+    <NavigationProperty Name="productos" Relationship="Model.FK_dbo_productos_dbo_actividades" FromRole="actividade" ToRole="producto" />
+    <NavigationProperty Name="responsabilidade" Relationship="Model.FK_dbo_actividades_dbo_responsabilidades" FromRole="actividade" ToRole="responsabilidade" />
+    <NavigationProperty Name="tabla_alternativas" Relationship="Model.FK_dbo_actividades_dbo_tabla_alternativas" FromRole="actividade" ToRole="tabla_alternativas" />
+    <NavigationProperty Name="tabla_estados" Relationship="Model.FK_dbo_actividades_dbo_tabla_estados" FromRole="actividade" ToRole="tabla_estados" />
+  </EntityType>
+  <Association Name="FK_dbo_actividades_dbo_AspNetUsers">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.actividade" Role="actividade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="actividade">
+        <PropertyRef Name="Id_Contratista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_evidencias_dbo_actividades">
+    <End Type="Model.actividade" Role="actividade" Multiplicity="1" />
+    <End Type="Model.evidencia" Role="evidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actividade">
+        <PropertyRef Name="Id_Actividad" />
+      </Principal>
+      <Dependent Role="evidencia">
+        <PropertyRef Name="Id_Actividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_productos_dbo_actividades">
+    <End Type="Model.actividade" Role="actividade" Multiplicity="1" />
+    <End Type="Model.producto" Role="producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actividade">
+        <PropertyRef Name="Id_Actividad" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="Id_Actividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_actividades_dbo_responsabilidades">
+    <End Type="Model.responsabilidade" Role="responsabilidade" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.actividade" Role="actividade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="responsabilidade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="actividade">
+        <PropertyRef Name="Des_Resp_Contratista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_actividades_dbo_tabla_alternativas">
+    <End Type="Model.tabla_alternativas" Role="tabla_alternativas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.actividade" Role="actividade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tabla_alternativas">
+        <PropertyRef Name="Id_Alternativa" />
+      </Principal>
+      <Dependent Role="actividade">
+        <PropertyRef Name="Id_Alternativa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_actividades_dbo_tabla_estados">
+    <End Type="Model.tabla_estados" Role="tabla_estados" Multiplicity="1" />
+    <End Type="Model.actividade" Role="actividade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tabla_estados">
+        <PropertyRef Name="Id_Estado" />
+      </Principal>
+      <Dependent Role="actividade">
+        <PropertyRef Name="Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="Id_Cargo" />
+    </Key>
+    <Property Name="Id_Cargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Cargo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,205 @@
+﻿@model INI.Models.DataBase.tblAsesorZona
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<h2>Formulario de Creación</h2>
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>INGRESAR NUEVO COORDINADOR PEDAGÓGICO</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            
+
+
+
+            <div style="margin: auto; width: auto;">
+
+
+                <strong onmouseover="tooltip.pop(this, '#Nombres', { sticky: true })">
+                    Nombres Completos del Coordinador:
+                </strong>
+
+
+                <div style="display:none;">
+                    <div id="Nombres">
+                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                        <b><strong>Cual es tu Nombre?</strong></b><br /><br />
+                        Este campo es obligatorio. Aquí debes ingresar un Nombre.
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aseZon_nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aseZon_nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+
+
+            
+
+            <div style="margin: auto; width: auto;">
+
+
+                <strong onmouseover="tooltip.pop(this, '#apellido', { sticky: true })">
+                    Apellido:
+                </strong>
+
+
+                <div style="display:none;">
+                    <div id="apellido">
+                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                        <b><strong>Cual es tu apellido?</strong></b><br /><br />
+                        Este campo es obligatorio. Aquí debes ingresar un apellido.
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aseZon_apellido, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aseZon_apellido, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+
+            <div style="margin: auto; width: auto;">
+
+
+                <strong onmouseover="tooltip.pop(this, '#Correo', { sticky: true })">
+                    Correo:
+                </strong>
+
+
+                <div style="display:none;">
+                    <div id="Correo">
+                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                        <b><strong>Cual es tu Correo?</strong></b><br /><br />
+                        Este campo es obligatorio. Aquí debes ingresar un Correo.
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aseZon_correo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aseZon_correo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+
+            <div style="margin: auto; width: auto;">
+
+
+                <strong onmouseover="tooltip.pop(this, '#Telefono', { sticky: true })">
+                    Teléfono:
+                </strong>
+
+
+                <div style="display:none;">
+                    <div id="Telefono">
+                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                        <b><strong>Cual es tu teléfono?</strong></b><br /><br />
+                        Este campo es obligatorio. Aquí debes ingresar un teléfono.
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+
+
+
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aseZon_telefono, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aseZon_telefono, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           @* @Html.HiddenFor(model => model.tblEquipo_ID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @*@Html.HiddenFor(model => model.tblEquipo_ID, new {value="0" })*@ @Html.Hidden("tblEquipo_ID",0)
+                @Html.ValidationMessageFor(model => model.tblEquipo_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            
+
+            <div style="margin: auto; width: auto;">
+
+
+                <strong onmouseover="tooltip.pop(this, '#Municipio', { sticky: true })">
+                    Municipio:
+                </strong>
+
+
+                <div style="display:none;">
+                    <div id="Municipio">
+                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                        <b><strong>Cual es tu municipio?</strong></b><br /><br />
+                        Este campo es obligatorio. Aquí debes ingresar un municipio:.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-10">
+                @Html.DropDownList("tblMunicipio_ID", String.Empty)
+                @Html.ValidationMessageFor(model => model.tblMunicipios.idMunicipio)
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            Esta Activo:
+            <div class="col-md-10">
+                @Html.CheckBox("estaActivo",true, new { @disabled = "disabled" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar al Listado de Coordinadores", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

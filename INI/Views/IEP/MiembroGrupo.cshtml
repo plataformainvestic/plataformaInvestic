@@ -1,0 +1,125 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblMiembroGrupo>
+
+@using INI.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.Title = "Integrantes Grupo de Investigación";
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+    string msj = ViewBag.Message;
+    int idGrupoInvestigacion = (int)ViewBag.idGrupoInvestigacion;
+    var idUsuario = AspNetUsers.GetUserId(User.Identity.Name);
+    bool esCreador = tblGrupoInvestigacion.Find(idGrupoInvestigacion).idUsuario.Equals(idUsuario);
+}
+
+<h4>@ViewBag.Title</h4>
+
+<div class="grid">
+    <div class="row">
+        <div class="span6">
+            @if (esCreador) { 
+            <div class="button-set">
+                @*<button class="image-button primary fg-white size3" onclick="javascript: $('#AddMember').dialog('open');">
+                    Registrar Integrante
+                    <i class="icon-plus bg-cobalt"></i>
+                </button>*@
+                <button class="image-button primary fg-white size3" onclick="javascript: $('#AddExistMember').dialog('open');">
+                    Agregar Integrante
+                    <i class="icon-plus bg-cobalt"></i>
+                </button>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+<table id="MemberGroupTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Usuario")
+            </th>
+            <th>
+                @Html.DisplayName("Nombre")
+            </th>
+            <th>
+                @Html.DisplayName("Apellido")
+            </th>
+            <th>
+                @Html.DisplayName("Dirección")
+            </th>
+            <th>
+                @Html.DisplayName("Rol")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.SureName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblRol.Nombre)
+                </td>
+                <td>
+                    @if(esCreador){
+                    <a class="button" href="/ResearchGroupWizard/" title="Modificar"><i class="icon-pencil"></i></a>
+                    <a class="button" href="/ResearchGroupWizard/" title="Detalles"><i class="icon-list"></i></a>
+                    <a class="button" href="#" onclick="javascript:DeleteMember(@item.id);" title="Eliminar"><i class="icon-remove"></i></a>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+<div id="AddMember">
+    @{
+        MiembroGrupo mg = new MiembroGrupo();
+        string userId = INI.Models.DataBase.AspNetUsers.GetUserId(User.Identity.Name);
+        int id = tblGrupoInvestigacion.ResearchGroupIdByUser(userId);
+        mg.User = new INI.Models.RegisterViewModel();
+        mg.Informacion = new tblMiembroGrupo();
+        mg.User.UserName = "Nombre de Usuario";
+        mg.User.Password = "abc123";
+        mg.User.ConfirmPassword = "abc123";
+        mg.Informacion.idUsuario = "nd";
+        mg.Informacion.idRol = 2;
+        mg.Informacion.idGrupoInvestigacion = id;
+    }
+    @Html.Partial("_AgregarMiembroGrupo", mg)
+</div>
+
+<div id="AddExistMember">
+    @{
+        investicEntities db = new investicEntities();
+        var emg = new INI.Models.DataBase.MiembrosEstudianteinvestigador();
+        emg.idGrupoInvestigacion = idGrupoInvestigacion;
+        emg.Usuarios = tblGrupoInvestigacion.UserStudentNotInGroup(idGrupoInvestigacion);
+
+    }
+    @Html.Partial("_SeleccionarEstudiante", emg)
+</div>
+
+@section scripts {    
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Investic/iep-0.1-GroupMember.js"></script>  
+    <script>
+        AlertMessage('@msj');        
+    </script>  
+}
+
+
+
+

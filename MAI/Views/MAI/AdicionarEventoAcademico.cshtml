@@ -1,0 +1,67 @@
+﻿@model MAI.Models.DataBase.tblEventosAcademicos
+
+@{
+    ViewBag.Title = "Adicionar Evento Academico";
+}
+
+<div class="grid fluid">
+    <h2>Adicionar Evento Academico</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Hidden("tblHojaVida_ID", (object)ViewBag.idHojaVida)
+
+        <div class="form-control">
+
+            <hr />
+
+            <div class="form-group span6">
+                @Html.Label("Título del Evento Académico")
+                <div class="input-control text" data-role="input-control">
+                    @Html.EditorFor(model => model.eveaca_tituloEvento)
+                    <button type="button" class="btn btn-clear" tabindex="-1"></button>
+                    @Html.ValidationMessageFor(model => model.eveaca_tituloEvento)
+                </div>
+            </div>
+
+            <div class="form-group span6">
+                @Html.Label("Evento Academico")
+                <div class="input-control text" data-role="input-control">
+                    @Html.EditorFor(model => model.eveaca_evento)
+                    <button type="button" class="btn btn-clear" tabindex="-1"></button>
+                    @Html.ValidationMessageFor(model => model.eveaca_evento)
+                </div>
+            </div>
+
+            <div class="form-group span6">
+                @Html.Label("Lugar de Realización del Evento Académico")
+                <div class="input-control text" data-role="input-control">
+                    @Html.EditorFor(model => model.eveaca_lugarEvento)
+                    <button type="button" class="btn btn-clear" tabindex="-1"></button>
+                    @Html.ValidationMessageFor(model => model.eveaca_lugarEvento)
+                </div>
+            </div>
+
+            <div class="form-group span6">
+                @Html.Label("Fecha de Terminación del Evento Académico")
+                <div class="input-control text" data-role="datepicker" data-format="dd/mm/yyyy">
+                    @Html.TextBoxFor(m => m.eveaca_anoTerminacion, "{0:dd/MM/yyyy}")
+                    <button class="btn btn-date" type="button"></button>
+                    @Html.ValidationMessage("Digite fecha")
+                </div>
+            </div>
+            <button class="large bg-green fg-white" type="submit">
+                Agregar Evento Académico
+                <i class="icon-plus bg-green fg-white"></i>
+            </button>
+
+            <div class="form-group">
+                <h3>
+                    @Html.ActionLink("Regresar", "Investigacion", new { id = (object)ViewBag.idUsuarioPlataforma })
+                </h3>
+            </div>
+        </div>
+    }
+</div>

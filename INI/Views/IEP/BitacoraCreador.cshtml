@@ -1,0 +1,931 @@
+﻿@model INI.Models.DataBase.tblGrupoInvestigacion
+
+@using INI.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.Title = "Bitacoras";
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+    string msj = ViewBag.Message;
+    investicEntities db = new investicEntities();
+}
+
+@section Style{
+<link href="~/Content/DataTables-1.10.4/css/jquery.dataTables.css" rel="stylesheet" />
+}
+@Html.HiddenFor(model => model.id)
+@Html.HiddenFor(model => model.TipoGrupo)
+
+<div id="wizard">
+    
+    <h1>Estar en la Onda de Ondas</h1>
+    <div>
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span8">
+                    <strong>
+                        INFORMACION INSTITUCIONAL DEL GRUPO
+                    </strong>
+                </div>
+                <div class="span4">
+                    @if (Model.TipoGrupo == 1)
+                    {
+                        ViewBag.Id=Model.id;
+                        <a class="button large bg-darkCobalt fg-white" href="/IEP/DocumentosSoporte/@Model.id">
+                            Documentos soporte
+                        </a>
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Nombre")
+                </div>
+                <div class="span10">
+                    <strong>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Institución")
+                </div>
+                <div class="span10">
+                    <strong>
+                        @Html.DisplayFor(model => model.tblInstitucion.Nombre)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Municipio")
+                </div>
+                <div class="span3">
+                    <strong>
+                        @Html.DisplayFor(model => model.tblInstitucion.tblMunicipios.NombreMunicipio)
+                    </strong>
+                </div>
+                <div class="span2">
+                    @Html.DisplayName("Creación")
+                </div>
+                <div class="span3">
+                    <strong>
+                        @Html.DisplayFor(model => model.FechaCreacion)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Tipo")
+                </div>
+                <div class="span10">
+                    @if (Model.tblLineaInvestigacion.Categoria == 1)
+                    {
+                        <strong>Pre-Esctructruado</strong>
+                    }
+                    else
+                    {
+                        <strong>Abierto</strong>
+                    }
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Linea")
+                </div>
+                <div class="span10">
+                    <strong>
+                        @Html.DisplayFor(model => model.tblLineaInvestigacion.Nombre)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset2 text-center">
+                    <a href="/IEP/MaestroCoinvestigador/@Model.id">
+                        <img src="/Images/icon-user.png" class="cycle polaroid shadow bd-darkGreen bg-green" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+                <div class="span3 text-center">
+                    <a href="/IEP/ParaElMaestro/?idGrupo=@Model.id">
+                        <img src="/Images/IEP/libro.png" class="cycle polaroid bg-orange bg-amber shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+                <div class="span3 text-center">
+                    <a href="/IEP/MiembroGrupo">
+                        <img src="/Images/icon-user.png" class="cycle polaroid bg-darkCobalt bg-cobalt shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset2 text-center">
+                    <strong>Registro maestros coinvestigadores</strong>
+                </div>
+                <div class="span3 text-center">
+                    <strong>Bitacora - Para el maestro</strong>
+                </div>
+                <div class="span3 text-center">
+                    <strong>Registro estudiantes investigadores</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    @if (Model.TipoGrupo == 2) { 
+    <h1>Perturbación de las Ondas</h1>
+    <div>
+        <div class="grid fluid">
+            @if (Model != null)
+            {
+                if (Model.TipoGrupo == 2)
+                {
+                    <div class="row">
+                        <div class="span12">
+                            <strong>
+                                Escriba cinco de las preguntas que formularon los integrantes del grupo de investigación
+                            </strong>
+                        </div>
+                    </div>
+                    foreach (var item in Model.tblPreguntaInvestigacion.OrderBy(m => m.Consecutivo))
+                    {
+                        <div class="row">
+                            <div class="span12">
+                                @item.Pregunta
+                            </div>
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="span3 offset3 text-center">
+                            <a href="/IEP/Pregunta/@Model.id">
+                                <img src="~/Images/icon-user.png" class="cycle polaroid bg-darkCobalt bg-cobalt shadow" style="width: 120px; height:120px;" />
+                            </a>
+                        </div>
+                        <div class="span3 text-center">
+                            <a href="/IEP/PreguntaParaElMaestro?idGrupoInvestigacion=@Model.id">
+                                <img src="~/Images/IEP/libro.png" class="cycle polaroid bg-orange bg-amber shadow" style="width: 120px; height:120px;" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span3 offset3 text-center">
+                            <strong>Para el grupo de investigacion.</strong>
+                        </div>
+                        <div class="span3 text-center">
+                            <strong>Para el maestro.</strong>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <h1>Superposición de las Ondas</h1>
+    <div>
+        @if (Model != null)
+        {
+            if (Model.TipoGrupo == 2)
+            {
+                <div class="grid fluid">
+                    <div class="row">
+                        <div class="span12">
+                            <strong>
+                                Descripción del problema que se quiere investigar
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            @Model.tblProblemaInvestigacion.First().Descripcion
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <strong>
+                                Con base en el punto anterior, justifiquen la importancia de resolver el problema o avanzar en su solucion
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            @Model.tblProblemaInvestigacion.First().Justificacion
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span3 offset3 text-center">
+                            <a href="/IEP/ElProblema?idGrupoInvestigacion=@Model.id">
+                                <img src="/Images/icon-user.png" class="cycle polaroid bg-darkCobalt bg-cobalt shadow" style="width: 120px; height:120px;" />
+                            </a>
+                        </div>
+                        <div class="span3 text-center">
+                            <a href="/IEP/ElProblemaParaElProfesor?idGrupoInvestigacion=@Model.id">
+                                <img src="~/Images/IEP/libro.png" class="cycle polaroid bg-orange bg-amber shadow" style="width: 120px; height:120px;" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span3 offset3 text-center">
+                            <strong>Para el grupo de investigacion.</strong>
+                        </div>
+                        <div class="span3 text-center">
+                            <strong>Para el maestro.</strong>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <h1>Presupuesto Proyecto</h1>
+    <div style="overflow-y:scroll;">
+        <h3>Presupuesto</h3>
+        <button id="lnkPresupuesto" class="button large bg-green">Ingresar presupuesto</button>
+        <a href="/IEP/PresupuestoDetallado/@Model.id" class="button large bg-green">Presupuesto Detallado</a>
+        <hr />
+        @if (Model != null)
+        {
+            var PresupuestoResumido = from p in Model.tblPresupuestoProyectoInvestigacion
+                                      group p by p.tblRubro.Rubro into g
+                                      select new
+                                      {
+                                          Rubro = g.Key,
+                                          Total = g.Sum(m => m.Total)
+                                      };
+            if (Model.TipoGrupo == 2)
+            {
+                <table class="table striped hovered">
+                    <thead>
+                        <tr>
+                            <th>Rubro</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var itemPresupuesto in PresupuestoResumido)
+                        {
+                            <tr>
+                                <td>
+                                    @itemPresupuesto.Rubro
+                                </td>
+                                <td class="text-right">
+                                    @Html.DisplayFor(item => itemPresupuesto.Total, "Currency")
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    </div>
+
+    <h1>Recorrido trayectorias</h1>
+    <div style="overflow-y:scroll;">
+        @if (Model != null)
+        {
+            if (Model.TipoGrupo == 2)
+            {
+                if (Model.tblEstadoArteProyectoInvestigacion.Count == 1)
+                {
+                    @*<button id="lnkEstadoArte" class="button large bg-green">Estado del arte</button>*@
+                    <div class="grid fluid">
+                        <div class="row">
+                            <div class="span7"><strong>HAS AGREGADO UN NUEVO ELEMENTO!</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="span1">
+                                <strong>
+                                    Temas:
+                                </strong>
+                            </div>
+                            <div class="span7">
+                                @Html.DisplayFor(model => model.tblEstadoArteProyectoInvestigacion.First().TemaInvestigacion)
+                            </div>
+                            <div class="span1">
+                                <a class="image-button size2" href="~/Upload/@Model.tblEstadoArteProyectoInvestigacion.FirstOrDefault().MapaConceptual" target="_blank">
+                                    Descargar
+                                    <i class="icon-download-2 bg-red fg-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <button id="lnkConcepto" class="button large bg-green">Agregar concepto</button>
+                    <div class="listview">
+                        @foreach (var conc in Model.tblEstadoArteProyectoInvestigacion.First().tblConceptosEstadoArte)
+                        {
+                            <a href="#" class="list">
+                                <div class="list-content">
+                                    <img src="~/images/Icon-user.png" class="icon">
+                                    <div class="data">
+                                        <span class="list-title">Autor @conc.Autor</span>
+                                        <div>
+                                            @Html.Display(conc.Texto)
+                                        </div>
+                                        <span class="list-remark">
+                                            Año: @conc.Publicacion
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </div>
+                    <hr />
+                    <button id="lnkInformacion" class="button large bg-green">Agregar información</button>
+                    <table id="tbl_recolinfo">
+                        <thead>
+                            <tr>
+                                <th>Instrumento</th>
+                                <th>Descripción</th>
+                                <th>Evidencia</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                            @foreach (var infor in Model.tblRecoleccionInformacionProyectoInvestigacion.Where(m => m.idGrupoInvestigacion == Model.id))
+                            {
+                                @*@Html.Partial("_Informacion", infor)*@
+
+                                <tr>
+                                    <td>
+                                        <img src="~/images/Icon-user.png" class="icon"style="width:3em"/>@Html.Display("  ")@infor.tblHerramientasRecoleccionInformacion.HerramientaRecoleccion
+                                    </td>
+                                    <td>
+                                        <label>@Html.Display("  ")@infor.Descripcion</label>
+                                    </td>
+                                    <td>
+                                        @Html.Display("  ")
+                                        <a class="image-button size2" href="~/Upload/@infor.Evidencia" target="_blank">
+                                            Descargar
+                                            <i class="icon-download-2 bg-red fg-white"></i>
+                                        </a>
+                                    </td>
+                                </tr>                                
+                            }
+                        </tbody>
+                     </table>
+                    
+                }
+                else
+                {
+                    <button id="lnkEstadoArte" class="button large bg-green">Estado del arte</button>
+                }
+            }
+        }
+    </div>
+
+    <h1>Reflexión de la Onda</h1>
+       
+        tblReflexionOnda tblrfl = new tblReflexionOnda();
+        if (Model.tblReflexionOnda.Count > 0)
+        {
+            tblrfl = Model.tblReflexionOnda.OrderByDescending(m=>m.id).First();            
+        }
+        
+    
+    
+    <div style="overflow:scroll">
+        <h4>Bitácora - Para el maestro</h4>
+        <form action="/IEP/AgregarReflexionDeLaOnda" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="idGrupoInvestigacion" name="idGrupoInvestigacion" value="@Model.id" />
+            
+            <div class="row">
+                <div class="span11">
+
+
+                    @*<strong>
+                        <label for="">1. Escribe la Introducción</label>
+                    </strong>*@
+
+
+                    <div class="span2 text-right">
+
+
+                        <div style="margin: auto; width: 175px;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#Introduccion', { sticky: true })">
+                                <label for="">1. Escribe la Introducción</label>
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="Introduccion">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>Cual es tu Introducción?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar una Introducción.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 input-control textarea">
+                    <textarea cols="20" id="Introduccion" name="Introduccion" rows="2" required="required" maxlength="500" title="Ingrese una Introducción">@tblrfl.Introduccion</textarea>
+                    <span class="field-validation-valid" data-valmsg-for="Introduccion" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+
+
+                    @*<strong>
+                        <label for="">2. Estar en la onda de Ondas</label><br>
+                        <label for="">2.1. Como se conformó el grupo?</label>
+                    </strong>*@
+                    <strong>
+                        <label for="">2. Estar en la onda de Ondas</label></strong><br>
+                        <div class="span2 text-right">
+
+
+                            <div style="margin: auto; width: 226px;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#g', { sticky: true })">
+
+                                    <label for="">2.1. Como se conformó el grupo?</label>
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="g">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Como se conformó el grupo?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes esplicar como se conformo el grupo.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="row">
+                <div class="span12 input-control textarea">
+                    <textarea cols="20" id="ConformacionGrupo" name="ConformacionGrupo" rows="2" required="required" maxlength="500" title="Ingrese como se conformo el grupo">@tblrfl.ConformacionGrupo</textarea>
+                    <span class="field-validation-valid" data-valmsg-for="ConformacionGrupo" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+
+
+                    @*<strong>
+                        <label for="">2.2. Diseño de la trayectoria de la indagación</label><br>
+                        <label for="">Escriba el objetivo de la investigación</label>
+                    </strong>*@
+
+
+
+                    <strong>
+                        <label for="">2.2. Diseño de la trayectoria de la indagación</label>
+                    </strong><br>
+                    <div class="span2 text-right">
+
+
+                        <div style="margin: auto; width: 261px;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#inv', { sticky: true })">
+
+                                <label for="">Escriba el objetivo de la investigación</label>
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="inv">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>cual es tu objetivo de la investigación?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar un objetivo de la investigación.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 input-control textarea">
+                    <textarea cols="20" id="ObjetivoInvestigacion" name="ObjetivoInvestigacion" rows="2" required="required" maxlength="500" title="Ingrese objetivo de la investigación">@tblrfl.ObjetivoInvestigacion</textarea>
+                    <span class="field-validation-valid" data-valmsg-for="ObjetivoInvestigacion" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span11">
+
+
+
+                    @*<strong>
+                        <label for="">2.3. Recorrido de las trayectorias</label><br>
+                        <label for="">Escriba las actividades realizadas</label>
+                    </strong>*@
+
+
+                    <strong>
+                        <label for="">2.3. Recorrido de las trayectorias</label>
+                    </strong><br>
+                    <div class="span2 text-right">
+
+
+                        <div style="margin: auto; width: 232px;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#realizadas', { sticky: true })">
+
+                                <label for="">Escriba las actividades realizadas</label>
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="realizadas">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>cuales son tus actividades realizadas?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar las actividades realizadas.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 input-control textarea">
+                    <textarea cols="20" id="ActividadasRealizadas" name="ActividadasRealizadas" rows="2" required="required" maxlength="500" title="Ingrese las actividades realizadas">@tblrfl.ActividadasRealizadas</textarea>
+                    <span class="field-validation-valid" data-valmsg-for="ActividadasRealizadas" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+
+
+
+                    @*<strong>
+                        <label for="">3. Reflexión de la Onda</label><br>
+                        <label for="">Escriba los conceptos principales</label>
+                    </strong>*@
+
+
+                    <strong>
+                        <label for="">3. Reflexión de la Onda</label>
+                    </strong><br>
+                    <div class="span2 text-right">
+
+
+                        <div style="margin: auto; width: 232px;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#principales', { sticky: true })">
+
+                                <label for="">Escriba los conceptos principales</label>
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="principales">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>cuales son tus conceptos principaless?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar los conceptos principales.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 input-control textarea">
+                    <textarea cols="20" id="ConceptosPrincipales" name="ConceptosPrincipales" rows="2" required="required" maxlength="500" title="Ingrese tus conceptos principaless">@tblrfl.ConceptosPrincipales</textarea>
+                    <span class="field-validation-valid" data-valmsg-for="ConceptosPrincipales" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+
+
+
+                    @*<strong>
+                        <label for="">3.1. Reflexión de la Onda</label><br>
+                        <label for="">Escriba los espacios de participación</label>
+                    </strong>*@
+
+
+                    <strong>
+                        <label for="">3.1. Reflexión de la Onda</label>
+                    </strong><br>
+                    <div class="span2 text-right">
+
+
+                        <div style="margin: auto; width: 254px;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#participacion', { sticky: true })">
+
+                                <label for="">Escriba los espacios de participación</label>
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="participacion">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>Cual es tu participación?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar una participación.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 input-control textarea">
+                    <textarea cols="20" id="EspaciosParticipacion" name="EspaciosParticipacion" rows="2" required="required" maxlength="500" title="Ingrese su Espacios participación">@tblrfl.EspaciosParticipacion</textarea>
+                    <span class="field-validation-valid" data-valmsg-for="EspaciosParticipacion" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span11">
+
+
+
+                    @*<strong>
+                        <label for="">4. Conclusiones</label>
+                    </strong>*@
+
+
+
+                    <div class="span2 text-right">
+
+
+                        <div style="margin: auto; width: 108px;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#Conclusiones', { sticky: true })">
+
+                                <label for="">4. Conclusiones</label>
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="Conclusiones">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>Cual es son tus conclusiones?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar unas Conclusiones.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 input-control textarea">
+                    <textarea cols="20" id="Conclusiones" name="Conclusiones" rows="2" required="required" maxlength="500" title="Ingrese su Conclusiones">@tblrfl.Conclusiones</textarea>
+                    <span class="field-validation-valid" data-valmsg-for="Conclusiones" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6">
+                    <input type="submit" value="Actualizar información" class="button bg-green" />
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+    <h1>Propagación de la Onda</h1>
+   
+        var grpprop=Model.tblPropagacionGrupo.GroupBy(g=>g.idTipoFeria);
+        ViewBag.idTipoFeria = new SelectList(db.tblTipoFeria, "id", "TipoFeria");
+    
+    <div style="overflow-y:scroll;">
+        <h2>FERIAS</h2>
+        @*<button id="lnkFerInstitucional" class="button bg-green">Feria Institucional</button>*@
+
+        <p>
+            @*@Html.ActionLink("Create New", "Create")*@
+            <button id="lnkNuevaPropagacion" class="button large bg-green">Agregar</button>
+        </p>
+        @foreach (var grp in grpprop)
+        {
+            <strong><label>@grp.First().tblTipoFeria.TipoFeria</label></strong>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Descripcion
+                    </th>
+                    <th>
+                        Archivo
+                    </th>
+                    @*<th>
+
+                        </th*@>
+                </tr>
+
+                @foreach (var item in grp)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+                            <a class="image-button size2" href="~/Upload/@item.Archivo" target="_blank">
+                                Descargar
+                                <i class="icon-download-2 bg-red fg-white"></i>
+                            </a>
+                        </td>
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                            </td>*@
+                    </tr>
+                }
+
+            </table>
+        }
+
+        @*@{
+                var feriaInstitucional = Model.tblPropagacionGrupo.Where(m => m.idTipoFeria == 1);
+                if (feriaInstitucional.Count() > 0)
+                {
+                    Html.RenderPartial("_ImagenesGrupo", feriaInstitucional);
+                }
+            }*@
+    </div>
+
+    <h1>Resumen del Proyecto</h1>
+
+    <div style="overflow-y:auto">
+        <button id="btn_bitresumen">Resumen</button>   
+        <div id="tabs_resumen" style="display:none">
+            @Html.Partial("~/Views/IEP/_ResumenIEP.cshtml", Model)                        
+        </div>
+    </div>
+    
+    }
+</div>
+
+@if (Model.TipoGrupo == 2) { 
+<div id="ingresar-presupuesto">
+    @{
+        tblPresupuestoProyectoInvestigacion tblpresupuesto = new tblPresupuestoProyectoInvestigacion();
+        if (Model != null)
+        {
+            tblpresupuesto.idGrupoInvestigacion = Model.id;
+        }
+        ViewBag.idRubro = new SelectList(db.tblRubro, "id", "Rubro");
+        Html.RenderPartial("_AgregarPresupuesto", tblpresupuesto);
+    }
+</div>
+<div id="ingresar-estado-arte">
+    @{
+        tblEstadoArteProyectoInvestigacion tblestadoarte = new tblEstadoArteProyectoInvestigacion();
+        if (Model != null)
+        {
+            tblestadoarte.idGrupoInvestigacion = Model.id;
+        }
+        Html.RenderPartial("_AgregarEstadoArte", tblestadoarte);
+    }
+</div>
+<div id="ingresar-conceptos-principales">
+    @{
+        tblConceptosEstadoArte tblconcepto = new tblConceptosEstadoArte();
+        if (Model != null)
+        {
+            if (Model.tblEstadoArteProyectoInvestigacion.Count == 1)
+            {
+                tblconcepto.idEstadoArte = Model.tblEstadoArteProyectoInvestigacion.First().id;
+            }
+        }
+        Html.RenderPartial("_AgregarConcepto", tblconcepto);
+    }
+</div>
+<div id="ingresar-informacion">
+    @{
+        tblRecoleccionInformacionProyectoInvestigacion tblinformacion = new tblRecoleccionInformacionProyectoInvestigacion();
+        if (Model != null)
+        {
+            tblinformacion.idGrupoInvestigacion = Model.id;
+        }
+        ViewBag.idInstrumento = new SelectList(db.tblHerramientasRecoleccionInformacion, "id", "HerramientaRecoleccion");
+        Html.RenderPartial("_RecoleccionInformacion", tblinformacion);
+    }
+</div>
+<div id="ingresar-feria-institucional">
+    @{
+        tblPropagacionGrupo tblFeriaInstitucional = new tblPropagacionGrupo();
+        tblFeriaInstitucional.id = 0;
+        tblFeriaInstitucional.idGrupoInvestigacion = Model.id;
+        tblFeriaInstitucional.idTipoFeria = 1;
+        Html.RenderPartial("_CargarImagenesFerias", tblFeriaInstitucional);
+    }
+</div>
+
+@*Propagación*@
+<div id="pr-insertar">
+   @{
+        tblPropagacionGrupo tblpro = new tblPropagacionGrupo();
+        tblpro.id = 0;
+        tblpro.idGrupoInvestigacion = Model.id;
+        tblpro.idTipoFeria = 1;
+        Html.RenderPartial("_NuevaPropagacion",tblpro);
+   }
+</div>
+
+<!-- Botón que activa el panel -->
+<a href="#" id="abre_tab">
+    <div id="tab">
+        <div id="tab_interna">
+        </div>
+    </div>
+</a>
+}
+
+<!-- Panel oculto -->
+<div class="panel_lateral" style="display: none">
+    <div class="contenido">
+        @{
+            ViewBag.IdGrupo = Model.id;
+            Html.RenderPartial("_ListaComentarios", Model.tblComentarioGrupo.Where(m => m.Aprobado.Value));
+        }
+    </div>
+</div>
+
+
+
+@section scripts {
+    <link href="~/Content/Investic/Comentarios.css" rel="stylesheet" />
+    
+    @Styles.Render("~/Content/csswizard")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/iepwizard")
+    <script src="~/Scripts/metro-ui/metro.min.js"></script>
+    @*<script src="~/Scripts/Investic/BinnacleTwo.js"></script>*@
+    <script>
+        AlertMessage('@msj');
+        $(function () {
+            $('#btn_bitresumen').click(function () {                
+                $('#tabs_resumen').slideDown();
+            });
+            $('#tbl_recolinfo').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+        });        
+    </script>
+}
+
+
+
+

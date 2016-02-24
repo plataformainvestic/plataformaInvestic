@@ -1,0 +1,92 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblAsesorZona>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<h2>Registro de Coordinadores Pedagógicos</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Coordinador", "Create")
+</p>
+<table class="table" id="tabla">
+    <thead>
+        <tr>
+            <th>
+                Nombres Completos
+            </th>
+            <th>
+                Apellidos Completos
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aseZon_correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aseZon_telefono)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.tblEquipo_ID)
+            </th>*@
+            <th>
+                Municipio
+            </th>
+            
+            <th width="10%" >
+                Está Activo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.aseZon_nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.aseZon_apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.aseZon_correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.aseZon_telefono)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.tblEquipo_ID)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblMunicipios.NombreMunicipio)
+                </td>
+
+                <td align="center">
+                    @* Asesor *@
+                    @Html.DisplayFor(modelItem => item.estaActivo.Value)
+                    
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.tblAsesorZona_ID }) |
+                    @Html.ActionLink("Ver", "Details", new { id = item.tblAsesorZona_ID }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.tblAsesorZona_ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script>
+        $(function () {
+            $('#tabla').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+
+        });
+
+    </script>
+}

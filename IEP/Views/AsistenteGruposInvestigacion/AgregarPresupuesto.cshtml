@@ -1,0 +1,64 @@
+﻿@model IEP.Models.DataBase.tblPresupuestoProyectoInvestigacion
+
+@{
+    ViewBag.Title = "AgregarPresupuesto";
+}
+
+<h2>AgregarPresupuesto</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model=>model.idGrupoInvestigacion)
+    
+    <div class="form-horizontal">
+        <h4>tblPresupuestoProyectoInvestigacion</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })        
+
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span2">
+                    Rubro:
+                </div>
+                <div class="span4 input-control select">
+                    @Html.DropDownList("idRubro", "Seleccionar Rubro")
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    Cantidad:
+                </div>
+                <div class="span2 input-control text">
+                    @Html.TextBoxFor(model => model.ValorRubro)
+                </div>
+                <div class="span2">
+                    Valor Unidad:
+                </div>
+                <div class="span2 input-control text">
+                    @Html.TextBoxFor(model => model.ValorUnitario)
+                </div>
+                <div class="span2">
+                    Total:
+                </div>
+                <div class="span2 input-control text">
+                    @Html.TextBoxFor(model => model.Total)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    Descripción:
+                </div>
+                <div class="span10 input-control textarea">
+                    @Html.TextAreaFor(model => model.DescripcionGasto)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="button large bg-green" />
+            </div>
+        </div>
+    </div>
+}

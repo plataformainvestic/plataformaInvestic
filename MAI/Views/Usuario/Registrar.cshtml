@@ -1,0 +1,153 @@
+﻿@model MAI.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "REGISTRAR NUEVO USUARIO";
+}
+<div id="bgDiv" class="panel  bg-grayLighter padding10 opacity ">
+    <div class=" grid fluid">
+        <div class="row">
+            <div class="span1 offset1">
+                <h1>
+                    <a href="javascript:history.go(-1)">
+                        <i class="icon-arrow-left-3 fg-darker smaller"></i>
+                    </a>
+                </h1>
+            </div>
+            <div class="span8">
+                <h1>@ViewBag.Title</h1>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm("Registrar", "Usuario", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="UserName" name="UserName" value="nn" />
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.Password)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.ConfirmPassword)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.Name)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.SureName)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.SureName)
+                    @Html.ValidationMessageFor(model => model.SureName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.PersonalID)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.TextBoxFor(m => m.PersonalID)
+                    @Html.ValidationMessageFor(model => model.PersonalID)
+                </div>
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.Genre)
+                    </strong>
+                </div>
+                <div class="span4">
+                    <div class="input-control radio" data-role="input-control">
+                        <label>
+                            Mujer
+                            <input type="radio" name="Genre" value="1" checked="">
+                            <span class="check"></span>
+                        </label>
+                    </div>
+                    <div class="input-control radio" data-role="input-control">
+                        <label>
+                            Hombre
+                            <input type="radio" name="Genre" value="2">
+                            <span class="check"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.Mail)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.EditorFor(m => m.Mail)
+                    @Html.ValidationMessageFor(model => model.Mail)
+                </div>
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.Phone)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.EditorFor(m => m.Phone)
+                    @Html.ValidationMessageFor(model => model.Phone)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.Address)
+                    </strong>
+                </div>
+                <div class="span4 input-control text">
+                    @Html.EditorFor(m => m.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
+                <div class="span2 text-right">
+                    <strong>
+                        @Html.LabelFor(m => m.BirthDay)
+                    </strong>
+                </div>
+                <div class="span2 input-control text">
+                    @Html.EditorFor(m => m.BirthDay)
+                    @Html.ValidationMessageFor(model => model.BirthDay)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 offset6">
+                    <input type="submit" class="button large bg-green" value="Registrase" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 offset6">
+                    @Html.ValidationSummary(true)
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

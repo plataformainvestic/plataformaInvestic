@@ -1,0 +1,130 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblLogAcceso>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvAdministrator.cshtml";
+}
+
+<br /><br /><br />
+<button id="btn_generarreporte" class="button large bg-green">Generar reporte</button>
+<div id="div_reporte" style="display:none">
+
+    @Html.Partial("~/Views/Shared/_LogAccesoReporte.cshtml", new INI.Models.RangeFechas.DateRange())
+    @*<a id="btn_descargarreporte" class="button large bg-green" >Descargar</a>*@
+
+</div>
+<div class="bg-white" style="border-radius:5px;padding:5px;margin:5px;">
+    Los valores de la imágen <img src="~/images/true.png" /> corresponden a los usuarios que no han dado click en <strong>Cerrar Sesión</strong> <br />
+    La imágen <img src="~/images/false.png" /> corresponde a los usuarios que han <strong> SI</strong> han dado click en <strong>Cierre de sesión</strong>
+</div>
+
+<table class="table" id="tbl_logAcceso">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitud)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Altitud)
+            </th>
+            <th>
+                Navegación
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInicioSesion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCierreSesion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+@section scripts{
+    <link href="~/Content/tooltip.css" rel="stylesheet" />
+    <script src="~/Scripts/tooltip.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script>
+
+        $(function () {
+            $("#chk_isAR").click(function () {
+                if ($(this).is(':checked')) {
+                    $("#grp_rd_ar").show();
+                    $("#txt_repo").show();
+                    $("#IsAdvancedSearch").val(true);
+                }
+                else {
+                    $("#grp_rd_ar").hide();
+                    $("#txt_repo").hide();
+                    $("#IsAdvancedSearch").val(false);
+                }
+            });
+
+
+            $("#rdreportto1").click(function () {
+                $("#IsRole").val(true);
+            });
+            $("#rdreportto2").click(function () {
+                $("#IsRole").val(false);
+            });
+
+            $("#btn_generarreporte").click(function () {
+
+                $("#div_reporte").fadeToggle();
+            });
+            $("#btn_generarreporte").click(function () {
+            });
+
+            $('#tbl_logAcceso').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/LogAcceso/getLogAcceso",
+                    "type": "POST"
+                },
+                "columns": [
+                    { "data": "Rol" },
+                    { "data": "Usuario" },
+                    { "data": "IP" },
+                    { "data": "Latitud" },
+                    { "data": "Longitud" },
+                    { "data": "Altitud" },
+                    { "data": "Navegacion" },
+                    { "data": "FechaInicioSesion" },
+                    { "data": "FechaCierreSesion" },
+                    { "data": "Image" }
+
+                ],
+                "order": [[7, 'desc']]
+
+
+            });
+
+            $('#tbl_logAcceso tbody').on('load', 'td.details-control', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row(tr);
+
+                console.log(tr);
+            });
+
+
+        });
+
+
+
+
+    </script>
+}

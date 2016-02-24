@@ -1,0 +1,12 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblPropagacionGrupo>
+
+<div class="carousel" data-role="carousel">
+    @foreach(var item in Model)
+    { 
+        <div class="slide">
+            <img src="@item.Archivo" class="cover" />
+        </div>
+    }
+    <a class="controls left"><i class="icon-arrow-left-3"></i></a>
+    <a class="controls right"><i class="icon-arrow-right-3"></i></a>
+</div>

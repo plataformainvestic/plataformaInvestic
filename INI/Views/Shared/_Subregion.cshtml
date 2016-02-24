@@ -1,0 +1,27 @@
+﻿@model int
+<div class="grid">
+    <div class="row">
+        <div class="span3">
+            <strong>
+                @Html.Label(" ", new { id = "Nombre" })
+            </strong>
+        </div>
+        <div class="span4">
+            <strong>
+                @Html.Label(" ", new { id = "municipality_title" })
+            </strong>
+        </div>
+    </div>    
+    <div class="row">        
+        <div class="span2"></div>
+        <div class="span9">
+            @Html.Partial(string.Format("Subregiones/_sr{0}", Model))
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("#Nombre").load("/Home/SubregionName/" + '@Model');
+    })
+</script>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblComentarioGrupo>
+
+@using IEP.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+    ViewBag.Title = "Comentarios del Proyecto";
+    string msj = ViewBag.Message;
+    int idGrupoInvestigacion = (int)ViewBag.idGrupoinvestigacion;
+    InvesticEntities db = new InvesticEntities();
+}
+
+<p>
+    <button id="lnkCrearForo" class="bg-green">Agregar Comentario</button>
+</p>
+
+<table id="ComentariosProyecto" class="table striped hovered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Comentario)
+            </th>
+            <th>
+                @Html.DisplayName("Nombre")
+            </th>
+            <th>
+                @Html.DisplayName("Estado")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comentario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUsers.Name)
+                </td>
+                <td>
+                    @{
+                        string aprobado = "No Aprobado";
+                        if (item.Aprobado.Value)
+                        {
+                            aprobado = "Aprobado";
+                        }
+                    }
+                    @aprobado
+                </td>
+                <td class="text-right">
+                    <a class="button info" href="/AsistenteGruposInvestigacion/AprobarComentario/@item.id" title="Aprobar"><i class="icon-checkmark"></i></a>
+                    <a class="button info" href="#" onclick="javascript:DeleteComentario('@item.id')" title="Eliminar"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+<div id="nuevo-foro">
+    @{
+        tblComentarioGrupo tblComentario = new tblComentarioGrupo();
+        tblComentario.idGrupo = idGrupoInvestigacion;
+        tblComentario.UserId = AspNetUsers.GetUserId(User.Identity.Name);
+        tblComentario.Aprobado = false;
+        Html.RenderPartial("_CrearComentario", tblComentario);
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")    
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Investic/iep-0.1.comentarioproyecto.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}
+

@@ -1,0 +1,54 @@
+﻿@*@model INI.Models.LoginViewModel*@
+@using Microsoft.AspNet.Identity
+
+
+@using (Html.BeginForm("IniciarSesion", "Usuario", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <span class="element-divider place-right"></span>
+    <input data-val="true" data-val-number="The field Latitud must be a number." data-val-required="El campo Latitud es obligatorio." id="Latitud" name="Latitud" type="hidden" value="0">
+    <input data-val="true" data-val-number="The field Longitud must be a number." data-val-required="El campo Longitud es obligatorio." id="Longitud" name="Longitud" type="hidden" value="0">
+    <input data-val="true" data-val-number="The field Altitud must be a number." data-val-required="El campo Altitud es obligatorio." id="Altitud" name="Altitud" type="hidden" value="0">
+
+    <input class="element place-right link fg-white" type="submit" value="Iniciar sesión" tabindex="147" />
+    <input id="Password" name="Password" type="password" class="element place-right password" tabindex="146"  placeholder="Contraseña" />
+    <input id="UserName" name="UserName" type="text" class="element place-right UserName" tabindex="145" placeholder="Usuario" />
+}
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script>
+        function localizar() {
+            navigator.geolocation.getCurrentPosition(ubicacion, error);
+        }
+
+        function ubicacion(posicion) {
+            var contenedor = document.getElementById("mapa");
+
+            var latitud = posicion.coords.latitude;
+            var longitud = posicion.coords.longitude;
+            var altitude = posicion.coords.altitude;
+            if (altitude == null) altitude = 0;
+            $('#Latitud').val(latitud);
+            $('#Longitud').val(longitud);
+            $('#Altitud').val(altitude);
+            console.log("Lat=" + latitud + " - Long=" + longitud + " - altitude=" + altitude);
+        }
+
+        function error(error) {
+            if (error.code == 0)
+                alert("Error Desconocido");
+            else if (error.code == 1)
+                alert("No fue posible contactarte");
+            else if (error.code == 2)
+                alert("No hay una ubicacion disponible");
+            else if (error.code == 3)
+                alert("Tiempo agotado");
+            else
+                alert("Error Desconocido");
+        }
+        $(function () {
+            $('#Latitud').val(0);
+            $('#Longitud').val(0);
+            $('#Altitud').val(0);
+            localizar();
+        })
+</script>

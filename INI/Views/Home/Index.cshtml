@@ -1,0 +1,228 @@
+﻿@using INI.Models.DataBase;
+
+@{
+    ViewBag.Title = "Bienvenidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var db = new investicEntities();
+}
+
+
+<script src="~/Scripts/js/slider-vertical.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/Invstyles/slider-vertical.css" media="all" />
+<link rel="stylesheet" type="text/css" href="~/Content/Invstyles/Indexbotones.css" media="all" />
+<link rel="stylesheet" type="text/css" href="~/Content/Investic/Site.css" media="all" />
+
+
+<script type="text/javascript">
+
+
+    //function ayuda() {
+    //    $('Document').attr('data-target', '#myModal');
+    //}
+    $(document).ready(function () {
+        $(window).load(function () {
+            
+            $("#otra").modal('show');
+        });
+    });
+    $(function () {
+       
+
+        $("#conocenos").click(function () {
+            $(location).attr('href', "Home/Conocenos");
+        });
+
+        $("#investiga").click(function () {
+            //$(location).attr('href', "Investiga");
+        });
+
+        $("#contactanos").click(function () {
+            //$(location).attr('href', "Contactanos");
+        });
+
+        $("#recuerdos").click(function () {
+            //$(location).attr('href', "Recuerdos");
+        });
+
+        $("#comovamos").click(function () {
+            //$(location).attr('href', "Comovamos");
+        });
+
+        $("#pie").click(function () {
+            $("#noticias").slideDown(750);
+        });
+
+        $("#regresar").click(function () {
+            $("#noticias").slideUp(750);
+        });
+        moverSlider();
+        $(".bajar-slider").click(function () {
+            bajarSlider();
+        });
+
+        $(".subir-slider").click(function () {
+            subirSlider();
+        });
+
+        $(".slider-vertical").mouseover(function () {
+            verificar = 0;
+        });
+
+        $(".slider-vertical").mouseout(function () {
+            verificar = 1;
+        });
+    });
+
+    $(function () {
+        $("div.dummyCss").click(function () {
+            var noticia_id = $(this).attr("id");
+            var id = noticia_id.substr(11, noticia_id.length);
+            var title = $("#ht" + id).val();
+            var desc = $("#hd" + id).val();
+            var largeImg = $("#largeImg" + id).val();
+            var PotCast = $("#PotCast" + id).val();
+            var largeContent = $("#hc" + id).val();
+            var piedefoto = $("#pf" + id).val();
+            var autor = $("#au" + id).val();
+            var fecha = $("#nf" + id).val();
+
+
+            $("#divtituloNoticia").html(title);
+            $("#divdescNoticia").html(desc);
+            $("#divimgNoticia img:last-child").remove();
+            $("#divimgNoticia").append('<img id="myImg" src="' + largeImg + '" />');
+            //
+            if (PotCast != "") {
+                $("#divPotCastNoticia").show();
+                $("#divPotCastNoticia audio:last-child").remove();
+                $("#divPotCastNoticia").append('<audio controls>  <source src="' + PotCast + '" type="audio/mpeg"></audio>');
+            }
+            else {
+                $("#divPotCastNoticia").hide();
+            }
+            //
+            $("#divcontenidoNoticia").html(largeContent);
+            $("#divPiedeFoto").html(piedefoto);
+            $("#divFecha").html(fecha.substr(0, 10) + ' - Por: ' + autor);
+            $("#noticias").slideDown(750);
+
+        });
+    });
+    function mio() {
+        var url = "http://investic.udenar.edu.co:820/EquipoPlataforma/PLA/Inicio/index.html";
+        //$(".modal-body").load(url);
+        //$(".modal-body").html(url);
+        $.get(url, function (data) {
+            $(".modal-body").html(data);
+        });
+    }
+</script>
+
+<body>
+
+    <!-- Modal HTML -->
+    <div class="modal fade" id="otra" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" id="contmodal">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-sm-10"></div>
+                        <div class="col-sm-2"><button type="button" data-dismiss="modal"><img src="~/images/popups/boton_cerrar.svg" width="20" height="20" /></button></div>
+                    </div>
+
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h2 id="textopop">¿Tienes dudas sobre el <br /> manejo de la página Web del Inicio?</h2>
+                            <p id="contpop">Hemos preparado un instructivo para ti, en él conocerás las funciones principales del componente de inicio y como manejarlos</p>
+                        </div>
+                        <div class="col-sm-5"><img src="~/images/popups/willy_ini.svg" width="200" height="300" /></div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="http://investic.udenar.edu.co:820/EquipoPlataforma/PLA/Inicio/index.html" target="_blank"><img src="~/images/popups/boton_instructivo.svg" width="150" height="70" /></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @*<a href="../bootstrap/remote.php" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">Launch Demo Modal</a>*@
+    <!-- finaliza la modal-->
+    <div id="contenido" style="position: absolute; top: 110px; left: 0px; background-image: url('../images/img_contenedor_logos.png');background-repeat:no-repeat; width: 83px; height: 129px; ">
+        <div style="padding-top:5px;"><a href="http:\\www.narino.gov.co" target="_blank"><img src="~/images/btn_gobernacion.png" /></a></div>
+        <div style="padding-top:5px;"><a href="http:\\www.udenar.edu.co" target="_blank"><img src="~/images/btn_udenar.png" /></a></div>
+    </div>
+
+    <div id="contenidopub" style="position: absolute; top: 110px; right: 0px; background-color:white; width: 83px; height: 129px;     border-radius: 13px 0px 0px 13px;-webkit-border-radius:13px 0px 0px 13px; -moz-border-radius:13px 0px 0px 13px">
+        <div style="padding-top:5px;"><a href="/Home/CategoriasRevista"><img src="~/images/InsumosPUBREV/publicaciones.png" width=50 style="position: relative;left: 20px;" /></a></div>
+        <div style="padding-top:5px;"><a href="/Home/CategoriasRepositorio"><img src="~/images/InsumosPUBREV/repositorio.png" width=50 style="position: relative;left: 17px;" /></a></div>
+    </div>
+
+
+
+    <div id="contenidoNoticias" style="position: absolute; top: 110px; color: #ED7D04; left: 100px; background-color: rgba(232, 230, 230,0.5);">
+        @Html.Partial("~/Views/Shared/_Noticias.cshtml", db.tblNoticias.OrderByDescending(m => m.not_fecha).Where(m => m.estaActivo == true).Take(20))
+    </div>
+    <div id="noticias" style="background: url('../../images/fondo_enterate.png') center; position: fixed; bottom: 0px; left: 0px; width: 100%; height: 100%; display: none; overflow-y:auto;">
+        <br />
+        <table style="background:none; margin:auto;" align="center" cellpadding="0">
+            <tr>
+                <td>
+                    <img src="~/images/etiqueta_investic.png" />
+                </td>
+            </tr>
+        </table>
+        <table style="background: none; margin: auto;" align="center" cellpadding="15">
+            <tr>
+                <td width="300" valign="top">
+                    <img id="enterate" src="~/images/enterate.png" />
+                    <div id="contenidoNoticiasFrame" style="position:absolute;background-color:rgba(232, 230, 230,0.5);">
+                        @Html.Partial("~/Views/Shared/_NoticiasFull.cshtml", db.tblNoticias.OrderByDescending(m => m.not_fecha).Where(m => m.estaActivo == true).Take(20))
+                    </div>
+
+                </td>
+                <td width="700">
+                    @*<div style="max-width: 600px; overflow-x: auto; top:100px ;max-height: 500px; overflow-y: auto; padding:20px; ">*@
+                    <div style="max-width: 600px; top:100px ;max-height: 500px; padding:20px; ">
+                        @*Cambiado por Edwin Pacheco F.*@
+                        <div id="divtituloNoticia" class="titularNoticia" style="font-family:Roboto-Black"></div>
+                        <div id="divimgNoticia"></div>
+                        <div id="divPiedeFoto" class="footerImage" style="font-family:Roboto-Italic"></div>
+                        <hr style="background-color:#575756;margin-top: 5px;margin-bottom: 10px;" />
+                        <div id="divFecha" class="fechaPublicacion"></div>
+                        <span id="divdescNoticia" class="introNoticia" style="font-family:Roboto-Medium"></span><br />
+                        <div style="max-width: 600px; overflow-x: auto; top:100px ;max-height: 500px; overflow-y: auto; padding:20px; ">
+                            <div id="divtituloNoticia" class="titularNoticia"></div><br />
+                            <div id="divimgNoticia"><br /></div>
+                            <div id="divPotCastNoticia"><br /></div>
+                            <div id="divPiedeFoto" class="footerImage"></div><br />
+                            <div id="divFecha" class="fechaPublicacion"></div><br />
+                            <div id="divdescNoticia" class="introNoticia"></div><br />
+                            <div id="divcontenidoNoticia" class="contenidoNoticia"></div>
+                            <div id="divPotCastNoticia"></div>
+                            <hr style="background-color:#575756" /><br />
+                        </div>
+
+                </td>
+                <td width="100" align="center">
+                    <div class="volver" id="regresar"><img class="cursores" src="~/images/volver.png" /></div>
+                    <img id="regresar" src="~/images/betoGif.gif" width="400" height="500" />
+                </td>
+            </tr>
+        </table>
+        <div id="redesSociales" style="float:right; position:fixed; bottom:0px; right:0px;">
+            <table>
+                <tr>
+                    <td><a href="http://www.facebook.com/investic.edu" target="_blank"><img id="facebook" src="~/images/boton_facebook.png" accesskey="f" style="margin:0; float: left; bottom:0;" /></a></td>
+                    <td><a href="http://www.twitter.com/investic_edu" target="_blank"><img id="twitter" src="~/images/boton_twitter.png" style="margin: 0; float: left; bottom: 0;" /></a></td>
+                    <td><a href="http://www.youtube.com/user/investicedu" target="_blank"><img id="youtube" src="~/images/boton_youtube.png" style="margin: 0; float: left; bottom: 0;" /></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>

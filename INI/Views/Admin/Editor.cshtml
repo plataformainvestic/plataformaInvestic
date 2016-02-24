@@ -1,0 +1,180 @@
+﻿@model INI.Models.DataBase.AspNetUsers
+@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Modifica tu perfíl";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+@*<div class="grid fluid">
+    <div class="row">
+        <div class="span1 offset1">
+            <h1>
+                <a href="javascript:history.go(-1)">
+                    <i class="icon-arrow-left-3 fg-darker smaller"></i>
+                </a>
+            </h1>
+        </div>
+        @*<div class="span8">
+            <h1>@ViewBag.Title</h1>
+        </div>
+</div>*@
+
+@*@using (Html.BeginForm("Salir", "Usuario", FormMethod.Post, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="logoutForm" style="position:absolute; top:5pt;right:100pt;">
+        <table style="background-color:transparent;">
+            <tr>
+                <td>@Html.ActionLink(string.Format("Soy {0}", AspNetUsers.GetName(@User.Identity.Name)), "AdministrarCuenta", "Usuario") | </td>
+                <td>
+                    <a href="javascript:document.getElementById('logoutForm').submit()" title="Salir">Cerrar Sesión</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>*@
+
+                @*<div class="grid fluid">
+                 <div class="row">
+                     @Html.HiddenFor(m => m.UserName);
+                     <div class="span2 text-right">
+                         <strong>
+                             Documento de Identidad:
+                         </strong>
+                     </div>
+                     <div class="span4 input-control text">
+                         @Html.EditorFor(model => model.PersonalID, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.PersonalID, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="span2 text-right">
+                         <strong>
+                             Nombres:
+                         </strong>
+                     </div>
+                     <div class="span4 input-control text">
+                         @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                     </div>
+                     <div class="span2 text-right">
+                         <strong>
+                             Apellidos:
+                         </strong>
+                     </div>
+                     <div class="span4 input-control text">
+                         @Html.EditorFor(model => model.SureName, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.SureName, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="span2 text-right">
+                         <strong>
+                             Dirección
+                         </strong>
+                     </div>
+                     <div class="span4 input-control text">
+                         @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                     </div>
+                     <div class="span2 text-right">
+                         <strong>
+                             @Html.LabelFor(m => m.Genre)
+                         </strong>
+                     </div>
+                     <div class="span4">
+                         <div class="input-control radio" data-role="input-control">
+                             <label>
+                                 Mujer
+                                 <input type="radio" name="Genre" value="1" checked="">
+                                 <span class="check"></span>
+                             </label>
+                         </div>
+                         <div class="input-control radio" data-role="input-control">
+                             <label>
+                                 Hombre
+                                 <input type="radio" name="Genre" value="2">
+                                 <span class="check"></span>
+                             </label>
+                         </div>
+
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="span2 text-right">
+                         <strong>
+                             Correo Electronico:
+                         </strong>
+                     </div>
+                     <div class="span4 input-control text">
+                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                     </div>
+                     <div class="span2 text-right">
+                         <strong>
+                             Confirmar Correo Electrónico:
+                         </strong>
+                     </div>
+                     <div class="span4 input-control text">
+                         @Html.EditorFor(model => model.EmailConfirmed)
+                         @Html.ValidationMessageFor(model => model.EmailConfirmed, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="span2 text-right">
+                         <strong>
+                             Telefono:
+                         </strong>
+                     </div>
+                     <div class="span4 input-control text">
+                         @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                     </div>
+
+                 <div class="span2 text-right">
+                     <strong>
+                         Confirmar Teléfono:
+                     </strong>
+                 </div>
+                 <div class="span4 input-control text">
+                     @Html.EditorFor(model => model.PhoneNumberConfirmed)
+                     @Html.ValidationMessageFor(model => model.PhoneNumberConfirmed, "", new { @class = "text-danger" })
+
+                 </div>
+             </div>
+            @* <div class="row">
+                 <div class="span2 text-right">
+                     <strong>
+                         @Html.LabelFor(m => m.Address)
+                     </strong>
+                 </div>
+                 <div class="span4 input-control text">
+                     @Html.EditorFor(m => m.Address)
+                     @Html.ValidationMessageFor(model => model.Address)
+                 </div>
+                 <div class="span2 text-right">
+                     <strong>
+                         @Html.LabelFor(m => m.BirthDay)
+                     </strong>
+                 </div>
+                 <div class="span2 input-control text">
+                     @Html.EditorFor(m => m.BirthDay)
+                     @Html.ValidationMessageFor(model => model.BirthDay)
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="span4 offset6">
+                     <input type="submit" class="button large bg-green" value="Registrase" />
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="span4 offset6">
+                     @Html.ValidationSummary(true)
+                 </div>
+             </div>*@
+        @*</div>*@
+
+@*}*@

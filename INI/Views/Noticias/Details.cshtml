@@ -1,0 +1,92 @@
+﻿@model INI.Models.DataBase.tblNoticias
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+
+
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>
+                Detalle de Noticias
+            </strong>
+        </h2>
+    </p>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Titular
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_titulo)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_descripcion)
+        </dd>
+
+        <dt>
+            Imagen
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_urlimage)
+        </dd>
+        @if (!Model.not_urlpotcast.IsEmpty())
+        {
+            <dd>
+                @Html.DisplayFor(model => model.not_urlpotcast)
+            </dd>   
+        }
+        <dt>
+            Contenido
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.not_contenido)
+        </dd>
+
+        <dt>
+            Pie de Foto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_piedefoto)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_fecha)
+        </dd>
+
+        <dt>
+            Autor
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_autor)
+        </dd>
+
+    </dl>
+
+    <div class="form-actions no-color">
+        <table style="background-color:transparent;">
+            <tr>
+                <td><h4>@Html.ActionLink("Editar", "Edit", new { id = Model.Noticia_ID }) |</h4></td>
+                <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+            </tr>
+        </table>
+    </div>
+
+</div>

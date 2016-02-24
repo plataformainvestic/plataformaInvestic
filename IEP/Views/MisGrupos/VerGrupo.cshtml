@@ -1,0 +1,62 @@
+﻿@model IEP.Models.DataBase.tblGrupoInvestigacion
+
+@{
+    Layout = "~/Views/Shared/_LayoutIEP.cshtml";
+    ViewBag.Title = "Detalle Grupo de Investigación";
+    string TipoGrupo = "Abierto";
+}
+
+<h2>Ver Grupo</h2>
+    <h4>Información Grupo</h4>
+    <hr />  
+<div>
+    <img src="~/images/Avatars/@Model.Avatar" width="128" />
+</div>  
+<div class="grid fluid">
+    <div class="row">
+        <div class="span1">
+            Municipio:
+        </div>
+        <div class="span4">
+            @Model.tblInstitucion.tblMunicipios.NombreMunicipio
+        </div>
+        <div class="span1">
+            Institución:
+        </div>
+        <div class="span4">
+            @Model.tblInstitucion.Nombre
+        </div>
+    </div>
+    <div class="row">
+        <div class="span1">
+            Nombre:
+        </div>
+        <div class="span4">
+            @Model.Nombre
+        </div>
+        <div class="span1">
+            Creación:
+        </div>
+        <div class="span4">
+            @Html.DisplayFor(model => model.FechaCreacion, "DateTime")
+        </div>
+    </div>
+    <div class="row">
+        <div class="span1">
+            Tipo:
+        </div>
+        <div class="span4">
+            @if (Model.TipoGrupo == 1)
+            {
+                TipoGrupo = "Estructurado";
+            }
+            @TipoGrupo.ToString();
+        </div>
+        <div class="span1">
+            Linea:
+        </div>
+        <div class="span4">
+            @Html.DisplayFor(model => model.tblLineaInvestigacion.Nombre)
+        </div>
+    </div>
+</div>                     

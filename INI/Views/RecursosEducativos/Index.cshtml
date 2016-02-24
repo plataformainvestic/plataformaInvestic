@@ -1,0 +1,101 @@
+﻿
+@model IEnumerable<INI.Models.DataBase.tblRecursosEducativos>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>Recursos Educativos</strong>
+        </h2>
+    </p>
+    <br />
+    <p>
+        <h3>
+            @Html.ActionLink("Nuevo Recurso Educativo", "Create")
+        </h3>
+    </p>
+
+    <table id="Tabla" class="table striped hover" style="width:100%">
+        <thead>
+            <tr>
+                <th width="20%">
+                    Nombre
+                </th>
+                <th width="20%">
+                    Descripción
+                </th>
+                <th width="10%">
+                    Archivo
+                </th>
+                <th width="5%">
+                    Autor
+                </th>
+                <th width="5%">
+                    Colección
+                </th>
+                <th width="15%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.nom_rec_educativo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.desc_rec_educativo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.archivo_rec_educativo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.autor_rec_educativo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblColecciones.nom_coleccion)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.id_rec_educativo }) |
+                        @Html.ActionLink("Ver", "Details", new { id = item.id_rec_educativo }) |
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.id_rec_educativo })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <center>@Html.AtrasInvestic()</center>
+</div>
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script>
+        $(function () {
+            $("#btn_create").attr("href", "/Home/Chamilo?url=cr");            
+            $("#btn_miscursos").attr("href", "/Home/Chamilo?url=mc");
+            $("#btn_catcursos").attr("href", "/Home/Chamilo?url=cc");
+
+            $("#btn_create").attr("target", "");
+            $("#btn_miscursos").attr("target", "");
+            $("#btn_catcursos").attr("target", "");
+
+           
+            $('#Tabla').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+
+        });
+
+       
+
+    </script>
+}
+
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<INI.Models.Mymodels.RedVirtualRequesting>
+
+
+<table id="rvc" class="table">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>
+                Solicitante
+            </th>
+            <th>
+                Nombre
+            </th>            
+            <th>
+                Fecha
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Action("DowloadFile", "tbNetVirtualGroups", new { id = item.id, FileId = "photo" })" width="100px" />
+                    <a href="#" data-hint="Owner|Aqui podras saber más sobre el creador de esta red." data-hint-position="bottom">
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idUser, FileId = "photo" })" width="50px" />
+                    </a>
+                </td>
+                <td>
+                    <a href="#" data-hint="@String.Format("{0}|El usuario {1} quiere participar en tu red.",item.NameUser,item.NameUser)" data-hint-position="bottom">
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idAplicant, FileId = "photo" })" width="50px" />
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <button class="button large primary btnrvc" id="@item.idAplicant">Aprobar</button>
+                    @Html.ActionLink(" ", "Details", "tbNetVirtualGroups", new { id = item.id }, new { @class = "icon-list", data_hint = "Detalles|Aqui podras saber más sobre esta red.", data_hint_position = "bottom" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

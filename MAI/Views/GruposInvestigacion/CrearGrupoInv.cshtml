@@ -1,0 +1,73 @@
+﻿@*@using TestMAI.Models.DataBase*@
+@model MAI.Models.DataBase.AspNetUsers
+
+
+@{
+    ViewBag.Title = "Crear Grupo";
+}
+
+@using (Html.BeginForm("CrearGrupoInv", "GruposInvestigacion", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.Hidden("tblUsuarioPlataforma_ID", (object)ViewBag.tblUsuarioPlataforma_ID)
+    <div class="grid fluid">
+        @*Grid Principal*@
+
+        <div class="row">
+            <div class="span12">
+                @*Información lider de Grupo*@
+                <blockquote class="place-left">
+                    <h3><strong>Lider de Grupo</strong></h3>
+                    @*<h2>@Html.DisplayName(tblUsuarioPlataforma.GetName((long)ViewBag.tblUsuarioPlataforma_ID))</h2>*@
+                    <dl class="horizontal">
+                        <dt>Identificacion:</dt>
+                        <dd>@Html.DisplayFor(model => model.PersonalID)</dd>
+                        <dt>Teléfono:</dt>
+                        <dd></dd>
+                        <dt>Correo electrónico</dt>
+                        <dd></dd>
+                    </dl>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <blockquote class="place-left">
+                    <h3><strong>Nombre del Grupo</strong></h3>
+                    <div class="form-group">
+                        <div class="input-control text" data-role="input-control">
+                            @Html.TextBox("gruInv_nombreGrupo", null, new { placeholder = "Nombre del Grupo" })
+                            <button type="button" class="btn btn-clear" tabindex="-1"></button>
+                            @Html.ValidationMessage("Digite el nombre del Grupo")
+                        </div>
+                    </div>
+                    <h3><strong>Emblema del Grupo</strong></h3>
+                    <div class="form-group">
+                        <div class="input-control file">
+                            @Html.TextBox("gruInv_emblema", null, new { placeholder = "Imagen", type = "file" })
+                            <button type="button" class="btn btn-file" tabindex="-1"></button>
+                        </div>
+
+                        @*<div class="input-control file">
+                                <input id="gruInv_emblema" name="gruInv_emblema" type="file" />
+                                <button class="btn-file"></button>
+                            </div>*@
+
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="row">
+            <button class="large bg-green fg-white" type="submit">
+                Crear Grupo
+                <i class="icon-plus bg-green fg-white"></i>
+            </button>
+        </div>
+    </div>
+}
+
+

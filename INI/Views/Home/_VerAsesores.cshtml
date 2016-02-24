@@ -1,0 +1,53 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblAsesorZona>
+
+
+@if (Model.Count() != 0)
+{
+
+    <h3 class="titulosregiones">
+        @Model.First().tblMunicipios.tblRegion.reg_nombre <br />
+        
+    </h3>
+
+            foreach (var item in @Model)
+            {
+                        
+
+               if(@item.estaActivo==true)
+               { 
+
+
+                                        <br /><br />
+                                        <b>Municipio</b>
+                                        @Html.DisplayFor(modelItem => item.tblMunicipios.NombreMunicipio)
+                                    <br />
+                                    <strong>@Html.Name(String.Format("{0}{1}", item.aseZon_nombre, item.aseZon_apellido).ToString())</strong>
+                                    <br />
+                                    <strong>Coordinador Pedagógico..</strong>
+                                    <br />
+                                        <b>Correo</b>
+                                        @item.aseZon_correo
+                                        <br />
+                                        <b>Telefono</b>
+                                        @item.aseZon_telefono
+                                                                               
+                                         
+                                    <br />
+
+
+                                    @*<b>.................................................................</b>*@
+                                    <b>____________________________________________</b>
+
+
+
+
+               }
+
+    }
+
+}
+else
+{
+    <p> En el Momento no hay datos</p>
+
+}

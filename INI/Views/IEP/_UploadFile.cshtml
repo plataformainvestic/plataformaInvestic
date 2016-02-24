@@ -1,0 +1,31 @@
+﻿@model INI.Models.DataBase.UploadFile
+
+@using (Html.BeginForm("UploadFile", "IEP", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <legend>Cargar Archivo</legend>
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ResearchGroupId)
+        @Html.HiddenFor(model => model.Acceptance)
+        <div class="grid">
+            <div class="row">
+                <div class="span3">
+                    @if (Model.Acceptance)
+                    {
+                        <text>Carta de Aceptacion</text>
+                    }
+                    else
+                    {
+                        <text>Carta de Compromiso</text>
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <input type="file" name="FileToUpload" id="FileToUpload" accept="application/pdf,image/jpeg" />
+            </div>
+            <div class="row">
+                <button class="button large bg-green">Enviar</button>
+            </div>
+        </div>
+    </fieldset>
+}

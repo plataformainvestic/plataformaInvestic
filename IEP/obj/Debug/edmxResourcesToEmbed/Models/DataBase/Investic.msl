@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InvesticModelStoreContainer" CdmEntityContainer="InvesticEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="InvesticModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="InvesticModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="InvesticModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="InvesticModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
+          <ScalarProperty Name="PersonalID" ColumnName="PersonalID" />
+          <ScalarProperty Name="SureName" ColumnName="SureName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAreaConocimiento">
+      <EntityTypeMapping TypeName="InvesticModel.tblAreaConocimiento">
+        <MappingFragment StoreEntitySet="tblAreaConocimiento">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAsesor">
+      <EntityTypeMapping TypeName="InvesticModel.tblAsesor">
+        <MappingFragment StoreEntitySet="tblAsesor">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAsesorGrupoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblAsesorGrupoInvestigacion">
+        <MappingFragment StoreEntitySet="tblAsesorGrupoInvestigacion">
+          <ScalarProperty Name="idAsesor" ColumnName="idAsesor" />
+          <ScalarProperty Name="idProyectoInvestigacion" ColumnName="idProyectoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCentrosPoblado">
+      <EntityTypeMapping TypeName="InvesticModel.tblCentrosPoblado">
+        <MappingFragment StoreEntitySet="tblCentrosPoblado">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="NombreCentroPoblado" ColumnName="NombreCentroPoblado" />
+          <ScalarProperty Name="NombreMunicipio" ColumnName="NombreMunicipio" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+          <ScalarProperty Name="CodigoCentroPoblado" ColumnName="CodigoCentroPoblado" />
+          <ScalarProperty Name="CodigoMunicipio" ColumnName="CodigoMunicipio" />
+          <ScalarProperty Name="CodigoDepartamento" ColumnName="CodigoDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCoInvestigadorGrupoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblCoInvestigadorGrupoInvestigacion">
+        <MappingFragment StoreEntitySet="tblCoInvestigadorGrupoInvestigacion">
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocumentosSoporte">
+      <EntityTypeMapping TypeName="InvesticModel.tblDocumentosSoporte">
+        <MappingFragment StoreEntitySet="tblDocumentosSoporte">
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="CartaAceptacion" ColumnName="CartaAceptacion" />
+          <ScalarProperty Name="CartaCompromiso" ColumnName="CartaCompromiso" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGrupoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblGrupoInvestigacion">
+        <MappingFragment StoreEntitySet="tblGrupoInvestigacion">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idLineaInvestigacion" ColumnName="idLineaInvestigacion" />
+          <ScalarProperty Name="idInstitucion" ColumnName="idInstitucion" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="TipoGrupo" ColumnName="TipoGrupo" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblInstitucion">
+      <EntityTypeMapping TypeName="InvesticModel.tblInstitucion">
+        <MappingFragment StoreEntitySet="tblInstitucion">
+          <ScalarProperty Name="SitioWeb" ColumnName="SitioWeb" />
+          <ScalarProperty Name="CorreoDirector" ColumnName="CorreoDirector" />
+          <ScalarProperty Name="TelefonoDirector" ColumnName="TelefonoDirector" />
+          <ScalarProperty Name="NombreDirector" ColumnName="NombreDirector" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="idZona" ColumnName="idZona" />
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+          <ScalarProperty Name="idTipoInstitucion" ColumnName="idTipoInstitucion" />
+          <ScalarProperty Name="NombreSede" ColumnName="NombreSede" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ConsecutivoSede" ColumnName="ConsecutivoSede" />
+          <ScalarProperty Name="CodigoDane" ColumnName="CodigoDane" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblInvitacionGrupo">
+      <EntityTypeMapping TypeName="InvesticModel.tblInvitacionGrupo">
+        <MappingFragment StoreEntitySet="tblInvitacionGrupo">
+          <ScalarProperty Name="Aceptada" ColumnName="Aceptada" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLineaInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblLineaInvestigacion">
+        <MappingFragment StoreEntitySet="tblLineaInvestigacion">
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMaestroCoInvestigador">
+      <EntityTypeMapping TypeName="InvesticModel.tblMaestroCoInvestigador">
+        <MappingFragment StoreEntitySet="tblMaestroCoInvestigador">
+          <ScalarProperty Name="idInstitucion" ColumnName="idInstitucion" />
+          <ScalarProperty Name="ExperienciaAreaConocimiento" ColumnName="ExperienciaAreaConocimiento" />
+          <ScalarProperty Name="idAreaConocimiento" ColumnName="idAreaConocimiento" />
+          <ScalarProperty Name="Otro" ColumnName="Otro" />
+          <ScalarProperty Name="Postgrado" ColumnName="Postgrado" />
+          <ScalarProperty Name="Pregrado" ColumnName="Pregrado" />
+          <ScalarProperty Name="TiempoOndas" ColumnName="TiempoOndas" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMiembroGrupo">
+      <EntityTypeMapping TypeName="InvesticModel.tblMiembroGrupo">
+        <MappingFragment StoreEntitySet="tblMiembroGrupo">
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMunicipios">
+      <EntityTypeMapping TypeName="InvesticModel.tblMunicipios">
+        <MappingFragment StoreEntitySet="tblMunicipios">
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+          <ScalarProperty Name="NombreMunicipio" ColumnName="NombreMunicipio" />
+          <ScalarProperty Name="idDepartamento" ColumnName="idDepartamento" />
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPreguntaInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblPreguntaInvestigacion">
+        <MappingFragment StoreEntitySet="tblPreguntaInvestigacion">
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="PreguntaPrincipal" ColumnName="PreguntaPrincipal" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Pregunta" ColumnName="Pregunta" />
+          <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPreguntaProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblPreguntaProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblPreguntaProyectoInvestigacion">
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="Revision" ColumnName="Revision" />
+          <ScalarProperty Name="ConceptoAsesor" ColumnName="ConceptoAsesor" />
+          <ScalarProperty Name="Reflexion" ColumnName="Reflexion" />
+          <ScalarProperty Name="FuenteTres" ColumnName="FuenteTres" />
+          <ScalarProperty Name="InformacionTres" ColumnName="InformacionTres" />
+          <ScalarProperty Name="FuenteDos" ColumnName="FuenteDos" />
+          <ScalarProperty Name="InformacionDos" ColumnName="InformacionDos" />
+          <ScalarProperty Name="FuenteUno" ColumnName="FuenteUno" />
+          <ScalarProperty Name="InformacionUno" ColumnName="InformacionUno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProblemaInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblProblemaInvestigacion">
+        <MappingFragment StoreEntitySet="tblProblemaInvestigacion">
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="Justificacion" ColumnName="Justificacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProblemaProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblProblemaProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblProblemaProyectoInvestigacion">
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="Revision" ColumnName="Revision" />
+          <ScalarProperty Name="ConceptoAsesor" ColumnName="ConceptoAsesor" />
+          <ScalarProperty Name="Reflexion" ColumnName="Reflexion" />
+          <ScalarProperty Name="Como" ColumnName="Como" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblProyectoInvestigacion">
+          <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRol">
+      <EntityTypeMapping TypeName="InvesticModel.tblRol">
+        <MappingFragment StoreEntitySet="tblRol">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSeguimientoProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblSeguimientoProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblSeguimientoProyectoInvestigacion">
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Reflexion" ColumnName="Reflexion" />
+          <ScalarProperty Name="Motivacion" ColumnName="Motivacion" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTipoInstitucion">
+      <EntityTypeMapping TypeName="InvesticModel.tblTipoInstitucion">
+        <MappingFragment StoreEntitySet="tblTipoInstitucion">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblZona">
+      <EntityTypeMapping TypeName="InvesticModel.tblZona">
+        <MappingFragment StoreEntitySet="tblZona">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="InvesticModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="tblConceptosEstadoArte">
+      <EntityTypeMapping TypeName="InvesticModel.tblConceptosEstadoArte">
+        <MappingFragment StoreEntitySet="tblConceptosEstadoArte">
+          <ScalarProperty Name="Texto" ColumnName="Texto" />
+          <ScalarProperty Name="Publicacion" ColumnName="Publicacion" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="idEstadoArte" ColumnName="idEstadoArte" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEstadoArteProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblEstadoArteProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblEstadoArteProyectoInvestigacion">
+          <ScalarProperty Name="MapaConceptual" ColumnName="MapaConceptual" />
+          <ScalarProperty Name="TemaInvestigacion" ColumnName="TemaInvestigacion" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHerramientasRecoleccionInformacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblHerramientasRecoleccionInformacion">
+        <MappingFragment StoreEntitySet="tblHerramientasRecoleccionInformacion">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="HerramientaRecoleccion" ColumnName="HerramientaRecoleccion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion">
+          <ScalarProperty Name="Analisis" ColumnName="Analisis" />
+          <ScalarProperty Name="Lectura" ColumnName="Lectura" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPresupuestoProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblPresupuestoProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblPresupuestoProyectoInvestigacion">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+          <ScalarProperty Name="ValorRubro" ColumnName="ValorRubro" />
+          <ScalarProperty Name="DescripcionGasto" ColumnName="DescripcionGasto" />
+          <ScalarProperty Name="idRubro" ColumnName="idRubro" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRecoleccionInformacionProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblRecoleccionInformacionProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblRecoleccionInformacionProyectoInvestigacion">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Evidencia" ColumnName="Evidencia" />
+          <ScalarProperty Name="idInstrumento" ColumnName="idInstrumento" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRubro">
+      <EntityTypeMapping TypeName="InvesticModel.tblRubro">
+        <MappingFragment StoreEntitySet="tblRubro">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Rubro" ColumnName="Rubro" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblForoProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblForoProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblForoProyectoInvestigacion">
+          <ScalarProperty Name="FechaUltimaRespuesta" ColumnName="FechaUltimaRespuesta" />
+          <ScalarProperty Name="idForo" ColumnName="idForo" />
+          <ScalarProperty Name="Respuestas" ColumnName="Respuestas" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="InvesticModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="InvesticModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblReflexionProyectoInvestigacion">
+      <EntityTypeMapping TypeName="InvesticModel.tblReflexionProyectoInvestigacion">
+        <MappingFragment StoreEntitySet="tblReflexionProyectoInvestigacion">
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="Revisado" ColumnName="Revisado" />
+          <ScalarProperty Name="ConceptoAsesor" ColumnName="ConceptoAsesor" />
+          <ScalarProperty Name="Reflexion" ColumnName="Reflexion" />
+          <ScalarProperty Name="Motivacion" ColumnName="Motivacion" />
+          <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblComentarioGrupo">
+      <EntityTypeMapping TypeName="InvesticModel.tblComentarioGrupo">
+        <MappingFragment StoreEntitySet="tblComentarioGrupo">
+          <ScalarProperty Name="Aprobado" ColumnName="Aprobado" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPropagacionGrupo">
+      <EntityTypeMapping TypeName="InvesticModel.tblPropagacionGrupo">
+        <MappingFragment StoreEntitySet="tblPropagacionGrupo">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="idTipoFeria" ColumnName="idTipoFeria" />
+          <ScalarProperty Name="idGrupoInvestigacion" ColumnName="idGrupoInvestigacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTipoFeria">
+      <EntityTypeMapping TypeName="InvesticModel.tblTipoFeria">
+        <MappingFragment StoreEntitySet="tblTipoFeria">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="TipoFeria" ColumnName="TipoFeria" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

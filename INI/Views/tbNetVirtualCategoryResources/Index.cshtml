@@ -1,0 +1,52 @@
+﻿@model IEnumerable<INI.Models.DataBase.tbNetVirtualCategoryResource>
+@{
+    ViewBag.Title = "Index";    
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+}
+<br /><br /><br />
+<p>
+    @Html.ActionLink(" ", "Create", null, new { @class = "icon-plus-2" })
+</p>
+<table id="tbl_catR" class="table">
+	<thead>
+		<tr>
+            
+			<th>
+				@Html.DisplayNameFor(model => model.name)
+			</th>
+            <th>
+                Vista previa
+            </th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.name)
+			</td>
+            <td>
+                <img src="@Url.Action("DowloadFile", new { id = item.id, FileId = "image" })" width="25px" />
+            </td>
+			<td>
+                
+                    <a href="@Url.Action("DowloadFile", new { id = item.id, FileId = "image" })" target="_blank" class="icon-download-2">image</a>
+                    @*<img src="@Url.Action("DowloadFile", new { id = item.id, FileId = "image" })" width="100px"/>*@       
+                
+				@Html.ActionLink(" ", "Edit", new { id = item.id }, new { @class = "icon-pencil" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.id, }, new { @class = "icon-clipboard-2" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.id }, new { @class = "icon-cancel-2" })
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tbl_catR').DataTable();
+        });
+    </script>
+}

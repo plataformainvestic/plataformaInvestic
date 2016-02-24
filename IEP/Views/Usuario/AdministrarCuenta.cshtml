@@ -1,0 +1,25 @@
+﻿@using IEP.Models;
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "Administrar Cuenta";
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span4 offset4">
+            <h2>@ViewBag.Title</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span4 offset4">
+            <h4>Usted esta regristrado como <strong>@User.Identity.GetUserName()</strong>.</h4>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ChangePasswordPartial")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

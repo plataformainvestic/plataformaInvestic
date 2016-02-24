@@ -1,0 +1,404 @@
+﻿@model INI.Models.DataBase.tblGrupoInvestigacion
+
+@{
+    ViewBag.Title = "Bienvenidos";
+    Layout = "~/Views/Shared/_InvInvestiga.cshtml";
+    
+}
+
+@if (Model != null)
+{
+
+    <div style="position: relative; padding: 5px; top: 50px; left: 53px; max-width: 90%; max-height: 80%;overflow:auto;">
+
+        <div style="position: relative; padding: 5px; top: 50px; left: 53px; max-width: 90%; max-height: 80%;overflow:auto;">
+
+            <div class="tab-control" data-role="tab-control" data-effect="fade[slide]">
+                <ul class="tabs">
+                    <li class="active">
+                        <a href="#_page_1" class="orange">Bitácora 1</a>
+                    </li>
+                    <li><a href="#_page_2" class="orange">Bitácora 2</a></li>
+                    <li><a href="#_page_3" class="orange">Bitácora 3</a></li>
+                    <li><a href="#_page_4" class="orange">Bitácora 4</a></li>
+                    <li><a href="#_page_5" class="orange">Bitácora 5</a></li>
+                    <li><a href="#_page_6" class="orange">Bitácora 6</a></li>
+                </ul>
+
+                <div class="frames" style="border: 1px #E51400 solid">
+                    @* Bitacora 1 *@
+                    @{
+                        var tblrefle = new INI.Models.DataBase.tblReflexionProyectoInvestigacion();
+                        var tblmcoinv = new List<INI.Models.DataBase.tblMiembroGrupo>();
+                        var tblestinv = new List<INI.Models.DataBase.tblMiembroGrupo>();
+                        if (Model.tblReflexionProyectoInvestigacion.Count() > 0)
+                        {
+                            tblrefle = Model.tblReflexionProyectoInvestigacion.OrderByDescending(m => m.id).First();
+                        }
+                        if (Model.tblMiembroGrupo.Count() > 0)
+                        {
+                            tblmcoinv = Model.tblMiembroGrupo.Where(m => m.tblRol.id == 1).ToList();
+                        }
+                        if (Model.tblMiembroGrupo.Count() > 0)
+                        {
+                            tblestinv = Model.tblMiembroGrupo.Where(m => m.tblRol.id == 2).ToList();
+                        }
+                    }
+                    <div class="frame" id="_page_1" style="background:white">
+                        <div style="overflow-y:auto">
+                            @* Informacion grupo *@
+                            <table style="background-color:transparent; line-height:25px;">
+                                <tr>
+                                    <td><strong>Nombre:</strong></td>
+                                    <td>@Model.Nombre</td>
+                                    <td><strong>Institución:</strong></td>
+                                    @if (Model.tblInstitucion != null)
+                                    {
+                                        <td>@Model.tblInstitucion.Nombre</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td><strong>Municipio:</strong></td>
+                                    @if (Model.tblInstitucion != null && Model.tblInstitucion.tblMunicipios != null)
+                                    {
+                                        <td>@Model.tblInstitucion.tblMunicipios.NombreMunicipio</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    <td><strong>Creación</strong></td>
+                                    <td>@Model.FechaCreacion</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tipo:</strong></td>
+                                    <td>@Model.TipoGrupo</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Linea:</strong></td>
+                                    @if (Model.tblLineaInvestigacion != null)
+                                    {
+                                        <td>@Model.tblLineaInvestigacion.Nombre</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+
+                                </tr>
+                            </table>
+                            <h1>Bitacora Maestro</h1>
+                            <table>
+                                <tr><td><strong>Proceso de conformación grupo:</strong>@tblrefle.Proceso</td></tr>
+                                <tr><td><strong>Motivación para participar en este proyecto:</strong>@tblrefle.Motivacion</td></tr>
+                                <tr><td><strong>Reflexion:</strong>@tblrefle.Reflexion</td></tr>
+                            </table>
+                            @* Cierre informacion grupo *@
+                            @* Maestros coinvestigadores *@
+                            <h3>Maestros coinvestigadores</h3>
+                            <table id="tbl_mcoinvestigadores">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Direccion</th>
+                                        <th>Rol</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in tblmcoinv)
+                                    {
+                                        <tr>
+                                            <td>@String.Format("{0} {1}", item.AspNetUsers.Name, item.AspNetUsers.LastName)</td>
+                                            <td>@item.AspNetUsers.Address</td>
+                                            <td>@item.tblRol.Nombre</td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                            @* Cierre Maestros coinvestigadores *@
+                            <h3>Estudiantes investigando</h3>
+                            <table id="tbl_estudiantesinvestigando">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Direccion</th>
+                                        <th>Rol</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in tblestinv)
+                                    {
+                                        <tr>
+                                            <td>@String.Format("{0} {1}", item.AspNetUsers.Name, item.AspNetUsers.LastName)</td>
+                                            <td>@item.AspNetUsers.Address</td>
+                                            <td>@item.tblRol.Nombre</td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                    @* Cierre Bitacora 1 *@
+                    @{
+                        
+                                    var tblpproyin = new INI.Models.DataBase.tblPreguntaProyectoInvestigacion();
+                                    var tblpreprin=new INI.Models.DataBase.tblPreguntaInvestigacion();
+                                    var tblpreinv = new List<INI.Models.DataBase.tblPreguntaInvestigacion>();
+                                    if (Model.tblPreguntaProyectoInvestigacion.Count() > 0)
+                                    {
+                                        tblpproyin = Model.tblPreguntaProyectoInvestigacion.OrderByDescending(m => m.id).First();
+                                    }
+                                    if (Model.tblPreguntaInvestigacion.Count() > 0)
+                                    {
+                                        tblpreprin = Model.tblPreguntaInvestigacion.OrderByDescending(m => m.id).First();
+                                        tblpreinv = Model.tblPreguntaInvestigacion.OrderBy(m => m.Consecutivo).ToList();
+                                    }
+                                    
+                                    
+                    }
+                    @* Bitacora 2 *@
+                    <div class="frame" id="_page_2" style="background:white">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Insignia</strong></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/images/Avatars/@Model.Avatar" style="max-height: 256px; max-width: 256px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pregunta seleccionada:</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>@tblpreprin.PreguntaPrincipal</strong></td>
+                            </tr>
+                        </table>
+                        <h3>Preguntas realizadas por los integrantes del grupo</h3>
+                        @foreach (var item in tblpreinv)
+                        {
+                            <div class="row">
+                                <div class="span12">
+                                    @item.Pregunta
+                                </div>
+                            </div>
+                        }
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td>@tblpproyin.InformacionUno <br /><div style="font-size:small"><i>@tblpproyin.FuenteUno</i></div></td>
+                            </tr>
+                            <tr>
+                                <td>@tblpproyin.InformacionDos <br /><div style="font-size:small"><i>@tblpproyin.FuenteDos</i></div></td>
+                            </tr>
+                            <tr>
+                                <td>@tblpproyin.InformacionTres <br /><div style="font-size:small"><i>@tblpproyin.FuenteTres</i></div></td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                    @*Cierre Bitacora 2 *@
+                    @* Bitacora 3 *@
+                    @{
+                        var tblprob = new INI.Models.DataBase.tblProblemaInvestigacion();
+                        var tblprobmaestro = new INI.Models.DataBase.tblProblemaProyectoInvestigacion();
+                        if (Model.tblProblemaInvestigacion.Count() > 0)
+                        {
+                            tblprob = Model.tblProblemaInvestigacion.OrderByDescending(m => m.id).First();
+                        }
+                        if (Model.tblProblemaProyectoInvestigacion.Count() > 0)
+                        {
+                            tblprobmaestro = Model.tblProblemaProyectoInvestigacion.OrderByDescending(m => m.id).First();
+                        }
+                    }
+                    <div class="frame" id="_page_3" style="background:white">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Descripción del problema a investigar:</strong>@tblprob.Descripcion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>importancia de resolver el problema o avanzar en su solucion:</strong>@tblprob.Justificacion</td>
+                            </tr>
+                        </table>
+                        <h2>Para el maestro</h2>
+                        <table>
+                            <tr><td><strong>Diferencias entre la forma de pensar de niños, jovenes sobre la forma de pensar de los adultos</strong></td></tr>
+                            <tr><td><strong>@tblprobmaestro.Como</strong></td></tr>
+                            <tr><td><strong>Reflexion bitacora 3</strong></td></tr>
+                            <tr><td><strong>@tblprobmaestro.Reflexion</strong></td></tr>
+                        </table>
+                    </div>
+
+                    @*Cierre Bitacora 3 *@
+                    @* Bitacora 4 *@
+                    @{
+    var PresupuestoResumido = from p in Model.tblPresupuestoProyectoInvestigacion
+                              group p by p.tblRubro.Rubro into g
+                              select new
+                              {
+                                  Rubro = g.Key,
+                                  Total = g.Sum(m => m.Total)
+                              };
+                    }
+                    <div class="frame" id="_page_4" style="background:white">
+                        <table class="table striped hovered">
+                            <thead>
+                                <tr>
+                                    <th>Rubro</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var itemPresupuesto in PresupuestoResumido)
+                                {
+                                    <tr>
+                                        <td>
+                                            @itemPresupuesto.Rubro
+                                        </td>
+                                        <td class="text-right">
+                                            @Html.DisplayFor(item => itemPresupuesto.Total, "Currency")
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                    @* Cierre Bitacora 4 *@
+                    @* Bitacora 5 *@
+                    @{
+                                bool ThereIsError = false;
+                                INI.Models.DataBase.tblEstadoArteProyectoInvestigacion tblesart = new INI.Models.DataBase.tblEstadoArteProyectoInvestigacion();
+                                ICollection<INI.Models.DataBase.tblConceptosEstadoArte> tblconceptos = new List<INI.Models.DataBase.tblConceptosEstadoArte>();
+                                try
+                                {
+                                    tblesart = Model.tblEstadoArteProyectoInvestigacion.First();
+                                    tblconceptos = tblesart.tblConceptosEstadoArte;
+                                }
+                                catch (Exception)
+                                {
+
+                                    ThereIsError = true;
+                                }
+
+                    }
+
+                    <div class="frame" id="_page_5" style="background:white">
+                        @if (!ThereIsError)
+                        {
+                            <div class="grid fluid">
+                                <div class="row">
+                                    <div class="span1">
+                                        <strong>
+                                            Temas:
+                                        </strong>
+                                    </div>
+                                    <div class="span7">
+                                        @tblesart.TemaInvestigacion
+                                    </div>
+                                    <div class="span1">
+                                        <a class="image-button size2" href="~/Upload/@tblesart.MapaConceptual" target="_blank">
+                                            Descargar
+                                            <i class="icon-download-2 bg-red fg-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="listview">
+                                @foreach (var conc in tblconceptos)
+                                {
+                                    <a href="#" class="list">
+                                        <div class="list-content">
+                                            <img src="~/images/Icon-user.png" class="icon">
+                                            <div class="data">
+                                                <span class="list-title">Autor @conc.Autor</span>
+                                                <div>
+                                                    @conc.Texto
+                                                </div>
+                                                <span class="list-remark">
+                                                    Año: @conc.Publicacion.ToString()
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="notify">
+                                <span class="notify-closer"></span>
+                                <span class="notify-text">Bitacora vacia</span>
+                            </div>
+                        }
+
+                    </div>
+
+
+                    @*Cierre Bitacora 5 *@
+                    @* Bitacora 6 *@
+                    @{
+                        ThereIsError = false;
+                        INI.Models.DataBase.tblReflexionOnda tblrfl = new INI.Models.DataBase.tblReflexionOnda();
+                        try
+                        {
+                            tblrfl = Model.tblReflexionOnda.OrderByDescending(m => m.id).First();
+                        }
+                        catch
+                        {
+                            ThereIsError = true;
+                        }
+                    }
+                    <div class="frame" id="_page_6" style="background:white">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Introducción:</strong></td>
+                                <td>@tblrfl.Introduccion</td>
+                            </tr>
+                            <tr>
+                                <td>Conformación grupo:</td>
+                                <td>@tblrfl.ConformacionGrupo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Objetico de la investigación:</strong></td>
+                                <td>@tblrfl.ObjetivoInvestigacion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Actividades realizadas:</strong></td>
+                                <td>@tblrfl.ActividadasRealizadas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Conceptos principales:</strong></td>
+                                <td>@tblrfl.ConceptosPrincipales</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Espacios de participación</strong></td>
+                                <td>@tblrfl.EspaciosParticipacion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Conclusiones</strong></td>
+                                <td>@tblrfl.Conclusiones</td>
+                            </tr>
+                        </table>
+                    </div>
+                    @*Cierre Bitacora 6 *@
+                </div>
+            </div>
+
+        </div> 
+
+    </div>
+
+}
+else
+{
+    <h1>El modelo esta vacio</h1>
+}

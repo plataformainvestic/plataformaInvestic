@@ -1,0 +1,57 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../scripts/js/jquery-1.10.2.js"></script>
+    <script src="../../scripts/js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript">
+        //---------------------------------------------------------------------------------
+        function enter(area) {
+            switch (area) {
+                case 1: alert("Mallama 435"); break;
+                case 2: alert("Ricaurte 612"); break;
+            }
+        }
+        //---------------------------------------------------------------------------------
+    </script>
+    <style>
+        .TextStyle {
+            font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body class="TextStyle">
+    <table border="0" width="750">
+        <tr>
+            <td align="left">
+                <b>Pie de monte costero</b>
+            </td>
+            <td align="right">
+                <b><a href="#" id="municipality_title">Municipio: </a></b>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <table border="0" width="750">
+        <tr>
+            <td align="center">
+                <img id="subregion_img" src="subregion.png" usemap="#test" />
+                <map id="test" name="test">
+                    <area id="sh1" shape="poly" alt="Mallama" title="Mallama" coords="216,292,230,306,268,280,268,266,296,236,288,212,282,194,290,182,304,186,360,136,362,118,398,142,398,152,440,214,460,224,460,250,464,262,474,324,446,334,456,348,412,392,400,370,376,382,366,410,350,428,302,426,264,414,242,382,242,346" href="#" onclick="enter(1)" />
+                    <area id="sh2" shape="poly" alt="Ricaurte" title="Ricaurte" coords="238,386,242,346,230,320,220,304,230,298,236,312,264,288,270,262,298,238,288,218,288,188,318,170,340,158,336,146,362,118,362,108,364,78,370,70,366,60,348,64,338,34,344,22,330,-2,332,16,320,28,264,34,244,28,194,74,202,96,200,160,212,176,172,192,164,188,140,196,142,210,150,210,138,248,8,276,34,302,34,316,10,338,44,360,74,384,86,418,74,424,114,438,156,436" href="#" onclick="enter(2)" />
+                </map>
+                <script>
+                    (function ($) {
+                        jQuery("#sh1").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: Mallama");
+                        });
+                        jQuery("#sh2").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: Ricaurte");
+                        });
+                    })(jQuery);
+                 </script>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

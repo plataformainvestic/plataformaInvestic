@@ -1,0 +1,82 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblPreguntaInvestigacion>
+
+@using INI.Models.DataBase
+
+@{
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+    ViewBag.Title = "PERTURBACIÓN DE LA ONDA";
+    INI.Models.DataBase.tblPreguntaInvestigacion mainQuestion = Model.Where(m => m.PreguntaPrincipal).FirstOrDefault();
+    investicEntities db = new investicEntities();
+}
+
+
+<h4>@ViewBag.Title</h4>
+
+<div class="tab-control" data-role="tab-control">
+    <ul class="tabs">
+        <li class="active"><a href="#_page_1">2.1 Escriba cinco de ...</a></li>
+        <li><a href="#_page_2">2.2 Escriba la pregunta ...</a></li>
+    </ul>
+
+    <div class="frames">
+        <div class="frame" id="_page_1">
+            <div>
+                <strong>
+                    Escriban cinco de las preguntas que formularon inicialmente los integrantes del grupo de investigación
+                </strong>
+            </div>
+            <br />
+            @foreach (var q in Model.Where(m => m.Consecutivo <= 5).Where(m => m.PreguntaPrincipal == false))
+            {
+                <div class="balloon right">
+                    <div class="padding10">
+                        @q.Consecutivo : @q.Pregunta
+                    </div>
+                    <div class="padding5">
+                        @Html.ActionLink("Modificar", "EditarPreguntaInvestigacion", new { id = q.id }, new { @class = "lnkEdit" })
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="frame" id="_page_2">
+            <div>
+                <strong>
+                    Escriba la pregunta seleccionada
+                </strong>
+            </div>
+            <br />
+            <div class="balloon right">
+                <div class="padding10">
+                    @if (mainQuestion != null)
+                    {
+                        <text>
+                            @mainQuestion.Pregunta
+                        </text>
+                    }
+                </div>
+                <div class="padding5">
+                    @Html.ActionLink("Modificar", "EditarPreguntaInvestigacion", new { id = mainQuestion.id }, new { @class = "lnkEdit" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dialog-edit" style="display: none">
+</div>
+
+<div id="dialog-confirm" style="display: none">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+        Está seguro de querer eliminar esta pregunta?
+    </p>
+</div>
+
+
+@section Scripts {        
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Investic/iep-0.1-BinnacleTwo.js"></script>    
+}
+
+

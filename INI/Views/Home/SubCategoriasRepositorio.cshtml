@@ -1,0 +1,74 @@
+﻿@model IEnumerable<INI.Models.DataBase.SubCategoriaRepositorio>
+
+@{
+    ViewBag.Title = "Categorias revista";
+    Layout = "~/Views/Shared/_LayoutRepositorio.cshtml";
+    var n = Model.Count();
+    int m = n % 3;
+    int nr = n / 3;
+    int index = 0;
+    nr = m == 0 ? nr : nr + 1;
+}
+<br /><br /><br />
+
+<a href="/Home/CategoriasRepositorio">
+    <img src="~/images/InsumosPUBREV/Iicono_volver.png" style="position:relative;top:21px" />
+</a>
+
+<div style="background-color:rgba(238, 238, 238, 1);min-height:440px">
+    @if (Model.Count() > 0)
+    {
+        <div class="grid">
+            <div class="row">                
+                <div class="span12" >
+                    <img src="@ViewBag.Categoria.urlimg" style="width:100px;height:100px;margin-top:30px;margin-left:30px;float:left;"><div style="font-family:Chewy;font-size:60pt;color:#616161;float:left;margin-top:28px;margin-left:23px">@ViewBag.Categoria.nombre</div>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="span12">
+                    <div class="grid">
+                        @for (int i = 0; i < nr; i++)
+                        {
+                            <div class="row">
+                                @for (int j = 0; j < 3; j++)
+                                {
+                                    if (index < n)
+                                    {
+                                        var item = Model.ElementAt(index);
+                                        <div class="span3" style="margin-top:20px; margin-left:0px">
+                                            <div style="width:100px;margin: 0 auto;text-align:center">
+                                                <a href="/Home/Repositorio/@item.id"><img src="@item.urlimg" style="width:70px; height:70px" /></a>
+                                                <span style="font-family:Chewy;font-size:12pt;color:#616161">@item.nombre</span>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="span3" style="margin-top:20px; margin-left:0px"></div>
+                                    }
+                                    index++;
+
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @*foreach (var item in Model)
+            {
+                <div>
+                    <a href="/Home/Revista/@item.id"><img src="@item.urlimg" style="width:100px; height:100px" /></a>
+                    <h2>@item.nombre</h2>
+                </div>
+                <br />
+            }*@
+    }
+    else
+    {
+        <<h1>Aun no se han cargado subcategorias para la categoria seleccionada</h1>
+    }
+</div>

@@ -1,0 +1,58 @@
+﻿@model INI.Models.DataBase.tblRecoleccionInformacionProyectoInvestigacion
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br />
+<h2>Eliminar</h2>
+
+
+<div>
+    <h4>Recolección Información Proyecto Investigación</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Evidencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Evidencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGrupoInvestigacion.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGrupoInvestigacion.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblHerramientasRecoleccionInformacion.HerramientaRecoleccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblHerramientasRecoleccionInformacion.HerramientaRecoleccion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Atrás", "Index")
+        </div>
+    }
+</div>

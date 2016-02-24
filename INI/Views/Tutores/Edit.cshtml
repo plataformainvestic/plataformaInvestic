@@ -1,0 +1,96 @@
+﻿@model INI.Models.DataBase.tblTutorZona
+
+@{
+    ViewBag.Title = "Editar Tutor";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.tblTutorZona_ID)
+
+        <div class="form-group">
+            <strong>
+                @Html.DisplayName("Nombre")
+            </strong>
+
+            <div class="span6 input-control text">
+                @Html.EditorFor(model => model.tutZon_nombre)
+                @Html.ValidationMessageFor(model => model.tutZon_nombre)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>
+                @Html.DisplayName("Apellido")
+            </strong>
+            <div class="span6 input-control text">
+                @Html.EditorFor(model => model.tutZon_apellido)
+                @Html.ValidationMessageFor(model => model.tutZon_apellido)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>
+                @Html.DisplayName("Correo")
+            </strong>
+            <div class="span6 input-control text">
+                @Html.EditorFor(model => model.tutZon_correo)
+                @Html.ValidationMessageFor(model => model.tutZon_correo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>
+                @Html.DisplayName("Telefono")
+            </strong>
+            <div class="span6 input-control text">
+                @Html.EditorFor(model => model.tutZon_telefono)
+                @Html.ValidationMessageFor(model => model.tutZon_telefono)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong>
+                @Html.DisplayName("Institucion Educativa")
+            </strong>
+            <div class="span8 input-control text">
+                @Html.TextBox("Institution", null, new { placeholder = "Nombre de la institución" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.DisplayName("Esta Activo:")
+            <div class="col-md-10">
+                @Html.CheckBox("estaActivo")
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="button info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

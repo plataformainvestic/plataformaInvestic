@@ -1,0 +1,118 @@
+﻿@model INI.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Iniciar Sesion";
+}
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+<div class="verticalSpan2"></div>
+<div class="grid fluid">
+    <div class="row">
+        <div class="span1 offset1">
+
+        </div>
+        <div class="span8">
+            <center>
+                <h1>@ViewBag.Title</h1>
+            </center>
+        </div>
+    </div>
+</div>
+
+<section id="loginForm">
+    @using (Html.BeginForm("IniciarSesion", "Usuario", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <div class="grid">
+            <div class="row">
+                <div class="span2 offset3">
+
+                    <div style="margin: auto; width: auto;">
+
+                        
+                            <strong onmouseover="tooltip.pop(this, '#UserName1', { sticky: true })">
+                                @Html.LabelFor(m => m.UserName)
+                            </strong>
+                                                
+                        <div style="display:none;">
+                            <div id="UserName1">
+                                <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu usuario?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un usuario.
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="span4 input-control text" data-role="input-control">
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Usuario" })
+                    <button class="btn-clear" tabindex="-1" type="button"></button>
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2 offset3">
+                    <div style="margin: auto; width: auto;">
+
+                        
+                            <strong onmouseover="tooltip.pop(this, '#Password1', { sticky: true })">
+                                @Html.LabelFor(m => m.Password)
+                            </strong>
+
+                        <div style="display:none;">
+                            <div id="Password1">
+                                <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu clave?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una clave.
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="span4 input-control text" data-role="input-control">
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Contraseña" })
+                    <button class="btn-reveal" tabindex="-1" type="button"></button>
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="span2">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 offset5">
+                    <input type="submit" value="Iniciar Sesión" class="button large" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 offset5">
+                <p>
+                    @Html.ActionLink("Registrese", "Registrar") si aún no tiene una cuenta.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span5 offset5">
+                <p>
+                    @Html.ActionLink("Recordar contraseña", "ForgotPassword") si usted a olvidado sus credenciales.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4 offset5">
+                @Html.ValidationSummary(true)
+            </div>
+        </div>
+    }
+    <center>@Html.AtrasInvestic()</center>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

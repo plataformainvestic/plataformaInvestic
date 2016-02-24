@@ -1,0 +1,51 @@
+﻿@model INI.Models.DataBase.tblConceptosEstadoArte
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvChamilo.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblConceptosEstadoArte</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Autor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Texto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Texto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblEstadoArteProyectoInvestigacion.TemaInvestigacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEstadoArteProyectoInvestigacion.TemaInvestigacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

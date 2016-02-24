@@ -1,0 +1,360 @@
+﻿@model INI.Models.DataBase.tblNoticias
+
+@{
+    ViewBag.Title = "Crear Noticia";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<style>
+    .inputClass input {
+        width: 100%;
+    }
+</style>
+
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+@using (Html.BeginForm("Create", "Noticias", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="divMetas">
+        <p>
+            <h2>
+                <strong>
+                    Crear Noticia
+                </strong>
+            </h2>
+        </p>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <table style="background-color:transparent;">
+            <tr>
+                <td>
+                    
+
+
+                    
+
+
+                        <div style="margin: auto; width: auto;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#Titular', { sticky: true })">
+                                Titular
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="Titular">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>Cual es tu Titular?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar un titular.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    
+
+
+
+
+
+
+
+
+
+                </td>
+                <td>
+                    <div class="input-control text size10">
+                        @Html.EditorFor(model => model.not_titulo)
+                        @Html.ValidationMessageFor(model => model.not_titulo, String.Empty, new { @style = "color:red;!important" })
+                    </div>
+                </td>
+            </tr>
+            <tr><td><br /></td></tr>
+            <tr>
+                <td>
+                    
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Descripcion', { sticky: true })">
+                            Descripción
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Descripcion">
+                                <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu Descripción?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una Descripción.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </td>
+                <td>
+                    <div class="editor-field">
+                        <div class="input-control text size10">
+
+                            @Html.EditorFor(model => model.not_descripcion)
+                            @Html.ValidationMessageFor(model => model.not_descripcion, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                        </div>
+</td>
+            </tr>
+            <tr><td><br /></td></tr>
+            <tr>
+                <td>
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Imagena', { sticky: true })">
+                            Imagen
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Imagena">
+                                <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu Imagen?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una Imagen.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        <div class="input-control file">
+                            <input id="not_urlimage" name="not_urlimage" type="file" maxlength="500" data-transform="input-control" required  message="Error Usted no selecciono el archivo [image/jpeg,png]" accept="image/png, image/jpeg"  z-index="99" size="500" title="Error Usted no selecciono el archivo [png/jpeg]"/>
+                            <button class="btn btn-file"></button>
+                            <br />
+                            @Html.ValidationMessageFor(model => model.not_urlimage, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Audio', { sticky: true })">
+                            Audio:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Audio">
+                                <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu audio?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un audio.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        <div class="input-control file">
+                            <input id="not_urlpotcast" name="not_urlpotcast" type="file" />
+                            <button class="btn btn-file"></button>
+                            @Html.ValidationMessageFor(model => model.not_urlpotcast, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr><td><br /></td></tr>
+            <tr>
+                <td>
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Contenido', { sticky: true })">
+                            Contenido:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Contenido">
+                                <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu Contenido?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un Contenido.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </td>
+                <td>
+                    
+
+                    @*<div style="max-width:600pt;max-height:100pt;overflow-y:auto;overflow-x:hidden;">*@
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.not_contenido)
+                            @Html.ValidationMessageFor(model => model.not_contenido, String.Empty, new { @style = "color:red;!important" })
+
+                        </div>
+                </td>
+            </tr>
+
+
+            <tr><td><br /></td></tr>
+            <tr>
+                <td>
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#PiedeFoto', { sticky: true })">
+                            Pie de Foto:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="PiedeFoto">
+                                <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu pie de foto?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un pie de foto.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </td>
+                <td>
+                    <div class="input-control text size10">
+                        @Html.EditorFor(model => model.not_piedefoto)
+                        @Html.ValidationMessageFor(model => model.not_piedefoto, String.Empty, new { @style = "color:red;!important" })
+                    </div>
+                </td>
+            </tr>
+            <tr><td><br /></td></tr>
+            <tr>
+                <td>
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#FechadelaNoticia', { sticky: true })">
+                            Fecha de la Noticia:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="FechadelaNoticia">
+                                <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es la fecha de la noticia?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un fecha de noticia.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </td>
+                <td>
+                    <div class="input-control text size10">
+                        <div class="input-control text" data-role="datepicker" data-position="top" data-format="yyyy-mm-dd" data-effect="fade">
+                            <input type="text" id="not_fecha" name="not_fecha" readonly="readonly">
+                            <a href="#" class="btn-date"></a>
+                            @Html.ValidationMessageFor(model => model.not_fecha, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr><td><br /></td></tr>
+            <tr>
+                <td>
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Autor', { sticky: true })">
+                            Autor:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Autor">
+                                <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu autor?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un autor.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </td>
+                <td>
+                    
+                        <div class="input-control text size10">
+
+                            @Html.EditorFor(model => model.not_autor)
+                            @Html.ValidationMessageFor(model => model.not_autor, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                        
+</td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <div class="span2">
+                        Esta Activo:
+                    </div>
+                </td>
+                <td>
+                    
+                        <input type="checkbox" checked="checked" disabled="disabled" id="chkestaActivo"/>
+                        <input type="hidden" id="estaActivo" name="estaActivo" value="true"/>
+                        @Html.ValidationMessageFor(model => model.estaActivo)
+                </td>
+            </tr>
+
+
+
+
+
+
+
+
+        </table>
+        <br />
+        <table style="background-color:transparent;">
+            <tr>
+                <td><input type="submit" value="Guardar" class="button large primary" /> |</td>
+                <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+            </tr>
+        </table>
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

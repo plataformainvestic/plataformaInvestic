@@ -1,0 +1,72 @@
+﻿@model INI.Models.DataBase.tblEvidenciasContratista
+@using INI.Models.DataBase
+@{
+    var db = new investicEntities();
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+    
+}
+
+<h4>Esta seguro de borrar este evidencia?</h4>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Archivo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model=>model.Nombre_Evidencia)
+
+          
+        </dd>
+
+        <dt>
+            Descripcion
+        </dt>
+
+
+        @if (Model.Descripcion_Evidencia == null)
+        {
+            <dd>
+                No hay descripción
+            </dd>
+        }
+        else
+        {
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion_Evidencia)
+
+        </dd>
+        }
+
+
+
+
+
+    </dl>
+
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirmar" class="btn btn-default" /> |
+            @{
+        int idActividad = (from a in db.tblEvidenciasContratista where a.Nombre_Evidencia.Equals(Model.Nombre_Evidencia) select a.Id_Actividad).SingleOrDefault();
+
+
+        @Html.ActionLink("Regresar", "Create", new { id = idActividad });
+
+            }
+                1
+
+        </div>
+    }
+</div>
+<center> @Html.AtrasInvestic();</center>
+

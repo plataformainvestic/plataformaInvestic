@@ -1,0 +1,10 @@
+﻿@model IEP.Models.LoginViewModel
+@using Microsoft.AspNet.Identity
+
+@using (Html.BeginForm("IniciarSesion", "Usuario", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post)) { 
+    @Html.AntiForgeryToken()
+    <span class="element-divider place-right"></span>
+    <input class="element place-right link" type="submit" value="Iniciar sesión" tabindex="102" />
+    <input id="Password" name="Password" type="password" class="element place-right password" placeholder="Contraseña" tabindex="101" />
+    <input id="UserName" name="UserName" type="text" class="element place-right UserName" placeholder="Correo Electrónico" tabindex="100" />    
+}

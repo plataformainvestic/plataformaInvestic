@@ -1,0 +1,25 @@
+﻿@model IEP.Models.DataBase.tblComentarioGrupo
+
+@using (Html.BeginForm("AgregarComentario", "AsistenteGruposInvestigacion"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.idGrupo)
+    @Html.HiddenFor(model => model.UserId)
+    @Html.HiddenFor(model => model.Aprobado)
+
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+                Comentario:
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.Comentario)
+            </div>
+        </div>        
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Agregar comentario" class="btn btn-default" />
+        </div>
+    </div>
+}

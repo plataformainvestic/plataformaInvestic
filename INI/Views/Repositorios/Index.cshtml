@@ -1,0 +1,81 @@
+﻿@model IEnumerable<INI.Models.DataBase.Repositorio>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+
+<br /><br /><br />
+<a class="button large bg-green" href="/CategoriaRepositorios">Gestionar Categorias</a>
+<a class="button large bg-green" href="/SubCategoriaRepositorios">Gestionar Subcategorias</a>
+<h2>Repositorio digital</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Repositorio", "Create")
+</p>
+<table class="table" id="tbl_Repositorio">
+    <thead>
+        <tr>
+            <th>
+                Titulo
+            </th>                       
+            <th>
+                Categoria
+            </th>
+            <th>
+                Subcategoria
+            </th>
+            <th>
+                URL Repositorio digital
+            </th> 
+            <th>
+                URL portada slide
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>                               
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCategoriaRepositorio.CategoriaRepositorio.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCategoriaRepositorio.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urlRepositorio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urlfront)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+   <script>
+    $(function () {
+
+        $('#tbl_Repositorio').dataTable({
+            "sPaginationType": "full_numbers",
+            "oLanguage": {
+                "sUrl": "../../Lang/es-CO.txt"
+            }
+        });
+
+
+    });
+</script>
+
+}

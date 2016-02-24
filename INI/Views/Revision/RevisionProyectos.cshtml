@@ -1,0 +1,44 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblProyectosInvestigacion>
+
+@{
+    ViewBag.Title = "Revision Proyectos";
+}
+
+
+<h1>Revisor: @ViewBag.revisor</h1>
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span12">
+            <table id="misProyectosRevision" class="table striped hover">
+                <thead>
+                    <tr>
+                        <th>Nombre del Proyecto</th>
+                        <th>Resumen</th>
+                        <th>Fecha de Creación</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.proInv_nombreProy)</td>
+                            <td>@Html.DisplayFor(model => item.proInv_resumenProy)</td>
+                            <td>@Html.DisplayFor(model => item.proInv_fechaCreacion)</td>
+                            <td>
+                                <input type="button" value="Evaluar Pryecto"
+                                       onclick="location.href='@Url.Action("RevisarProyecto", "Revision", new { id = item.tblProyectosInvestigacion_ID })'" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+}

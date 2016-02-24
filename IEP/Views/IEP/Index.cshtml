@@ -1,0 +1,88 @@
+﻿@model IEnumerable<IEP.Models.DataBase.MisGrupos>
+
+@using IEP.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.SubTitle = "Mis grupos de investifación";
+    Layout = "~/Views/Shared/_LayoutIEP.cshtml";
+    string msj = ViewBag.Message;
+    var userId = AspNetUsers.GetUserId(User.Identity.Name);
+    var TieneGrupo = tblGrupoInvestigacion.ExistGroup(userId).ToString().ToLower();
+    InvesticEntities db = new InvesticEntities();
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span12 text-center">
+            <h4>@ViewBag.SubTitle</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset10 span2 text-right">
+            <a id="lnkCreate" href="#" class="button info"><i class="icon-new on-left"></i>Crear Grupo</a>
+            <a id="lnkEdit" href="#" class="button info" style="display:none;"><i class="icon-new on-left"></i>Modificar Grupo</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <table id="misGrupos" class="table striped hover">
+                <thead>
+                    <tr>
+                        <th class="span2"></th>
+                        <th class="span2">Imagen</th>
+                        <th class="span8">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td class="text-center">
+                            @Html.ActionLink("Ir al Proyecto", "IrAlProyecto", "IEP", new { id = item.id }, new { @class = "button info" })
+                        </td>
+                        <td class="text-center">
+                            <img src="~/images/Avatars/@item.Avatar" width="96" height="96" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Informacion, "InfoGrupo")
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="register-research-group">
+    @{
+        tblGrupoInvestigacion tblgrupoinvestigacionnuevo = new tblGrupoInvestigacion();
+        ViewBag.idLineaInvestigacion = new SelectList(db.tblLineaInvestigacion.Where(m => m.Categoria == 2), "id", "Nombre");
+        tblgrupoinvestigacionnuevo.FechaCreacion = DateTime.Now;
+        tblgrupoinvestigacionnuevo.idUsuario = userId;
+        tblgrupoinvestigacionnuevo.idInstitucion = tblMaestroCoinvestigador.GetIdInstitucion(tblgrupoinvestigacionnuevo.idUsuario);
+        tblgrupoinvestigacionnuevo.Codigo = dl.Codigos.ResearchGroupCode();
+        Html.RenderPartial("_RegistrarGrupo", tblgrupoinvestigacionnuevo);
+    }
+</div>
+
+<div id="edit-research-group">
+    @{
+        tblGrupoInvestigacion tblgrupoinvestigacion = tblGrupoInvestigacion.FindByUserId(userId);
+        if (tblgrupoinvestigacion != null) { 
+            ViewBag.idLineaInvestigacion = new SelectList(db.tblLineaInvestigacion.Where(m => m.Categoria == tblgrupoinvestigacion.tblLineaInvestigacion.Categoria),
+                "id", "Nombre", tblgrupoinvestigacion.idLineaInvestigacion);
+            Html.RenderPartial("_ModificarGrupo", tblgrupoinvestigacion);
+        }
+    }
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/iep-0.1-index.js"></script>
+    <script>
+        AlertMessage('@msj');
+        DisableButton(@TieneGrupo);
+    </script>
+}

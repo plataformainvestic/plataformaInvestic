@@ -1,0 +1,78 @@
+﻿@using INI.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .INVESTIC</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="~/Content/INI/Recuerdos.css" rel="stylesheet" />
+</head>
+<body class="metro" style="background: url('../../images/fondosSecciones/bg_seguimiento.svg') repeat;">
+    <nav class="navigation-bar" style="background-color:#808080">
+        <nav class="navigation-bar-content">
+            <a class="element" href="/" style="padding:0px;">
+                @*<img src="/favicon.png" height="16" width="16" />
+                    <span style="font-size:medium;color:azure">Investic</span>*@
+                <img src="~/images/logosSecciones/logo_investic.png" />
+            </a>
+            @*<span class="element-divider"></span>
+                <span id="textomenu" style=" font-size:x-small" class="element">Ciencia, tecnología e innovación para el buen vivir nariñense</span>*@
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/Noticias">
+                Noticias
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/Metas">
+                Metas
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/CategoriaImagenes">
+                Categoría de Imagenes
+            </a>
+            <span class="element-divider"></span>
+            <a id="fuentemenu" class="element" href="/GaleriaImagenes">
+                Galería de Imagenes
+            </a>
+            <span class="element-divider place-right"></span>
+            <div class="no-tablet-portrait">
+                <div class="element input-element" style="padding:0px; border-spacing:0px;">
+                    @if (!Request.IsAuthenticated)
+                    {
+                        <div class="element place-right">
+                            <a class="dropdown-toggle" href="#">
+                                <span>¿Eres Nuevo?</span>
+                            </a>
+                            <ul class="dropdown-menu place-right" data-role="dropdown">
+                                <li><a href="#">Registrarse</a></li>
+                            </ul>
+                        </div>
+                        
+                        @Html.Partial("_LoginForm",new LoginViewModel())
+                       
+
+                    }
+                    else
+                    {
+                        @Html.Partial("_LoginPartial")
+                    }
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/metro-ui")
+    <script src="~/Scripts/js/Invresources.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

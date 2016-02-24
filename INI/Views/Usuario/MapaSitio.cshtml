@@ -1,0 +1,51 @@
+﻿@model INI.Models.RegisterViewModel
+@using MvcSiteMapProvider.Web.Html;
+
+@{
+    ViewBag.Title = "Mapa del Sitio";
+    Layout = "~/Views/Shared/_InvBlanco.cshtml";
+    string msj = ViewBag.Mensaje;
+}
+
+
+
+<div id="bgDiv">
+    <table style="background-color:transparent;margin:auto ;">
+        <div style="height:48px;width:400px;color:#E61B73;padding-top:8px"><span style="font-family:Chewy;font-size:x-large;margin-left:32px"> @ViewBag.Title</span></div>
+        <tr>
+            <td width="20%" align="left">
+                <img style="padding-top:60px;" src="~/images/personajes/Papa.svg" />
+            </td>
+            <td width="80%" align="left">
+                
+                    <div class=" grid fluid">
+                      
+
+                        <div class="row">
+                            <span id="divTitulo" style="font-family:Chewy;color:#FF1643;font-size:16pt;">
+                                @ViewBag.Title
+                            </span>
+          
+                        </div>
+                    </div>
+                    <div class="grid fluid">
+                        @Html.MvcSiteMap().Menu(false, true, true)
+                    </div>
+                    
+                
+            </td>
+        </tr>
+        <tr><td>
+            <center>@Html.AtrasInvestic()</center>
+            </td></tr>
+    </table>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")    
+    <script>    
+        AlertMessage('@msj');
+    </script>
+}

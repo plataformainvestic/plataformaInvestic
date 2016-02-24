@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using SEG.Models
+@if (Request.IsAuthenticated)
+{
+    <span class="element-divider place-right"></span>
+    <div class="user place-right">
+        <img src="/images/Icon-user.png" class="element place-right" width="45" />
+
+
+
+        @{
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            ApplicationUser currentUser = manager.FindById(User.Identity.GetUserId());
+
+            if (User.IsInRole("admin"))
+            {
+                <small class=" element place-right">
+                    @Html.ActionLink("Bienvenido " + currentUser.Nombres + " " + currentUser.Apellidos, "Manage", "Account", null, new {title = "Manage"})
+                </small>
+                <br />
+                <small class="element place-right">
+                    <a href="/Account/Manage" title="Salir">[ADMINISTRADOR]</a>
+                </small>
+                <br />
+            }
+            if (User.IsInRole("coordinador"))
+            {
+                <small class=" element place-right">
+                    @Html.ActionLink("Bienvenido " + currentUser.Nombres + " " + currentUser.Apellidos, "Manage", "Account", null, new {title = "Manage"})
+                </small>
+                <br />
+                <small class="element place-right">
+                    <a href="/Account/Manage" title="Salir">[COORDINADOR]</a>
+                </small>
+                <br />
+            }
+            if (User.IsInRole("contratista"))
+            {
+                <small class=" element place-right">
+                    @Html.ActionLink("Bienvenido " + currentUser.Nombres + " " + currentUser.Apellidos, "Manage", "Account", null, new {title = "Manage"})
+                </small>
+                <br />
+                <small class="element place-right">
+                    <a href="/Account/Manage" title="Salir">[CONTRATISTA]</a>
+                </small>
+                <br />
+            }
+        }
+
+        @using (Html.BeginForm("Salir", "Account", FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+        {
+            @Html.AntiForgeryToken()
+            <small class="element place-right">
+                <a href="javascript:document.getElementById('logoutForm').submit()" title="Salir">Cerrar Sesión</a>
+            </small>
+        }
+  
+      
+      
+
+    </div>
+}

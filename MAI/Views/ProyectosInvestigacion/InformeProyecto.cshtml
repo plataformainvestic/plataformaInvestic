@@ -1,0 +1,51 @@
+﻿@model MAI.Models.DataBase.tblProyectosInvestigacion
+@{
+    Layout = null;
+}
+
+<div class="grid fluid" id="top">
+    <div class="row">
+        @*Encabezado*@
+    </div>
+
+    @*Desplegar Proyecto*@
+    @Html.Partial("~/Views/Shared/_InformeProyecto.cshtml", Model)
+
+
+    <div class="row padding20 bg-grayLighter">
+        <p>
+            Se ha finalizado la Edición de su propuesta de Proyecto denominado<br />
+            <strong>@Html.DisplayFor(m => m.tblPresentacionProyecto.preProy_tituloProy)</strong>.<br />
+            Asegúrese que todos los campos fueron diligenciados correctamente para que sus ideas sean tomadas en cuenta.<br />
+            Si lo considera conveniente edite toda la información suministrada hasta que sea de su agrado;<br />
+            si aún existen modificaciones <strong>cancele este paso</strong>.<br /><br />
+            ¿Desea que esta propuesta sea revisada por el grupo de Evaluadores Investic y Colciencias?<br /><br />
+
+            <a href="/ProyectosInvestigacion/PromoverProyecto?id=@Model.tblProyectosInvestigacion_ID" class="button bg-green fg-white">
+                Agregar
+                <i class="icon-upload-3 bg-green fg-white"></i>
+            </a>
+            @Html.ActionLink("Cancelar", "DetallesGrupo", "GruposInvestigacion", new { id = Model.tblGruposInvestigacion_ID }, new { @class = "button danger large" })
+
+
+            @*@using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Hidden("tblProyectosInvestigacion_ID", Model.tblProyectosInvestigacion_ID)
+                    <a href="/ProyectosInvestigacion/PromoverProyecto?id=@Model.tblProyectosInvestigacion_ID" class="button bg-green fg-white">
+                        Agregar
+                        <i class="icon-plus bg-green fg-white"></i>
+                    </a>
+
+
+
+                    <button class="large bg-green fg-white" type="submit">
+                        Evaluar Proyecto
+                        <i class="icon-upload-3 bg-green fg-white"></i>
+                    </button>
+                    @Html.ActionLink("Cancelar", "DetallesGrupo", "GruposInvestigacion", new { id = Model.tblGruposInvestigacion_ID }, new { @class = "button danger large" })
+
+                }*@
+        </p>
+    </div>
+</div>

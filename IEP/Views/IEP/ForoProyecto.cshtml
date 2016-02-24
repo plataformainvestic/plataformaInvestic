@@ -1,0 +1,77 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblForoProyectoInvestigacion>
+
+@using IEP.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    Layout = "~/Views/Shared/_LayoutGrupo.cshtml";
+    ViewBag.Title = "Foro";
+    string msj = ViewBag.Message;
+    int idGrupoInvestigacion = (int)ViewBag.idGrupoinvestigacion;
+    InvesticEntities db = new InvesticEntities();
+}
+
+<p>
+    <button id="lnkCrearForo" class="bg-green">Crear Foro</button>
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="panel collapsed" data-role="panel">
+        <div class="panel-header">
+            Titulo: @item.Titulo | Autor: @item.AspNetUsers.Name | Respuestas: @item.Respuestas.ToString()
+        </div>
+        <div class="panel-content" style="display:none;">
+            <div class="grid fluid">
+                <div class="row">
+                    <div class="span1">
+                        Asunto:
+                    </div>
+                    <div class="span8 textarea input-control">
+                        @Html.TextArea(item.id.ToString(), item.Mensaje, new { @disabled = "disabled" })
+                    </div>
+                    <div class="span3">
+                        <button id="lnkResponderForo" onclick="javascript: Responder('@item.id');" class="bg-green">Responder</button>
+                    </div>
+                </div>
+                @if (item.tblForoProyectoInvestigacion1.Count > 0)
+                {
+                    foreach (var itemRes in item.tblForoProyectoInvestigacion1)
+                    {
+                        <div class="row">
+                            <div class="span1">
+                                Respuesta:
+                            </div>
+                            <div class="span8 textarea input-control">
+                                @Html.TextArea(itemRes.id.ToString(), itemRes.Mensaje, new { @disabled = "disabled" })
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+}
+
+<div id="nuevo-foro">
+    @{
+        tblForoProyectoInvestigacion tblforo = new tblForoProyectoInvestigacion();
+        tblforo.idGrupoInvestigacion = idGrupoInvestigacion;
+        tblforo.Respuestas = 0;
+        tblforo.idUser = AspNetUsers.GetUserId(User.Identity.Name);
+        Html.RenderPartial("_CrearForo", tblforo);
+    }
+</div>
+
+@section Scripts {    
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Investic/iep-0.1-foroproyecto.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}
+
+
+
+

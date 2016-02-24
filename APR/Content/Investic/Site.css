@@ -1,0 +1,299 @@
+﻿body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*background: url('../../images/fondo_cordillera-01.png') no-repeat top scroll;*/
+    background: url('../../images/fondo_personajes.png') no-repeat top scroll;
+    background-size: cover;
+}
+
+
+.metro .access {
+    padding: 20px 40px 20px 60px;
+    border: 1px #ccc solid;
+    position: relative;
+    margin: 0 0 10px 0;
+    background-color: #fdfdfd !important;
+    min-height: 100px;
+}
+
+    .metro .access:before,
+    .metro .access:after {
+        display: table;
+        content: "";
+    }
+
+    .metro .access:after {
+        clear: both;
+    }
+
+    .metro .access:before {
+        position: absolute;
+        content: "Control de Acceso";
+        left: -21px;
+        top: 80px;
+        color: #999999 !important;
+        margin: 5px 10px;
+        font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #000000;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        letter-spacing: 0.02em;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+.verticalSpan1 {
+    height: 40px;
+}
+
+.verticalSpan2 {
+    height: 80px;
+}
+
+.verticalSpan3 {
+    height: 120px;
+}
+
+.nota {
+    border-bottom: 1px solid;
+    text-align: justify;
+}
+
+.leyenda {
+    padding: 10px;
+    font: bold 8px !important;
+    border-bottom: 1px solid;
+    text-align: justify;
+}
+
+input#UserName.UserName {
+    -moz-border-radius-topleft: 20px;
+    -webkit-border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid #848484;
+    outline: 0;
+    margin-top: 5px;
+    height: 20px;
+    width: 150px;
+    padding-left: 10px;
+    background-color: #E6E6E6;
+    color: #2E2E2E;
+}
+
+input#Password.password {
+    -moz-border-radius-topright: 20px;
+    -webkit-border-top-right-radius: 20px;
+    border-top-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid #848484;
+    outline: 0;
+    margin-top: 5px;
+    height: 20px;
+    width: 150px;
+    padding-right: 10px;
+    background-color: #E6E6E6;
+    color: #2E2E2E;
+}
+
+@font-face {
+    font-family: 'Chewy';
+    src: url('../../fonts/Chewy.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Black';
+    src: url('../../../fonts/Roboto/Roboto-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../../../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../../../fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../../../fonts/Roboto/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../../../fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../../../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../../../fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+}
+
+span#textomenu {
+    font-family: Roboto-Black;
+    font-size: large;
+}
+
+a#fuentemenu {
+    font-family: Chewy;
+    font-size: medium;
+}
+
+div div #tituloprimario {
+    font-family: Chewy;
+    font-size: 32px;
+    text-align: center;
+}
+
+div div #parraforoboto {
+    font-family: Roboto-Regular;
+    font-size: 14px;
+    text-align: center;
+}
+
+div #informacion {
+    background-color: #ffffff;
+    opacity: 0.5;
+    /*filter:alpha(opacity=50);*/
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 15%;
+    left: 50%;
+    /*determinamos una anchura*/
+    width: 700px;
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -350px;
+    /*determinamos una altura*/
+    height: 300px;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    border: 1px solid #808080;
+    padding: 5px;
+}
+
+div #titulosmenusec {
+    font-family: Chewy;
+    font-size: 30px;
+    float: left;
+    margin: 0;
+    background-color: #E5E5E5;
+    padding: 3px 4px 6px 6px;
+}
+
+div #btnmenusec {
+    font-family: Roboto-Bold;
+    font-size: 17px;
+    float: left;
+    margin: 0;
+    background-color: #E5E5E5;
+    padding: 14px 4px 14px 6px;
+    color: #575756;
+}
+
+    div #btnmenusec:hover {
+        background-color: #B2B2B2;
+        color: #E5E5E5;
+        cursor: pointer;
+    }
+
+    div #btnmenusec:past {
+        background-color: #575756;
+    }
+
+.mainButtons {
+    width: 91px;
+    height: 85px;
+    opacity: 1.0;
+}
+
+    .mainButtons:hover {
+        width: 95px;
+        height: 89px;
+        opacity: 1.0;
+    }
+
+.links {
+    width: 64px;
+    height: 64px;
+    opacity: 1.0;
+}
+
+    .links:hover {
+        width: 66px;
+        height: 66px;
+        opacity: 1.0;
+    }
+
+.footerImage {
+    font-family: Roboto-Thin;
+    font-size: 12px;
+    font-style: normal;
+    white-space: pre-line;
+    color: #575756;
+    text-align: justify;
+    direction: ltr;
+}
+
+.titularNoticia {
+    font-family: Roboto-Black;
+    font-size: 34px;
+    font-style: normal;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+}
+
+.fechaPublicacion {
+    font-family: Roboto-Regular;
+    font-size: 12px;
+    font-style: normal;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+}
+
+.introNoticia {
+    font-family: Roboto-Regular;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 19pt;
+    white-space: pre-line;
+    color: #575756;
+    text-align: justify;
+    direction: ltr;
+}
+
+.contenidoNoticia {
+    font-family: Roboto-Regular;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 14pt;
+    white-space: pre-line;
+    color: #575756;
+    text-align: justify;
+    direction: ltr;
+}
+
+.dummyCss {
+    opacity: 1.0;
+}

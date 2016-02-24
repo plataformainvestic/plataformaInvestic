@@ -1,0 +1,75 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "ReferenciasProy", FormMethod.Post, new { id = "ReferenciasProy" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.tblReferenciasProy.tblReferenciasProy_ID)
+
+    <div class="grid fluid">
+        @*ESTRUCTURA REFERENCIAS*@
+        <div class="row">
+            <div class="span2">
+                <strong>Referencias</strong>
+                <span data-hint="En este apartado se deben consignar los datos de las fuentes de información, tales como libros, artículos, etc. Se recomienda consultar la mayor cantidad de fuentes bibliográficas, teniendo en cuenta material bibliográfico publicado en otro idioma y actualizado (preferiblemente publicado dentro de los últimos 5 años).
+                      Para elaborar las referencias del material consultado puede remitirse al documento “Manual de Normas APA”, disponible en el siguiente enlace: http://portales.puj.edu.co/ftpcentroescritura/Recursos/Normasapa.pdf"
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblReferenciasProy.refProy_referencias)
+                @*@Html.ValidationMessage("Referencias de la investigación")*@
+                @Html.ValidationMessageFor(m => m.tblReferenciasProy.refProy_referencias, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display:none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblReferenciasProy_Rev.refProy_referencias)
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblReferenciasProy_Rev.refProy_referencias)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblReferenciasProy_Rev.refProy_referencias)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblReferenciasProy_Rev.refProy_referencias)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

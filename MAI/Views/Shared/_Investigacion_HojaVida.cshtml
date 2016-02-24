@@ -1,0 +1,147 @@
+﻿@model INI.Models.DataBase.tblHojaVida
+
+<div class="grid fluid">
+
+    <div class="tab-control" data-role="tab-control">
+        <ul class="tabs">
+            <li class="active">
+                <a href="#_page_1" class="span4 panel-header bg-darkPink fg-white" type="button">
+                    Proyectos de Investigación
+                    <h5 style="text-align:center">
+                        @Html.ActionLink("Adicionar Proyecto", "AdicionarProyecto", new { id = Model.tblHojaVida_ID })
+                    </h5>
+                </a>
+            </li>
+            <li>
+                <a href="#_page_2" class="span4 panel-header bg-darkIndigo fg-white" type="button">
+                    Productos Académicos
+                    <h5 style="text-align:center">
+                        @Html.ActionLink("Adicionar Producto", "AdicionarProductoAcademico", new { id = Model.tblHojaVida_ID })
+                    </h5>
+                </a>
+            </li>
+            <li>
+                <a href="#_page_3" class="span4 panel-header bg-darkBlue fg-white" type="button">
+                    Eventos Académicos
+                    <h5 style="text-align:center">
+                        @Html.ActionLink("Adicionar Evento", "AdicionarEventoAcademico", new { id = Model.tblHojaVida_ID })
+                    </h5>
+                </a>
+            </li>
+        </ul>
+
+        <div class="frames span12">
+            <div class="frame" id="_page_1">
+                <div>
+                    <table id="misProyectos" class="table striped hover">
+                        <thead>
+                            <tr>
+                                <th class="span3">Título del Proyecto</th>
+                                <th class="span2">Año de Terminación</th>
+                                <th class="span2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.tblExperienciaProyectos)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.exppro_tituloProyecto)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(modelItem => item.exppro_anoTerminacion)
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="@Url.Action("ModificarProyecto", new { id = item.tblExperienciaProyectos_ID })" title="Modificar"><i class="icon-pencil button primary"></i></a> 
+                                        <a href="#" onclick="javascript:BorrarExperienciaProy(@item.tblExperienciaProyectos_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+
+                                        @*@Html.ActionLink("Modificar", "ModificarProyecto", new { id = item.tblExperienciaProyectos_ID }, new { @class = "button primary" })
+                                        <button class="button danger" onclick="javascript:BorrarExperienciaProy(@item.tblExperienciaProyectos_ID)">Eliminar</button>*@
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="frame" id="_page_2">
+                <div>
+                    <table id="misProductos" class="table striped hover">
+                        <thead>
+                            <tr>
+                                <th class="span2">Tipo de Producto</th>
+                                <th class="span4">Título</th>
+                                <th class="span2">Fecha de Publicación</th>
+                                <th class="span2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.tblProductosAcademicos)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(model => item.tblCategoriaProductos.catpro_nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.proaca_tituloProducto)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(model => item.proaca_anoTerminacion)
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="@Url.Action("ModificarProductoAcademico", new { id = item.tblProductosAcademicos_ID })" title="Modificar"><i class="icon-pencil button primary"></i></a> 
+                                        <a href="#" onclick="javascript:BorrarProductosAcademicos(@item.tblProductosAcademicos_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+
+                                        @*@Html.ActionLink("Modificar", "ModificarProductoAcademico", new { id = item.tblProductosAcademicos_ID }, new { @class = "button primary" })
+                                        <button class="button danger" onclick="javascript:BorrarProductosAcademicos(@item.tblProductosAcademicos_ID)">Eliminar</button>*@
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="frame" id="_page_3">
+                <div>
+                    <table id="misEventos" class="table striped hover">
+                        <thead>
+                            <tr>
+                                <th class="span3">Titulo Evento Académico</th>
+                                <th class="span2">Evento</th>
+                                <th class="span3">Lugar Realización de Evento</th>
+                                <th class="span2">Fecha de Terminación</th>
+                                <th class="span2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.tblEventosAcademicos)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(model => item.eveaca_tituloEvento)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(model => item.eveaca_evento)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(model => item.eveaca_lugarEvento)
+                                    </td>
+                                    <td class="text-center">
+                                        @Html.DisplayFor(model => item.eveaca_anoTerminacion)
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="@Url.Action("ModificarEventoAcademico", new { id = item.tblEventosAcademicos_ID })" title="Modificar"><i class="icon-pencil button primary"></i></a> 
+                                        <a href="#" onclick="javascript:BorrarEventosAcademicos(@item.tblEventosAcademicos_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+
+                                        @*@Html.ActionLink("Modificar", "ModificarEventoAcademico", new { id = item.tblEventosAcademicos_ID }, new { @class = "button primary" })
+                                        <button class="button danger" onclick="javascript:BorrarEventosAcademicos(@item.tblEventosAcademicos_ID)">Eliminar</button>*@
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

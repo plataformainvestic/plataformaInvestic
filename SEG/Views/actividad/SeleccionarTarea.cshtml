@@ -1,0 +1,59 @@
+﻿@model SEG.Models.DataBase.programa_tareas
+
+@{
+    string msj = ViewBag.Message;
+}
+
+<h2>Seleccionar</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+
+    <div class="grid fluid">
+
+        <div class="row">
+            <div class="span2">
+                <strong>Tarea</strong>
+            </div>
+            <div class="span2 input-control select">
+                @Html.DropDownList("Id")
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="span2">
+
+            </div>
+            <div class="span2">
+                <input type="submit" class="btn large bg-darkBlue fg-white" value="Seleccionar" />
+            </div>
+
+
+        </div>
+    </div>
+
+
+ 
+
+
+}
+
+@section Scripts {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    <script src="~/Scripts/metro-ui/metro.min.js"></script>
+    @Styles.Render("~/Content/csswizard")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/wizard")
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.date.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}

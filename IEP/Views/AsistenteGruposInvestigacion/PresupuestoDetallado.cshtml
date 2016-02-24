@@ -1,0 +1,100 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblPresupuestoProyectoInvestigacion>
+
+@using IEP.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.Title = "Presupuesto Detallado";
+    string msj = ViewBag.Message;
+    InvesticEntities db = new InvesticEntities();
+}
+
+<div class="button-set margin10">
+    <a href="/MisGrupos" class="button">Mis grupos</a>
+    <a href="/AsistenteGruposInvestigacion/Invitaciones" class="button">Mis solicitudes</a>
+    @if (Model != null)
+    {
+        <a href="/AsistenteGruposInvestigacion/ForoProyecto/@Model.First().idGrupoInvestigacion" class="button">Foro</a>
+        <a href="/AsistenteGruposInvestigacion/ComentarioProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Comentario</a>
+    }
+</div>
+@if (ViewBag.InfoGrupo != null)
+{
+    var infogrupo = (IEP.Models.DataBase.InformacionGrupo)ViewBag.InfoGrupo;    
+    Html.RenderPartial("_InformacionGrupo", infogrupo);
+}
+<hr />
+
+<p>
+    <button id="lnkCrearPresupuesto" class="large bg-green">Agregar Presupuesto</button>
+</p>
+
+<table id="PresupuestoDetallado" class="table striped hovered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tblRubro.Rubro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionGasto)
+            </th>
+            <th>
+                @Html.DisplayName("Cantidad")
+            </th>
+            <th>
+                @Html.DisplayName("Vl Unitario")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderBy(m => m.idRubro))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblRubro.Rubro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionGasto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorRubro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorUnitario)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Total, "Currency")
+                </td>
+                <td class="text-right">
+                    <a class="button info" href="#" onclick="javascript:DeletePresupuesto(@item.id);" title="Eliminar"><i class="icon-remove"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div id="ingresar-presupuesto">
+    @{
+        tblPresupuestoProyectoInvestigacion tblpresupuesto = new tblPresupuestoProyectoInvestigacion();
+        if (Model != null)
+        {
+            tblpresupuesto.idGrupoInvestigacion = Model.First().idGrupoInvestigacion;
+        }
+        ViewBag.idRubro = new SelectList(db.tblRubro, "id", "Rubro");
+        Html.RenderPartial("_AgregarPresupuesto", tblpresupuesto);
+    }
+</div>
+
+@section Scripts {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.js"></script>
+    <script src="~/Scripts/Investic/Presupuesto.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}

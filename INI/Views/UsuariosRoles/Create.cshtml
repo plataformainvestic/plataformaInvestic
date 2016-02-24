@@ -1,0 +1,40 @@
+﻿@model  INI.Models.DataBase.AspNetUserRoles
+    
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h1>
+    <a href="/AdministrarRoles">
+        <i class="icon-arrow-left-3 fg-darker smaller"></i>
+    </a>
+    <small>Agregar usuario a rol</small>
+</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Usuarios en Roles</legend>
+        <p>
+            Usuarios
+        </p>
+        <div class="input-control select size4" data-role="input-control">
+            @Html.DropDownList("UserId", "Seleccionar Usuario")
+        </div>
+        <p>
+            Roles
+        </p>
+        <div class="input-control select size4" data-role="input-control">
+            @Html.DropDownList("RoleId", "Seleccionar Role")
+        </div>
+        <p>
+            <input class="button large bg-darkCobalt fg-white" type="submit" value="Agregar" />
+        </p>
+    </fieldset>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

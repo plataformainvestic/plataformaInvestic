@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SEG.Models.DataBase.equipos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Equipos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo equipo", "Create")
+</p> 
+<table class="table">
+    <tr>
+        <th>
+        NOMBRE EQUIPO
+        </th>
+        <th>
+        COORDINADOR
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre_Equipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre_Coordinador)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id_Equipo }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.Id_Equipo })
+        </td>
+    </tr>
+}
+
+</table>

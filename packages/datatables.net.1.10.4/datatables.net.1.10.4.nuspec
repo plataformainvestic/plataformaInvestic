@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>datatables.net</id>
+    <version>1.10.4</version>
+    <title>DataTables.Net</title>
+    <authors>MW Ágil - Sistemas Inteligentes (www.mwagil.com.br)</authors>
+    <owners>MW Ágil - Sistemas Inteligentes (www.mwagil.com.br)</owners>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>http://datatables.net/</projectUrl>
+    <iconUrl>http://datatables.net/media/images/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.</description>
+    <releaseNotes />
+    <copyright>Copyright  2014</copyright>
+    <language>en-US</language>
+    <tags>jQuery Datatables Grid Free</tags>
+    <dependencies>
+      <dependency id="jQuery" version="1.7" />
+    </dependencies>
+  </metadata>
+</package>

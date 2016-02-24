@@ -1,0 +1,21 @@
+﻿<img id="subregion_img" src="/images/lorraine/mapa/subregion3/subregion.png" usemap="#subregion1" />
+<map id="subregion1" name="subregion1">
+    <area id="ssh1" shape="poly" alt="Barbacoas" title="Barbacoas" coords="106,249,118,232,113,219,121,200,130,205,125,210,131,212,157,212,185,203,207,210,236,201,256,175,270,172,256,184,259,194,241,221,233,217,226,223,235,233,241,233,255,252,268,256,272,264,274,279,267,287,252,285,249,326,241,333,205,332,186,351,187,397,192,402,171,409,161,408,157,419,161,423,157,437,92,442,79,425,57,432,34,444,37,430,32,422,23,433,6,421,16,364,13,357,18,347,68,333,77,336,94,356,103,355,107,290,102,284,106,271" href="#" onmouseover="entersubregion(52079)" />
+    <area id="ssh2" shape="poly" alt="Magui Payan" title="Magui Payan" coords="100,94,105,86,114,89,119,83,132,86,138,78,130,67,132,52,159,56,158,62,177,69,179,65,204,60,224,76,223,84,246,69,250,82,266,82,269,96,268,127,279,136,301,136,312,132,336,138,339,154,334,156,327,173,322,159,318,152,311,155,299,152,277,172,259,173,237,198,211,211,201,209,187,201,178,209,127,212,129,203,125,201,115,208,105,193,105,164,99,161,94,133,102,111,98,104" href="#" onmouseover="entersubregion(52427)" />
+    <area id="ssh3" shape="poly" alt="Roberto Payan" title="Roberto Payan" coords="32,3,40,3,40,11,46,18,55,23,56,34,62,37,70,50,68,64,75,65,75,74,80,73,83,86,100,91,101,108,97,132,104,164,103,183,109,203,117,205,113,221,120,233,92,255,94,262,83,269,81,265,75,266,71,282,53,275,61,262,52,253,49,239,52,232,52,218,46,202,20,191,21,175,30,173,30,167,20,156,25,149,20,134,11,129,9,109,1,95,3,76,17,56,15,47,20,26" href="#" onmouseover="entersubregion(52621)" />
+</map>
+<a href="~/Home/comovamos"><img src="../../../images/como%20vamos/btn_volver_apr.png" alt="" /></a>
+<script>
+    $(function () {
+        jQuery("#ssh1").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Barbacoas");
+        });
+        jQuery("#ssh2").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Magui Payan");
+        });
+        jQuery("#ssh3").mouseenter(function () {
+            jQuery("#municipality_title").text("Municipio: Roberto Payan");
+        });
+    });
+</script>
+

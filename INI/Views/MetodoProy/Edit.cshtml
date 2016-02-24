@@ -1,0 +1,447 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "MetodoProy", FormMethod.Post, new { id = "MetodoProy" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m => m.tblMetodoProy.tblMetodoProy_ID)
+
+
+
+    investicEntities db = new investicEntities();
+    tblMetodoProy tblMetodoProy = Model.tblMetodoProy;
+    //ViewBag.tblCriticoSocial = new SelectList(db.tblCriticoSocial, "tblCriticoSocial_ID", "critSoc_nombre", tblMetodoProy.tblCriticoSocial);
+    //ViewBag.tblDisenioProy_ID = new SelectList(db.tblDiseniosProy, "tblDiseniosProy_ID", "disProy_nombre", tblMetodoProy.tblDisenioProy_ID);
+    //ViewBag.tblHistoricoHermeneutico = new SelectList(db.tblHistoricoHermeneutico, "tblHistoricoHermeneutico_ID", "hisHerm_nombre", tblMetodoProy.tblHistoricoHermeneutico);
+    ViewBag.tblParadigmaEpistemologico_ID = new SelectList(db.tblParadigmaEpistemologico, "tblParadigmaEpistemologico_ID", "parEpi_nombre", tblMetodoProy.tblParadigmaEpistemologico_ID);
+    ViewBag.tblParadigmaMetodologico_ID = new SelectList(db.tblParadigmaMetodologico, "tblParadigmaMetodologico_ID", "parMet_nombre", tblMetodoProy.tblParadigmaMetodologico_ID);
+    //ViewBag.tblTipoEstudioProy_ID = new SelectList(db.tblTipoEstudioProy, "tblTipoEstudioProy_ID", "tipEst_nombre", tblMetodoProy.tblTipoEstudioProy_ID);
+
+
+    <div class="gridf fluid">
+        @*ESTRUCTURA PARADIGMA EPISTEMOLOGICO*@
+        <div class="row">
+            <div class="span2">
+                <strong>Paradigma epistemológico</strong>
+                <span data-hint=""
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control select">
+                @Html.DropDownList("tblParadigmaEpistemologico_ID", "Seleccione Paradigma Epistemologico")
+                @Html.ValidationMessage("Elija el paradigma Epistemológico")
+            </div>
+
+            <div class="offset2">
+                <div class="row">
+                    <div class="span2">
+                        <strong>Tipo de estudio</strong>
+                        <span data-hint=""
+                              data-hint-position="right">
+                            <i class="icon-help on-right on-left"></i>
+                        </span>
+                    </div>
+                    <div class="input-control select" data-role="input-control">
+                        <select id="tblTipoEstudioProy_ID" name="tblTipoEstudioProy_ID"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offset2">
+                <div class="row">
+                    <div class="span2">
+                        <strong>Diseños</strong>
+                        <span data-hint="en investigación cualitativa los diseños principales son etnográfico, fenomenológico, narrativo, teoría fundamentada, investigación-acción. En investigación cuantitativa, los diseños pueden ser experimentales, no experimentales o cuasi-experimentales."
+                              data-hint-position="right">
+                            <i class="icon-help on-right on-left"></i>
+                        </span>
+                    </div>
+                    <div class="input-control select" data-role="input-control">
+                        <select id="tblDiseniosProy_ID" name="tblDiseniosProy_ID"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset2">
+                    <strong>Justifique el uso de paradigma epistemológico</strong>
+                    <span data-hint=""
+                          data-hint-position="right">
+                        <i class="icon-help on-right on-left"></i>
+                    </span>
+                    <div class="input-control textarea">
+                        @Html.TextAreaFor(m => m.tblMetodoProy.metProy_paradigmaEpistemologicoProy)
+                        @*@Html.ValidationMessage("Justifique la eleción del paradigma Epistemológico")*@
+                        @Html.ValidationMessageFor(m => m.tblMetodoProy.metProy_paradigmaEpistemologicoProy, String.Empty, new { @style = "color:red;!important" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display: none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMetodoProy_Rev.metProy_paradigmaEpistemologicoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMetodoProy_Rev.metProy_paradigmaEpistemologicoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMetodoProy_Rev.metProy_paradigmaEpistemologicoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMetodoProy_Rev.metProy_paradigmaEpistemologicoProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        @*ESTRUCTURA PARADIGMA METODOLOGICO*@
+        <div class="row">
+            <div class="span2">
+                <strong>Paradigma metodológico</strong>
+                <span data-hint=""
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control select">
+                @Html.DropDownList("tblParadigmaMetodologico_ID", "Seleccione Paradigma Metodológico")
+                @Html.ValidationMessage("Elija el paradigma Metodológico")
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <strong>Justifique el uso de paradigma metodológico</strong>
+                <span data-hint=""
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+                <div class="input-control textarea">
+                    @Html.TextAreaFor(m => m.tblMetodoProy.metProy_paradigmaMetodologicoProy)
+                    @*@Html.ValidationMessage("Justifique la elección del Paradigma Metodológico")*@
+                    @Html.ValidationMessageFor(m => m.tblMetodoProy.metProy_paradigmaMetodologicoProy, String.Empty, new { @style = "color:red;!important" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display: none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMetodoProy_Rev.metProy_paradigmaMetodologicoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMetodoProy_Rev.metProy_paradigmaMetodologicoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMetodoProy_Rev.metProy_paradigmaMetodologicoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMetodoProy_Rev.metProy_paradigmaMetodologicoProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        @*ESTRUCTURA POBLACION Y MUESTRA*@
+        <div class="row">
+            <div class="span2">
+                <strong>Población y muestra</strong>
+                <span data-hint="Describir el conjunto de unidades o elementos como personas, instituciones, fincas, municipios, etc., que participaran en el desarrollo del proyecto. Cuando la población es demasiado amplia se debe elegir una muestra representativa, especificando el tamaño y tipo de muestreo a utilizar: estratificado, simple al azar, de conglomerado, proporcional, polietápico, sistemático, etc."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblMetodoProy.metProy_poblacionMuestraProy)
+                @Html.ValidationMessageFor(m => m.tblMetodoProy.metProy_poblacionMuestraProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display: none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMetodoProy_Rev.metProy_poblacionMuestraProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMetodoProy_Rev.metProy_poblacionMuestraProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMetodoProy_Rev.metProy_poblacionMuestraProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMetodoProy_Rev.metProy_poblacionMuestraProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*ESTRUCTURA TECNICAS E INSTRUMENTOS*@
+        <div class="row">
+            <div class="span2">
+                <strong>Técnicas e instrumentos de recolección de información</strong>
+                <span data-hint="Pueden ser observación, entrevista, encuesta, cuestionario, pruebas, etc."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblMetodoProy.metProy_tecnicasInstrumentosProy)
+                @Html.ValidationMessageFor(m => m.tblMetodoProy.metProy_tecnicasInstrumentosProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display: none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMetodoProy_Rev.metProy_tecnicasInstrumentosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMetodoProy_Rev.metProy_tecnicasInstrumentosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMetodoProy_Rev.metProy_tecnicasInstrumentosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMetodoProy_Rev.metProy_tecnicasInstrumentosProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*ESTRUCTURA PROCEDIMIENTO*@
+        <div class="row">
+            <div class="span2">
+                <strong>Procedimiento</strong>
+                <span data-hint="Mencionar las fases o etapas del proyecto, describiendo paso a paso y de manera detallada las actividades a realizar."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblMetodoProy.metProy_procedimientoProy)
+                @Html.ValidationMessageFor(m => m.tblMetodoProy.metProy_procedimientoProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display: none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMetodoProy_Rev.metProy_procedimientoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMetodoProy_Rev.metProy_procedimientoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMetodoProy_Rev.metProy_procedimientoProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMetodoProy_Rev.metProy_procedimientoProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*ESTRUCTURA PLAN DE ANALISIS DE DATOS*@
+        <div class="row">
+            <div class="span2">
+                <strong>Plan de análisis de datos e información</strong>
+                <span data-hint="Describir las operaciones de codificación y análisis a las que serán sometidos los datos obtenidos en la recolección de la información."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(m => m.tblMetodoProy.metProy_planAnalisisDatosProy)
+                @Html.ValidationMessageFor(m => m.tblMetodoProy.metProy_planAnalisisDatosProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display: none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblMetodoProy_Rev.metProy_planAnalisisDatosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblMetodoProy_Rev.metProy_planAnalisisDatosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblMetodoProy_Rev.metProy_planAnalisisDatosProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblMetodoProy_Rev.metProy_planAnalisisDatosProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@*@section Scripts {
+        <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+        <script src="~/Scripts/Investic/MEpistemologicoCascading.js"></script>
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

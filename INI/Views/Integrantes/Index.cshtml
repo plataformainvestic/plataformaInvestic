@@ -1,0 +1,64 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblIntegrante>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div>
+    @Html.DropDownList("tblEquipo_ID", null, htmlAttributes: new { @class = "form-control" })
+
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.int_nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.int_apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.int_correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.int_telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblEquipo.equ_descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.int_nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.int_apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.int_correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.int_telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblEquipo.equ_descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.tblIntegrante_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.tblIntegrante_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.tblIntegrante_ID })
+        </td>
+    </tr>
+}
+
+</table>

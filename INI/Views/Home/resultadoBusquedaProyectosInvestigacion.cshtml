@@ -1,0 +1,55 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblProyectosInvestigacion>
+@*@model List<INI.Models.DataBase.tblProyectosInvestigacion>*@
+@using INI.Models.DataBase
+
+
+@{
+    ViewBag.Title = "Resultados de busqueda";
+    Layout = "~/Views/Shared/_InvInvestiga.cshtml";
+    investicEntities db = new investicEntities();
+}
+    <div class="row" style="position: fixed; top: 95px; font-family:Chewy; color:#FF1643; font-size:22pt; text-align:center;">Docentes Investigando</div>
+    <div style="position: fixed; top: 140px; background: url('../../images/fondosCapas/bg_docentesInvestigando_Resultados.png') no-repeat; padding: 10px 50px 10px 150px; height:490px; width:900px;">
+        <h4>@Html.ActionLink("Regresar", "BusquedaDocenteInvestigando")</h4>
+        <div>
+            <table id="misProyectos" class="table striped hover">
+                <thead>
+                    <tr>
+                        <th class="span4">Proyecto</th>
+                        <th class="span4">Grupo de Investigación</th>
+                        <th class="span4">Lider de Grupo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="vertical text-center">
+                            <th>
+                                @Html.DisplayFor(m => item.proyInv_nombreProyecto) <br />
+                                @*@Html.ActionLink("", "", "", new { id = item.tblProyectosInvestigacion_ID }, new { @class = "button info" })*@
+                                @Html.ActionLink("Ver Proyecto", "VisualizaProyectoInvestigacion", "Home", new { id = item.tblProyectosInvestigacion_ID }, new { @class = "button info" })
+                            </th>
+                            <th>
+                                @Html.Partial("~/Views/Shared/_InfoGrupoInvestigacion.cshtml", item)
+                            </th>
+                            <th>
+                                @{
+                        AspNetUsers liderGrupo = db.AspNetUsers.Find(item.tblGruposInvestigacion.tblUsuarioPlataforma_ID);
+                                }
+                                @Html.Partial("~/Views/Shared/_InfoLiderGrupo.cshtml", liderGrupo)
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+    <div class="row" style="position:fixed; top: 175px; right:250px;">
+        <img src="~/images/otros/marcador.png" />
+    </div>
+@section scripts{
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/iep-0.1-index.js"></script>
+}

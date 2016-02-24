@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "INVESTIGACIÓN COMO ESTRATEGIA PEDAGÓGICA";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool creador = false;
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span12 text-center">
+            <h4>@ViewBag.Title</h4>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.InfoGrupo != null)
+{
+    var infogrupo = (IEP.Models.DataBase.InformacionGrupo)ViewBag.InfoGrupo;
+    creador = infogrupo.EsCreador;
+    Html.RenderPartial("_InformacionGrupo", infogrupo);
+}
+
+<div class="button-set margin10">
+    <a href="/IEP" class="button">
+        <i class="icon-home"></i>
+    </a>
+    <a href="/IEP/IrAlProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Mi Grupo</a>
+    <a href="/IEP/IrABitacoras/@ViewBag.InfoGrupo.idGrupo" class="button">Mis Bitacoras</a>
+    <a href="/IEP/ForoProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Foro</a>
+    @if (creador) { 
+    <a href="/IEP/ComentarioProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Comentario</a>
+    }
+</div>
+<hr />
+@RenderBody()
+
+@RenderSection("scripts", required: false)
+

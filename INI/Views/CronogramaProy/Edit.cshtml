@@ -1,0 +1,53 @@
+﻿@*@model TestMAI.Models.DataBase.tblFechaCronograma*@
+@model INI.Models.DataBase.tblCronogramaProy
+@using INI.Models.DataBase;
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <h2><strong>Cronograma</strong></h2>
+    <span data-hint="Mencionar las actividades que se van a realizar en función del tiempo destinado para la ejecución del proyecto (10 meses)."
+          data-hint-position="right">
+        <i class="icon-help on-right on-left"></i>
+    </span>
+</div>
+
+<div class="row">
+    @*<h2>Agregar Fecha al Cronograma</h2>*@
+    <button id="agregarFechaCronograma" type="button" class="large bg-green fg-white">
+        Agregar Fecha al Cronograma
+        <i class="icon-plus bg-gren fg-white"></i>
+    </button>
+</div>
+
+<div class="grid fluid">
+    <div class="row">
+        <table id="miTablaCronograma" class="table striped hover">
+            <thead>
+                <tr>
+                    <th>Actividad</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Indicador</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.tblFechaCronograma)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.cro_Actividad)</td>
+                        <td class="text-center">@Html.DisplayFor(m => item.cro_FechaInicio)</td>
+                        <td class="text-center">@Html.DisplayFor(m => item.cro_FechaFin)</td>
+                        <td>@Html.DisplayFor(m => item.cro_Indicador)</td>
+                        <td>
+                            <a href="#" onclick="javascript:BorrarFechaCronograma(@item.tblFechaCronograma_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

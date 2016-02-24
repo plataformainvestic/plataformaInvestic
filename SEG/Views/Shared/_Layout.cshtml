@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title .NET</title>
+        <link rel="icon" type="image/png" href="favicon.png">
+        <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+        <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+        <link href="~/Content/Site.css" rel="stylesheet" />
+        <meta name="description" content="The description of my page" />
+</head>
+<body class="metro">
+
+    <nav class="navigation-bar dark">
+        <nav class="navigation-bar-content">
+            
+            <a class="element" href="/Home/Index">
+                <img src="/favicon.png" height="16" width="16" />
+                SEGUIMIENTO <sub>beta</sub>
+            </a>
+            <span class="element-divider"></span>
+            <a class="element" href="/">Inicio</a>
+
+
+
+            @if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("contratista"))
+                {
+
+                    <a class="element" href="/actividad/SeleccionarTarea">Actividades</a>
+                    <a class="element" href="/Reporte/Reporte">Reportes</a>
+                }
+
+                if (User.IsInRole("admin"))
+                {
+                    <a class="element" href="/Account/Register">Registrar Coordinador</a>
+                    <a class="element" href="/equipos/Create">Crear Equipo</a>
+                    <a class="element" href="/cargo/Create">Crear Cargos</a>
+
+                }
+
+                if (User.IsInRole("coordinador"))
+                {
+                    <a class="element" href="/Account/Register">Registrar Contratista</a>
+                    <a class="element" href="/contractual/Create">Asignar Responsabilidades</a>
+                    <a class="element" href="/agendar/Seleccionar">Nueva Tarea</a>
+                    <a class="element" href="/AspNetUsers/Index">Admin. Usuarios</a>
+               @*<a class="element" href="/fechasreporte/">Fechas de Corte</a>*@
+               }
+               }
+               else
+               {
+                <span class="element-divider place-right"></span>
+
+                <a class="element place-right" href="/Account/Login">Iniciar Sesión</a>
+
+            }
+        </nav>
+
+    </nav>
+    <div class="xmaslights"></div>
+    <div class="container">
+        @Html.Partial("_LoginPartial")
+        @RenderBody()
+
+    </div>
+
+    <div class="errorMessage" id="divErrorMessage">
+        <div id="errorTitle"></div>
+        <div id="errorMessage"></div>
+        <div id="errorButtons"></div>
+        <input type="button" value="Aceptar" id="btnAceptarError" />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/metro-ui")
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+
+    <script src="~/Scripts/AlertMessage.js"></script>
+    @RenderSection("scripts", false)
+</body>
+
+</html>

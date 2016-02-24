@@ -1,0 +1,59 @@
+﻿@model INI.Models.DataBase.tblComentarioGrupo
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+@using (Html.BeginForm("AgregarComentario", "IEP"))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.idGrupo)
+    @Html.HiddenFor(model => model.UserId)
+    @Html.HiddenFor(model => model.Aprobado)
+
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Comentarioa', { sticky: true })">
+                            Comentario:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Comentarioa">
+                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu comentario?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un comentario:.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                
+            </div>
+            <div class="span10 input-control textarea">
+                <textarea cols="20" data-val="true" data-val-required="El campo Comentario es obligatorio." id="Comentario" name="Comentario" rows="2" aria-required="true" class="input-validation-error" aria-describedby="Comentario-error" aria-invalid="true"></textarea>
+                @Html.ValidationMessageFor(model => model.Comentario, String.Empty, new { @style = "color:red;!important" })
+                @*<span class="field-validation-error" data-valmsg-for="Comentario" data-valmsg-replace="true"><span id="Comentario-error" class="">El campo Comentario es obligatorio.</span></span>*@
+            </div>
+        </div>        
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Agregar comentario" class="btn btn-default" />
+        </div>
+    </div>
+}

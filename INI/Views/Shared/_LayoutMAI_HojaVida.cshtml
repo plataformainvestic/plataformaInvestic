@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_InvMAI.cshtml";
+}
+
+<div class="verticalSpan2"></div>
+
+@RenderBody()
+
+@section ScriptsMAI{
+    @RenderSection("ScriptsMAI_HV", required: false);
+}

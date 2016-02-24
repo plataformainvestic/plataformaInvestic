@@ -1,0 +1,155 @@
+﻿@model INI.Models.DataBase.tblPresupuestoProyectoInvestigacion
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+@using (Html.BeginForm("AgregarPresupuesto", "IEP"))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+
+    <div id="PresupuestoGrupo" class="grid fluid">
+        <div class="row">
+
+
+            <div class="span2 text-right">
+
+                <div style="margin: auto; width: auto;">
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Rubro', { sticky: true })">
+                        Rubro:
+                    </div>
+
+                    <div style="display:none;">
+                        <div id="Rubro">
+                            <img src="/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="">
+                            <b><strong>Cual es tu Rubro?</strong></b><br><br>
+                            Este campo es obligatorio. Aquí debes seleccionar un Rubro.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="span10 input-control select">
+                <select id="idRubro" name="idRubro" class="">
+                    <option value="">Seleccionar Rubro</option>
+                    <option value="1">Insumos para la investigación</option>
+                    <option value="2">Papelería (fotocopias, impresiones, lápices, libretas de apuntes)</option>
+                    <option value="3">Transporte municipal e intermunicipal</option>
+                    <option value="4">Correo aéreo e internet</option>
+                    <option value="5">Materiales de divulgación (plegable, videos, fotografías, afiches)</option>
+                    <option value="6">Materiales de divulgación (plegable, videos, fotografías, afiches)</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="span2 text-right">
+
+                <div style="margin: auto; width: auto;">
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Cantidad', { sticky: true })">
+                        Cantidad:
+                    </div>
+
+                    <div style="display:none;">
+                        <div id="Cantidad">
+                            <img src="/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="">
+                            <b><strong>Cual es tu Cantidad?</strong></b><br><br>
+                            Este campo es obligatorio. Aquí debes ingresar una Cantidad.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="span2 input-control text">
+                <input data-val="true" data-val-number="El Valor Rubro debe ser un número" data-val-range="El Valor Rubro debe estar entre 0 y 1,79769313486232E+308." data-val-range-max="1.79769313486232E+308" data-val-range-min="0" data-val-required="El Valor Rubro es obligatorio." id="ValorRubro" name="ValorRubro" type="text" value="0" aria-required="true" aria-describedby="Valor Rubro-error" class="valid">
+                @Html.ValidationMessageFor(model => model.ValorRubro, String.Empty, new { @style = "color:red;!important" })
+                @*<span class="field-validation-valid" data-valmsg-for="ValorRubro" data-valmsg-replace="true"></span>*@
+                <br /><br /><br /><br /><br /><br />
+            </div>
+
+            <div class="span2 text-right">
+
+                <div style="margin: auto; width: auto;">
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#ValorUnitario', { sticky: true })">
+                        Valor Unitario:
+                    </div>
+
+                    <div style="display:none;">
+                        <div id="ValorUnitario">
+                            <img src="/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="">
+                            <b><strong>Cual es tu Valor Unitario?</strong></b><br><br>
+                            Este campo es obligatorio. Aquí debes ingresar un Valor Unitario.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="span2 input-control text">
+                <input data-val="true" data-val-number="El Valor Rubro debe ser un número." data-val-range="El Valor Unitario debe estar entre 0 y 1,79769313486232E+308." data-val-range-max="1.79769313486232E+308" data-val-range-min="0" data-val-required="El Valor Unitario es obligatorio." id="ValorUnitario" name="ValorUnitario" type="text" value="0" aria-required="true" aria-describedby="Valor Unitario-error" class="valid">
+                @Html.ValidationMessageFor(model => model.ValorUnitario, String.Empty, new { @style = "color:red;!important" })
+                @*<span class="field-validation-valid" data-valmsg-for="ValorUnitario" data-valmsg-replace="true"></span>*@
+            </div>
+
+
+            <div class="span2 text-right">
+
+                <div style="margin: auto; width: auto;">
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Total', { sticky: true })">
+                        Total:
+                    </div>
+
+                    <div style="display:none;">
+                        <div id="Total">
+                            <img src="/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="">
+                            <b><strong>Tu Total?</strong></b><br><br>
+                            Valor. Total.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="span2 input-control text">
+                <input data-val="true" data-val-number="El Valor Rubro debe ser un número." data-val-range="El Total debe estar entre 0 y 1,79769313486232E+308." data-val-range-max="1.79769313486232E+308" data-val-range-min="0" data-val-required="El Total es obligatorio." disabled="disabled" id="Total" name="Total" type="text" value="0">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="span2 text-right">
+
+                <div style="margin: auto; width: auto;">
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Descripcion', { sticky: true })">
+                        Descripción:
+                    </div>
+
+                    <div style="display:none;">
+                        <div id="Descripcion">
+                            <img src="/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="">
+                            <b><strong>Cual es tu Descripción?</strong></b><br><br>
+                            Este campo es obligatorio. Aquí debes ingresar una Descripción.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="span10 input-control textarea">
+                <textarea cols="20" data-val="true" data-val-required="La Descripcion Gasto es obligatoria." id="DescripcionGasto" name="DescripcionGasto" rows="2" aria-required="true" class="input-validation-error" aria-describedby="DescripcionGasto-error" aria-invalid="true"></textarea>
+                @Html.ValidationMessageFor(model => model.DescripcionGasto, String.Empty, new { @style = "color:red;!important" })
+                @*<span class="field-validation-error" data-valmsg-for="DescripcionGasto" data-valmsg-replace="true"><span id="DescripcionGasto-error" class="">La Descripcion Gasto es obligatorio.</span></span>*@
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Agregar" class="button bg-green" />
+}

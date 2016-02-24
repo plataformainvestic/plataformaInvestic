@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.Phone.cshtml";
+}
+<img src="~/images/mobile/aroinvestic.png" style="text-align:left;float:left;" />
+<h2 id="titlesection">Conócenos</h2>
+<ul data-role="listview">
+    <li>@Html.ActionLink("¿Quiénes Sómos?", "Conocenos", "Home")</li>
+    <li>@Html.ActionLink("Aspectos Generales", "General", "Home")</li>
+    <li>@Html.ActionLink("Equipos de Trabajo", "EquiposTrabajo", "Home")</li>
+    <li>@Html.ActionLink("Alternativas", "Alternativas", "Home")</li>
+    <li>@Html.ActionLink("Asesores de Zona", "VerAsesores", "Home")</li>
+    <li>@Html.ActionLink("Tutores de Zona", "TutoresTIC", "Home")</li>
+</ul>
+<h4>Equipos de Trabajo de INVESTIC</h4>
+
+    @*<div class="titulopagina" style="color:#13678C;"> Nuestro Equipo de Trabajo</div>*@
+    @{
+        //INI.Models.DataBase.investicEntities db = new INI.Models.DataBase.investicEntities();
+        Html.RenderAction("IntegrantesEquipos");
+    }
+
+

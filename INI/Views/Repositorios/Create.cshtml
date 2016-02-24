@@ -1,0 +1,108 @@
+﻿@model INI.Models.DataBase.Repositorio
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br />
+<h2>Crear</h2>
+
+
+@using (Html.BeginForm("Create", "Repositorios", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Repositorio</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.urlRepositorio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                <div class="input-control file">
+                    @Html.EditorFor(model => model.urlRepositorio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.urlRepositorio)
+                </div>
+            </div>
+        </div>        
+        <div class="form-group">
+            @Html.LabelFor(model => model.urlfront, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-control file">
+                    <input id="urlfront" name="urlfront" type="file" accept=".png" />
+                    <button class="btn btn-file"></button>
+                    @Html.ValidationMessageFor(model => model.urlfront)
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            Categoria:@Html.DropDownList("id_Categoria", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SubCategoriaRepositorio.id_categoria, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                Subcategoria:
+                @Html.DropDownList("id_SubCategoria", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.id_SubCategoria, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $("#id_Categoria").change(function () {
+                
+                var lst_subcategoria = $("#id_SubCategoria");
+                var lst_categoria = $("#id_Categoria");
+                
+                $.ajax({
+                    cache: false,
+                    type: 'GET',
+                    async: false,
+                    dataType: 'json',
+                    url: "/Repositorios/GetSubcategoria/".concat(lst_categoria.val()),
+                    success: function (result) {
+                        lst_subcategoria.find("option").remove();
+                        $.each(result, function (index, item) {
+                            lst_subcategoria.append("<option value='" + item.id + "'>" + item.nombre + "</option>");
+                            
+                        });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert("error status " + xhr.status);
+                        alert("error error trow" + thrownError);
+                    }
+                });
+            });
+        });
+    </script>
+}

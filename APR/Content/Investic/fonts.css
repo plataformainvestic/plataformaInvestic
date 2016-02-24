@@ -1,0 +1,21 @@
+﻿@font-face {
+font-family: Chewy;
+src: url('../../fonts/Chewy/Chewy.ttf');
+}
+
+p {
+  font-family: "Chewy";
+  font-size: 130%;
+} 
+
+@font-face {
+font-family: Roboto;
+src: url('../../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+font-family: Roboto;
+font-weight: bold;
+src: url('../../fonts/Roboto/Roboto-Bold.ttf');
+}
+

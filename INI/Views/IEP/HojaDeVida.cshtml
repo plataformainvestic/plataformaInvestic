@@ -1,0 +1,112 @@
+﻿@model INI.Models.DataBase.tblMaestroCoInvestigador
+
+@{
+    ViewBag.SubTitle = "Hoja de Vida";
+    Layout = "~/Views/Shared/_LayoutIEP.cshtml";
+    string msj = ViewBag.Message;
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span12 text-center">
+            <h4>@ViewBag.SubTitle</h4>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("HojaDeVida", "IEP"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idUsuario)
+    @Html.HiddenFor(model => model.idInstitucion)
+
+    <div class="form-horizontal">
+        <h4>Datos Maestro</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-alert" })
+
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Area de Conocimiento")
+                    </strong>
+                </div>
+                <div class="span5 input-control select" data-role="input-control">
+                    @Html.DropDownList("idAreaConocimiento", "Seleccionar Area")
+                    @Html.ValidationMessageFor(model => model.idAreaConocimiento, "", new { @class = " text-alert" })
+                </div>
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Tiempo en Ondas")
+                    </strong>
+                </div>
+                <div class="span1 input-control text" data-role="input-control">
+                    @Html.TextBoxFor(model => model.TiempoOndas, new { @type = "number", @Value = "0", min = "0" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.DisplayName("Institución")
+                    </strong>
+                </div>
+                <div class="span8 input-control text">
+                    @Html.TextBox("Institution", null, new { placeholder = "Nombre de la institución" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Pregrado")
+                    </strong>
+                </div>
+                <div class="span8 input-control text size8" data-role="input-control">
+                    @Html.EditorFor(model => model.Pregrado)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Postgrado")
+                    </strong>
+                </div>
+                <div class="span8 input-control text size8" data-role="input-control">
+                    @Html.EditorFor(model => model.Postgrado)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Otro")
+                    </strong>
+                </div>
+                <div class="span8 input-control text size8" data-role="input-control">
+                    @Html.EditorFor(model => model.Otro)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Experiencia")
+                    </strong>
+                </div>
+                <div class="span8 input-control textarea size8" data-role="input-control">
+                    @Html.TextAreaFor(model => model.ExperienciaAreaConocimiento)
+                </div>
+            </div>
+        </div>
+        <p>
+            <input type="submit" value="Agregar información" class="button info" />
+        </p>
+    </div>
+}
+
+@section Scripts {    
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Investic/iep-0.1-hojadevida.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}

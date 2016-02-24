@@ -1,0 +1,62 @@
+﻿@model INI.Models.DataBase.tblCargos
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <br />
+        <h4>Cargos</h4>
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="grid fluid">
+
+            <div class="row">
+                <div class="span2">
+                    <strong>Nombre Cargo</strong>
+                </div>           
+                    <div class="span4 input-control text">
+                        @Html.TextBoxFor(m => m.Nombre_Cargo)
+                        
+                        @Html.ValidationMessageFor(m => m.Nombre_Cargo)
+
+                        <button class="btn btn-clear"></button>
+                    </div>
+            
+
+            </div>
+
+            <div class="row">
+
+                <div class="span4">
+                    <strong> </strong>
+                </div>
+                <div class="span6">
+                    <input type="submit" class="btn large bg-darkBlue fg-white" value="Crear" />
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+   
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

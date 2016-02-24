@@ -1,0 +1,51 @@
+﻿@model MAI.Models.DataBase.tblPresupuestoProy
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Presupueso</h2>
+
+<div class="row">
+    <table id="miTabla" class="table striped hover">
+        <thead>
+            <tr>
+                <th>Rubro</th>
+                <th>Fuente</th>
+                <th>Valor</th>
+                <th>Justificación</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.tblRubroPresupuesto)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.tblRubro.rub_nombre)</td>
+                    <td>@Html.DisplayFor(m => item.rubPre_fuente)</td>
+                    <td>@Html.DisplayFor(m => item.rubPre_valor)</td>
+                    <td>@Html.DisplayFor(m => item.rubPre_justificacion)</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+<div class="row">
+    <h2>Agregar Rubro al Presupuesto</h2>
+</div>
+
+<div class="row">
+    @{
+        var nuevoRubro = new MAI.Models.DataBase.tblRubroPresupuesto();
+        nuevoRubro.tblPresupuestoProy_ID = Model.tblPresupuestoProy_ID;
+        @Html.Partial("~/Views/RubrosPresupuesto/Create.cshtml", nuevoRubro)
+
+    }
+</div>
+
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+}

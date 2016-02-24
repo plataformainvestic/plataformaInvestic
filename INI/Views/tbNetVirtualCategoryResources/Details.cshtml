@@ -1,0 +1,38 @@
+﻿@model INI.Models.DataBase.tbNetVirtualCategoryResource
+
+@{
+    ViewBag.Title = "Details";
+    String ctrl=ViewBag.ControllerName;
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+}
+
+<h2>Details</h2>
+
+<br /><br /><br />
+@Html.ActionLink("Atraz", "Index", null, new { @class = "button large primary" })
+<div>
+    <h4>tbNetVirtualCategoryResource</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+     
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+        <dd>
+            <a href="@Url.Action("DowloadFile", new { id = Model.id, FileId = "image" })" target="_blank" class="glyphicon glyphicon-download-alt"></a>
+            @*<img src="@Url.Action("DowloadFile", new { id = item.id, FileId = "image" })" width="100px"/>*@       
+        <dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    
+</p>

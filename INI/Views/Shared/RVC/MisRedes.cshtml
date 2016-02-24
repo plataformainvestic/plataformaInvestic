@@ -1,0 +1,53 @@
+﻿@model  List<INI.Models.Mymodels.RedVirtualGrupoOtherUser>
+<h1>Mis redes</h1>
+<table id="tbl_mr" class="table">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Creador</th>
+            <th>
+                Nombre
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.StateUserAceptGroup != 0) { 
+                        <a href="@Url.Action("Index", "RVCWall", new {id=@item.id })">
+                            <img src="@Url.Action("DowloadFile", "tbNetVirtualGroups", new { id = item.id, FileId = "photo" })" width="100px" />
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualGroups", new { id = item.id, FileId = "photo" })" width="100px" />
+                        <i class="icon-glasses-2" data-hint="Revisando|Esta red virtual de conocimiento está siendo estudiada para ser aprobada" data-hint-position="right"></i>
+                    }
+                </td>
+                <td>
+                    <a href="#" data-hint="Owner|Aqui podras saber más sobre el creador de esta red." data-hint-position="bottom">
+                        <img src="@Url.Action("DowloadFile", "tbNetVirtualUsers", new { id = item.idUser, FileId = "photo" })" width="50px" />
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>                
+                <td>                    
+                    @Html.ActionLink(" ", "Details", "tbNetVirtualGroups", new { id = item.id }, new { @class = "icon-list", data_hint = "Detalles|Aqui podras saber más sobre esta red.",data_hint_position="bottom" })|                     
+                    @if (item.StateUserAceptGroup != 0) { 
+                        @Html.ActionLink(" ", "Edit", "tbNetVirtualGroups", new { id = item.id }, new { @class = "icon-pencil", data_hint = "Editar|Aqui podras editar esta red.",data_hint_position="bottom" })
+                    }
+                    else
+                    {
+                        <i class="icon-pencil"></i>
+                    }
+                    |@Html.ActionLink(" ", "Delete", "tbNetVirtualGroups", new { id = item.id }, new { @class = "icon-cancel-2", data_hint = "Eliminar|Aqui podras eliminar esta red.",data_hint_position="bottom" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,74 @@
+﻿@model INI.Models.DataBase.tblTutorZona
+
+@{
+    ViewBag.Title = "Eliminar Tutor";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br /><br />
+
+<h3>Esta seguro de eliminar el tutor?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <strong>
+                @Html.DisplayName("Nombre")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_nombre)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Apellido")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_apellido)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Apellido")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_correo)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Telefono")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_telefono)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Institucion Educativa")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblInstitucion.CodigoDane)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="button info" /> |
+            @Html.ActionLink("Regresar a la Lista", "Index")
+        </div>
+    }
+</div>

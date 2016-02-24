@@ -1,0 +1,188 @@
+﻿body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.metro .page {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+header {
+  height: 45px;
+  position: relative;
+}
+
+#contenedor {
+	width:400px;	
+}
+
+#imgLorraine {
+	position:relative;
+	top:70px;
+}
+
+#imgInvestigaT {
+	position:relative;
+    /*top:30px;
+	left:-120px;*/
+    left:-200px;
+}
+
+#mundo {
+	position:relative;
+	left:90px;
+	top:-160px;	
+	z-index:0;	
+	width:250px;
+}
+
+#betocont {
+	position:relative;
+	left:0px;
+	top:-5px;	
+	width:450px;
+}
+
+#betocontinv {
+	position:relative;
+	left:35px;
+	top:40px;	
+	width:450px;
+}
+
+#Beto3 {
+	position:relative;
+	left:2px;
+}
+
+#BetoComunidad {
+	position:relative;
+	left:29px;
+	top:-7px;
+}
+
+#BetoDocente {
+	position:relative;
+	left:13px;
+	top:-4px;
+}
+
+#msjInvestiga {
+	position:relative;
+	top:190px;	
+	left:-90px;
+	width:150px;
+    /*200px alto*/
+	height:210px;
+}
+
+#botonRegistro{
+    display:none;
+    position:fixed;
+    width="150px";
+    height="130px";
+}
+
+#msjRegistra {
+	position:relative;
+	top:80px;	
+	left:-20px;
+	width:200px;
+	height:150px;
+}
+
+#msjSeguimiento {
+	position:relative;
+	top:80px;	
+	left:-20px;
+	width:200px;
+	height:150px;
+}
+
+#msjComunidad {
+	position:relative;
+	top:80px;	
+	left:-20px;
+	width:200px;
+	height:150px;
+}
+
+#msjDocente {
+	position:relative;
+	top:80px;	
+	left:-20px;
+	width:200px;
+	height:150px;
+}
+
+#msjConsulta {
+	position:relative;
+	top:180px;	
+	left:-100px;
+	width:200px;
+	height:210px;	
+}
+
+#msjAprende {
+	position:relative;
+	top:170px;	
+	left:-100px;
+	width:200px;
+	height:210px;
+}
+
+#investiga {
+	position:relative;
+	top:130px;	
+	left:-90px;
+	height:100px;
+	width:277px;
+}
+
+#consulta {
+	position:relative;
+	top:130px;	
+	left:-90px;
+	height:62px;
+	width:277px;
+}
+
+#aprende {
+	position:relative;
+	top:130px;
+	left:-90px;
+	height:124px;
+	width:277px;
+}
+
+#imgInvestigaG {
+	position:relative;
+	top:0px;	
+	left:-20px;
+}
+
+#imgInvestiga {
+	position:relative;
+	top:15px;	
+	left:0px;
+}
+
+#imgConsultaG {
+	position:relative;
+	top:0px;	
+	left:-20px;
+}
+
+#imgAprendeG {
+	position:relative;
+	top:0px;	
+	left:-20px;
+}
+
+#con {
+	display:none;
+	position:absolute;	
+}
+

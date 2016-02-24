@@ -1,0 +1,37 @@
+﻿@model INI.Models.DataBase.tblResponsabContratista
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Responsabilidades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.UserName)
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new {id = Model.Id}) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

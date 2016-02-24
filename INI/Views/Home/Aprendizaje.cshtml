@@ -1,0 +1,322 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblRecursosEducativos>
+@{
+    ViewBag.Title = "Aprendizaje";
+    Layout = "~/Views/Shared/_InvInvestiga.cshtml";
+}
+
+
+
+<div id="aprendizaje" style="position: fixed; top: 10%; left: 0px; width: 100%; height: 100%;">
+    
+    <div id="cuerpo" style="border:1px, #00F;position:relative;">
+        
+        <div style="background-color:#361F00;float:left;width:50%;height:800px;">
+
+            <div class="invizquierda" style="background-color:#00F;height:100%;" onclick="javascript: vinv(1);">
+                <br /><br /><br /> Ambientes Virtuales<br /> de aprendizaje
+            </div>            
+        </div>
+        <div style="background-color:#FFB20F;float:left;width:50%;height:800px;">
+            <div class="invderecha" style="background-color:#FFB20F;height:100%;" onclick="javascript: vinv(2);">
+                <div class="row">
+                    <div class="cell"><div id="centro" class="row" style="position: fixed; top: 19%; left: 94%; z-index: 99;">@Html.AtrasInvestic()</div></div>
+                </div>
+                <br /><br /><br />Catálogo de <br />recursos educativos
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ambientes" style="display:none;">
+    <div style="position: fixed; top: 15%; width: 100%; height: 450px;left:0;">
+        <div class="titulosseccion" style="text-align:center;color:#33691E;">Ambientes Virtuales de Aprendizaje</div>
+        <div id="Listado" class="centradoaprendizaje" style="top:40%;opacity:0.9;">
+            <div>
+                <div class="row">
+                    <span class="span1">@Html.Label("Seleccione la categoría de Cursos:")</span>
+                    <span class="span2">@Html.DropDownList("chCategorias", "Todos los cursos")</span>
+                </div>
+                <br /><br />
+                <div id="descripcurso" style="width:100%;height: 310px;overflow-y: auto; border:1px solid #bab3b3;display:none;"></div>
+                <div id="miscursos" style="width:100%;height: 310px;overflow-y: auto; border:1px solid #bab3b3">
+                    <div id="ajxload" style="position: relative; left: 305px; display: none;">
+                        <img src="/images/Investiga/apr/ajax-loader.gif">
+                    </div>
+                    @{
+                        //INI.Models.DataBase.investicEntities db = new INI.Models.DataBase.investicEntities();
+                        Html.RenderAction("CursosChamilo");
+                    }
+                </div>
+
+            </div>
+        </div>
+        <div class="centradoaprendizaje" style="position:absolute;float:right; width:278px;height:70px;left:92%;top:40%;opacity:0.9;">
+            @Html.Label("Digite una palabra clave:")
+            <input type="text" id="buscarcurso" name="buscarcurso" />
+        </div>
+        <div class="centradoaprendizaje" style="position:absolute;float:right; width:278px;height:359px;left:92%;top:60%;opacity:0.9;">
+            @{
+                Html.RenderAction("cuentacat");
+            }
+        </div>
+        <center> <div style="top:100%; position:absolute; width: 100%; height: 650px;left:0;">@Html.AtrasInvestic()</div></center>
+    </div>
+
+</div>
+
+<div id="catalogo" style="display:none;">
+    <div style="position: fixed; top: 15%; width: 100%; height: 80%;">
+        <div class="titulosseccion" style="text-align:center;color:#33691E;font-size:2.0em;">Catálogo de recursos educativos</div>
+        <table style="margin:auto;">
+            <tr>
+                <td>
+                    <div class="centradoaprendizaje" style="left: 30%; top: 40%; height: 90%; width:70%;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div id="divColecciones" style="text-align:center;color:#33691E;">
+                                        Colecciones
+                                        <table style="background-color:transparent;">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <img id="1" class="imgColecciones" src="~/images/Investiga/apr/tec_informatica.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Tecnología e Informática</td>
+
+                                                <td>
+                                                    <div>
+                                                        <img id="2" class="imgColecciones" src="~/images/Investiga/apr/pry_trans.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Proyectos Transversales</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <img id="3" class="imgColecciones" src="~/images/Investiga/apr/ciencias_n.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Ciencias Naturales</td>
+
+                                                <td>
+                                                    <div>
+                                                        <img id="4" class="imgColecciones" src="~/images/Investiga/apr/inv.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Investigación</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <img id="5" class="imgColecciones" src="~/images/Investiga/apr/matematicas.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Matemáticas</td>
+
+                                                <td>
+                                                    <div>
+                                                        <img id="6" class="imgColecciones" src="~/images/Investiga/apr/sociales.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Ciencias Sociales</td>
+
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <img id="7" class="imgColecciones" src="~/images/Investiga/apr/lenguaje.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Lenguaje</td>
+                                                <td>
+                                                    <div>
+                                                        <img id="8" class="imgColecciones" src="~/images/Investiga/apr/otros.png" />
+                                                    </div>
+                                                </td>
+                                                <td>Otros</td>
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="divResultados" style="padding-left:45px;padding-top: 20px; height: 100%; width: 150%; max-width: 150%; max-height: 450px; overflow: auto; ">
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td></td>
+                <center> <div style="top:100%; position:absolute; width: 100%; height: 650px;left:0;">@Html.AtrasInvestic()</div></center>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <link href="~/Content/themes/base/autocomplete.css" rel="stylesheet" />
+    <script src="~/Scripts/DataTables-1.10.4/jquery.dataTables.js"></script>
+    <script>
+        $(function () {
+            $('#Tabla').dataTable({
+                "sPaginationType": "full_numbers",
+                "oLanguage": {
+                    "sUrl": "../../Lang/es-CO.txt"
+                }
+            });
+
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            $("#buscarcurso").keyup(function () {
+                var id = $(this).val();
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosTitle?term=' + id, function () {
+                    $("#ajxload").hide();
+                });
+
+            });
+
+
+            $("#chCategorias").change(function () {
+                var id = $(this).val();
+                if (id == "") id = 0;
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=' + id, function () {
+                    $("#ajxload").hide();
+                });
+
+            });
+
+            $("#category1").click(function () {
+                $("#chCategorias").val("1");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=1', function () {
+                    $("#ajxload").hide();
+                });
+            });
+            $("#category2").click(function () {
+                $("#chCategorias").val("2");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=2', function () {
+                    $("#ajxload").hide();
+                });
+            });
+            $("#category3").click(function () {
+                $("#chCategorias").val("3");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=3', function () {
+                    $("#ajxload").hide();
+                });
+            });
+            $("#category4").click(function () {
+                $("#chCategorias").val("4");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=4', function () {
+                    $("#ajxload").hide();
+                });
+            });
+            $("#category5").click(function () {
+                $("#chCategorias").val("5");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=5', function () {
+                    $("#ajxload").hide();
+                });
+            });
+            $("#category6").click(function () {
+                $("#chCategorias").val("6");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=6', function () {
+                    $("#ajxload").hide();
+                });
+            });
+            $("#category7").click(function () {
+                $("#chCategorias").val("7");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=7', function () {
+                    $("#ajxload").hide();
+                });
+            });
+            $("#category8").click(function () {
+                $("#chCategorias").val("8");
+                $("#ajxload").show();
+                $('#miscursos').load('/Home/CursosChamilopcat?idcat=8', function () {
+                    $("#ajxload").hide();
+                });
+            });
+
+
+            $("#buscarcategoria").autocomplete({
+                autoFocus: true,
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Json/AutoCompleteCategoria",
+                        type: "POST",
+                        dataType: "json",
+                        data: { term: request.term },
+                        success: function (data) {
+                            var contenido = '<div>'
+                            $.map(data.Categorias, function (item) {
+                                contenido += '<p>' + item.name + '</p>'
+                            });
+                            contenido += '</div>';
+                            $('#descripcurso').empty();
+                            $('#descripcurso').html(contenido);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $("#nomcat").val(ui.item.label);
+                    return false;
+                },
+                messages: {
+                    noResults: "No hay resultados", results: function (resultsCount) { }
+                }
+            });
+        });
+        function vinv(id) {
+            switch (id) {
+                case 1:
+                    $('#ambientes').show();
+                    $('#catalogo').hide();
+                    $('#cuerpo').hide();
+                    break;
+                case 2:
+                    $('#ambientes').hide();
+                    $('#catalogo').show();
+                    $('#cuerpo').hide();
+                    break;
+            }
+
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            $("img.imgColecciones").click(function () {
+                var id = $(this).attr("id");
+                $('#divResultados').load('/RecursosEducativos/getRecByCollections/' + id);
+
+            });
+
+        });
+
+
+
+    </script>
+
+
+
+}

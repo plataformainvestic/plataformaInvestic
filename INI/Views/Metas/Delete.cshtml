@@ -1,0 +1,82 @@
+﻿@model INI.Models.DataBase.tblMeta
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            Borrar Meta.
+        </h2>
+    </p>
+    <hr />
+    <h3>Está seguro de eliminar esta Meta?</h3>
+    <table border="0" style="background-color:transparent;">
+        <tr><td colspan="2"><h4><strong>Investigación</strong></h4></td></tr>
+        <tr>
+            <td><div class="span3">Municipio</div></td>
+            <td>@Html.DisplayFor(model => model.tblMunicipios.NombreMunicipio)</td>
+        </tr>
+        <tr>
+            <td>Grupos Estudiantiles</td>
+            <td>@Html.DisplayFor(model => model.met_grupoInvestigacionEstudiantil)</td>
+        </tr>
+        <tr>
+            <td>N° Estudiantes</td>
+            <td>@Html.DisplayFor(model => model.met_estudianteInvestigando)</td>
+        </tr>
+        <tr>
+            <td>Grupos de Docentes</td>
+            <td>@Html.DisplayFor(model => model.met_grupoInvestigacionDocente)</td>
+        </tr>
+        <tr>
+            <td>N° Docentes</td>
+            <td>@Html.DisplayFor(model => model.met_docenteInvestigando)</td>
+        </tr>
+        <tr><td colspan="2"><br /><br /></td></tr>
+        <tr><td colspan="2"><h4><strong>Formación en las TIC</strong></h4></td></tr>
+        <tr>
+            <td>Sedes Educativas</td>
+            <td>@Html.DisplayFor(model => model.met_establecimientosEducativos)</td>
+        </tr>
+        <tr>
+            <td>N° Padres 40H</td>
+            <td>@Html.DisplayFor(model => model.met_padresFormados40)</td>
+        </tr>
+        <tr>
+            <td>N° Estudiantes 40H</td>
+            <td>@Html.DisplayFor(model => model.met_estudiantesFormados40)</td>
+        </tr>
+        <tr>
+            <td>N° Docentes 120H</td>
+            <td>@Html.DisplayFor(model => model.met_docentesFormados120)</td>
+        </tr>
+        <tr>
+            <td>N° estudiantes 180H</td>
+            <td>@Html.DisplayFor(model => model.met_estudiantesFormados180)</td>
+        </tr>
+        <tr>
+            <td>N° Docentes 180H</td>
+            <td>@Html.DisplayFor(model => model.met_docentesFormados180)</td>
+        </tr>
+
+
+    </table>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <table style="background-color:transparent;">
+                <tr>
+                    <td><input type="submit" value="Borrar" class="button large primary" /> |</td>
+                    <td><h4>@Html.ActionLink("Regresar", "Index")</h4></td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>

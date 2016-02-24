@@ -1,0 +1,220 @@
+﻿@model INI.Models.DataBase.tblGrupoInvestigacion
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+@using (Html.BeginForm("ModificarGrupo", "IEP", FormMethod.Post, new { id = "CreateGroup", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idInstitucion)
+    @Html.HiddenFor(model => model.idUsuario)
+    @Html.HiddenFor(model => model.idLineaInvestigacion)
+    @Html.HiddenFor(model => model.TipoGrupo)
+    @Html.HiddenFor(model => model.Codigo)
+    @Html.HiddenFor(model => model.FechaCreacion)
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Nombreaaa', { sticky: true })">
+                            @Html.DisplayName("Nombre ")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Nombreaaa">
+                                <img src="~/images/ToolTip/p3.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu nombre?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un nombre.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+        
+
+
+
+
+
+    </div>
+            <div class="span10 input-control text">
+                @Html.TextBoxFor(model => model.Nombre, new { placeholder = "Nombre del grupo" })
+                <button class="btn-clear"></button>
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-alert" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+
+
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Tipoinvestigaciona', { sticky: true })">
+                            @Html.DisplayName("Tipo investigación")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Tipoinvestigaciona">
+                                <img src="~/images/ToolTip/p3.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu tipo investigación?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un tipo investigación.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+              
+            </div>
+            <div class="span4">
+                @if (Model.tblLineaInvestigacion.Categoria == 1)
+                {
+                    @Html.DisplayName("Tipo investigación Pre-Estructurados")
+                }
+                else
+                {
+                    @Html.DisplayName("Tipo investigación Abiertos")
+                }
+            </div>
+            <div class="span2">
+
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#LineaInvestigacion', { sticky: true })">
+                            @Html.DisplayName("Linea Investigación")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="LineaInvestigacion">
+                                <img src="~/images/ToolTip/p3.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu linea investigación?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una linea investigación.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="span4 input-control select">
+                @Html.DropDownList("idLineaInvestigacion", "Linea de Investigación")
+                @Html.ValidationMessageFor(model => model.idLineaInvestigacion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Imagena', { sticky: true })">
+                            @Html.DisplayName("Imagen")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Imagena">
+                                <img src="~/images/ToolTip/p3.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu Imagen?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una imagen.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <div class="span4 input-control file">
+                <input id="Avatar" name="Avatar" type="file" />
+                <button class="btn-file"></button>
+            </div>
+            <div class="span4 offset2">
+                <input type="submit" value="Modificar Grupo" class="button large info" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+
+
+
+
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#Insigniaa', { sticky: true })">
+                            @Html.DisplayName("Insignia")
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="Insigniaa">
+                                <img src="~/images/ToolTip/p3.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu Insigniaa?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar una insigniaa.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                
+            </div>
+            <div class="span10">
+                <img src="~/images/Avatars/@Model.Avatar" width="96" height="96" />
+            </div>
+        </div>
+    </div>
+}
+

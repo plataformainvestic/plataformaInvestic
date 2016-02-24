@@ -1,0 +1,64 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblInvitacionGrupo>
+
+@{
+    Layout = "~/Views/Shared/_InvIEP.cshtml";
+    ViewBag.SubTitle = "Mis Invitaciones";
+    string msj = ViewBag.Message;
+}
+
+<div class="grid fluid">
+    <div class="row">
+        <div class="span12 text-center">
+            <h4>@ViewBag.SubTitle</h4>
+        </div>
+    </div>
+</div>
+
+
+<table id="invitaciones" class="table striped hovered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Estado")
+            </th>
+            <th>
+                @Html.DisplayName("Nombre Grupo")
+            </th>
+            <th>
+                @Html.DisplayName("Institución")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aceptada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGrupoInvestigacion.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGrupoInvestigacion.tblInstitucion.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Aceptar", "Aceptar", new { id = item.id }) |
+                    @Html.ActionLink("Rechazar", "Rechazar", new { id = item.id })
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
+<br />
+<center> @Html.AtrasInvestic()</center>
+
+@section Scripts{
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/iep-0.1-invitaciones.js"></script>
+    <script>
+        AlertMessage('@msj');
+    </script>
+}
+

@@ -1,0 +1,67 @@
+﻿@model INI.Models.DataBase.tbNetVirtualResource
+
+@{
+    ViewBag.Title = "Delete";
+    String ctrl=ViewBag.ControllerName;
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+}
+
+<h2>Delete</h2>
+
+<br /><br /><br />
+<h3>Esta seguro de eliminar esta red?</h3>@Html.ActionLink("Atraz", "Index", null, new { @class = "button large primary" })
+<div>
+    <h4>tbNetVirtualResource</h4>
+    <hr />
+    <dl class="dl-horizontal">
+     
+        <dt>
+            @Html.DisplayNameFor(model => model.resource)
+        </dt>
+        <dd>
+            <a href="@Url.Action("DowloadFile", new { id = Model.id, FileId = "resource" })" target="_blank" class="glyphicon glyphicon-download-alt"></a>
+            @*<img src="@Url.Action("DowloadFile", new { id = Model.id, FileId = "resource" })" width="100px"/>*@       
+        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbNetVirtualUser.JsonMetadata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbNetVirtualUser.JsonMetadata)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbNetVirtualCategoryResource.name)
+            <img src="@Url.Action("DowloadFile", "tbNetVirtualCategoryResources", new { id = Model.tbNetVirtualCategoryResource.id, FileId = "image" })" width="100px" />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbNetVirtualCategoryResource.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="button large primary" />            
+        </div>
+    }
+</div>

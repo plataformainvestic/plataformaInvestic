@@ -1,0 +1,42 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblNoticias>
+
+
+<div class="nivel slider-vertical">
+    @*<div style="font-family: Chewy; font-size: 20pt; color: #575756;">Entérate</div>*@
+    <div class="contenedor-slider_Full">
+        <div class="bloque-slider">
+            @foreach (var item in Model)
+            {
+                if (item.estaActivo.Value == true)
+                {
+                    <div class="modulo-slider_Full">
+                    <div id="divNoticia_@item.Noticia_ID" class="dummyCss">
+                        <a href="#" class="titularNoticiaSlider" style="font-family:Chewy;font-size: 13pt;">@item.not_titulo</a>
+                    </div>
+                    <span class="descSliderNoticias">@item.not_descripcion</span>
+                    <hr style="background-color:#575756" />
+                    <div class="modulo-slider_Full">
+                       @* <div id="divNoticia_@item.Noticia_ID" class="dummyCss"><a href="#" class="titularNoticiaSlider">@item.not_titulo</a></div>*@
+                        @*<p class="descSliderNoticias">@item.not_descripcion</p>*@
+                        @Html.Hidden(String.Format("ht{0}", item.Noticia_ID), item.not_titulo)
+                        @Html.Hidden(String.Format("largeImg{0}", item.Noticia_ID), item.not_urlimage)
+                        @Html.Hidden(String.Format("PotCast{0}", item.Noticia_ID), item.not_urlpotcast)
+                        @Html.Hidden(String.Format("PotCast{0}", item.Noticia_ID), item.not_urlpotcast)
+                        @Html.Hidden(String.Format("hd{0}", item.Noticia_ID), item.not_descripcion)
+                        @Html.Hidden(String.Format("hc{0}", item.Noticia_ID), item.not_contenido)
+                        @Html.Hidden(String.Format("pf{0}", item.Noticia_ID), item.not_piedefoto)
+                        @Html.Hidden(String.Format("au{0}", item.Noticia_ID), item.not_autor)
+                        @Html.Hidden(String.Format("nf{0}", item.Noticia_ID), item.not_fecha)
+                    </div>
+                </div>
+                }
+            }
+        </div>
+        <div class="divsubir-slider">
+            <img src="~/images/Flecha-arriba.png" class="subir-slider" />
+        </div>
+        <div class="divbajar-slider">
+            <img src="~/images/Flecha_abajo.png" class="bajar-slider" />
+        </div>
+    </div>
+</div>

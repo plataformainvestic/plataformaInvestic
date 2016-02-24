@@ -1,0 +1,69 @@
+﻿@model INI.Models.DataBase.tblTutorZona
+
+@{
+    ViewBag.Title = "Ver Tutor";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <strong>
+                @Html.DisplayName("Nombre")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_nombre)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Apellido")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_apellido)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Correo")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_correo)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Telefono")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tutZon_telefono)
+        </dd>
+
+        <dt>
+            <strong>
+                @Html.DisplayName("Institucion Educativa")
+            </strong>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblInstitucion.CodigoDane)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.tblTutorZona_ID }) |
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</p>

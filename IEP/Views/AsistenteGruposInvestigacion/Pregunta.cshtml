@@ -1,0 +1,95 @@
+﻿@model IEnumerable<IEP.Models.DataBase.tblPreguntaInvestigacion>
+
+@{
+    ViewBag.Title = "PERTURBACIÓN DE LA ONDA";    
+    IEP.Models.DataBase.tblPreguntaInvestigacion mainQuestion = Model.Where(m => m.PreguntaPrincipal).FirstOrDefault();
+    IEP.Models.DataBase.InvesticEntities db = new IEP.Models.DataBase.InvesticEntities();
+}
+
+
+<div class="button-set margin10">
+    <a href="/MisGrupos" class="button">Mis grupos</a>
+    <a href="/AsistenteGruposInvestigacion/Invitaciones" class="button">Mis solicitudes</a>
+    @if (ViewBag.InfoGrupo != null)
+    {
+        <a href="/AsistenteGruposInvestigacion/ForoProyecto/@ViewBag.InfoGrupo.idGrupo" class="button">Foro</a>
+    }
+</div>
+@if (ViewBag.InfoGrupo != null)
+{
+    var infogrupo = (IEP.Models.DataBase.InformacionGrupo)ViewBag.InfoGrupo;
+    Html.RenderPartial("_InformacionGrupo", infogrupo);
+}
+<hr />
+<h4>@ViewBag.Title</h4>
+
+<div class="tab-control" data-role="tab-control">
+    <ul class="tabs">
+        <li class="active"><a href="#_page_1">2.1 Escriba cinco de ...</a></li>
+        <li><a href="#_page_2">2.2 Escriba la pregunta ...</a></li>
+    </ul>
+
+    <div class="frames">
+        <div class="frame" id="_page_1">
+            <div>
+                <strong>
+                    Escriban cinco de las preguntas que formularon inicialmente los integrantes del grupo de investigación
+                </strong>
+            </div>
+            <br />
+            @foreach (var q in Model.Where(m => m.Consecutivo <= 5).Where(m => m.PreguntaPrincipal == false))
+            {
+                <div class="balloon right">
+                    <div class="padding10">
+                        @q.Consecutivo : @q.Pregunta
+                    </div>
+                    <div class="padding5">
+                        @Html.ActionLink("Modificar", "EditarPreguntaInvestigacion", new { id = q.id }, new { @class = "lnkEdit" })
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="frame" id="_page_2">
+            <div>
+                <strong>
+                    Escriba la pregunta seleccionada
+                </strong>
+            </div>
+            <br />
+            <div class="balloon right">
+                <div class="padding10">
+                    @if (mainQuestion != null)
+                    {
+                        <text>
+                            @mainQuestion.Pregunta
+                        </text>
+                    }
+                </div>
+                <div class="padding5">
+                    @Html.ActionLink("Modificar", "EditarPreguntaInvestigacion", new { id = mainQuestion.id }, new { @class = "lnkEdit" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dialog-edit" style="display: none">
+</div>
+
+<div id="dialog-confirm" style="display: none">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+        Está seguro de querer eliminar esta pregunta?
+    </p>
+</div>
+
+
+@section Scripts {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>    
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.js"></script>       
+    <script src="~/Scripts/Investic/BinnacleTwo.js"></script>
+}
+
+

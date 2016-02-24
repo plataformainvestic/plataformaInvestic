@@ -1,0 +1,196 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+@{
+    var totalInvestic = 0;
+    var totalOtraFuente = 0;
+    var total = 0;
+}
+
+
+
+<div class="row" style="position: fixed; top: 95px; font-family:Chewy; color:#FFEB3B; font-size:22pt; text-align:center;">Estudiantes Investigando</div>
+<div style="position: fixed; top: 140px; background: url('../../images/fondosCapas/bg_estudiantesInvestigando_Resultados.png') no-repeat; padding: 10px 50px 10px 75px; height: 490px; width: 900px; overflow: auto">
+    <h4>@Html.ActionLink("Regresar", "BusquedaEstudiantesInvestigando")</h4>
+    <h1 class="text-alert"><strong>@Html.DisplayFor(m => m.tblPresentacionProyecto.preProy_tituloProy)</strong></h1>
+    <div class="row">
+        <h2 class="text-info"><strong>PRESENTACIÓN DEL PROYECTO</strong></h2>
+        <div class="row">
+            <h2><strong>Resumen</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblPresentacionProyecto.preProy_resumenProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Palabras Claves</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblPresentacionProyecto.preProy_palabrasClavesProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Eje de Investigacion</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblPresentacionProyecto.tblEjeInvestigacion.ejeInv_nombre)</p>
+            <p>@Html.DisplayFor(m => m.tblPresentacionProyecto.preProy_ejeInvestigacionProy)</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 class="text-info"><strong>PROBLEMA DE INVESTIGACIÓN</strong></h2>
+        <div class="row">
+            <h2><strong>Planteamiento del Problema</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblProblemaInvestigacionProy.proInvProy_planteamientoProblemaProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Pregunta de Investigación</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblProblemaInvestigacionProy.proInvProy_preguntaInvestigacionProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Subpregunta de Investigación</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblProblemaInvestigacionProy.proInvProy_subpreguntaInvestigacionProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Justificación</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblProblemaInvestigacionProy.proInvProy_justificacionProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Objetivo General</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblProblemaInvestigacionProy.proInvProy_objetivoGeneralProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Objetivos Específicos</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblProblemaInvestigacionProy.proInvProy_objetivosEspecificosProy)</p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <h2 class="text-info"><strong>MARCO DE REFERENCIA</strong></h2>
+        <div class="row">
+            <h2><strong>Marco Teórico</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoTeoricoProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Marco de Antecedentes</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoAntecedentesProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Marco Contextual</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMarcoReferenciaProy.marRefProy_marcoConceptualProy)</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 class="text-info"><strong>MÉTODO</strong></h2>
+        <div class="row">
+            <h2><strong>Paradigma Metodológico</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.tblParadigmaMetodologico.parMet_nombre)</p>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.metProy_paradigmaMetodologicoProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Paradigma Epistemológico</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.tblParadigmaEpistemologico.parEpi_nombre)</p>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.tblTipoEstudioProy.tipEst_nombre)</p>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.tblDiseniosProy.disProy_nombre)</p>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.metProy_paradigmaEpistemologicoProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Población y Muestra</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.metProy_poblacionMuestraProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Técnicas e Instrumentos de Recolección de Información</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.metProy_tecnicasInstrumentosProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Procedimientos</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.metProy_procedimientoProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Plan de Análisis de Datos e Información</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblMetodoProy.metProy_planAnalisisDatosProy)</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 class="text-info"><strong>CARACTERISTICAS</strong></h2>
+        <div class="row">
+            <h2><strong>Resultados Esperados</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblCaracteristicasProy.carProy_resultadosEsperadosProy)</p>
+        </div>
+        <div class="row">
+            <h2><strong>Caracterización de la Investigación</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblCaracteristicasProy.carProy_caracterizacionProy)</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 class="text-info"><strong>CRONOGRAMA</strong></h2>
+        <table class="table striped hover">
+            <thead>
+                <tr>
+                    <th>Actividad</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Indicador</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.tblCronogramaProy.tblFechaCronograma)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.cro_Actividad)</td>
+                        <td class="text-center">@Html.DisplayFor(m => item.cro_FechaInicio)</td>
+                        <td class="text-center">@Html.DisplayFor(m => item.cro_FechaFin)</td>
+                        <td>@Html.DisplayFor(m => item.cro_Indicador)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <h2 class="text-info"><strong>PRESUPUESTO</strong></h2>
+        <table class="table striped hover">
+            <thead>
+                <tr>
+                    <th>Rubro</th>
+                    <th>Fuente</th>
+                    <th>Valor</th>
+                    <th>Justificación</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.tblPresupuestoProy.tblRubroPresupuesto)
+                {
+                    if (string.Format("{0}", item.rubPre_fuente).ToUpper().Equals("INVESTIC"))
+                    {
+                        totalInvestic += Int32.Parse(item.rubPre_valor.ToString());
+                    }
+                    else
+                    {
+                        totalOtraFuente += Int32.Parse(item.rubPre_valor.ToString());
+                    }
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.tblRubro.Rubro)</td>
+                        <td>@Html.DisplayFor(m => item.rubPre_fuente)</td>
+                        <td class="text-right">@Html.DisplayFor(m => item.rubPre_valor)</td>
+                        <td>@Html.DisplayFor(m => item.rubPre_justificacion)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div>
+            @{
+                total = totalInvestic + totalOtraFuente;
+            }
+            <h3><strong>Total Aporte Investic: @totalInvestic</strong></h3>
+            <h3><strong>Total Otras Fuentes: @totalOtraFuente</strong></h3>
+            <h3><strong>Total Presupuesto: @total</strong></h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2 class="text-info"><strong>REFERENCIAS</strong></h2>
+        <div class="row">
+            <h2><strong>Referencias</strong></h2>
+            <p>@Html.DisplayFor(m => m.tblReferenciasProy.refProy_referencias)</p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,110 @@
+﻿@model INI.Models.Reporte
+@{
+    ViewBag.Title = "Reporte";
+    string msj = ViewBag.Message;
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+<h4>Reportes</h4>
+<hr>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model=>model.UserId)
+    
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+                <strong>Fecha Inicial</strong>
+            </div>
+            <div class="span2">
+                <div class="input-control text" data-role="datepicker" data-locale="es" data-format="dd/mm/yyyy" style='max-width: 130px'>
+                    @Html.TextBoxFor(model => model.Fechainicial, "{0:dd/MM/yyyy}", new { @type = "text" })
+                    <button class="btn btn-date" type="button"></button>
+                    @Html.ValidationMessageFor(model => model.Fechainicial, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="span2">
+                <strong>Fecha Final</strong>
+            </div>
+            <div class="span2">
+                <div class="input-control text" data-role="datepicker" data-locale="es" data-format="dd/mm/yyyy" style='max-width: 130px'>
+                    @Html.TextBoxFor(model => model.FechaFinal, "{0:dd/MM/yyyy}", new { @type = "text" })
+                    <button class="btn btn-date" type="button"></button>
+                    @Html.ValidationMessageFor(model => model.FechaFinal, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="span2">
+                <strong>Tipo de reporte</strong>
+            </div>
+            <div class="span2">
+                <div class="input-control radio" data-role="input-control">
+                    <label>
+                        Semanal
+                        <input type="radio" name="tipo" value="1" checked="">
+                        <span class="check"></span>
+
+                    </label>
+                </div>
+            </div>
+
+            <div class="span2">
+                <div class="input-control radio" data-role="input-control">
+                    <label>
+                        Mensual
+                        <input type="radio" name="tipo" value="0">
+                        <span class="check"></span>
+
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <hr />
+
+        <div class="row">
+
+            <div class="span4">
+                <strong> </strong>
+            </div>
+            <div class="span6">
+                <input type="submit" class="btn large bg-darkBlue fg-white" value="Generar Reporte" />
+
+            </div>
+
+        </div>
+
+
+    </div>
+    
+    
+
+
+  
+
+
+    
+}
+@section Scripts {
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    <script src="~/Scripts/metro-ui/metro.min.js"></script>
+    @Styles.Render("~/Content/csswizard")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/wizard")
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.date.js"></script>
+ <script src="~/Scripts/Investic/iep-0.1-AlertMessage.js"></script>
+<script>
+    AlertMessage('@msj');
+</script>
+
+}

@@ -1,0 +1,30 @@
+﻿@model  INI.Models.Adds.VerinfoCursos
+
+<div style="float: left;">
+    <img src="../../images/Investiga/apr/icono_ambientes.png" alt="" style=" vertical-align: middle;" />
+    <strong style="font-size: 1.5em;">@Html.DisplayFor(modelItem => Model.NombreCurso)</strong><br />
+    <span style="font-size:0.5em;">
+        <strong>Profesor: </strong> @Model.Profesor <br />
+        <strong>Sede Educativa: </strong> @Model.SedeEducativa<br />
+        <strong>Municipio: </strong>@Model.municipio<br />
+        <strong>Fecha de creación:</strong>@Model.Fcreacion<br />
+    </span>
+
+    <br />
+
+    <div>@Html.Raw(Model.DescripcionCurso)</div>
+    <div style="position:relative; float:left;">
+        <a onclick="vcursos();" class="button .info">Volver a los Cursos</a>
+    </div>
+        <div style="position:relative; float:right;">
+            <a onclick="alert('Debes Iniciar sesión para inscribirse al curso');" class="button .success">Inscribirme</a>
+        </div>
+    </div>
+
+<script>
+    function vcursos() {
+        $("#miscursos").show();
+        $("#descripcurso").hide();
+
+    }
+</script>

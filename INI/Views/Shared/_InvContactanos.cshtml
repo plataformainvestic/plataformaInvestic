@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "_InvInvestiga";
+    Layout = "~/Views/Shared/_LayoutInvestic.cshtml";
+}
+
+@section Submenu{
+    <img src="~/images/logosSecciones/logo_contactanos.png" style="margin:0; float: left;" />
+    <div id="titulosmenusec" style="color: #3A99D4;"> Contáctanos</div>
+    <div style="padding-bottom:15px;padding-top:14px;margin:0; color:#E5E5E5;"></div>
+        <div>
+    <div id="tituloruta">
+        Dónde Estoy?
+        <font id="ruta">@Html.MvcSiteMap().SiteMapPath()</font>
+    </div>
+
+</div>
+}
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@section Script{
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    @RenderSection("scripts", required: false)
+}

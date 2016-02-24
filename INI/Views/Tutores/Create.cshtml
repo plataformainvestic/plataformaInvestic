@@ -1,0 +1,260 @@
+﻿@model INI.Models.DataBase.tblTutorZona
+
+@{
+    ViewBag.Title = "Registrar Tutor";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<h2>Create</h2>
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.tblInstitucionEducativa_ID)
+    
+    <div class="form-horizontal">
+        <div class="grid fluid">
+                <hr />
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <div class="span2">
+
+
+                        <div class="span1 text-right">
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Nombre', { sticky: true })">
+                                    @Html.DisplayName("Nombre ") <br />
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Nombre">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu nombre?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes ingresar un nombre.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        
+                    </div>
+                    <div class="span6 input-control text">
+                        @Html.EditorFor(model => model.tutZon_nombre)
+                        @Html.ValidationMessageFor(model => model.tutZon_nombre)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="span2">
+
+                        <div class="span1 text-right">
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Apellido', { sticky: true })">
+                                    @Html.DisplayName("Apellido") <br />
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Apellido">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu apellido?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes ingresar un apellido.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <div class="span6 input-control text">
+                        @Html.EditorFor(model => model.tutZon_apellido)
+                        @Html.ValidationMessageFor(model => model.tutZon_apellido)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="span2">
+
+
+                        
+
+
+                            <div style="margin: auto; width: auto;">
+
+
+                                <strong onmouseover="tooltip.pop(this, '#Correo', { sticky: true })">
+                                   @Html.DisplayName("Correo ") 
+                                </strong>
+
+
+                                <div style="display:none;">
+                                    <div id="Correo">
+                                        <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                        <b><strong>Cual es tu correo?</strong></b><br /><br />
+                                        Este campo es obligatorio. Aquí debes ingresar un correo.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        
+
+
+
+
+
+
+                    </div>
+                    <div class="span6 input-control text">
+                        @Html.EditorFor(model => model.tutZon_correo)
+                        @Html.ValidationMessageFor(model => model.tutZon_correo)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="span2">
+
+
+
+
+
+                        <div style="margin: auto; width: auto;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#Telefono', { sticky: true })">
+                                @Html.DisplayName("Telefono")
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="Telefono">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>Cual es tu teléfono?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar un teléfono.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="span6 input-control text">
+                        @Html.EditorFor(model => model.tutZon_telefono)
+                        @Html.ValidationMessageFor(model => model.tutZon_telefono)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="span2">
+
+                        <div style="margin: auto; width: auto;">
+
+
+                            <strong onmouseover="tooltip.pop(this, '#institucion', { sticky: true })">
+                                @Html.DisplayName("Institución")
+                            </strong>
+
+
+                            <div style="display:none;">
+                                <div id="institucion">
+                                    <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                                    <b><strong>Cual es tu institución?</strong></b><br /><br />
+                                    Este campo es obligatorio. Aquí debes ingresar un institución.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="span8 input-control text">
+                        @Html.TextBox("Institution", null, new { placeholder = "Nombre de la institución", required = "required" , message = "Institution es requerida" })
+                    </div>
+                </div>
+
+
+            <div class="form-group">
+                @Html.DisplayName("Esta Activo:")
+                
+                <div class="col-md-10">
+                    @Html.CheckBox("estaActivo", true, new { @disabled = "disabled" })
+                </div>
+            </div>
+
+
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Crear" class="button info" />
+                    </div>
+                </div>
+            </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</div>
+
+
+
+@section Scripts {
+
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $("#Institution").autocomplete({
+                appendTo: "#register-research-group",
+                autoFocus: true,
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Utilidades/AutoCompleteInstitucion",
+                        type: "POST",
+                        dataType: "json",
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data.Institutions, function (item) {
+                                var valueStr = item.Name + " - " + item.Municipio;
+                                return { label: valueStr, value: item.id };
+                            }))
+                        }
+                    })
+                },
+                select: function (event, ui) {
+                    $("#tblInstitucionEducativa_ID").val(ui.item.value);
+                    $("#Institution").val(ui.item.label);
+                    return false;
+                },
+                messages: {
+                    noResults: "", results: function (resultsCount) { }
+                }
+            });
+        });
+    </script>
+}

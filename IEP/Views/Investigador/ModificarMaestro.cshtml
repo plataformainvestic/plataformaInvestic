@@ -1,0 +1,132 @@
+﻿@model IEP.Models.DataBase.tblMaestroCoInvestigador
+
+@{
+    ViewBag.Title = "Maestro Investigador";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ModificarMaestro", "Investigador"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idUsuario)
+    @Html.HiddenFor(model => model.idInstitucion)
+
+    <div class="form-horizontal">
+        <h4>Datos Maestro</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-alert" })
+
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Area de Conocimiento")
+                    </strong>
+                </div>
+                <div class="span5 input-control select" data-role="input-control">
+                    @Html.DropDownList("idAreaConocimiento", "Seleccionar Area")
+                    @Html.ValidationMessageFor(model => model.idAreaConocimiento, "", new { @class = " text-alert" })
+                </div>
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Tiempo en Ondas")
+                    </strong>
+                </div>
+                <div class="span1 input-control text" data-role="input-control">
+                    @Html.TextBoxFor(model => model.TiempoOndas, new { @type = "number", @Value = "0", min = "0" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.DisplayName("Institución")
+                    </strong>
+                </div>
+                <div class="span8 input-control text">
+                    @Html.TextBox("Institution", null, new { placeholder = "Nombre de la institución" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Pregrado")
+                    </strong>
+                </div>
+                <div class="span8 input-control text size8" data-role="input-control">
+                    @Html.EditorFor(model => model.Pregrado)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Postgrado")
+                    </strong>
+                </div>
+                <div class="span8 input-control text size8" data-role="input-control">
+                    @Html.EditorFor(model => model.Postgrado)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Otro")
+                    </strong>
+                </div>
+                <div class="span8 input-control text size8" data-role="input-control">
+                    @Html.EditorFor(model => model.Otro)
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <strong>
+                        @Html.Label("Experiencia")
+                    </strong>
+                </div>
+                <div class="span8 input-control textarea size8" data-role="input-control">
+                    @Html.TextAreaFor(model => model.ExperienciaAreaConocimiento)
+                </div>
+            </div>
+        </div>
+        <p>
+            <input type="submit" value="Modificar información" class="button info" />
+        </p>
+    </div>
+}
+
+@section Scripts {    
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+            $(function () {
+                $("#Institution").autocomplete({
+                    appendTo: "#register-research-group",
+                    autoFocus: true,
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "/Utilidades/AutoCompleteInstitucion",
+                            type: "POST",
+                            dataType: "json",
+                            data: { term: request.term },
+                            success: function (data) {
+                                response($.map(data.Institutions, function (item) {
+                                    var valueStr = item.Name + " - " + item.Municipio;
+                                    return { label: valueStr, value: item.id };
+                                }))
+                            }
+                        })
+                    },
+                    select: function (event, ui) {
+                        $("#idInstitucion").val(ui.item.value);
+                        $("#Institution").val(ui.item.label);
+                        return false;
+                    },
+                    messages: {
+                        noResults: "", results: function (resultsCount) { }
+                    }
+                });
+            });
+    </script>
+}

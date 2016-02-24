@@ -1,0 +1,88 @@
+﻿@model INI.Models.DataBase.tblNoticias
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>
+                Eliminar Noticia
+            </strong>
+        </h2>
+    </p>
+    <hr />
+
+    <h3>Está seguro de eliminar esta Noticia?</h3>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            Titular
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_titulo)
+        </dd>
+
+        <dt>
+            Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_descripcion)
+        </dd>
+
+        <dt>
+            Imagen
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_urlimage)
+        </dd>
+
+        <dt>
+            Contenido
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_contenido)
+        </dd>
+
+        <dt>
+            Pie de Foto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_piedefoto)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_fecha)
+        </dd>
+
+        <dt>
+            Autor
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.not_autor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="button large primary" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

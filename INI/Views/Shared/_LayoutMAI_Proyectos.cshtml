@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_InvMAI.cshtml";
+}
+<link href="~/Content/Investic/MAI/mai_Site_Proyecto.css" rel="stylesheet" />
+
+<div class="verticalSpan2"></div>
+
+@RenderBody()
+
+
+@section ScriptsMAI{
+    @RenderSection("ScriptsMAI_PRY", required: false);
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).load(function () {
+
+            $("#otra").modal('show');
+        });
+    });
+</script>
+}

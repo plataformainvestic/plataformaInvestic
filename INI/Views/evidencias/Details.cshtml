@@ -1,0 +1,53 @@
+﻿@model INI.Models.DataBase.tblEvidenciasContratista
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>evidencia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_Evidencia)
+
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_Evidencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion_Evidencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion_Evidencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblActividadContratista.Id_Contratista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblActividadContratista.Id_Contratista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Evidencia }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

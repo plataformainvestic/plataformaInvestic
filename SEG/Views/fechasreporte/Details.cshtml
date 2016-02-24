@@ -1,0 +1,42 @@
+﻿@model SEG.Models.DataBase.fechasreporte
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Fechas de Corte</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Ini)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Ini)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edita", "Edit", new {id = Model.Id_SemanaTrabajo}) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

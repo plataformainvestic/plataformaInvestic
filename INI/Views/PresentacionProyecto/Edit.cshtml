@@ -1,0 +1,277 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+
+
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit", "PresentacionProyecto", FormMethod.Post, new { id = "PresentacionProyecto" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.tblPresentacionProyecto.tblPresentacionProyecto_ID)
+
+
+    var eje = Model.tblPresentacionProyecto.tblEjeInvestigacion_ID;
+    investicEntities db = new investicEntities();
+    ViewBag.tblEjeInvestigacion_ID = new SelectList(db.tblEjeInvestigacion, "tblEjeInvestigacion_ID", "ejeInv_nombre", eje);
+
+
+    <div class="grid fluid">
+        @*Extructura de titulo*@
+        <div class="row">
+            <div class="span2">
+                <strong>Título</strong>
+                <span data-hint="El titulo debe informar acerca del tema específico de la propuesta investigativa. Para ello, puede ser útil escribir un título relacionado con el objetivo general del proyecto."
+                      data-hint-position="right">
+                    <i class="icon-help on-right on-left"></i>
+                </span>
+            </div>
+
+            <div class="span2">
+                <span data-hint=" " data-hint-position="right" class="fg-red"></span>
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(m => m.tblPresentacionProyecto.preProy_tituloProy)
+                @Html.ValidationMessageFor(m => m.tblPresentacionProyecto.preProy_tituloProy, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset2">
+                <div class="panel" data-role="panel">
+                    <div class="panel-header bg-blue fg-white">
+                        Apreciaciones
+                    </div>
+                    <div class="panel-content" style="display: none">
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Retroalimentación asesores Investic</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblPresentacionProyecto_Rev.preProy_tituloProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 1</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblPresentacionProyecto_Rev.preProy_tituloProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Sugerencia Evaluador 2</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblPresentacionProyecto_Rev.preProy_tituloProy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span3 text-right">
+                                <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                            </div>
+                            <div class="span9">
+                                @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblPresentacionProyecto_Rev.preProy_tituloProy)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*Estructura de resumen*@
+            <div class="row">
+                <div class="span2">
+                    <strong>Resumen</strong>
+                    <span data-hint="El resumen de la propuesta investigativa debe contener información breve y precisa acerca del problema de investigación, el objetivo, la metodología a emplear, los resultados esperados y las razones que justifican su financiación.
+                      Éste se debe elaborar después de desarrollar el resto del proyecto. Se recomienda una extensión de 300 palabras."
+                          data-hint-position="right">
+                        <i class="icon-help on-right on-left"></i>
+                    </span>
+                </div>
+                <div class="span10 input-control textarea">
+                    @Html.TextAreaFor(m => m.tblPresentacionProyecto.preProy_resumenProy)
+                    @Html.ValidationMessageFor(m => m.tblPresentacionProyecto.preProy_resumenProy, String.Empty, new { @style = "color:red;!important" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset2">
+                    <div class="panel" data-role="panel">
+                        <div class="panel-header bg-blue fg-white">
+                            Apreciaciones
+                        </div>
+                        <div class="panel-content" style="display: none">
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Retroalimentación asesores Investic</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblPresentacionProyecto_Rev.preProy_resumenProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Sugerencia Evaluador 1</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblPresentacionProyecto_Rev.preProy_resumenProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Sugerencia Evaluador 2</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblPresentacionProyecto_Rev.preProy_resumenProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblPresentacionProyecto_Rev.preProy_resumenProy)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*Estructura palabras claves*@
+            <div class="row">
+                <div class="span2">
+                    <strong>Palabras Claves</strong>
+                    <span data-hint="Las palabras clave del proyecto hacen referencia a los términos más relevantes relacionados con el tema de investigación.
+                      Se recomienda escribir entre 3 y 5 palabras clave."
+                          data-hint-position="right">
+                        <i class="icon-help on-right on-left"></i>
+                    </span>
+                </div>
+                <div class="span10 input-control textarea">
+                    @Html.TextAreaFor(m => m.tblPresentacionProyecto.preProy_palabrasClavesProy)
+                    @Html.ValidationMessageFor(m => m.tblPresentacionProyecto.preProy_palabrasClavesProy, String.Empty, new { @style = "color:red;!important" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset2">
+                    <div class="panel" data-role="panel">
+                        <div class="panel-header bg-blue fg-white">
+                            Apreciaciones
+                        </div>
+                        <div class="panel-content" style="display: none">
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Retroalimentación asesores Investic</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblPresentacionProyecto_Rev.preProy_palabrasClavesProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Sugerencia Evaluador 1</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblPresentacionProyecto_Rev.preProy_palabrasClavesProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Sugerencia Evaluador 2</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblPresentacionProyecto_Rev.preProy_palabrasClavesProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblPresentacionProyecto_Rev.preProy_palabrasClavesProy)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*Estructura Eje de investigacion*@
+            <div class="row">
+                <div class="span2">
+                    <strong>Eje de Investigación</strong>
+                    <span data-hint=""
+                          data-hint-position="right">
+                        <i class="icon-help on-right on-left"></i>
+                    </span>
+                </div>
+                <div class="span10 input-control select">
+                    @Html.DropDownListFor(m => m.tblPresentacionProyecto.tblEjeInvestigacion_ID, new SelectList(db.tblEjeInvestigacion, "tblEjeInvestigacion_ID", "ejeInv_nombre", eje))
+                    @Html.ValidationMessageFor(m => m.tblPresentacionProyecto.tblEjeInvestigacion_ID, String.Empty, new { @style = "color:red;!important" })
+                </div>
+
+                <div class="row">
+                    <div class="offset2">
+                        <strong>Justificación elección de eje de investigación</strong>
+                        <span data-hint=""
+                              data-hint-position="right">
+                            <i class="icon-help on-right on-left"></i>
+                        </span>
+                        <div class="input-control textarea">
+                            @Html.TextAreaFor(m => m.tblPresentacionProyecto.preProy_ejeInvestigacionProy)
+                            @Html.ValidationMessageFor(m => m.tblPresentacionProyecto.preProy_ejeInvestigacionProy, String.Empty, new { @style = "color:red;!important" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="offset2">
+                    <div class="panel" data-role="panel">
+                        <div class="panel-header bg-blue fg-white">
+                            Apreciaciones
+                        </div>
+                        <div class="panel-content" style="display: none">
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Retroalimentación asesores Investic</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev.tblPresentacionProyecto_Rev.preProy_ejeInvestigacionProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    k2     <strong>Sugerencia Evaluador 1</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev1.tblPresentacionProyecto_Rev.preProy_ejeInvestigacionProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Sugerencia Evaluador 2</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev2.tblPresentacionProyecto_Rev.preProy_ejeInvestigacionProy)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span3 text-right">
+                                    <strong>Asesoría de Grupo Investigación Colciencias</strong>
+                                </div>
+                                <div class="span9">
+                                    @Html.DisplayFor(m => m.tblProyectosInvestigacion_Rev3.tblPresentacionProyecto_Rev.preProy_ejeInvestigacionProy)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

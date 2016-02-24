@@ -1,0 +1,167 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ include file="Imports.include.t4" #>
+@model IEnumerable<#= "<" + ViewDataTypeName + ">" #>
+<#
+// The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
+if(IsPartialView) {
+#>
+
+<#
+} else if(IsLayoutPageSelected) {
+#>
+
+@{
+    String ctrl=ViewBag.ControllerName;
+	var modelName = "tbl_"+ctrl;
+    ViewBag.Title = "<#= ViewName#>";
+<#
+if (!String.IsNullOrEmpty(LayoutPageFile)) {
+#>
+    Layout = "<#= LayoutPageFile#>";
+<#
+}
+#>
+}
+
+<h2><#= ViewName#></h2>
+
+<#
+} else {
+#>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title><#= ViewName #></title>
+</head>
+<body>
+<#
+    PushIndent("    ");
+}
+#>
+<p>
+    @Html.ActionLink(" ", "Create", null, new { @class = "icon-plus-2" })
+</p>
+<table id="@modelName" class="table">
+	<thead>
+		<tr>
+<#
+IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+foreach (PropertyMetadata property in properties) {
+	if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+		// We do not want to show any association properties for which there is
+		// no associated foreign key.
+		if ((property.IsAssociation && GetRelatedModelMetadata(property) == null) || property.PropertyName=="JsonMetadata" || property.ShortTypeName=="byte[]") {
+			continue;
+		}
+#>            
+			<th>
+				@Html.DisplayNameFor(model => model.<#= GetValueExpression(property) #>)
+			</th>
+<#
+	}
+}
+#>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+
+	@foreach (var item in Model) {
+		<tr>
+<#
+string pkName = GetPrimaryKeyName();
+foreach (PropertyMetadata property in properties) {
+	if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+			// We do not want to show any association properties for which there is
+			// no associated foreign key.
+			if ((property.IsAssociation && GetRelatedModelMetadata(property) == null) || property.PropertyName=="JsonMetadata"|| property.ShortTypeName=="byte[]") {
+				continue;
+			}            
+#>
+<#
+            if(property.ShortTypeName=="byte[]"){
+#>     
+            <td>
+                <a href="@Url.Action("DowloadFile", new { id = item.<#=pkName #>, FileId = "<#=property.PropertyName#>" })" target="_blank" class="icon-download-2"></a>
+                @*<img src="@Url.Action("DowloadFile", new { id = item.<#=pkName #>, FileId = "<#=property.PropertyName#>" })" width="100px"/>*@       
+            <td>
+<#
+            
+            }else{
+#>
+			<td>
+				@Html.DisplayFor(modelItem => <#=                    "item." + GetValueExpression(property) #>)
+			</td>
+<#
+            }
+	}
+}
+	
+
+
+if (pkName != null) {
+#>
+			<td>
+<#        
+        foreach (PropertyMetadata property in properties) {
+            if(property.ShortTypeName=="byte[]"){
+#>
+                
+                    <a href="@Url.Action("DowloadFile", new { id = item.<#=pkName #>, FileId = "<#=property.PropertyName#>" })" target="_blank" class="icon-download-2"><#=property.PropertyName#></a>
+                    @*<img src="@Url.Action("DowloadFile", new { id = item.<#=pkName #>, FileId = "<#=property.PropertyName#>" })" width="100px"/>*@       
+                
+<#  
+            }
+        }
+#>
+				@Html.ActionLink(" ", "Edit", new { id = item.<#=pkName #> }, new { @class = "icon-pencil" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.<#=pkName #>, }, new { @class = "icon-clipboard-2" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.<#=pkName #> }, new { @class = "icon-cancel-2" })
+			</td>
+<#
+} else {
+#>
+			<td>
+				@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+				@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+				@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+			</td>
+<#
+}
+#>
+		</tr>
+	}
+	</tbody>
+</table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#@modelName').DataTable();
+        });
+    </script>
+}
+<#
+// The following code closes the tag used in the case of a view using a layout page and the body and html tags in the case of a regular view page
+#>
+<#
+if(!IsPartialView && !IsLayoutPageSelected) {
+    ClearIndent();
+#>
+</body>
+</html>
+<#
+}
+#>
+<#@ include file="ModelMetadataFunctions.cs.include.t4" #>

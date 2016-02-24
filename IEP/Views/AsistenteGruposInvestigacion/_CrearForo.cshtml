@@ -1,0 +1,32 @@
+﻿@model IEP.Models.DataBase.tblForoProyectoInvestigacion
+
+@using (Html.BeginForm("AgregarForo", "AsistenteGruposInvestigacion"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.idUser)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+    @Html.HiddenFor(model => model.idForo)
+    @Html.HiddenFor(model => model.Fecha)
+    @Html.HiddenFor(model => model.Respuestas)
+
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+                Titulo:
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(model=>model.Titulo)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Mensaje:
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.Mensaje)
+            </div>            
+        </div>        
+    </div>
+    <input type="submit" value="Crear" class="button large bg-green" />
+}
+

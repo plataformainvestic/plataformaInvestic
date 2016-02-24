@@ -1,0 +1,9 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+
+@{
+    Layout = "~/Views/Shared/_InvInvestiga.cshtml";
+}
+
+<div class="verticalSpan2"></div>
+@Html.Partial("~/Views/Shared/_InformeProyecto2.cshtml", Model)
+<a href="/Home/ReporteProyectoInvestigacion/@ViewBag.Id">Reporte</a>

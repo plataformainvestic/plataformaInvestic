@@ -1,0 +1,112 @@
+﻿@model IEP.Models.DataBase.tblReflexionProyectoInvestigacion
+
+@{
+    ViewBag.Title = "Bitacora - Para el maestro";    
+}
+
+<div class="button-set margin10">
+    <a href="/MisGrupos" class="button">Mis grupos</a>
+    <a href="/AsistenteGruposInvestigacion/Invitaciones" class="button">Mis solicitudes</a>
+    @if (Model != null)
+    {
+        <a href="/AsistenteGruposInvestigacion/ForoProyecto/@Model.idGrupoInvestigacion" class="button">Foro</a>
+    }
+</div>
+@if (Model != null)
+{
+    var infogrupo = new IEP.Models.DataBase.InformacionGrupo();
+    infogrupo.Institucion = Model.tblGrupoInvestigacion.tblInstitucion.Nombre;
+    infogrupo.Municipio = Model.tblGrupoInvestigacion.tblInstitucion.tblMunicipios.NombreMunicipio;
+    infogrupo.NombreGrupo = Model.tblGrupoInvestigacion.Nombre;
+    infogrupo.idGrupo = Model.idGrupoInvestigacion;
+    infogrupo.Descripcion = Model.tblGrupoInvestigacion.tblPreguntaInvestigacion
+        .Where(m => m.idGrupoInvestigacion == Model.idGrupoInvestigacion)
+        .Where(m => m.PreguntaPrincipal).Select(m => m.Pregunta).First();
+    Html.RenderPartial("_InformacionGrupo", infogrupo);
+}
+<hr />
+
+<h4>@ViewBag.Title</h4>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+    @Html.HiddenFor(model => model.FechaInicio)
+    @Html.HiddenFor(model => model.UltimaModificacion)
+    @Html.HiddenFor(model => model.ConceptoAsesor)
+
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span11">
+                <strong>
+                    @Html.Label("3.1 Dé cuenta del proceso que hubo en su institucion para conformal el grupo de investigacion")
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.Proceso)
+                @Html.ValidationMessageFor(model => model.Proceso)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <strong>
+                    @Html.Label("3.2 Explique cuales fueron los motivos que lo llevaron a participar en Ondas")
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.Motivacion)
+                @Html.ValidationMessageFor(model => model.Motivacion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <strong>
+                    @Html.Label("3.3 Breve reflexión sobre el grupo de investigación, por parte del Maesto/Coinvestigador")
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 input-control textarea">
+                @Html.TextAreaFor(model => model.Reflexion)
+                @Html.ValidationMessageFor(model => model.Reflexion)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span10">
+                <strong>
+                    @Html.Label("Seguimiento estar en la Onda")
+                </strong>
+            </div>
+            <div class="span2">
+                <strong>
+                    @Html.Label("Revisión")
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.ConceptoAsesor, new { disabled = "diabled" })
+                @Html.ValidationMessageFor(model => model.ConceptoAsesor)
+            </div>
+            <div class="span2 input-control switch">
+                <label>
+                    <input id="txtRev" type="checkbox" disabled />
+                    <span class="check"></span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <input type="submit" value="Actualizar información" class="button large bg-green" />
+            </div>
+        </div>
+    </div>
+}

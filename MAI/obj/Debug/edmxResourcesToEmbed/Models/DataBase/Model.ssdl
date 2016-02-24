@@ -1,0 +1,1408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="investicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="SureName" Type="nvarchar(max)" />
+    <Property Name="PersonalID" Type="nvarchar(max)" />
+    <Property Name="Genre" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="BirthDay" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Celular" Type="nvarchar(max)" />
+    <Property Name="Cargo" Type="nvarchar(max)" />
+    <Property Name="Contrato" Type="nvarchar(max)" />
+    <Property Name="Cdp" Type="nvarchar(max)" />
+    <Property Name="Equipo" Type="nvarchar(max)" />
+    <Property Name="Fecha_IniContrato" Type="datetime" />
+    <Property Name="Fecha_FinContrato" Type="datetime" />
+    <Property Name="Cedula" Type="varchar" MaxLength="10" />
+    <Property Name="Nombres" Type="nvarchar(max)" />
+    <Property Name="Apellidos" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblCaracteristicasProy">
+    <Key>
+      <PropertyRef Name="tblCaracteristicasProy_ID" />
+    </Key>
+    <Property Name="tblCaracteristicasProy_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="carProy_resultadosEsperadosProy" Type="nvarchar(max)" />
+    <Property Name="carProy_caracterizacionProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblCaracteristicasProy_Rev">
+    <Key>
+      <PropertyRef Name="tblCaracteristicasProy_Rev_ID" />
+    </Key>
+    <Property Name="tblCaracteristicasProy_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="carProy_resultadosEsperadosProy" Type="nvarchar(max)" />
+    <Property Name="carProy_caracterizacionProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblCategoriaProductos">
+    <Key>
+      <PropertyRef Name="tblCategoriaProductos_ID" />
+    </Key>
+    <Property Name="tblCategoriaProductos_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="catpro_nombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblCriticoSocial">
+    <Key>
+      <PropertyRef Name="tblCriticoSocial_ID" />
+    </Key>
+    <Property Name="tblCriticoSocial_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="critSoc_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCronogramaProy">
+    <Key>
+      <PropertyRef Name="tblCronogramaProy_ID" />
+    </Key>
+    <Property Name="tblCronogramaProy_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCronogramaProy_Rev">
+    <Key>
+      <PropertyRef Name="tblCronogramaProy_Rev_ID" />
+    </Key>
+    <Property Name="tblCronogramaProy_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="croProy_revision" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblDiseniosProy">
+    <Key>
+      <PropertyRef Name="tblDiseniosProy_ID" />
+    </Key>
+    <Property Name="tblDiseniosProy_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="disProy_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEjeInvestigacion">
+    <Key>
+      <PropertyRef Name="tblEjeInvestigacion_ID" />
+    </Key>
+    <Property Name="tblEjeInvestigacion_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ejeInv_nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEstado">
+    <Key>
+      <PropertyRef Name="tblEstado_ID" />
+    </Key>
+    <Property Name="tblEstado_ID" Type="bigint" Nullable="false" />
+    <Property Name="est_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEventosAcademicos">
+    <Key>
+      <PropertyRef Name="tblEventosAcademicos_ID" />
+    </Key>
+    <Property Name="tblEventosAcademicos_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eveaca_tituloEvento" Type="nvarchar" MaxLength="255" />
+    <Property Name="eveaca_evento" Type="nvarchar" MaxLength="255" />
+    <Property Name="eveaca_lugarEvento" Type="nvarchar" MaxLength="255" />
+    <Property Name="eveaca_anoTerminacion" Type="datetime" />
+    <Property Name="tblHojaVida_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblExperienciaProyectos">
+    <Key>
+      <PropertyRef Name="tblExperienciaProyectos_ID" />
+    </Key>
+    <Property Name="tblExperienciaProyectos_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="exppro_tituloProyecto" Type="nvarchar" MaxLength="255" />
+    <Property Name="exppro_anoTerminacion" Type="datetime" />
+    <Property Name="tblHojaVida_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblFechaCronograma">
+    <Key>
+      <PropertyRef Name="tblFechaCronograma_ID" />
+    </Key>
+    <Property Name="tblFechaCronograma_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblCronogramaProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="cro_Actividad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="cro_FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="cro_FechaFin" Type="datetime" Nullable="false" />
+    <Property Name="cro_Indicador" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblGruposInvestigacion">
+    <Key>
+      <PropertyRef Name="tblGruposInvestigacion_ID" />
+    </Key>
+    <Property Name="tblGruposInvestigacion_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblUsuarioPlataforma_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="gruInv_nombreGrupo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="gruInv_emblema" Type="nvarchar(max)" />
+    <Property Name="tblEstado_ID" Type="bigint" Nullable="false" />
+    <Property Name="gruInv_fechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="gruInv_proyectos" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblHistoricoHermeneutico">
+    <Key>
+      <PropertyRef Name="tblHistoricoHermeneutico_ID" />
+    </Key>
+    <Property Name="tblHistoricoHermeneutico_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hisHerm_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblHojaVida">
+    <Key>
+      <PropertyRef Name="tblHojaVida_ID" />
+    </Key>
+    <Property Name="tblHojaVida_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hojVid_anoGradoSecundaria" Type="datetime" />
+    <Property Name="hojVid_tituloSecundaria" Type="nvarchar" MaxLength="255" />
+    <Property Name="tblUsuarioPlataforma_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="hojVid_Institucion_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="tblIdiomas">
+    <Key>
+      <PropertyRef Name="tblIdiomas_ID" />
+    </Key>
+    <Property Name="tblIdiomas_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idi_nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="idi_descripcion" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblInstitucion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodigoDane" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConsecutivoSede" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="NombreSede" Type="nvarchar" MaxLength="150" />
+    <Property Name="idTipoInstitucion" Type="int" Nullable="false" />
+    <Property Name="idMunicipio" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="idZona" Type="int" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Latitud" Type="nvarchar" MaxLength="50" />
+    <Property Name="Longitud" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+    <Property Name="CorreoElectronico" Type="nvarchar" MaxLength="50" />
+    <Property Name="NombreDirector" Type="nvarchar" MaxLength="250" />
+    <Property Name="TelefonoDirector" Type="nvarchar" MaxLength="50" />
+    <Property Name="CorreoDirector" Type="nvarchar" MaxLength="50" />
+    <Property Name="SitioWeb" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblIntegrantesGrupoInv">
+    <Key>
+      <PropertyRef Name="tblIntegrantesGrupoInv_ID" />
+    </Key>
+    <Property Name="tblIntegrantesGrupoInv_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblGruposInvestigacion_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblUsuarioPlataforma_ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="intGruInv_fechaVinculacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblLenguas">
+    <Key>
+      <PropertyRef Name="tblLenguas_ID" />
+    </Key>
+    <Property Name="tblLenguas_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="len_nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="len_descripcion" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblMarcoReferenciaProy">
+    <Key>
+      <PropertyRef Name="tblMarcoReferenciaProy_ID" />
+    </Key>
+    <Property Name="tblMarcoReferenciaProy_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marRefProy_marcoTeoricoProy" Type="nvarchar(max)" />
+    <Property Name="marRefProy_marcoAntecedentesProy" Type="nvarchar(max)" />
+    <Property Name="marRefProy_marcoConceptualProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblMarcoReferenciaProy_Rev">
+    <Key>
+      <PropertyRef Name="tblMarcoReferenciaProy_Rev_ID" />
+    </Key>
+    <Property Name="tblMarcoReferenciaProy_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marRefProy_marcoTeoricoProy" Type="nvarchar(max)" />
+    <Property Name="marRefProy_marcoAntecedentesProy" Type="nvarchar(max)" />
+    <Property Name="marRefProy_marcoConceptualProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblMetodoProy">
+    <Key>
+      <PropertyRef Name="tblMetodoProy_ID" />
+    </Key>
+    <Property Name="tblMetodoProy_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblParadigmaMetodologico_ID" Type="int" />
+    <Property Name="metProy_paradigmaMetodologicoProy" Type="nvarchar(max)" />
+    <Property Name="tblParadigmaEpistemologico_ID" Type="int" />
+    <Property Name="tblTipoEstudioProy_ID" Type="int" />
+    <Property Name="tblDisenioProy_ID" Type="int" />
+    <Property Name="tblHistoricoHermeneutico" Type="int" />
+    <Property Name="tblCriticoSocial" Type="int" />
+    <Property Name="metProy_paradigmaEpistemologicoProy" Type="nvarchar(max)" />
+    <Property Name="metProy_poblacionMuestraProy" Type="nvarchar(max)" />
+    <Property Name="metProy_tecnicasInstrumentosProy" Type="nvarchar(max)" />
+    <Property Name="metProy_procedimientoProy" Type="nvarchar(max)" />
+    <Property Name="metProy_planAnalisisDatosProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblMetodoProy_Rev">
+    <Key>
+      <PropertyRef Name="tblMetodoProy_Rev_ID" />
+    </Key>
+    <Property Name="tblMetodoProy_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="metProy_paradigmaMetodologicoProy" Type="nvarchar(max)" />
+    <Property Name="metProy_paradigmaEpistemologicoProy" Type="nvarchar(max)" />
+    <Property Name="metProy_poblacionMuestraProy" Type="nvarchar(max)" />
+    <Property Name="metProy_tecnicasInstrumentosProy" Type="nvarchar(max)" />
+    <Property Name="metProy_procedimientoProy" Type="nvarchar(max)" />
+    <Property Name="metProy_planAnalisisDatosProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblNivel">
+    <Key>
+      <PropertyRef Name="tblNivel_ID" />
+    </Key>
+    <Property Name="tblNivel_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblNivel_nivel" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblNivelAcademicoEducacionSuperior">
+    <Key>
+      <PropertyRef Name="tblNivelAcademicoEducacionSuperior_ID" />
+    </Key>
+    <Property Name="tblNivelAcademicoEducacionSuperior_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nivAcaEduSup_nombre" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblNivelIdioma">
+    <Key>
+      <PropertyRef Name="tblNivelIdioma_ID" />
+    </Key>
+    <Property Name="tblNivelIdioma_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblHojaVida_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblIdiomas_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblNivel_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblNivelLengua">
+    <Key>
+      <PropertyRef Name="tblNivelLengua_ID" />
+    </Key>
+    <Property Name="tblNivelLengua_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblHojaVida_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblLenguas_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblNivel_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblParadigmaEpistemologico">
+    <Key>
+      <PropertyRef Name="tblParadigmaEpistemologico_ID" />
+    </Key>
+    <Property Name="tblParadigmaEpistemologico_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parEpi_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblParadigmaMetodologico">
+    <Key>
+      <PropertyRef Name="tblParadigmaMetodologico_ID" />
+    </Key>
+    <Property Name="tblParadigmaMetodologico_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parMet_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPresentacionProyecto">
+    <Key>
+      <PropertyRef Name="tblPresentacionProyecto_ID" />
+    </Key>
+    <Property Name="tblPresentacionProyecto_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="preProy_tituloProy" Type="nvarchar(max)" />
+    <Property Name="preProy_resumenProy" Type="nvarchar(max)" />
+    <Property Name="preProy_palabrasClavesProy" Type="nvarchar(max)" />
+    <Property Name="tblEjeInvestigacion_ID" Type="int" />
+    <Property Name="preProy_ejeInvestigacionProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblPresentacionProyecto_Rev">
+    <Key>
+      <PropertyRef Name="tblPresentacionProyecto_Rev_ID" />
+    </Key>
+    <Property Name="tblPresentacionProyecto_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="preProy_tituloProy" Type="nvarchar(max)" />
+    <Property Name="preProy_resumenProy" Type="nvarchar(max)" />
+    <Property Name="preProy_palabrasClavesProy" Type="nvarchar(max)" />
+    <Property Name="preProy_ejeInvestigacionProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblPresupuestoProy">
+    <Key>
+      <PropertyRef Name="tblPresupuestoProy_ID" />
+    </Key>
+    <Property Name="tblPresupuestoProy_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pre_financiacionInvestic" Type="bigint" Nullable="false" />
+    <Property Name="pre_totatInvestic" Type="bigint" Nullable="false" />
+    <Property Name="pre_totalOtraFuente" Type="bigint" Nullable="false" />
+    <Property Name="pre_total" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPresupuestoProy_Rev">
+    <Key>
+      <PropertyRef Name="tblPresupuestoProy_Rev_ID" />
+    </Key>
+    <Property Name="tblPresupuestoProy_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="preProy_revision" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblProblemaInvestigacionProy">
+    <Key>
+      <PropertyRef Name="tblProblemaInvestigacionProy_ID" />
+    </Key>
+    <Property Name="tblProblemaInvestigacionProy_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proInvProy_planteamientoProblemaProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_preguntaInvestigacionProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_subpreguntaInvestigacionProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_justificacionProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_objetivoGeneralProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_objetivosEspecificosProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblProblemaInvestigacionProy_Rev">
+    <Key>
+      <PropertyRef Name="tblProblemaInvestigacionProy_Rev_ID" />
+    </Key>
+    <Property Name="tblProblemaInvestigacionProy_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proInvProy_planteamientoProblemaProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_preguntaInvestigacionProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_subpreguntaInvestigacionProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_justificacionProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_objetivoGeneralProy" Type="nvarchar(max)" />
+    <Property Name="proInvProy_objetivosEspecificosProy" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblProductosAcademicos">
+    <Key>
+      <PropertyRef Name="tblProductosAcademicos_ID" />
+    </Key>
+    <Property Name="tblProductosAcademicos_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proaca_tituloProducto" Type="nvarchar" MaxLength="255" />
+    <Property Name="proaca_anoTerminacion" Type="datetime" />
+    <Property Name="tblCategoriaProductos_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblHojaVida_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProyectosInvestigacion">
+    <Key>
+      <PropertyRef Name="tblProyectosInvestigacion_ID" />
+    </Key>
+    <Property Name="tblProyectosInvestigacion_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblGruposInvestigacion_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblEstado_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblPresentacionProyecto_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblProblemaInvestigacionProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblMarcoReferenciaProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblMetodoProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblCaracteristicasProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblCronogramaProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblPresupuestoProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblReferenciasProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblEvaluacionProyColciencias_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblEvaluacionProyInvestic_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblEvaluacionProyEvaluador1_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblEvaluacionProyEvaluador2_ID" Type="bigint" Nullable="false" />
+    <Property Name="proyInv_nombreProyecto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="proyInv_fechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="proyInv_fechaUltimaModificacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProyectosInvestigacion_Rev">
+    <Key>
+      <PropertyRef Name="tblProyectosInvestigacion_Rev_ID" />
+    </Key>
+    <Property Name="tblProyectosInvestigacion_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblProyectosInvestigacion_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblEstado_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblPresentacionProyecto_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblProblemaInvestigacionProy_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblMarcoReferenciaProy_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblMetodoProy_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblCaracteristicasProy_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblCronogramaProy_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblPresupuestoProy_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblReferenciasProy_Rev_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblUsuarioPlataforma_Evaluador_ID" Type="nvarchar" MaxLength="128" />
+    <Property Name="proyInvRev_fechaAsignacion" Type="datetime" />
+    <Property Name="proyInvRev_fechaLimiteEvaluacion" Type="datetime" />
+    <Property Name="proyInvRev_fechaUltimaEvaluacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblReferenciasProy">
+    <Key>
+      <PropertyRef Name="tblReferenciasProy_ID" />
+    </Key>
+    <Property Name="tblReferenciasProy_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="refProy_referencias" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblReferenciasProy_Rev">
+    <Key>
+      <PropertyRef Name="tblReferenciasProy_Rev_ID" />
+    </Key>
+    <Property Name="tblReferenciasProy_Rev_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="refProy_referencias" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblRubro">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rubro" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblRubroPresupuesto">
+    <Key>
+      <PropertyRef Name="tblRubroPresupuesto_ID" />
+    </Key>
+    <Property Name="tblRubroPresupuesto_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblPresupuestoProy_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblRubro_ID" Type="bigint" Nullable="false" />
+    <Property Name="rubPre_valor" Type="bigint" Nullable="false" />
+    <Property Name="rubPre_fuente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="rubPre_justificacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTipoEstudioProy">
+    <Key>
+      <PropertyRef Name="tblTipoEstudioProy_ID" />
+    </Key>
+    <Property Name="tblTipoEstudioProy_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipEst_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTituloEducacionSuperior">
+    <Key>
+      <PropertyRef Name="tblTituloEducacionSuperior_ID" />
+    </Key>
+    <Property Name="tblTituloEducacionSuperior_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titEduSup_nombre" Type="nvarchar" MaxLength="255" />
+    <Property Name="titEduSup_anoGraduacion" Type="datetime" />
+    <Property Name="tblHojaVida_ID" Type="bigint" Nullable="false" />
+    <Property Name="tblNivelAcademicoEducacionSuperior_ID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEventosAcademicos_tblHojaVida">
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="1" />
+    <End Role="tblEventosAcademicos" Type="Self.tblEventosAcademicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHojaVida">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Principal>
+      <Dependent Role="tblEventosAcademicos">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblExperienciaProyectos_tblHojaVida">
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="1" />
+    <End Role="tblExperienciaProyectos" Type="Self.tblExperienciaProyectos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHojaVida">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Principal>
+      <Dependent Role="tblExperienciaProyectos">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFechaCronograma_tblCronograma">
+    <End Role="tblCronogramaProy" Type="Self.tblCronogramaProy" Multiplicity="1" />
+    <End Role="tblFechaCronograma" Type="Self.tblFechaCronograma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCronogramaProy">
+        <PropertyRef Name="tblCronogramaProy_ID" />
+      </Principal>
+      <Dependent Role="tblFechaCronograma">
+        <PropertyRef Name="tblCronogramaProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGruposInvestigacion_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="tblGruposInvestigacion" Type="Self.tblGruposInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblGruposInvestigacion">
+        <PropertyRef Name="tblUsuarioPlataforma_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGruposInvestigacion_tblEstado">
+    <End Role="tblEstado" Type="Self.tblEstado" Multiplicity="1" />
+    <End Role="tblGruposInvestigacion" Type="Self.tblGruposInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstado">
+        <PropertyRef Name="tblEstado_ID" />
+      </Principal>
+      <Dependent Role="tblGruposInvestigacion">
+        <PropertyRef Name="tblEstado_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblHojaVida_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblHojaVida">
+        <PropertyRef Name="tblUsuarioPlataforma_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblHojaVida_tblInstitucion">
+    <End Role="tblInstitucion" Type="Self.tblInstitucion" Multiplicity="0..1" />
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblInstitucion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblHojaVida">
+        <PropertyRef Name="hojVid_Institucion_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblIntegrantesGrupoInv_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="tblIntegrantesGrupoInv" Type="Self.tblIntegrantesGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblIntegrantesGrupoInv">
+        <PropertyRef Name="tblUsuarioPlataforma_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblIntegrantesGrupoInv_tblGruposInvestigacion">
+    <End Role="tblGruposInvestigacion" Type="Self.tblGruposInvestigacion" Multiplicity="1" />
+    <End Role="tblIntegrantesGrupoInv" Type="Self.tblIntegrantesGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGruposInvestigacion">
+        <PropertyRef Name="tblGruposInvestigacion_ID" />
+      </Principal>
+      <Dependent Role="tblIntegrantesGrupoInv">
+        <PropertyRef Name="tblGruposInvestigacion_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMetodoProy_tblCriticoSocial">
+    <End Role="tblCriticoSocial" Type="Self.tblCriticoSocial" Multiplicity="0..1" />
+    <End Role="tblMetodoProy" Type="Self.tblMetodoProy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCriticoSocial">
+        <PropertyRef Name="tblCriticoSocial_ID" />
+      </Principal>
+      <Dependent Role="tblMetodoProy">
+        <PropertyRef Name="tblCriticoSocial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMetodoProy_tblDiseniosProy">
+    <End Role="tblDiseniosProy" Type="Self.tblDiseniosProy" Multiplicity="0..1" />
+    <End Role="tblMetodoProy" Type="Self.tblMetodoProy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDiseniosProy">
+        <PropertyRef Name="tblDiseniosProy_ID" />
+      </Principal>
+      <Dependent Role="tblMetodoProy">
+        <PropertyRef Name="tblDisenioProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMetodoProy_tblHistoricoHermeneutico">
+    <End Role="tblHistoricoHermeneutico" Type="Self.tblHistoricoHermeneutico" Multiplicity="0..1" />
+    <End Role="tblMetodoProy" Type="Self.tblMetodoProy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHistoricoHermeneutico">
+        <PropertyRef Name="tblHistoricoHermeneutico_ID" />
+      </Principal>
+      <Dependent Role="tblMetodoProy">
+        <PropertyRef Name="tblHistoricoHermeneutico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMetodoProy_tblParadigmaEpistemologico">
+    <End Role="tblParadigmaEpistemologico" Type="Self.tblParadigmaEpistemologico" Multiplicity="0..1" />
+    <End Role="tblMetodoProy" Type="Self.tblMetodoProy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblParadigmaEpistemologico">
+        <PropertyRef Name="tblParadigmaEpistemologico_ID" />
+      </Principal>
+      <Dependent Role="tblMetodoProy">
+        <PropertyRef Name="tblParadigmaEpistemologico_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMetodoProy_tblParadigmaMetodologico">
+    <End Role="tblParadigmaMetodologico" Type="Self.tblParadigmaMetodologico" Multiplicity="0..1" />
+    <End Role="tblMetodoProy" Type="Self.tblMetodoProy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblParadigmaMetodologico">
+        <PropertyRef Name="tblParadigmaMetodologico_ID" />
+      </Principal>
+      <Dependent Role="tblMetodoProy">
+        <PropertyRef Name="tblParadigmaMetodologico_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMetodoProy_tblTipoEstudioProy">
+    <End Role="tblTipoEstudioProy" Type="Self.tblTipoEstudioProy" Multiplicity="0..1" />
+    <End Role="tblMetodoProy" Type="Self.tblMetodoProy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTipoEstudioProy">
+        <PropertyRef Name="tblTipoEstudioProy_ID" />
+      </Principal>
+      <Dependent Role="tblMetodoProy">
+        <PropertyRef Name="tblTipoEstudioProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNivelIdioma_tblHojaVida">
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="1" />
+    <End Role="tblNivelIdioma" Type="Self.tblNivelIdioma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHojaVida">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Principal>
+      <Dependent Role="tblNivelIdioma">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNivelIdioma_tblIdiomas">
+    <End Role="tblIdiomas" Type="Self.tblIdiomas" Multiplicity="1" />
+    <End Role="tblNivelIdioma" Type="Self.tblNivelIdioma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblIdiomas">
+        <PropertyRef Name="tblIdiomas_ID" />
+      </Principal>
+      <Dependent Role="tblNivelIdioma">
+        <PropertyRef Name="tblIdiomas_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNivelIdioma_tblNivel">
+    <End Role="tblNivel" Type="Self.tblNivel" Multiplicity="1" />
+    <End Role="tblNivelIdioma" Type="Self.tblNivelIdioma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNivel">
+        <PropertyRef Name="tblNivel_ID" />
+      </Principal>
+      <Dependent Role="tblNivelIdioma">
+        <PropertyRef Name="tblNivel_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNivelLengua_tblHojaVida">
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="1" />
+    <End Role="tblNivelLengua" Type="Self.tblNivelLengua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHojaVida">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Principal>
+      <Dependent Role="tblNivelLengua">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNivelLengua_tblLenguas">
+    <End Role="tblLenguas" Type="Self.tblLenguas" Multiplicity="1" />
+    <End Role="tblNivelLengua" Type="Self.tblNivelLengua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLenguas">
+        <PropertyRef Name="tblLenguas_ID" />
+      </Principal>
+      <Dependent Role="tblNivelLengua">
+        <PropertyRef Name="tblLenguas_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblNivelLengua_tblNivel">
+    <End Role="tblNivel" Type="Self.tblNivel" Multiplicity="1" />
+    <End Role="tblNivelLengua" Type="Self.tblNivelLengua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNivel">
+        <PropertyRef Name="tblNivel_ID" />
+      </Principal>
+      <Dependent Role="tblNivelLengua">
+        <PropertyRef Name="tblNivel_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPresentacionProyecto_tblEjeInvestigacion">
+    <End Role="tblEjeInvestigacion" Type="Self.tblEjeInvestigacion" Multiplicity="0..1" />
+    <End Role="tblPresentacionProyecto" Type="Self.tblPresentacionProyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEjeInvestigacion">
+        <PropertyRef Name="tblEjeInvestigacion_ID" />
+      </Principal>
+      <Dependent Role="tblPresentacionProyecto">
+        <PropertyRef Name="tblEjeInvestigacion_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProductosAcademicos_tblCategoriaProductos">
+    <End Role="tblCategoriaProductos" Type="Self.tblCategoriaProductos" Multiplicity="1" />
+    <End Role="tblProductosAcademicos" Type="Self.tblProductosAcademicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategoriaProductos">
+        <PropertyRef Name="tblCategoriaProductos_ID" />
+      </Principal>
+      <Dependent Role="tblProductosAcademicos">
+        <PropertyRef Name="tblCategoriaProductos_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProductosAcademicos_tblHojaVida">
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="1" />
+    <End Role="tblProductosAcademicos" Type="Self.tblProductosAcademicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHojaVida">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Principal>
+      <Dependent Role="tblProductosAcademicos">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblCaracteristicasProy_Rev">
+    <End Role="tblCaracteristicasProy_Rev" Type="Self.tblCaracteristicasProy_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCaracteristicasProy_Rev">
+        <PropertyRef Name="tblCaracteristicasProy_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblCaracteristicasProy_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblCronogramaProy_Rev">
+    <End Role="tblCronogramaProy_Rev" Type="Self.tblCronogramaProy_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCronogramaProy_Rev">
+        <PropertyRef Name="tblCronogramaProy_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblCronogramaProy_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblEstado">
+    <End Role="tblEstado" Type="Self.tblEstado" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstado">
+        <PropertyRef Name="tblEstado_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblEstado_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblMarcoReferenciaProy_Rev">
+    <End Role="tblMarcoReferenciaProy_Rev" Type="Self.tblMarcoReferenciaProy_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMarcoReferenciaProy_Rev">
+        <PropertyRef Name="tblMarcoReferenciaProy_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblMarcoReferenciaProy_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblMetodoProy_Rev">
+    <End Role="tblMetodoProy_Rev" Type="Self.tblMetodoProy_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMetodoProy_Rev">
+        <PropertyRef Name="tblMetodoProy_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblMetodoProy_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblPresentacionProyecto_Rev">
+    <End Role="tblPresentacionProyecto_Rev" Type="Self.tblPresentacionProyecto_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPresentacionProyecto_Rev">
+        <PropertyRef Name="tblPresentacionProyecto_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblPresentacionProyecto_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblPresupuestoProy_Rev">
+    <End Role="tblPresupuestoProy_Rev" Type="Self.tblPresupuestoProy_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPresupuestoProy_Rev">
+        <PropertyRef Name="tblPresupuestoProy_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblPresupuestoProy_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblProblemaInvestigacionProy_Rev">
+    <End Role="tblProblemaInvestigacionProy_Rev" Type="Self.tblProblemaInvestigacionProy_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProblemaInvestigacionProy_Rev">
+        <PropertyRef Name="tblProblemaInvestigacionProy_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblProblemaInvestigacionProy_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_Rev_tblReferenciasProy_Rev">
+    <End Role="tblReferenciasProy_Rev" Type="Self.tblReferenciasProy_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblReferenciasProy_Rev">
+        <PropertyRef Name="tblReferenciasProy_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblReferenciasProy_Rev_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblCaracteristicasProy">
+    <End Role="tblCaracteristicasProy" Type="Self.tblCaracteristicasProy" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCaracteristicasProy">
+        <PropertyRef Name="tblCaracteristicasProy_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblCaracteristicasProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblCronogramaProy">
+    <End Role="tblCronogramaProy" Type="Self.tblCronogramaProy" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCronogramaProy">
+        <PropertyRef Name="tblCronogramaProy_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblCronogramaProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblEstado">
+    <End Role="tblEstado" Type="Self.tblEstado" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstado">
+        <PropertyRef Name="tblEstado_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblEstado_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblGruposInvestigacion1">
+    <End Role="tblGruposInvestigacion" Type="Self.tblGruposInvestigacion" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGruposInvestigacion">
+        <PropertyRef Name="tblGruposInvestigacion_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblGruposInvestigacion_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblMarcoReferenciaProy">
+    <End Role="tblMarcoReferenciaProy" Type="Self.tblMarcoReferenciaProy" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMarcoReferenciaProy">
+        <PropertyRef Name="tblMarcoReferenciaProy_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblMarcoReferenciaProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblMetodoProy">
+    <End Role="tblMetodoProy" Type="Self.tblMetodoProy" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMetodoProy">
+        <PropertyRef Name="tblMetodoProy_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblMetodoProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblPresentacionProyecto">
+    <End Role="tblPresentacionProyecto" Type="Self.tblPresentacionProyecto" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPresentacionProyecto">
+        <PropertyRef Name="tblPresentacionProyecto_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblPresentacionProyecto_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblPresupuestoProy">
+    <End Role="tblPresupuestoProy" Type="Self.tblPresupuestoProy" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPresupuestoProy">
+        <PropertyRef Name="tblPresupuestoProy_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblPresupuestoProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblProblemaInvestigacionProy">
+    <End Role="tblProblemaInvestigacionProy" Type="Self.tblProblemaInvestigacionProy" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProblemaInvestigacionProy">
+        <PropertyRef Name="tblProblemaInvestigacionProy_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblProblemaInvestigacionProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev4">
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblProyectosInvestigacion_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblEvaluacionProyInvestic_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev5">
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblProyectosInvestigacion_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblEvaluacionProyEvaluador1_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev6">
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblProyectosInvestigacion_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblEvaluacionProyEvaluador2_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev7">
+    <End Role="tblProyectosInvestigacion_Rev" Type="Self.tblProyectosInvestigacion_Rev" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProyectosInvestigacion_Rev">
+        <PropertyRef Name="tblProyectosInvestigacion_Rev_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblEvaluacionProyColciencias_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblProyectosInvestigacion_tblReferenciasProy">
+    <End Role="tblReferenciasProy" Type="Self.tblReferenciasProy" Multiplicity="1" />
+    <End Role="tblProyectosInvestigacion" Type="Self.tblProyectosInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblReferenciasProy">
+        <PropertyRef Name="tblReferenciasProy_ID" />
+      </Principal>
+      <Dependent Role="tblProyectosInvestigacion">
+        <PropertyRef Name="tblReferenciasProy_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTituloEducacionSuperior_tblHojaVida">
+    <End Role="tblHojaVida" Type="Self.tblHojaVida" Multiplicity="1" />
+    <End Role="tblTituloEducacionSuperior" Type="Self.tblTituloEducacionSuperior" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHojaVida">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Principal>
+      <Dependent Role="tblTituloEducacionSuperior">
+        <PropertyRef Name="tblHojaVida_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTituloEducacionSuperior_tblNivelAcademicoEducacionSuperior">
+    <End Role="tblNivelAcademicoEducacionSuperior" Type="Self.tblNivelAcademicoEducacionSuperior" Multiplicity="1" />
+    <End Role="tblTituloEducacionSuperior" Type="Self.tblTituloEducacionSuperior" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNivelAcademicoEducacionSuperior">
+        <PropertyRef Name="tblNivelAcademicoEducacionSuperior_ID" />
+      </Principal>
+      <Dependent Role="tblTituloEducacionSuperior">
+        <PropertyRef Name="tblNivelAcademicoEducacionSuperior_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="investicModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCaracteristicasProy" EntityType="Self.tblCaracteristicasProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCaracteristicasProy_Rev" EntityType="Self.tblCaracteristicasProy_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCategoriaProductos" EntityType="Self.tblCategoriaProductos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCriticoSocial" EntityType="Self.tblCriticoSocial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCronogramaProy" EntityType="Self.tblCronogramaProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCronogramaProy_Rev" EntityType="Self.tblCronogramaProy_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDiseniosProy" EntityType="Self.tblDiseniosProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEjeInvestigacion" EntityType="Self.tblEjeInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEstado" EntityType="Self.tblEstado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEventosAcademicos" EntityType="Self.tblEventosAcademicos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblExperienciaProyectos" EntityType="Self.tblExperienciaProyectos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFechaCronograma" EntityType="Self.tblFechaCronograma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGruposInvestigacion" EntityType="Self.tblGruposInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHistoricoHermeneutico" EntityType="Self.tblHistoricoHermeneutico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHojaVida" EntityType="Self.tblHojaVida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblIdiomas" EntityType="Self.tblIdiomas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblInstitucion" EntityType="Self.tblInstitucion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblIntegrantesGrupoInv" EntityType="Self.tblIntegrantesGrupoInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLenguas" EntityType="Self.tblLenguas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMarcoReferenciaProy" EntityType="Self.tblMarcoReferenciaProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMarcoReferenciaProy_Rev" EntityType="Self.tblMarcoReferenciaProy_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMetodoProy" EntityType="Self.tblMetodoProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMetodoProy_Rev" EntityType="Self.tblMetodoProy_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNivel" EntityType="Self.tblNivel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNivelAcademicoEducacionSuperior" EntityType="Self.tblNivelAcademicoEducacionSuperior" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNivelIdioma" EntityType="Self.tblNivelIdioma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNivelLengua" EntityType="Self.tblNivelLengua" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblParadigmaEpistemologico" EntityType="Self.tblParadigmaEpistemologico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblParadigmaMetodologico" EntityType="Self.tblParadigmaMetodologico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPresentacionProyecto" EntityType="Self.tblPresentacionProyecto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPresentacionProyecto_Rev" EntityType="Self.tblPresentacionProyecto_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPresupuestoProy" EntityType="Self.tblPresupuestoProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPresupuestoProy_Rev" EntityType="Self.tblPresupuestoProy_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProblemaInvestigacionProy" EntityType="Self.tblProblemaInvestigacionProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProblemaInvestigacionProy_Rev" EntityType="Self.tblProblemaInvestigacionProy_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProductosAcademicos" EntityType="Self.tblProductosAcademicos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProyectosInvestigacion" EntityType="Self.tblProyectosInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProyectosInvestigacion_Rev" EntityType="Self.tblProyectosInvestigacion_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblReferenciasProy" EntityType="Self.tblReferenciasProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblReferenciasProy_Rev" EntityType="Self.tblReferenciasProy_Rev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRubro" EntityType="Self.tblRubro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRubroPresupuesto" EntityType="Self.tblRubroPresupuesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTipoEstudioProy" EntityType="Self.tblTipoEstudioProy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTituloEducacionSuperior" EntityType="Self.tblTituloEducacionSuperior" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEventosAcademicos_tblHojaVida" Association="Self.FK_tblEventosAcademicos_tblHojaVida">
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+      <End Role="tblEventosAcademicos" EntitySet="tblEventosAcademicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblExperienciaProyectos_tblHojaVida" Association="Self.FK_tblExperienciaProyectos_tblHojaVida">
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+      <End Role="tblExperienciaProyectos" EntitySet="tblExperienciaProyectos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFechaCronograma_tblCronograma" Association="Self.FK_tblFechaCronograma_tblCronograma">
+      <End Role="tblCronogramaProy" EntitySet="tblCronogramaProy" />
+      <End Role="tblFechaCronograma" EntitySet="tblFechaCronograma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGruposInvestigacion_AspNetUsers" Association="Self.FK_tblGruposInvestigacion_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblGruposInvestigacion" EntitySet="tblGruposInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGruposInvestigacion_tblEstado" Association="Self.FK_tblGruposInvestigacion_tblEstado">
+      <End Role="tblEstado" EntitySet="tblEstado" />
+      <End Role="tblGruposInvestigacion" EntitySet="tblGruposInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblHojaVida_AspNetUsers" Association="Self.FK_tblHojaVida_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblHojaVida_tblInstitucion" Association="Self.FK_tblHojaVida_tblInstitucion">
+      <End Role="tblInstitucion" EntitySet="tblInstitucion" />
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblIntegrantesGrupoInv_AspNetUsers" Association="Self.FK_tblIntegrantesGrupoInv_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="tblIntegrantesGrupoInv" EntitySet="tblIntegrantesGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblIntegrantesGrupoInv_tblGruposInvestigacion" Association="Self.FK_tblIntegrantesGrupoInv_tblGruposInvestigacion">
+      <End Role="tblGruposInvestigacion" EntitySet="tblGruposInvestigacion" />
+      <End Role="tblIntegrantesGrupoInv" EntitySet="tblIntegrantesGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMetodoProy_tblCriticoSocial" Association="Self.FK_tblMetodoProy_tblCriticoSocial">
+      <End Role="tblCriticoSocial" EntitySet="tblCriticoSocial" />
+      <End Role="tblMetodoProy" EntitySet="tblMetodoProy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMetodoProy_tblDiseniosProy" Association="Self.FK_tblMetodoProy_tblDiseniosProy">
+      <End Role="tblDiseniosProy" EntitySet="tblDiseniosProy" />
+      <End Role="tblMetodoProy" EntitySet="tblMetodoProy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMetodoProy_tblHistoricoHermeneutico" Association="Self.FK_tblMetodoProy_tblHistoricoHermeneutico">
+      <End Role="tblHistoricoHermeneutico" EntitySet="tblHistoricoHermeneutico" />
+      <End Role="tblMetodoProy" EntitySet="tblMetodoProy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMetodoProy_tblParadigmaEpistemologico" Association="Self.FK_tblMetodoProy_tblParadigmaEpistemologico">
+      <End Role="tblParadigmaEpistemologico" EntitySet="tblParadigmaEpistemologico" />
+      <End Role="tblMetodoProy" EntitySet="tblMetodoProy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMetodoProy_tblParadigmaMetodologico" Association="Self.FK_tblMetodoProy_tblParadigmaMetodologico">
+      <End Role="tblParadigmaMetodologico" EntitySet="tblParadigmaMetodologico" />
+      <End Role="tblMetodoProy" EntitySet="tblMetodoProy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMetodoProy_tblTipoEstudioProy" Association="Self.FK_tblMetodoProy_tblTipoEstudioProy">
+      <End Role="tblTipoEstudioProy" EntitySet="tblTipoEstudioProy" />
+      <End Role="tblMetodoProy" EntitySet="tblMetodoProy" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNivelIdioma_tblHojaVida" Association="Self.FK_tblNivelIdioma_tblHojaVida">
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+      <End Role="tblNivelIdioma" EntitySet="tblNivelIdioma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNivelIdioma_tblIdiomas" Association="Self.FK_tblNivelIdioma_tblIdiomas">
+      <End Role="tblIdiomas" EntitySet="tblIdiomas" />
+      <End Role="tblNivelIdioma" EntitySet="tblNivelIdioma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNivelIdioma_tblNivel" Association="Self.FK_tblNivelIdioma_tblNivel">
+      <End Role="tblNivel" EntitySet="tblNivel" />
+      <End Role="tblNivelIdioma" EntitySet="tblNivelIdioma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNivelLengua_tblHojaVida" Association="Self.FK_tblNivelLengua_tblHojaVida">
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+      <End Role="tblNivelLengua" EntitySet="tblNivelLengua" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNivelLengua_tblLenguas" Association="Self.FK_tblNivelLengua_tblLenguas">
+      <End Role="tblLenguas" EntitySet="tblLenguas" />
+      <End Role="tblNivelLengua" EntitySet="tblNivelLengua" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblNivelLengua_tblNivel" Association="Self.FK_tblNivelLengua_tblNivel">
+      <End Role="tblNivel" EntitySet="tblNivel" />
+      <End Role="tblNivelLengua" EntitySet="tblNivelLengua" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPresentacionProyecto_tblEjeInvestigacion" Association="Self.FK_tblPresentacionProyecto_tblEjeInvestigacion">
+      <End Role="tblEjeInvestigacion" EntitySet="tblEjeInvestigacion" />
+      <End Role="tblPresentacionProyecto" EntitySet="tblPresentacionProyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProductosAcademicos_tblCategoriaProductos" Association="Self.FK_tblProductosAcademicos_tblCategoriaProductos">
+      <End Role="tblCategoriaProductos" EntitySet="tblCategoriaProductos" />
+      <End Role="tblProductosAcademicos" EntitySet="tblProductosAcademicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProductosAcademicos_tblHojaVida" Association="Self.FK_tblProductosAcademicos_tblHojaVida">
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+      <End Role="tblProductosAcademicos" EntitySet="tblProductosAcademicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblCaracteristicasProy_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblCaracteristicasProy_Rev">
+      <End Role="tblCaracteristicasProy_Rev" EntitySet="tblCaracteristicasProy_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblCronogramaProy_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblCronogramaProy_Rev">
+      <End Role="tblCronogramaProy_Rev" EntitySet="tblCronogramaProy_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblEstado" Association="Self.FK_tblProyectosInvestigacion_Rev_tblEstado">
+      <End Role="tblEstado" EntitySet="tblEstado" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblMarcoReferenciaProy_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblMarcoReferenciaProy_Rev">
+      <End Role="tblMarcoReferenciaProy_Rev" EntitySet="tblMarcoReferenciaProy_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblMetodoProy_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblMetodoProy_Rev">
+      <End Role="tblMetodoProy_Rev" EntitySet="tblMetodoProy_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblPresentacionProyecto_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblPresentacionProyecto_Rev">
+      <End Role="tblPresentacionProyecto_Rev" EntitySet="tblPresentacionProyecto_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblPresupuestoProy_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblPresupuestoProy_Rev">
+      <End Role="tblPresupuestoProy_Rev" EntitySet="tblPresupuestoProy_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblProblemaInvestigacionProy_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblProblemaInvestigacionProy_Rev">
+      <End Role="tblProblemaInvestigacionProy_Rev" EntitySet="tblProblemaInvestigacionProy_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_Rev_tblReferenciasProy_Rev" Association="Self.FK_tblProyectosInvestigacion_Rev_tblReferenciasProy_Rev">
+      <End Role="tblReferenciasProy_Rev" EntitySet="tblReferenciasProy_Rev" />
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblCaracteristicasProy" Association="Self.FK_tblProyectosInvestigacion_tblCaracteristicasProy">
+      <End Role="tblCaracteristicasProy" EntitySet="tblCaracteristicasProy" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblCronogramaProy" Association="Self.FK_tblProyectosInvestigacion_tblCronogramaProy">
+      <End Role="tblCronogramaProy" EntitySet="tblCronogramaProy" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblEstado" Association="Self.FK_tblProyectosInvestigacion_tblEstado">
+      <End Role="tblEstado" EntitySet="tblEstado" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblGruposInvestigacion1" Association="Self.FK_tblProyectosInvestigacion_tblGruposInvestigacion1">
+      <End Role="tblGruposInvestigacion" EntitySet="tblGruposInvestigacion" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblMarcoReferenciaProy" Association="Self.FK_tblProyectosInvestigacion_tblMarcoReferenciaProy">
+      <End Role="tblMarcoReferenciaProy" EntitySet="tblMarcoReferenciaProy" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblMetodoProy" Association="Self.FK_tblProyectosInvestigacion_tblMetodoProy">
+      <End Role="tblMetodoProy" EntitySet="tblMetodoProy" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblPresentacionProyecto" Association="Self.FK_tblProyectosInvestigacion_tblPresentacionProyecto">
+      <End Role="tblPresentacionProyecto" EntitySet="tblPresentacionProyecto" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblPresupuestoProy" Association="Self.FK_tblProyectosInvestigacion_tblPresupuestoProy">
+      <End Role="tblPresupuestoProy" EntitySet="tblPresupuestoProy" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblProblemaInvestigacionProy" Association="Self.FK_tblProyectosInvestigacion_tblProblemaInvestigacionProy">
+      <End Role="tblProblemaInvestigacionProy" EntitySet="tblProblemaInvestigacionProy" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev4" Association="Self.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev4">
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev5" Association="Self.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev5">
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev6" Association="Self.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev6">
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev7" Association="Self.FK_tblProyectosInvestigacion_tblProyectosInvestigacion_Rev7">
+      <End Role="tblProyectosInvestigacion_Rev" EntitySet="tblProyectosInvestigacion_Rev" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProyectosInvestigacion_tblReferenciasProy" Association="Self.FK_tblProyectosInvestigacion_tblReferenciasProy">
+      <End Role="tblReferenciasProy" EntitySet="tblReferenciasProy" />
+      <End Role="tblProyectosInvestigacion" EntitySet="tblProyectosInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTituloEducacionSuperior_tblHojaVida" Association="Self.FK_tblTituloEducacionSuperior_tblHojaVida">
+      <End Role="tblHojaVida" EntitySet="tblHojaVida" />
+      <End Role="tblTituloEducacionSuperior" EntitySet="tblTituloEducacionSuperior" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTituloEducacionSuperior_tblNivelAcademicoEducacionSuperior" Association="Self.FK_tblTituloEducacionSuperior_tblNivelAcademicoEducacionSuperior">
+      <End Role="tblNivelAcademicoEducacionSuperior" EntitySet="tblNivelAcademicoEducacionSuperior" />
+      <End Role="tblTituloEducacionSuperior" EntitySet="tblTituloEducacionSuperior" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

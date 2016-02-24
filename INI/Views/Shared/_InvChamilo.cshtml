@@ -1,0 +1,84 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+@using INI.ChamiloWS;
+@using Microsoft.AspNet.Identity;
+@using INI.Models.DataBase;
+
+@{
+    ViewBag.Title = "_InvChamilo";
+    Layout = "~/Views/Shared/_LayoutInvestic.cshtml";    
+}
+
+@section Submenu{
+    <img src="~/images/logosSecciones/logo_aprendizaje.png" style="margin:0; float: left;" />
+    <div id="titulosmenusec" style="color: #CD1626;"> Aprendizaje</div>
+    @if (AspNetUsersRoles.IsUserInRole("Maestro", User.Identity.Name))
+    {
+       <div><a id="btn_create"  class="btnmenusec" href="http://investic.udenar.edu.co/chamilolms/main/create_course/add_course.php" target="chamilo">Crear Curso</a></div>      
+       <div><a id="btn_recedu" class="btnmenusec"  href="~/RecursosEducativos">Recursos Educativos</a></div>
+       <div><a id="btn_test_courses" class="btnmenusec" href="~/APR/ChamiloCourses">Vista Estudiante</a></div>
+       <div><a id="btn_miscursos" class="btnmenusec" href="http://investic.udenar.edu.co/chamilolms/user_portal.php?&origin=" target="chamilo">Mis Cursos</a></div>
+       <div><a id="btn_catcursos" class="btnmenusec" href="http://investic.udenar.edu.co/chamilolms/main/auth/courses.php" target="chamilo">Catálogo de Cursos</a></div>
+    }
+    else
+    {
+        <div><a id="btn_miscursos" class="btnmenusec" href="~/APR/ChamiloCourses">Mis Cursos</a></div>
+        <div><a id="btn_catcursos" class="btnmenusec" href="http://investic.udenar.edu.co/chamilolms/main/auth/courses.php" target="chamilo">Catálogo de Cursos</a></div>        
+    }    
+    
+    
+    <div style="padding-bottom:15px;padding-top:14px;margin:0; color:#E5E5E5;"></div>
+    
+    
+}
+
+
+
+<div class="container">   
+    <div class="modal fade" id="otra" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" id="contmodal">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-sm-10"></div>
+                        <div class="col-sm-2"><button type="button" data-dismiss="modal"><img src="~/images/popups/boton_cerrar.svg" width="20" height="20" /></button></div>
+                    </div>
+
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h2 id="textopopapr">¿Tienes dudas sobre el <br /> manejo del componente Aprendizaje?</h2>
+                            <p id="contpop">Hemos preparado un instructivo para ti, en él conocerás las funciones principales del componente <strong>Aprendizaje</strong> y como manejarlas.</p>
+                        </div>
+                        <div class="col-sm-5"><img src="~/images/popups/APR/anita_apr.svg" width="200" height="300" /></div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#"><img src="~/images/popups/boton_instructivo.svg" width="150" height="70" /></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @RenderBody()
+    <center>@Html.AtrasInvestic()</center>
+</div>
+
+@section Script{
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(window).load(function () {
+
+            $("#otra").modal('show');
+        });
+    });
+</script>
+    
+}

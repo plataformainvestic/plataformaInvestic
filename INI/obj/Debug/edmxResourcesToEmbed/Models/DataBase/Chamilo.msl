@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="chamiloModelStoreContainer" CdmEntityContainer="chamiloEntities">
+    <EntitySetMapping Name="c_course_description">
+      <EntityTypeMapping TypeName="chamiloModel.c_course_description">
+        <MappingFragment StoreEntitySet="c_course_description">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="session_id" ColumnName="session_id" />
+          <ScalarProperty Name="description_type" ColumnName="description_type" />
+          <ScalarProperty Name="progress" ColumnName="progress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_course_setting">
+      <EntityTypeMapping TypeName="chamiloModel.c_course_setting">
+        <MappingFragment StoreEntitySet="c_course_setting">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="variable" ColumnName="variable" />
+          <ScalarProperty Name="subkey" ColumnName="subkey" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="subkeytext" ColumnName="subkeytext" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course">
+      <EntityTypeMapping TypeName="chamiloModel.course">
+        <MappingFragment StoreEntitySet="course">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="directory" ColumnName="directory" />
+          <ScalarProperty Name="db_name" ColumnName="db_name" />
+          <ScalarProperty Name="course_language" ColumnName="course_language" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="category_code" ColumnName="category_code" />
+          <ScalarProperty Name="visibility" ColumnName="visibility" />
+          <ScalarProperty Name="show_score" ColumnName="show_score" />
+          <ScalarProperty Name="tutor_name" ColumnName="tutor_name" />
+          <ScalarProperty Name="visual_code" ColumnName="visual_code" />
+          <ScalarProperty Name="department_name" ColumnName="department_name" />
+          <ScalarProperty Name="department_url" ColumnName="department_url" />
+          <ScalarProperty Name="disk_quota" ColumnName="disk_quota" />
+          <ScalarProperty Name="last_visit" ColumnName="last_visit" />
+          <ScalarProperty Name="last_edit" ColumnName="last_edit" />
+          <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="target_course_code" ColumnName="target_course_code" />
+          <ScalarProperty Name="subscribe" ColumnName="subscribe" />
+          <ScalarProperty Name="unsubscribe" ColumnName="unsubscribe" />
+          <ScalarProperty Name="registration_code" ColumnName="registration_code" />
+          <ScalarProperty Name="legal" ColumnName="legal" />
+          <ScalarProperty Name="activate_legal" ColumnName="activate_legal" />
+          <ScalarProperty Name="course_type_id" ColumnName="course_type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_category">
+      <EntityTypeMapping TypeName="chamiloModel.course_category">
+        <MappingFragment StoreEntitySet="course_category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="tree_pos" ColumnName="tree_pos" />
+          <ScalarProperty Name="children_count" ColumnName="children_count" />
+          <ScalarProperty Name="auth_course_child" ColumnName="auth_course_child" />
+          <ScalarProperty Name="auth_cat_child" ColumnName="auth_cat_child" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_field">
+      <EntityTypeMapping TypeName="chamiloModel.course_field">
+        <MappingFragment StoreEntitySet="course_field">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="field_type" ColumnName="field_type" />
+          <ScalarProperty Name="field_variable" ColumnName="field_variable" />
+          <ScalarProperty Name="field_display_text" ColumnName="field_display_text" />
+          <ScalarProperty Name="field_default_value" ColumnName="field_default_value" />
+          <ScalarProperty Name="field_order" ColumnName="field_order" />
+          <ScalarProperty Name="field_visible" ColumnName="field_visible" />
+          <ScalarProperty Name="field_changeable" ColumnName="field_changeable" />
+          <ScalarProperty Name="field_filter" ColumnName="field_filter" />
+          <ScalarProperty Name="tms" ColumnName="tms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_field_values">
+      <EntityTypeMapping TypeName="chamiloModel.course_field_values">
+        <MappingFragment StoreEntitySet="course_field_values">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="course_code" ColumnName="course_code" />
+          <ScalarProperty Name="field_id" ColumnName="field_id" />
+          <ScalarProperty Name="field_value" ColumnName="field_value" />
+          <ScalarProperty Name="tms" ColumnName="tms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_module">
+      <EntityTypeMapping TypeName="chamiloModel.course_module">
+        <MappingFragment StoreEntitySet="course_module">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="row" ColumnName="row" />
+          <ScalarProperty Name="column" ColumnName="column" />
+          <ScalarProperty Name="position" ColumnName="position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_rel_class">
+      <EntityTypeMapping TypeName="chamiloModel.course_rel_class">
+        <MappingFragment StoreEntitySet="course_rel_class">
+          <ScalarProperty Name="course_code" ColumnName="course_code" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_rel_user">
+      <EntityTypeMapping TypeName="chamiloModel.course_rel_user">
+        <MappingFragment StoreEntitySet="course_rel_user">
+          <ScalarProperty Name="course_code" ColumnName="course_code" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="tutor_id" ColumnName="tutor_id" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="user_course_cat" ColumnName="user_course_cat" />
+          <ScalarProperty Name="relation_type" ColumnName="relation_type" />
+          <ScalarProperty Name="legal_agreement" ColumnName="legal_agreement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_request">
+      <EntityTypeMapping TypeName="chamiloModel.course_request">
+        <MappingFragment StoreEntitySet="course_request">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="directory" ColumnName="directory" />
+          <ScalarProperty Name="db_name" ColumnName="db_name" />
+          <ScalarProperty Name="course_language" ColumnName="course_language" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="category_code" ColumnName="category_code" />
+          <ScalarProperty Name="tutor_name" ColumnName="tutor_name" />
+          <ScalarProperty Name="visual_code" ColumnName="visual_code" />
+          <ScalarProperty Name="request_date" ColumnName="request_date" />
+          <ScalarProperty Name="objetives" ColumnName="objetives" />
+          <ScalarProperty Name="target_audience" ColumnName="target_audience" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="exemplary_content" ColumnName="exemplary_content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="course_type">
+      <EntityTypeMapping TypeName="chamiloModel.course_type">
+        <MappingFragment StoreEntitySet="course_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="translation_var" ColumnName="translation_var" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="props" ColumnName="props" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title .miuestra</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/Content/metro-ui/css/metro-bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/metro-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/metro-ui/css/iconFont.min.css" rel="stylesheet" />
+    <link href="~/Content/Investic/Site.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="~/Content/Investic/fonts.css" rel="stylesheet" />
+    <link href="~/Content/INI/Recuerdos.css" rel="stylesheet" />
+</head>
+
+
+
+<body class="metro">
+   <h1>mio</h1>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/metro-ui")
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

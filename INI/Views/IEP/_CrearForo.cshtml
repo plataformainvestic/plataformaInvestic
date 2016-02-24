@@ -1,0 +1,93 @@
+﻿@model INI.Models.DataBase.tblForoProyectoInvestigacion
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+@using (Html.BeginForm("AgregarForo", "IEP"))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.idUser)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+    @Html.HiddenFor(model => model.idForo)
+    @Html.HiddenFor(model => model.Fecha)
+    @Html.HiddenFor(model => model.Respuestas)
+
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#tituloa', { sticky: true })">
+                            Titulo:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="tituloa">
+                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu titulo:?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un titulo:.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                
+            </div>
+            <div class="span10 input-control text">
+                @Html.EditorFor(model=>model.Titulo)
+                @Html.ValidationMessageFor(model => model.Titulo, String.Empty, new { @style = "color:red;!important" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+
+
+                <div class="span2 text-right">
+
+
+                    <div style="margin: auto; width: auto;">
+
+
+                        <strong onmouseover="tooltip.pop(this, '#mensajea', { sticky: true })">
+                            Mensaje:
+                        </strong>
+
+
+                        <div style="display:none;">
+                            <div id="mensajea">
+                                <img src="~/images/ToolTip/p5.svg" style="float:right;margin-left:12px;" alt="" />
+                                <b><strong>Cual es tu mensaje?</strong></b><br /><br />
+                                Este campo es obligatorio. Aquí debes ingresar un mensajea.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.Mensaje)
+                @Html.ValidationMessageFor(model => model.Mensaje, String.Empty, new { @style = "color:red;!important" })
+            </div>            
+        </div>        
+    </div>
+    <input type="submit" value="Crear Foro" class="button bg-green" />
+}
+

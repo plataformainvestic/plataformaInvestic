@@ -1,0 +1,80 @@
+﻿@model INI.Models.RangeFechas.DateRange
+
+<br /><br />
+
+@{
+    var startdate = System.DateTime.Now.AddMonths(-1);
+    var enddate = System.DateTime.Now;
+
+    string sd = startdate.Year + "/" + startdate.Month + "/" + startdate.Day;
+    string ed = enddate.Year + "/" + enddate.Month + "/" + enddate.Day;
+}
+
+<form action="/LogAcceso/GetLogPdf" method="post">
+    @Html.AntiForgeryToken()
+    <input id="IsAdvancedSearch" name="IsAdvancedSearch" type="hidden" value=false />
+    <input id="IsRole" name="IsRole" type="hidden" value=true />
+    <div class="grid">
+        <div class="row">
+            <div class="span2">
+                <strong data-hint="Fecha inicial|En este espacio selecciona desde que fecha se quiere generar el reporte."  data-hint-position="top">Fecha inicial</strong>
+            </div>
+
+            <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top" data-date="@sd">
+                @Html.TextBoxFor(m => m.StartDate, "{0:dd/MM/yyyy}", new { @type = "text" })
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <strong data-hint="Fecha final|En este espacio selecciona hasta que fecha se quiere generar el reporte." data-hint-position="top">Fecha final</strong>
+            </div>
+            <div class="span4 input-control text" data-role="datepicker" data-format="dd/mm/yyyy" data-locale="es" data-effect="slide" data-position="top" data-date="@ed">
+                @Html.TextBoxFor(m => m.EndDate, "{0:dd/MM/yyyy}", new { @type = "text" })
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessageFor(m => m.EndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span2">
+            <span>Reporte avanzado</span>
+        </div>
+        <div class="span2">
+            <div class="input-control switch">
+                <label>
+                    <input id="chk_isAR" type="checkbox" />
+                    <span class="check"></span>
+                </label>
+            </div>
+        </div>
+        <div id="grp_rd_ar" class="span4" style="display:none">
+            <div class="input-control radio">
+                <label>
+                    <input type="radio" id="rdreportto1" name="rdreportto" checked="checked"/>
+                    <span class="check"></span>
+                    Rol
+                </label>
+            </div>
+            <div class="input-control radio">
+                <label>
+                    <input type="radio" id="rdreportto2" name="rdreportto" />
+                    <span class="check"></span>
+                    Usuario
+                </label>
+            </div>            
+        </div>
+        <div id="txt_repo" class="span4" style="display:none">
+            <div class="input-control text" data-role="input-control">
+                <input type="text" name="criterion" placeholder="Criterio">
+                <button class="btn-clear" tabindex="-1" type="button"></button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <br />
+    <input type="submit" value="Descargar" class="button large bg-green" />
+</form>

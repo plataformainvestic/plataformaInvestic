@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SEG.Models.DataBase.programa_tareas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Informacion</h2>
+
+<p>
+    @Html.ActionLink("Nueva Tarea", "Seleccionar")
+</p>
+<table id="mitabla" class="table striped hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Ini)
+            </th>
+            <th>
+                Fecha Final
+            </th>
+            <th>
+                Cedula
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.tabla_alternativas.Des_Alternativa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Ini)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Fin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.tabla_alternativas.Des_Alternativa)
+                </td>
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", new { id = item.Id }) |
+                  
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section Scripts {
+
+    <script src="~/Scripts/jquery-ui-1.11.1.js"></script>
+    <script src="~/Scripts/DataTables-1.10.3/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/mitabla.js"></script>
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

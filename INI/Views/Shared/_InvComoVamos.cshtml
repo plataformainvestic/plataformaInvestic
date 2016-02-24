@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+@{
+    ViewBag.Title = "_InvInvestiga";
+    Layout = "~/Views/Shared/_LayoutInvestic.cshtml";
+}
+
+@section Submenu{
+    <a href="~/Home/comovamos"><img src="~/images/logosSecciones/logo_comovamos.png" style="margin:0; float: left;" /></a>
+    <div id="titulosmenusec" style="color: #F9C91E;"><a style="color: #F9C91E;" href="~/Home/comovamos">¿Como Vamos?</a></div>
+    <div style="padding-bottom:15px;padding-top:14px;margin:0; color:#E5E5E5;"></div>
+
+
+        <div id="tituloruta">
+            Dónde Estoy?
+            <font id="ruta">@Html.MvcSiteMap().SiteMapPath()</font>
+        </div>
+}
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@section Script{
+    @RenderSection("scripts", required: false)
+}

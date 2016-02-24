@@ -1,0 +1,77 @@
+﻿@model IEP.Models.DataBase.tblMaestroCoInvestigador
+
+@{
+    ViewBag.Title = "Maestro Investigador";
+    string msj = ViewBag.Message;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Datos Maestro </h4>
+    <hr />
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+                @Html.Label("Area de Conocimiento")
+            </div>
+            <div class="span5">
+                @Html.DisplayFor(model => model.tblAreaConocimiento.Nombre)
+            </div>
+            <div class="span2">
+                @Html.Label("Tiempo en Ondas")
+            </div>
+            <div class="span1" data-role="input-control">
+                @Html.DisplayFor(model => model.TiempoOndas)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                @Html.Label("Institucion")
+            </div>
+            <div class="span8" data-role="input-control">
+                @Html.DisplayFor(model => model.tblInstitucion.Nombre)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                @Html.Label("Pregrado")
+            </div>
+            <div class="span8" data-role="input-control">
+                @Html.DisplayFor(model => model.Pregrado)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                @Html.Label("Postgrado")
+            </div>
+            <div class="span8" data-role="input-control">
+                @Html.DisplayFor(model => model.Postgrado)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                @Html.Label("Otro")
+            </div>
+            <div class="span8" data-role="input-control">
+                @Html.DisplayFor(model => model.Otro)
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                @Html.Label("Experiencia")
+            </div>
+            <div class="span8">
+                @Html.DisplayFor(model => model.ExperienciaAreaConocimiento)
+            </div>
+        </div>
+    </div>                    
+</div>
+<p>
+    <a href="/Investigador/ModificarMaestro" class="button info">Actualizar Información</a>
+</p>
+@section Scripts{
+    <script>
+        AlertMessage('@msj');
+    </script>
+}

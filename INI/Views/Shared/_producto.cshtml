@@ -1,0 +1,114 @@
+﻿@model INI.Models.DataBase.tblProductosContratista
+@using System.Data.Entity
+@using System.Linq
+@using INI.Models.DataBase
+
+@{
+    var db = new investicEntities();
+      
+}   
+
+
+@using (Ajax.BeginForm("Create", "produto", new AjaxOptions { InsertionMode=InsertionMode.Replace, UpdateTargetId = "Id_Actividad" }, new { enctype = "multipart/form-data", id = "AddDRForm" }))
+
+
+
+{
+    @Html.AntiForgeryToken()
+    
+    
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id_Producto)
+        @Html.HiddenFor(model => model.Id_Contratista)
+        @Html.HiddenFor(model => model.Id_Actividad)
+
+
+
+        <h4>PRODUCTOS</h4>
+
+
+        <form id="formdata" method="post"enctype="multipart/form-data">
+            <div class="form-group">
+
+                <label class="control-label col-md-2">Producto</label>
+
+                <div class="form-group">
+                    <div class="col-md-push-2 col-md-10">
+                        <input type="file"id="Nombre_Producto" name="Nombre_Producto" value="Seleccione un archivo" title="Suba un archivo por favor"/>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="input-control textarea">
+                <label class="control-label col-md-2">Descripción Producto(s)</label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Descripcion_Producto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descripcion_Producto, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Subir" class="btn large bg-darkOrange fg-white" id="next-step" />
+                </div>
+            </div>
+
+
+
+
+        </form>
+
+    <script type="text/javascript">
+    $('#file').change(function () {
+        var dataString = new FormData($("#formdata").get(0));
+        $.ajax({
+            url: '@Url.Action("Create", "produto")',
+            data: dataString,
+            contentType: false,
+            processData: false,
+            cache: false,
+            type: "POST",
+            dataType: "html",
+            success: function (data) {
+                $("#docDiv").html(data);
+            }
+        });
+
+    });
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+}
+<div id="listaproductos">
+    @{
+        var productos = db.tblProductosContratista.Where(x => x.Id_Actividad == Model.Id_Actividad).Include(p => p.AspNetUsers).Include(p => p.tblActividadContratista);
+    }
+ 
+    @Html.Partial("lista", productos)
+
+</div>
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.min-1.11.1.js"></script>
+    <script src="~/Scripts/metro-ui/metro.min.js"></script>
+    @Styles.Render("~/Content/csswizard")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/wizard")
+<script src="~/Scripts/Investic/iep-0.1-AlertMessage.js"></script>   
+  
+}

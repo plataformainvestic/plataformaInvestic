@@ -1,0 +1,35 @@
+﻿@model INI.Models.DataBase.tblRubro
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+<br /><br /><br />
+<h2>Detalle</h2>
+
+<div>
+    <h4>Rubro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rubro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rubro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Atrás", "Index")
+</p>

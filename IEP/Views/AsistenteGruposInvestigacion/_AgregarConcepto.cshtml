@@ -1,0 +1,34 @@
+﻿@model IEP.Models.DataBase.tblConceptosEstadoArte
+
+@using (Html.BeginForm("AgregarConcepto", "AsistenteGruposInvestigacion"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idEstadoArte)    
+
+    <div class="grid fluid">        
+        <div class="row">
+            <div class="span2">
+                Autor
+            </div>
+            <div class="span6 input-control text">
+                @Html.EditorFor(model => model.Autor)
+            </div>
+            <div class="span2">
+                Año:
+            </div>
+            <div class="span2 input-control text">
+                @Html.EditorFor(model => model.Publicacion)
+            </div>            
+        </div>
+        <div class="row">
+            <div class="span2">
+                Texto:
+            </div>
+            <div class="span10 input-control textarea">
+                @Html.TextAreaFor(model => model.Texto)
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Agregar" class="button large bg-green" />
+}

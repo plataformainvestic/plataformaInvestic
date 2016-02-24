@@ -1,0 +1,127 @@
+﻿@model INI.Models.DataBase.tblRecoleccionInformacionProyectoInvestigacion
+
+@using (Html.BeginForm("AgregarInformacion", "IEP", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model => model.idGrupoInvestigacion)
+
+    <div class="grid fluid">
+        <div class="row">
+
+
+
+            @*<div class="span2">
+                Instrumento:
+            </div>*@
+
+            <div class="span2 text-right">
+
+
+                <div style="margin: auto; width: auto;">
+
+
+                    <div  class="span2"onmouseover="tooltip.pop(this, '#Instrumento', { sticky: true })">
+                        Instrumento
+                    </div>
+
+
+                    <div style="display:none;">
+                        <div id="Instrumento">
+                            <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Instrumento?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar un Instrumento.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="span10 input-control select">
+                @Html.DropDownList("idInstrumento", "Instrumento Recoleccion")
+                @Html.ValidationMessageFor(model => model.idInstrumento, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <div class="row">
+            @*<div class="span2">
+                Descripción:
+            </div>*@
+
+
+            <div class="span2 text-right">
+
+
+                <div style="margin: auto; width: auto;">
+
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Des', { sticky: true })">
+                        Descripción
+                    </div>
+
+
+                    <div style="display:none;">
+                        <div id="Des">
+                            <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Descripción.?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes ingresar una Descripción.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="span10 input-control text">
+                @Html.EditorFor(model => model.Descripcion)
+                @Html.ValidationMessageFor(model => model.Descripcion, String.Empty, new { @style = "color:red;!important" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+
+
+            @*<div class="span2">
+                Evidencia:
+            </div>*@
+
+            <div class="span2 text-right">
+
+
+                <div style="margin: auto; width: auto;">
+
+
+                    <div class="span2" onmouseover="tooltip.pop(this, '#Evidencia', { sticky: true })">
+                        Evidencia
+                    </div>
+
+
+                    <div style="display:none;">
+                        <div id="Evidencia">
+                            <img src="~/images/ToolTip/p4.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu Evidencia.?</strong></b><br /><br />
+                            Este campo es obligatorio. Aquí debes elegir tu Evidencia.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="span10">
+                <input type="file" name="Evidencia" id="Evidencia" accept="application/pdf,image/jpeg"  required  message="Error Usted no selecciono el archivo [pdf,image/jpeg]"/>
+            </div>
+        </div>
+        <div class="row">
+            <button class="button large bg-green">Enviar</button>
+        </div>
+    </div>
+}

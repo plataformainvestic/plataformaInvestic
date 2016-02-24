@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed4ed9d668e0458dbfe99c7e586cea4d" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="InvesticModel.AspNetRoles" Width="2" PointX="0.75" PointY="34.875" />
+        <EntityTypeShape EntityType="InvesticModel.AspNetUserClaims" Width="2" PointX="6.25" PointY="34.75" />
+        <EntityTypeShape EntityType="InvesticModel.AspNetUserLogins" Width="2" PointX="6.25" PointY="32.25" />
+        <EntityTypeShape EntityType="InvesticModel.AspNetUsers" Width="2" PointX="3.5" PointY="32.5" />
+        <EntityTypeShape EntityType="InvesticModel.tblAreaConocimiento" Width="2" PointX="6.5" PointY="17.75" />
+        <EntityTypeShape EntityType="InvesticModel.tblAsesor" Width="2" PointX="6.25" PointY="76.25" />
+        <EntityTypeShape EntityType="InvesticModel.tblAsesorGrupoInvestigacion" Width="2" PointX="9" PointY="76.125" />
+        <EntityTypeShape EntityType="InvesticModel.tblCentrosPoblado" Width="2" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InvesticModel.tblCoInvestigadorGrupoInvestigacion" Width="2" PointX="9" PointY="38.25" />
+        <EntityTypeShape EntityType="InvesticModel.tblDocumentosSoporte" Width="2" PointX="9" PointY="61.5" />
+        <EntityTypeShape EntityType="InvesticModel.tblGrupoInvestigacion" Width="2" PointX="6.25" PointY="37.5" />
+        <EntityTypeShape EntityType="InvesticModel.tblInstitucion" Width="2" PointX="6.5" PointY="46.875" />
+        <EntityTypeShape EntityType="InvesticModel.tblInvitacionGrupo" Width="2" PointX="12" PointY="33" />
+        <EntityTypeShape EntityType="InvesticModel.tblLineaInvestigacion" Width="2" PointX="3.5" PointY="39.875" />
+        <EntityTypeShape EntityType="InvesticModel.tblMaestroCoInvestigador" Width="2" PointX="9.25" PointY="34.125" />
+        <EntityTypeShape EntityType="InvesticModel.tblMiembroGrupo" Width="2" PointX="15" PointY="37" />
+        <EntityTypeShape EntityType="InvesticModel.tblMunicipios" Width="2" PointX="3.75" PointY="51" />
+        <EntityTypeShape EntityType="InvesticModel.tblPreguntaInvestigacion" Width="2" PointX="9" PointY="42.25" />
+        <EntityTypeShape EntityType="InvesticModel.tblPreguntaProyectoInvestigacion" Width="2" PointX="9" PointY="20.75" />
+        <EntityTypeShape EntityType="InvesticModel.tblProblemaInvestigacion" Width="2" PointX="9" PointY="55.625" />
+        <EntityTypeShape EntityType="InvesticModel.tblProblemaProyectoInvestigacion" Width="2" PointX="9" PointY="58.375" />
+        <EntityTypeShape EntityType="InvesticModel.tblProyectoInvestigacion" Width="2" PointX="9" PointY="64.25" />
+        <EntityTypeShape EntityType="InvesticModel.tblRol" Width="2" PointX="9.25" PointY="31.375" />
+        <EntityTypeShape EntityType="InvesticModel.tblSeguimientoProyectoInvestigacion" Width="2" PointX="9" PointY="71.125" />
+        <EntityTypeShape EntityType="InvesticModel.tblTipoInstitucion" Width="2" PointX="3.75" PointY="48.625" />
+        <EntityTypeShape EntityType="InvesticModel.tblZona" Width="2" PointX="3.75" PointY="46.125" />
+        <AssociationConnector Association="InvesticModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="InvesticModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="InvesticModel.FK_tblAsesor_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblGrupoInvestigacion_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblInvitacionGrupo_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblMaestroCoInvestigador_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblMiembroGrupo_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblMaestroCoInvestigador_tblAreaConocimiento" />
+        <AssociationConnector Association="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblAsesor" />
+        <AssociationConnector Association="InvesticModel.FK_tblAsesorGrupoInvestigacion_tblProyectoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblCoInvestigadorGrupoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblDocumentosSoporte_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblGrupoInvestigacion_tblInstitucion" />
+        <AssociationConnector Association="InvesticModel.FK_tblGrupoInvestigacion_tblLineaInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblGrupoInvestigacion_tblPreguntaInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblInvitacionGrupo_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblMiembroGrupo_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblPreguntaProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblProblemaInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblProblemaProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblSeguimientoProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblInstitucion_tblMunicipios" />
+        <AssociationConnector Association="InvesticModel.FK_tblInstitucion_tblTipoInstitucion" />
+        <AssociationConnector Association="InvesticModel.FK_tblInstitucion_tblZona" />
+        <AssociationConnector Association="InvesticModel.FK_tblMaestroCoInvestigador_tblInstitucion" />
+        <AssociationConnector Association="InvesticModel.FK_tblInvitacionGrupo_tblRol" />
+        <AssociationConnector Association="InvesticModel.FK_tblMiembroGrupo_tblRol" />
+        <AssociationConnector Association="InvesticModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="InvesticModel.tblConceptosEstadoArte" Width="1.5" PointX="11.25" PointY="25.125" />
+        <EntityTypeShape EntityType="InvesticModel.tblEstadoArteProyectoInvestigacion" Width="1.5" PointX="9" PointY="25.125" />
+        <EntityTypeShape EntityType="InvesticModel.tblHerramientasRecoleccionInformacion" Width="1.5" PointX="9.75" PointY="45.875" />
+        <EntityTypeShape EntityType="InvesticModel.tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion" Width="1.5" PointX="9" PointY="28.125" />
+        <EntityTypeShape EntityType="InvesticModel.tblPresupuestoProyectoInvestigacion" Width="1.5" PointX="12" PointY="45.375" />
+        <EntityTypeShape EntityType="InvesticModel.tblRecoleccionInformacionProyectoInvestigacion" Width="1.5" PointX="12" PointY="41.5" />
+        <EntityTypeShape EntityType="InvesticModel.tblRubro" Width="1.5" PointX="9.75" PointY="48.875" />
+        <AssociationConnector Association="InvesticModel.FK_tblConceptosEstadoArte_tblEstadoArteProyectoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblLecturaAnalisisFuentesinformacionPoryectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblRecoleccionInformacionProyectoInvestigacion_tblHerramientasRecoleccionInformacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblPresupuestoProyectoInvestigacion_tblRubro" />
+        <AssociationConnector Association="InvesticModel.FK_tblEstadoArteProyectoInvestigacion_tblGrupoInvestigacion" />
+        <EntityTypeShape EntityType="InvesticModel.tblForoProyectoInvestigacion" Width="1.5" PointX="12" PointY="36.5" />
+        <AssociationConnector Association="InvesticModel.FK_tblForoProyectoInvestigacion_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblForoProyectoInvestigacion_tblForoProyectoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblForoProyectoInvestigacion_tblGrupoInvestigacion" />
+        <EntityTypeShape EntityType="InvesticModel.C__MigrationHistory" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InvesticModel.sysdiagrams" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="InvesticModel.tblReflexionProyectoInvestigacion" Width="1.5" PointX="9" PointY="13.25" />
+        <AssociationConnector Association="InvesticModel.FK_tblReflexionInvestigacion_tblGrupoInvestigacion" />
+        <EntityTypeShape EntityType="InvesticModel.tblComentarioGrupo" Width="1.5" PointX="15" PointY="33.125" />
+        <AssociationConnector Association="InvesticModel.FK_tblComentarioGrupo_AspNetUsers" />
+        <AssociationConnector Association="InvesticModel.FK_tblComentarioGrupo_tblGrupoInvestigacion" />
+        <EntityTypeShape EntityType="InvesticModel.tblPropagacionGrupo" Width="1.5" PointX="15" PointY="40.75" />
+        <EntityTypeShape EntityType="InvesticModel.tblTipoFeria" Width="1.5" PointX="12.75" PointY="49" />
+        <AssociationConnector Association="InvesticModel.FK_tblPropagacionGrupo_tblGrupoInvestigacion" />
+        <AssociationConnector Association="InvesticModel.FK_tblPropagacionGrupo_tblTipoFeria" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1181 @@
+﻿
+@font-face {
+    font-family: 'Chewy';
+    src: url('../../fonts/Chewy.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Black';
+    src: url('../../fonts/Roboto/Roboto-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url('../../fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../../fonts/Roboto/Roboto-Light.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../../fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../../fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*background: url('../../images/fondo_cordillera-01.png') no-repeat top scroll;*/
+    /*background: url('../../images/fondo_personajes.png') no-repeat top scroll;*/
+    background-size: cover;
+}
+
+
+.metro .access {
+    padding: 20px 40px 20px 60px;
+    border: 1px #ccc solid;
+    position: relative;
+    margin: 0 0 10px 0;
+    background-color: #fdfdfd !important;
+    min-height: 100px;
+}
+
+    .metro .access:before,
+    .metro .access:after {
+        display: table;
+        content: "";
+    }
+
+    .metro .access:after {
+        clear: both;
+    }
+
+    .metro .access:before {
+        position: absolute;
+        content: "Control de Acceso";
+        left: -21px;
+        top: 80px;
+        color: #999999 !important;
+        margin: 5px 10px;
+        font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #000000;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        letter-spacing: 0.02em;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+.verticalSpan1 {
+    height: 40px;
+}
+
+.verticalSpan2 {
+    height: 80px;
+}
+
+.verticalSpan3 {
+    height: 120px;
+}
+
+.nota {
+    border-bottom: 1px solid;
+    text-align: justify;
+}
+
+.leyenda {
+    padding: 10px;
+    font: bold 8px !important;
+    border-bottom: 1px solid;
+    text-align: justify;
+}
+
+input#UserName.UserName {
+    -moz-border-radius-topleft: 20px;
+    -webkit-border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid #848484;
+    outline: 0;
+    margin-top: 5px;
+    height: 20px;
+    width: 150px;
+    padding-left: 10px;
+    background-color: #E6E6E6;
+    color: #2E2E2E;
+}
+
+input#Password.password {
+    -moz-border-radius-topright: 20px;
+    -webkit-border-top-right-radius: 20px;
+    border-top-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid #848484;
+    outline: 0;
+    margin-top: 5px;
+    height: 20px;
+    width: 150px;
+    padding-right: 10px;
+    background-color: #E6E6E6;
+    color: #2E2E2E;
+}
+
+
+span#textomenu {
+    font-family: Roboto-Black;
+    font-size: large;
+}
+
+a#fuentemenu {
+    font-family: Chewy;
+    font-size: medium;
+}
+
+div div #tituloprimario {
+    font-family: Chewy;
+    font-size: 32px;
+    text-align: center;
+}
+
+div div #parraforoboto {
+    font-family: Roboto-Regular;
+    font-size: 14px;
+    text-align: center;
+}
+
+div #informacion {
+    background-color: #ffffff;
+    opacity: 0.5;
+    /*filter:alpha(opacity=50);*/
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 5%;
+    left: 50%;
+    /*determinamos una anchura*/
+    width: 700px;
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -350px;
+    /*determinamos una altura*/
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    border: 1px solid #808080;
+    padding: 5px;
+}
+
+div#equipo {
+    background-color: #ffffff;
+    opacity: 0.5;
+    /*filter:alpha(opacity=50);*/
+    position: relative;
+    /*nos posicionamos en el centro del navegador*/
+    top: 15%;
+    left: 15%;
+    /*determinamos una anchura*/
+    width: 70%;
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    /*margin-left: -350px;*/
+    /*determinamos una altura*/
+    height: 300px;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    border: 1px solid #A1CFE3;
+    padding: 5px;
+    font-size: large;
+}
+
+div #titulosmenusec {
+    font-family: Chewy;
+    font-size: 30px;
+    float: left;
+    margin: 0;
+    background-color: #E5E5E5;
+    padding: 3px 4px 4px 6px;
+}
+
+#tituloruta {
+    font-family:Chewy;
+    font-size: 20px;
+    float: left;
+    margin: 0;
+    background-color: #E5E5E5;
+    padding: 3px 4px 4px 6px;
+    width:100%;
+}
+
+div #ruta {
+
+    font-family: Roboto-Light;
+    font-size: 16px;
+    background-color: #E5E5E5;
+
+}
+
+div .titulosseccion {
+    font-family: Chewy;
+    font-size: 22px;
+    margin: 0;
+    padding: 1px 250px 2px 1px;
+}
+
+div .titulosregiones {
+    font-family: Chewy;
+    font-size: 2em;
+    margin: 0;
+    padding: 10px 1px 2px 1px;
+}
+
+div .titulopagina {
+    font-family: Chewy;
+    font-size: 30px;
+    float: left;
+    margin: 0;
+    padding: 3px 4px 6px 6px;
+}
+
+div #btnmenusec {
+    font-family: Roboto-Bold;
+    font-size: 17px;
+    float: left;
+    margin: 0;
+    background-color: #E5E5E5;
+    padding: 13px 4px 13px 6px;
+    color: #575756;
+}
+
+    div #btnmenusec:hover {
+        background-color: #B2B2B2;
+        color: #E5E5E5;
+        cursor: pointer;
+    }
+
+    div #btnmenusec:past {
+        background-color: #575756;
+    }
+
+div .btnmenusec {
+    font-family: Roboto-Bold;
+    font-size: 17px;
+    float: left;
+    margin: 0;
+    background-color: #E5E5E5;
+    padding: 13px 4px 13px 6px;
+    color: #575756;
+}
+
+    div .btnmenusec:hover {
+        background-color: #B2B2B2;
+        color: #E5E5E5;
+        cursor: pointer;
+    }
+
+    div .btnmenusec:past {
+        background-color: #575756;
+    }
+
+.mainButtons {
+    width: 91px;
+    height: 97px;
+    opacity: 1.0;
+}
+
+    .mainButtons:hover {
+        width: 95px;
+        height: 102px;
+        opacity: 1.0;
+    }
+
+.links {
+    width: 64px;
+    height: 64px;
+    opacity: 1.0;
+}
+
+    .links:hover {
+        width: 66px;
+        height: 66px;
+        opacity: 1.0;
+    }
+
+div#body {
+    background-image: url('../../images/como vamos/bg_comovamos.png');
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+div#pipe {
+    background-image: url('../../images/como vamos/img_pipe.png');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    width: 940px;
+    height: 610px;
+    float: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+div#numeros {
+    background-image: url('../../images/como vamos/img_numeros-08.png');
+    width: 468px;
+    height: 353px;
+    float: left;
+    position: absolute;
+    left: 103px;
+    top: 115px;
+}
+
+div#sanquianga {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 120px;
+    width: 90px;
+    position: absolute;
+    left: 136px;
+    top: 122px;
+}
+
+div#pacifico {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 136px;
+    top: 228px;
+}
+
+div#telembi {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 136px;
+    top: 289px;
+}
+
+div#pie {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 136px;
+    top: 368px;
+}
+
+div#sabana {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 136px;
+    top: 447px;
+}
+
+div#ex {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 292px;
+    top: 122px;
+}
+
+div#abades {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 292px;
+    top: 369px;
+}
+
+div#occidente {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 292px;
+    top: 447px;
+}
+
+div#cordillera {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 442px;
+    top: 122px;
+}
+
+div#centro {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 442px;
+    top: 233px;
+}
+
+div#juananbu {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 140px;
+    position: absolute;
+    left: 442px;
+    top: 339px;
+}
+
+div#rio {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 120px;
+    position: absolute;
+    left: 577px;
+    top: 122px;
+}
+
+div#guambuyaco {
+    Font-family: Roboto-Light;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 15px;
+    white-space: pre-line;
+    color: #575756;
+    text-align: left;
+    height: 57px;
+    width: 140px;
+    position: absolute;
+    left: 577px;
+    top: 260px;
+}
+/***AQUI INICIA LA PARTE DE GENERAL***/
+div#cuerpo {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+div#izquierda {
+    background-color: transparent;
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+div#mitad {
+    background-color: transparent;
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+div#derecha {
+    background-color: transparent;
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+div#opacidad80 {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: Alpha(Opacity=0);
+    opacity: 0.80;
+    float: left;
+    position: absolute;
+}
+
+div#opacidadm {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: Alpha(Opacity=0);
+    opacity: 0.80;
+    float: left;
+    position: absolute;
+}
+
+div#opacidadd {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: Alpha(Opacity=0);
+    opacity: 0.80;
+    float: left;
+    position: absolute;
+}
+
+div#contenido_izquierda {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/conocenos/general/img_objetivogeneral.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: #ffea3a;
+    float: left;
+}
+
+div#contenido_centro {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/conocenos/general/img_objetivosespecificos.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: #4bae4f;
+    float: left;
+}
+
+div#contenido_derecha {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/conocenos/general/img_componentes.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: #02a8f3;
+    float: left;
+}
+
+div#titulo1 {
+    font-family: Roboto-Thin;
+    font-size: 40px;
+    font-style: normal;
+    line-height: 40px;
+    font-weight: normal;
+    font-variant: normal;
+    color: #cccccc;
+    text-align: center;
+    text-align-last: justify;
+    text-indent: inherit;
+    height: 86px;
+    width: 60%;
+    position: relative;
+    left: 15%;
+    top: 10%;
+}
+
+div#titulo2 {
+    font-family: Roboto-Thin;
+    font-size: 40px;
+    font-style: normal;
+    line-height: 40px;
+    font-weight: normal;
+    font-variant: normal;
+    color: #cccccc;
+    text-align: center;
+    text-align-last: justify;
+    text-indent: inherit;
+    height: 86px;
+    width: 60%;
+    position: relative;
+    left: 15%;
+    top: 10%;
+}
+
+div#titulo3 {
+    font-family: Roboto-Thin;
+    font-size: 40px;
+    font-style: normal;
+    line-height: 40px;
+    font-weight: normal;
+    font-variant: normal;
+    color: #cccccc;
+    text-align: center;
+    text-align-last: justify;
+    text-indent: inherit;
+    height: 86px;
+    width: 60%;
+    position: relative;
+    left: 10%;
+    top: 10%;
+}
+
+div#hover {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: Alpha(Opacity=0);
+    opacity: 0.30;
+    float: left;
+    position: absolute;
+}
+
+div#opacidad80:hover {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: Alpha(Opacity=0);
+    opacity: 0.40;
+    float: left;
+    position: absolute;
+}
+
+div#opacidadm:hover {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: Alpha(Opacity=0);
+    opacity: 0.40;
+    float: left;
+    position: absolute;
+}
+
+div#opacidadd:hover {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: Alpha(Opacity=0);
+    opacity: 0.40;
+    float: left;
+    position: absolute;
+}
+
+div#texto_objetivos {
+    font-family: Roboto-Medium;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 19px;
+    white-space: pre-line;
+    direction: ltr;
+    font-weight: normal;
+    font-variant: normal;
+    color: #3d2622;
+    text-align: center;
+    text-indent: inherit;
+    height: 157px;
+    width: 320px;
+    position: relative;
+    top: 45%;
+}
+
+div#texto_especificos {
+    font-family: Roboto-Medium;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 19px;
+    white-space: pre-line;
+    direction: ltr;
+    font-weight: normal;
+    font-variant: normal;
+    color: #ffea3a;
+    text-align: center;
+    text-indent: inherit;
+    height: 157px;
+    width: 320px;
+    position: relative;
+    top: 38%;
+}
+
+div#texto_componentes {
+    font-family: Roboto-Medium;
+    font-size: 15px;
+    font-style: normal;
+    line-height: 17px;
+    white-space: pre-line;
+    direction: ltr;
+    font-weight: normal;
+    font-variant: normal;
+    color: #ffea3a;
+    text-align: center;
+    text-indent: inherit;
+    height: 157px;
+    width: 320px;
+    position: relative;
+    top: 22%;
+}
+
+
+
+
+.footerImage {
+    font-family: Roboto-Thin;
+    font-size: 12px;
+    font-style: normal;
+    white-space: pre-line;
+    color: #575756;
+    text-align: justify;
+    direction: ltr;
+}
+
+.titularNoticia {
+    font-size: 28px;
+    font-style: normal;
+    white-space: normal;
+    color: #575756;
+    text-align: left;
+    padding-top: 0;
+    color: #ED7D04;
+}
+
+.fechaPublicacion {
+    font-family: Roboto-Regular;
+    font-size: 12px;
+    font-style: normal;
+    white-space: pre-line;
+    color: #575756;
+    text-align: right;
+    padding-bottom: 4px;
+}
+
+.introNoticia {
+    font-family: Roboto-Regular;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 19pt;
+    white-space: pre-line;
+    color: #575756;
+    text-align: justify;
+    direction: ltr;
+}
+
+.contenidoNoticia {
+    font-family: Roboto-Regular;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 14pt;
+    white-space: pre-line;
+    color: #575756;
+    text-align: justify;
+    direction: ltr;
+    padding-top: 5px;
+}
+
+.dummyCss {
+    opacity: 1.0;
+}
+
+div.izquierda {
+    background-color: transparent;
+    width: 50%;
+    height: 100%;
+    float: left;
+    border: 1px groove;
+}
+
+div.titulosapr {
+    font-family: Roboto-Thin;
+    font-size: 40px;
+    font-style: normal;
+    line-height: 40px;
+    font-weight: normal;
+    font-variant: normal;
+    color: #cccccc;
+    text-align: center;
+    text-indent: inherit;
+    height: 86px;
+    width: 60%;
+    top: 10%;
+}
+
+.tituloRegistro {
+    font-family: Chewy;
+    font-size: x-large;
+    color: #ff1643;
+    font-family: Roboto-Thin;
+    font-size: 40px;
+    font-style: normal;
+    line-height: 40px;
+    font-weight: normal;
+    font-variant: normal;
+    color: #cccccc;
+    text-align: center;
+    text-indent: inherit;
+    height: 86px;
+    width: 60%;
+    top: 10%;
+}
+
+
+.fondoRegistro {
+    position: relative;
+    top: 0px;
+    left: -115px;
+    width: 108.5%;
+    height: auto;
+    background-image: url('../../images/inicio de sesion-02.png');
+    background-repeat: repeat;
+}
+
+.fondoRegistroFormulario {
+    padding: 68px;
+    background-image: url('../../images/fondosCapas/bg_formulario_nuevousuario.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 120px;
+}
+
+.fondomapasitio {
+    padding: 38px;
+    background-image: url('../../images/fondosCapas/bg_formulario_nuevousuario.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*background-position-y: 120px;*/
+}
+
+div a.titularNoticiaSlider {
+    font-family: 'Roboto-Medium';
+    opacity: 1.0;
+    font-size: 10pt;
+    font-style: normal;
+    color: #ED7D04;
+    text-align: left;
+}
+
+div p.descSliderNoticias {
+    font-family: 'Roboto-Medium';
+    opacity: 1.0;
+    font-size: 9pt;
+    font-style: normal;
+    color: #575756;
+    line-height: 15px;
+    text-align: left;
+    direction: ltr;
+    padding-top: 5px;
+}
+
+.divMetas {
+    position: absolute;
+    padding: 15px;
+    top: 80px;
+    left: 50px;
+    max-width: 90%;
+    /*max-width: 90%;
+    max-height: 90%;
+    overflow: auto;*/
+    background-color: rgba(211, 204, 204, 0.3);
+}
+/*NUEVO INVESTIGA*/
+/*Seccion Aprendizaje*/
+div .aprderecha {
+    background-image: url('../../images/Investiga/apr/docentes_investigando.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #930;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    font-family: Roboto-Thin;
+    font-size: 42px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+div .aprizquierda {
+    background-color: #00F;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    background-image: url('../../images/Investiga/apr/estudiantes_investigando.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Roboto-Thin;
+    font-size: 42px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+div .aprderecha:hover {
+    background-color: #2A0415;
+    background-image: url('../../images/Investiga/apr/docentes_investigando.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+div .aprizquierda:hover {
+    background-color: #FF9100;
+    background-image: url('../../images/Investiga/apr/estudiantes_investigando.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+/*Seccion Investigacion*/
+div .invderecha {
+    background-image: url('../../images/Investiga/docinv/catalogo_derecursos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #930;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+    font-family: Roboto-Thin;
+    font-size: 42px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+div .invizquierda {
+    background-color: #00F;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+    background-image: url('../../images/Investiga/docinv/ambientes_virtuales.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Roboto-Thin;
+    font-size: 42px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+div .invderecha:hover {
+    background-color: #2A0415;
+    background-image: url('../../images/Investiga/docinv/catalogo_derecursos.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+div .invizquierda:hover {
+    background-color: #00B8D4;
+    background-image: url('../../images/Investiga/docinv/ambientes_virtuales.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+div .cuaderno {
+    /*background-color: #ffffff;*/
+    /*opacity: 0.5;*/
+    /*filter:alpha(opacity=50);*/
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 30%;
+    left: 40%;
+    /*determinamos una anchura*/
+    width: 700px;
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -350px;
+    /*determinamos una altura*/
+    height: 100%;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    /*border: 1px solid #808080;*/
+    padding: 5px;
+    background-image: url('../../images/Investiga/apr/cuaderno_cerrado.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div .centradoaprendizaje {
+    background-color: #ffffff;
+    opacity: 0.8;
+    /*filter:alpha(opacity=50);*/
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 30%;
+    left: 40%;
+    /*determinamos una anchura*/
+    width: 700px;
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -350px;
+    /*determinamos una altura*/
+    height: 100%;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    /*border: 1px solid #808080;*/
+    padding: 5px;
+}
+
+div .cuentatodo {
+    position: absolute;
+    width: 300px;
+    left: 76%;
+    top: 20%;
+    float: right;
+    background-color: #ffffff;
+    opacity: 0.6;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -o-border-radius: 10px 10px 10px 10px;
+    padding-left: 14px;
+}
+
+.imgColecciones {
+    padding: 10px;
+    width: 110px;
+    height: 110px;
+    opacity: 0.7;
+}
+
+    .imgColecciones:hover {
+        padding: 10px;
+        width: 112px;
+        height: 112px;
+        opacity: 1.0;
+        cursor: pointer;
+    }
+
+.recEducativos {
+    font-family: 'Chewy';
+    font-size: 20pt;
+    color: #ED7D04;
+}
+div .centradoRecEducativo {
+    background-color: #ffffff;
+    opacity: 1.0;
+    /*filter:alpha(opacity=50);*/
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top: 20%;
+    left: 50%;
+    /*determinamos una anchura*/
+    width: 700px;
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left: -350px;
+    /*determinamos una altura*/
+    height: 100%;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top: -150px;
+    /*border: 1px solid #808080;*/
+    padding: 5px;
+    left: 38.1%;
+    top: 34%;
+    height: 96%;
+    width: 60%;
+    visibility: hidden;
+}
+/*The styles that to apply in the popups of the components--- Edwin Pacheco F.*/
+#textopop{
+    font: 2em Chewy;
+    color:coral;
+    padding:20px 0;
+    margin:0;
+}
+#textopopapr{
+    font: 2em Chewy;
+    color:blue;
+    padding:20px 0;
+    margin:0;
+}
+#textopopmai{
+    font: 2em Chewy;
+    color:#5D4037;
+    padding:20px 0;
+    margin:0;
+}
+#textopopiep{
+    font: 2em Chewy;
+    color:#8E24AA;
+    padding:20px 0;
+    margin:0;
+}
+#contpop{
+    font-family:Roboto-Medium;
+    color:#808080;
+    text-align:justify;
+    padding-top:40px;
+    
+}
+#contmodal{
+    background-color:#e0e0e0;
+}

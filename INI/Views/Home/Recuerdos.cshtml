@@ -1,0 +1,71 @@
+﻿@using INI.Models.DataBase;
+@model IEnumerable<INI.Models.DataBase.tblGaleriaImagenes>
+
+@{
+    ViewBag.Title = "Recuerdos";
+    Layout = "~/Views/Shared/_InvRecuerdos.cshtml";
+    var db = new investicEntities();
+
+}
+
+
+<h2>Recuerdos - </h2>
+
+
+@Html.Partial("~/Views/Shared/_GaleriaImagenes.cshtml", db.tblCategoriaImagenes)
+
+<div id="divImagenesRecuerdos" style="position:absolute ;top:80px; left:350px; ">
+    @*@Html.Partial("~/Views/Shared/_GaleriaImagenesRecuerdos.cshtml", db.tblGaleriaImagenes.Where(m => m.cat_ID == 1).ToList())*@
+    @*<a class="dummyCss" href="@Url.Action("getImagesByCategory", "GaleriaImagenes", new { id = UrlParameter.Optional })">Add an Admin</a>*@
+</div>
+
+  <center>@Html.AtrasInvestic()</center>                 
+
+@section scripts{
+<script type="text/javascript">
+
+    $(function () {
+        $("img.thumb").click(function () {
+            
+            var img_id = $(this).attr("id");
+            var id = img_id.substr(4, img_id.length);
+
+            //var title = $("#ht" + id).val();
+            //var desc = $("#hd" + id).val();
+
+            $('#divImagenesRecuerdos').load('/GaleriaImagenes/getImagesByCategory/' + id);
+            //$("#TitulardeNoticia").html(title);
+            //$("#DescripciondeNoticia").html(desc);
+
+
+
+            //var htmlText = '<a href="Url.Action("getImagesByCategory", "GaleriaImagenes", new { id = '+id+' })">Add an Admin</a>';
+
+            //var title = $("#ht" + id).val();
+            //var largeImg = $("#largeImg" + id).val();
+            //var desc = $("#hd" + id).val();
+
+            //$("a.dummyCss").each(function () {
+            //    //$("#divImagenesRecuerdos a:last-child").remove();
+            //    var newUrl = $(this).attr('href').replace('GaleriaImagenes/getImagesByCategory', 'GaleriaImagenes/getImagesByCategory/'+id);
+            //    $(this).attr('href', newUrl);
+            //});
+
+            //$("#divImagenesRecuerdos").html(title);
+            //$("#divImagenesRecuerdos").html(desc);
+            //$("#divImagenesRecuerdos").fadeOut();
+            //$("#divImagenesRecuerdos").fadeIn();
+
+            //$("#divHeader").html(title);
+            //$("#divLargeImg img:last-child").remove();
+            //$("#divLargeImg").append('<img id="myImg" src="' + largeImg + '" />');
+            //$("#divContent").html(desc);
+            //$(".panel").fadeOut();
+            //$(".panel").fadeIn();
+
+        });
+    });
+
+
+</script>
+}          

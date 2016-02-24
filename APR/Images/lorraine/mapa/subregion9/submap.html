@@ -1,0 +1,72 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../scripts/js/jquery-1.10.2.js"></script>
+    <script src="../../scripts/js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript">
+        //---------------------------------------------------------------------------------
+        function enter(area) {
+            switch (area) {
+                case 1: alert("Cumbitara 233"); break;
+                case 2: alert("El Rosario 256"); break;
+                case 3: alert("Leiva 405"); break;
+                case 4: alert("Policarpa 540"); break;
+                case 5: alert("Taminango 786"); break;
+            }
+        }
+        //---------------------------------------------------------------------------------
+    </script>
+    <style>
+        .TextStyle {
+            font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body class="TextStyle">
+    <table border="0" width="750">
+        <tr>
+            <td align="left">
+                <b>Cordillera</b>
+            </td>
+            <td align="right">
+                <b><a href="#" id="municipality_title">Municipio: </a></b>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <table border="0" width="750">
+        <tr>
+            <td align="center">
+                <img id="subregion_img" src="subregion.png" usemap="#test" />
+                <map id="test" name="test">
+                    <area id="sh1" shape="poly" alt="Cumbitara" title="Cumbitara" coords="1,221,5,207,8,188,23,191,32,182,21,171,21,166,30,158,41,158,50,167,60,169,65,174,73,178,78,182,79,194,71,208,66,209,66,219,75,230,88,239,84,248,91,253,87,260,101,271,119,267,121,273,135,277,137,283,145,290,151,304,140,309,147,318,154,317,170,324,171,345,164,353,171,354,176,372,171,374,165,368,118,381,106,394,95,385,101,375,71,323,71,323,55,314,38,286,51,273,49,256,56,247,46,244,45,238,45,231,39,223,27,226,19,216,9,219" href="#" onclick="enter(1)" />
+                    <area id="sh2" shape="poly" alt="El Rosario" title="El Rosario" coords="29,158,42,147,47,132,59,110,69,114,100,124,104,134,134,147,149,143,154,132,153,125,164,120,169,109,182,102,192,109,196,109,193,125,184,147,189,151,195,151,205,160,206,167,215,172,227,169,242,168,251,172,261,175,265,186,280,199,286,205,292,210,298,210,301,220,293,233,294,238,290,240,303,258,275,320,270,328,259,329,262,322,258,313,251,314,251,310,236,308,221,317,214,301,228,287,226,274,219,269,219,258,224,256,220,249,211,241,204,205,197,208,194,201,175,207,170,216,147,218,133,209,134,200,100,185,96,178,90,174,85,175,82,182,82,184,70,174,61,172,54,165,48,167,39,157" href="#" onclick="enter(2)" />
+                    <area id="sh3" shape="poly" alt="Leiva" title="Leiva" coords="197,110,213,102,219,108,225,108,238,94,245,93,265,108,287,110,289,79,259,58,257,51,269,36,271,21,276,12,282,11,290,-1,297,9,296,27,305,34,328,52,321,65,323,76,320,84,327,95,343,95,353,98,363,112,363,135,358,138,358,148,357,150,352,148,340,152,339,170,332,184,314,189,312,199,308,198,302,213,290,211,264,186,264,177,246,170,241,164,219,170,207,168,204,158,194,152,185,152,183,144,191,126" href="#" onclick="enter(3)" />
+                    <area id="sh4" shape="poly" alt="Policarpa" title="Policarpa" coords="77,184,88,177,95,175,99,185,106,185,110,193,125,195,133,202,133,209,144,217,171,217,177,209,194,200,199,205,204,205,213,231,213,241,224,255,219,261,220,268,227,278,227,290,216,300,219,316,231,316,238,310,248,310,259,314,261,325,253,332,249,352,229,372,204,383,178,383,167,379,167,373,175,372,171,357,165,353,171,344,169,340,167,330,171,327,156,315,154,322,145,317,139,311,148,307,151,304,136,276,124,276,120,271,101,270,87,260,87,251,90,242,70,228,71,222,67,218,68,207,77,201,81,192" href="#" onclick="enter(4)" />
+                    <area id="sh5" shape="poly" alt="Taminango" title="Taminango" coords="230,372,235,362,239,362,248,350,256,332,264,328,269,328,275,319,305,328,311,327,328,337,331,345,328,349,331,358,327,372,331,380,329,400,325,404,330,413,317,425,313,424,307,432,302,433,300,437,294,436,282,444,260,440,239,432,226,418,226,411,233,407,226,401,224,389,235,380,235,378" href="#" onclick="enter(5)" />
+                </map>
+                <script>
+                    (function ($) {
+                        jQuery("#sh1").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: Cumbitara");
+                        });
+                        jQuery("#sh2").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: El Rosario");
+                        });
+                        jQuery("#sh3").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: Leiva");
+                        });
+                        jQuery("#sh4").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: Policarpa");
+                        });
+                        jQuery("#sh5").mouseenter(function () {
+                            jQuery("#municipality_title").text("Municipio: Taminango");
+                        });
+                    })(jQuery);
+                 </script>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

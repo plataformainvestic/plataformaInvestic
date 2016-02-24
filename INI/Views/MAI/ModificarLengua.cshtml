@@ -1,0 +1,56 @@
+﻿@model INI.Models.DataBase.tblNivelLengua
+
+@{
+    Layout = "~/Views/Shared/_InvCuenta.cshtml";
+    ViewBag.Title = "Modificar Lengua";
+}
+
+<div class="verticalSpan2"></div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.tblNivelLengua_ID)
+    @Html.Hidden("tblHojaVida_ID", (object)ViewBag.idHojaVida)
+    @Html.Hidden("tblLenguas_ID", (object)ViewBag.idLengua)
+
+
+    <div class="text-center">
+        <h2><strong>Modificar Lengua</strong></h2>
+    </div>
+
+    <div class="form-control grid" style="text-align:center">
+        <hr />
+        <div class="form-group span6 offset4 text-center">
+            <h3><strong>Lengua</strong></h3>
+            <div class="text">
+                <h4>
+                    <strong>
+                        @Html.DisplayFor(model => model.tblLenguas.len_nombre)
+                    </strong>
+                </h4>
+            </div>
+        </div>
+
+        <div class="form-group span6 offset4 text-center">
+            <h3><strong>Nivel</strong></h3>
+            <div class="input-control select">
+                @Html.DropDownList("tblNivel_ID")
+                @Html.ValidationMessageFor(model => model.tblNivel_ID)
+            </div>
+        </div>
+        <button class="large bg-green fg-white" type="submit">
+            Guardar Cambios
+            <i class="icon-upload-3 bg-green fg-white"></i>
+        </button>
+
+        <div class="form-group">
+            <h3>
+                @Html.ActionLink("Regresar", "FormacionYExperiencia", new { id = (object)ViewBag.idUsuarioPlataforma })
+            </h3>
+        </div>
+    </div>
+}
+

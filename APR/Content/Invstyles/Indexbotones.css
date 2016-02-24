@@ -1,0 +1,49 @@
+﻿#pie:hover{
+    content:url(../../images/btn_over_enterate.png);
+}
+
+.volver:hover {
+    cursor:pointer;
+    
+    content:url(../../images/volver_accion.png);
+
+}
+
+.cursores {
+ cursor:pointer;
+
+}
+
+.alt1:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa1.png);
+    float:left;
+}
+.alt2:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa2.png);
+    float:left;
+}
+.alt3:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa3.png);
+    float:left;
+}
+.alt4:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa4.png);
+    float:left;
+}
+.alt5:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa5.png);
+    float:left;
+}
+.alt6:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa6.png);
+    float:left;
+
+}
+.alt7:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa7.png);
+    float:left;
+}
+.alt8:hover {
+    content:url(../../images/alternativas/Btn_hover_alternativa8.png);
+    float:left;
+}

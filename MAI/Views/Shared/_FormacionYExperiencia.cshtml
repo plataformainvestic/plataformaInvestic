@@ -1,0 +1,153 @@
+﻿@model INI.Models.DataBase.tblHojaVida
+@using INI.Models.DataBase
+
+
+<div class="grid fluid">
+
+    <div class="tab-control" data-role="tab-control">
+        <ul class="tabs">
+            <li class="active">
+                <a href="#_page_1" class="span3 active panel-header bg-darkPink fg-white" type="button">
+                    Básica Secundaria
+                    <h5 style="text-align:center">
+                        @Html.ActionLink("Modificar Información", "EditarHojaVida", new { id = Model.tblHojaVida_ID })
+                    </h5>
+                </a>
+            </li>
+            <li>
+                <a href="#_page_2" class="span3 panel-header bg-darkIndigo fg-white" type="button">
+                    Títulos
+                    <h5 style="text-align:center">
+                        @Html.ActionLink("Adicionar Título", "AdicionarTitulo", new { id = Model.tblHojaVida_ID })
+                    </h5>
+                </a>
+            </li>
+            <li>
+                <a href="#_page_3" class="span3 panel-header bg-darkCyan fg-white">
+                    Idiomas
+                    <h5 style="text-align:center">
+                        @Html.ActionLink("Adicionar Idioma", "AdicionarIdioma", new { id = Model.tblHojaVida_ID })
+                    </h5>
+                </a>
+            </li>
+            <li>
+                <a href="#_page_4" class="span3 panel-header bg-darkBlue fg-white">
+                    Lenguas
+                    <h5 style="text-align:center">
+                        @Html.ActionLink("Adicionar Lengua", "AdicionarLengua", new { id = Model.tblHojaVida_ID })
+                    </h5>
+                </a>
+            </li>
+        </ul>
+
+        <div class="frames span12">
+            <div class="frame" id="_page_1">
+                <dl class="dl-horizontal">
+                    <dt>Nombre</dt>
+                    <dd>@Html.DisplayName(AspNetUsers.GetName(Model.AspNetUsers.UserName))</dd>
+                    <dt>Titulo Educación Secundaria</dt>
+                    <dd>@Html.DisplayFor(model => model.hojVid_tituloSecundaria)</dd>
+                    <dt>Año de Graduación</dt>
+                    <dd>@Html.DisplayFor(model => model.hojVid_anoGradoSecundaria)</dd>
+                </dl>
+            </div>
+            <div class="frame" id="_page_2">
+                <table id="misTitulos" class="table striped hover">
+                    <thead>
+                        <tr>
+                            <th class="span2">Titulo Educación Superior</th>
+                            <th class="span2">Nivel Académico</th>
+                            <th class="span2">Año de Graduación</th>
+                            <th class="span1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.tblTituloEducacionSuperior)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => item.titEduSup_nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(model => item.tblNivelAcademicoEducacionSuperior.nivAcaEduSup_nombre)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(model => item.titEduSup_anoGraduacion)
+                                </td>
+                                <td class="text-center">
+                                    <a href="@Url.Action("ModificarTitulo", new { id = item.tblTituloEducacionSuperior_ID})" title="Modificar"><i class="icon-pencil button primary"></i></a>
+                                    <a href="#" onclick="javascript:BorrarTitulo(@item.tblTituloEducacionSuperior_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+
+                                    @*@Html.ActionLink("Modificar", "ModificarTitulo", new { id = item.tblTituloEducacionSuperior_ID }, new { @class = "button primary" })
+                                    <button class="button danger" onclick="javascript:BorrarTitulo(@item.tblTituloEducacionSuperior_ID)">Eliminar</button>*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="frame" id="_page_3">
+                <table id="misIdiomas" class="table striped hover">
+                    <thead>
+                        <tr>
+                            <th class="span3">Idioma</th>
+                            <th class="span3">@Html.DisplayName("Nivel")</th>
+                            <th class="span2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.tblNivelIdioma)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.tblIdiomas.idi_nombre)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.tblNivel.tblNivel_nivel)
+                                </td>
+                                <td class="text-center">
+                                    <a href="@Url.Action("ModificarIdioma", new { id = item.tblNivelIdioma_ID })" title="Modificar"><i class="icon-pencil button primary"></i></a> 
+                                    <a href="#" onclick="javascript:BorrarIdioma(@item.tblNivelIdioma_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+
+                                    @*@Html.ActionLink("Modificar", "ModificarIdioma", new { id = item.tblNivelIdioma_ID }, new { @class = "button primary" })
+                                    <button class="button danger" onclick="javascript:BorrarIdioma(@item.tblNivelIdioma_ID)">Eliminar</button>*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="frame" id="_page_4">
+                <table id="misLenguas" class="table striped hover">
+                    <thead>
+                        <tr>
+                            <th class="span3">Lengua</th>
+                            <th class="span3">Nivel</th>
+                            <th class="span2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.tblNivelLengua)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.tblLenguas.len_nombre)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.tblNivel.tblNivel_nivel)
+                                </td>
+                                <td class="text-center">
+                                    <a href="@Url.Action("ModificarLengua", new { id = item.tblNivelLengua_ID })" title="Modificar"><i class="icon-pencil button primary"></i></a> 
+                                    <a href="#" onclick="javascript:BorrarLengua(@item.tblNivelLengua_ID);" title="Eliminar"><i class="icon-remove button danger"></i></a>
+
+                                    @*@Html.ActionLink("Modificar", "ModificarLengua", new { id = item.tblNivelLengua_ID }, new { @class = "button primary" })
+                                    <button class="button danger" onclick="javascript:BorrarLengua(@item.tblNivelLengua_ID)">Eliminar</button>*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

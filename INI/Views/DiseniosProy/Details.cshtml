@@ -1,0 +1,28 @@
+﻿@model INI.Models.DataBase.tblDiseniosProy
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<br /><br /><br />
+<h2>Detalle</h2>
+
+<div>
+    <h4>Diseños del proyecto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.disProy_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.disProy_nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.tblDiseniosProy_ID }) |
+    @Html.ActionLink("Atrás", "Index")
+</p>

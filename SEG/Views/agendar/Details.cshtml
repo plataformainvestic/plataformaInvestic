@@ -1,0 +1,66 @@
+﻿@model SEG.Models.DataBase.programa_tareas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>programa_tareas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Corte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Corte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.responsabilidade.Id_Contratista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responsabilidade.Id_Contratista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tabla_alternativas.Des_Alternativa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tabla_alternativas.Des_Alternativa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,55 @@
+﻿@model INI.Models.DataBase.tblExperienciaProyectos
+
+@{
+    Layout = "~/Views/Shared/_InvCuenta.cshtml";
+    ViewBag.Title = "ModificarProyecto";
+}
+
+<div class="verticalSpan2"></div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.tblExperienciaProyectos_ID)
+    @Html.Hidden("tblHojaVida_ID", (object)ViewBag.idHojaVida)
+
+    <div class="text-center">
+        <h2><strong>Modificar Proyecto</strong></h2>
+    </div>
+
+
+    <div class="form-control grid" style="text-align:center">
+        <hr />
+
+        <div class="form-group span6 offset4 text-center">
+            <h3><strong>Título del Proyecto</strong></h3>
+            <div class="input-control text" data-role="input-control">
+                @Html.EditorFor(model => model.exppro_tituloProyecto)
+                <button type="button" class="btn btn-clear" tabindex="-1"></button>
+                @Html.ValidationMessageFor(model => model.exppro_tituloProyecto)
+            </div>
+        </div>
+
+        <div class="form-group span6 offset4 text-center">
+            <h3><strong>Fecha de Terminación del Proyecto</strong></h3>
+            <div class="input-control text" data-role="datepicker" data-format="dd/mm/yyyy">
+                @Html.TextBoxFor(m => m.exppro_anoTerminacion, "{0:dd/MM/yyyy}")
+                <button class="btn btn-date" type="button"></button>
+                @Html.ValidationMessage("Digite fecha")
+            </div>
+        </div>
+
+        <button class="large bg-green fg-white" type="submit">
+            Guardar Cambios
+            <i class="icon-upload-3 bg-green fg-white"></i>
+        </button>
+
+        <div class="form-group">
+            <h3>
+                @Html.ActionLink("Regresar", "Investigacion", new { id = (object)ViewBag.idUsuarioPlataforma })
+            </h3>
+        </div>
+    </div>
+}

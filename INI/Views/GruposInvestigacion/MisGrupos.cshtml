@@ -1,0 +1,137 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblGruposInvestigacion>
+@using INI.Models.DataBase
+
+@{
+    Layout = "~/Views/Shared/_LayoutMAI_Proyectos.cshtml";
+    ViewBag.Title = "Grupos de Investigacion";
+}
+
+<link href="~/Content/tooltip.css" rel="stylesheet" />
+<script src="~/Scripts/tooltip.js"></script>
+
+
+@Html.AntiForgeryToken()
+
+
+<div class="grid fluid">
+    <!-- Modal HTML -->
+    <div class="modal fade" id="otra" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" id="contmodal">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-sm-10"></div>
+                        <div class="col-sm-2"><button type="button" data-dismiss="modal"><img src="~/images/popups/boton_cerrar.svg" width="20" height="20" /></button></div>
+                    </div>
+
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h2 id="textopopmai">¿Tienes dudas sobre el <br> manejo del componente MAI?</h2>
+                            <p id="contpop">Hemos preparado un instructivo para ti, en él conocerás las funciones principales del componente <strong>MAI</strong> y cómo manejarlas.</p>
+                        </div>
+                        <div class="col-sm-5"><img src="~/images/popups/MAI/alvaro_mai.svg" width="200" height="300" /></div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#"><img src="~/images/popups/boton_instructivo.svg" width="150" height="70" /></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table style="background-color:transparent; margin:auto;">
+        <tr>
+            <td width="20%" align="left">
+                <img src="~/images/MAI/Proyecto/personajeProyecto.png" height="120" />
+            </td>
+            <td width="80%" align="left">
+                <div class="span2 text-right">
+                    <h2 onmouseover="tooltip.pop(this, '#MiGrupo', { sticky: true })">Mi Grupo</h2>
+                    <div style="display:none;">
+                        <div id="MiGrupo">
+                            <img src="~/images/ToolTip/p1.svg" style="float:right;margin-left:12px;" alt="" />
+                            <b><strong>Cual es tu grupo?</strong></b><br /><br />
+                            Información de los grupos.
+                        </div>
+                    </div>
+                </div>
+
+
+</div>
+
+
+@if (Model.Count().Equals(0))
+{
+    <h2>No tienes un Grupo creado</h2>
+                        <div class="row">
+                            @Html.ActionLink("Crear Grupo", "CrearGrupoInv", "GruposInvestigacion", new { @class = "button large bg-green fg-white" })
+                        </div>
+}
+else
+{
+    <div class="row">
+        <table id="misGrupos" class="table striped hover">
+            <thead>
+                <tr>
+                    @*<th class="span2"></th>*@
+                    <th class="span4">Nombre del Grupo</th>
+                    <th class="span2">Emblema</th>
+                    <th class="span2">Fecha de Creación</th>
+                    <th class="span2">Proyectos de Investigación</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td class="text-center">
+                                @Html.ActionLink("Ir", "DetallesGrupo", "GruposInvestigacion", new { id = item.tblGruposInvestigacion_ID }, new { @class = "button info" })
+                            </td>*@
+                        <td>@Html.DisplayFor(modelItem => item.gruInv_nombreGrupo)</td>
+                        <td class="text-center">
+                            <img src="~/images/logo_Grupo/@item.gruInv_emblema" width="110" />
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.gruInv_fechaCreacion)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.gruInv_proyectos)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <center> @Html.AtrasInvestic()</center>
+    </div>
+}
+</td>
+        </tr>
+    </table>
+</div>
+
+<div id="crearGrupoDialog">
+    @{
+        investicEntities db = new investicEntities();
+        var idUsuario = AspNetUsers.GetUserId(User.Identity.Name);
+        AspNetUsers usuario = db.AspNetUsers.Find(idUsuario);
+        Html.RenderPartial("CrearGrupoInv", usuario);
+    }
+</div>
+
+
+
+@section ScriptsMAI_PRY {
+    <script src="~/Scripts/DataTables-1.10.3/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Investic/mai_MisTablas.js"></script>
+    <script src="~/Scripts/Investic/mai_GruposInvestigacion.js"></script>
+    <link href="~/Content/Investic/MAI/mai_Site_Proyecto.css" rel="stylesheet" />
+}

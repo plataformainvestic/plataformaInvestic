@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNet.Identity
+@using INI.Models.DataBase
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Bundles/MobileCSS")
+    @Scripts.Render("~/Bundles/MobileJS")
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Investic/investicmobile.min.css" />
+
+</head>
+
+<body>
+    @{
+        bool ShowBackButton = (bool)(ViewBag.ShowBackButton ?? true);
+        bool ShowHomeButton = (bool)(ViewBag.ShowHomeButton ?? true);
+
+    }
+    <div data-role="page" data-theme="a">
+        <div data-role="panel" data-position="left" id="mypanel">
+            <ul id="menu" data-role="listview" data-inset="true">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Conocenos", "Conocenos", "Home")</li>
+                <li>@Html.ActionLink("Investiga", "Investiga", "Home")</li>
+                <li>@Html.ActionLink("Contáctanos", "Contactenos", "Home")</li>
+                <li>@Html.ActionLink("Recuerdos", "Recuerdos", "Home")</li>
+                <li>@Html.ActionLink("¿Cómo Vamos?", "comovamos", "Home")</li>
+            </ul>
+        </div><!-- /panel -->
+
+        <div data-role="header" data-position="fixed" data-theme="a" role="banner" class="jqm-header ui-header ui-bar-inherit">
+
+            <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-bars">Menú</a>
+            <h2 class="ui-title" role="heading" aria-level="1"><img src="~/images/mobile/logo_mobile.png" style="width: 100%;" /></h2>
+            @if (ShowBackButton)
+            {
+                <a data-rel="back" data-role="button" data-transition="slide" data-direction="reverse" data-icon="back">Atrás</a>
+            }
+            else
+            {
+                <a data-rel="back" data-role="button" data-transition="slide" data-direction="reverse" data-icon="info">Ayuda</a>
+            }
+            @*@if (ShowHomeButton)
+                {
+                    <a href="@Url.Action("Index","Home")" data-role="button" data-transition="slide" data-direction="reverse" data-icon="home">Inicio</a>
+                }*@
+        </div>
+        <div data-role="content" data-theme="a">
+
+            @RenderSection("featured", false)
+            @RenderBody()
+
+            <h4 data-position="center">Nuestras Entidades</h4>
+            <a> Universidad de Nariño </a>
+            <a> Gobernación de Nariño </a>
+
+        </div>
+
+        <div data-role="footer" data-theme="a">
+            <p style="text-align:center">
+                Nuestra Redes Sociales:
+
+            </p>
+
+            <address style="text-align:center">
+                Universidad de Nariño - Sede Torobajo
+                Bloque tecnológico - Aula 104
+                Telefono: 320 632 5587
+            </address>
+        </div>
+    </div>
+</body>
+</html>

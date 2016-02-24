@@ -1,0 +1,68 @@
+﻿@model INI.Models.Mymodels.RVCWall
+@{
+    ViewBag.Title = "Index";
+    int id = Model.id;
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+}
+
+<br /><br /><br />
+<h2>@Model.NameNVC</h2>
+<hr />
+@Html.ActionLink("Invitar", "InvitarUsuario", "RVCWall", new {id=id }, new { @class = "button large primary" })
+@Html.ActionLink("Foro", "ForoRVC", "RVCWall", new { id = id }, new { @class = "button large primary" })
+@Html.ActionLink("Chat", "ChatRVC", "RVCWall", new { id = id }, new { @class = "button large primary" })
+
+<div class="tab-control" data-role="tab-control">
+    <ul class="tabs">
+        <li class="active"><a href="#_page_1">Comentarios</a></li>
+        <li><a href="#_page_2">Solicitudes</a></li>
+        <li><a href="#_page_3">Recursos</a></li>        
+        <li><a href="#_page_4">Publicaciones</a></li>  
+        <li><a href="#_page_5">Participantes</a></li>  
+    </ul>
+
+    <div class="frames">
+        <div class="frame" id="_page_1">
+            @Html.Partial("~/Views/Shared/RVCWall/Comentarios.cshtml",Model.Messages)                        
+        </div>
+        <div class="frame" id="_page_2">
+            @Html.Partial("~/Views/Shared/RVCWall/Solicitudes.cshtml",Model.Aplicant)            
+        </div>
+        <div class="frame" id="_page_3">
+            @Html.Partial("~/Views/Shared/RVCWall/Recursos.cshtml")            
+        </div>
+        <div class="frame" id="_page_4">
+            ...
+        </div>
+        <div class="frame" id="_page_5">
+            @Html.Partial("~/Views/Shared/RVCWall/Participantes.cshtml",Model.UsersRVC)            
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#rvc').DataTable();
+            $('#usrrvc').DataTable();
+            
+            $(".btnrvc").click(function () {
+                var obj = $(this);
+                var idr = $(this).attr("id");
+                console.log(idr);
+                $.get("/RVCWall/AproveRequest", {id:idr,idgrp:@Model.id} , function (data) {
+                    obj.hide();
+                    var not = $.Notify.show(data.rta);
+                });
+            });
+            $("#btn_sendmsj").click(function () {
+                var idgrusr = $("#hd_id").val();
+                var txtmsj = $("#txt_area_msj").val();
+                console.log(txtmsj);
+                $.get("/RVCWall/SendMessage/", { id: idgrusr, msj: txtmsj }, function (data) {
+                    $("#txt_area_msj").val("");
+                    var not = $.Notify.show(data.rta);
+                });
+            });
+        });
+    </script>
+}

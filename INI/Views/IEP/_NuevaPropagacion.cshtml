@@ -1,0 +1,46 @@
+﻿@model INI.Models.DataBase.tblPropagacionGrupo
+
+@using (Html.BeginForm("NuevaPropagacion", "IEP", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.id)
+    @Html.HiddenFor(model=>model.idGrupoInvestigacion)
+    
+    <div class="form-horizontal">
+        <h4>tblPropagacionGrupo</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.idTipoFeria, "idTipoFeria", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idTipoFeria", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idTipoFeria, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Archivo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="Archivo" id="Archivo" required  message="Error. Usted no selecciono el archivo [pdf,image/jpeg]" title="Error Usted no selecciono el archivo [pdf,image/jpeg]" />                
+                @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

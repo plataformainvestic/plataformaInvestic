@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InvRVC.cshtml";
+}
+
+<br /><br /><br />
+
+<div class="panel">
+    <div class="panel-header">
+        BIENVENIDO
+    </div>
+    <div class="panel-content" style="background-color:white">
+        <div>
+            Esto un espacio de encuentro virtual diseñado y gestionado con el fin de alcanzar objetivos concretos mediante el trabajo colaborativo en red. La dinámica de este tipo de redes está orientada a la recuperación y reelaboración de los intercambios que se producen entre sus miembros con el fin de obtener productos de conocimiento.<br /><br />
+
+            El objetivo de la red de conocimiento es construir conocimiento nuevo sobre temáticas que interesan y preocupan a los miembros de la red. Los participantes en este tipo de red trabajan en una plataforma virtual.
+            
+        </div>
+        <br />
+        Pulsa en el siguiente boton para participar en este espacio.
+        <br /><br />
+        @Html.ActionLink("Iniciar", "AttachmentUser", "RVC", null, new { @class = "button large primary" })
+        @*<a class="button large primary" href="">Iniciar</a>*@
+    </div>
+</div>
+

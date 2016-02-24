@@ -1,0 +1,478 @@
+﻿@model IEP.Models.DataBase.tblGrupoInvestigacion
+
+@using IEP.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.Title = "Bitacoras";
+    string msj = ViewBag.Message;
+    InvesticEntities db = new InvesticEntities();
+}
+
+<div class="button-set margin10">
+    <a href="/MisGrupos" class="button">Mis grupos</a>
+    <a href="/AsistenteGruposInvestigacion/Invitaciones" class="button">Mis solicitudes</a>
+    @if (Model != null)
+    {
+        <a href="/AsistenteGruposInvestigacion/ForoProyecto/@Model.id" class="button">Foro</a>
+        <a href="/AsistenteGruposInvestigacion/ComentarioProyecto/@Model.id" class="button">Comentario</a>
+    }
+</div>
+
+@if (Model == null)
+{
+    <h2>@ViewBag.Title</h2>
+}
+else
+{
+    if (ViewBag.InfoGrupo != null)
+    {
+        var infogrupo = (IEP.Models.DataBase.InformacionGrupo)ViewBag.InfoGrupo;
+        Html.RenderPartial("_InformacionGrupo", infogrupo);
+    }
+}
+<hr />
+
+@Html.HiddenFor(model => model.id)
+@Html.HiddenFor(model => model.TipoGrupo)
+
+<div id="wizard">
+    <h1>Estar en la Onda de Ondas</h1>
+    <div>
+        @if (Model == null)
+        {
+            ViewBag.idLineaInvestigacion = new SelectList(db.tblLineaInvestigacion.Where(m => m.Categoria == 2), "id", "Nombre");
+            var newGroup = new tblGrupoInvestigacion();
+        <div class="balloon top">
+            <div class="padding20">
+                Aun no haz registrado tu grupo:
+                <button id="lnkCreate" class="button large bg-green">Registra tu grupo</button>
+            </div>
+        </div>
+        <div>
+            <img src="/Images/registraInstitu.png" style="width: 200px; height:200px;" />
+        </div>
+        }
+        else
+        {
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span8">
+                    <strong>
+                        INFORMACION INSTITUCIONAL DEL GRUPO
+                    </strong>
+                </div>
+                <div class="span4">
+                    @if (Model.TipoGrupo == 1)
+                        {
+                    <a class="button large bg-darkCobalt fg-white" href="/AsistenteGruposInvestigacion/DocumentosSoporte/@Model.id">
+                        Documentos soporte
+                    </a>
+                        }
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Nombre")
+                </div>
+                <div class="span10">
+                    <strong>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Institución")
+                </div>
+                <div class="span10">
+                    <strong>
+                        @Html.DisplayFor(model => model.tblInstitucion.Nombre)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Municipio")
+                </div>
+                <div class="span3">
+                    <strong>
+                        @Html.DisplayFor(model => model.tblInstitucion.tblMunicipios.NombreMunicipio)
+                    </strong>
+                </div>
+                <div class="span2">
+                    @Html.DisplayName("Creación")
+                </div>
+                <div class="span3">
+                    <strong>
+                        @Html.DisplayFor(model => model.FechaCreacion)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Tipo")
+                </div>
+                <div class="span10">
+                    @if (Model.tblLineaInvestigacion.Categoria == 1)
+                        {
+                    <strong>Pre-Esctructruado</strong>
+                        }
+                        else
+                        {
+                    <strong>Abierto</strong>
+                        }
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    @Html.DisplayName("Linea")
+                </div>
+                <div class="span10">
+                    <strong>
+                        @Html.DisplayFor(model => model.tblLineaInvestigacion.Nombre)
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset2 text-center">
+                    <a href="/AsistenteGruposInvestigacion/MaestroCoinvestigador">
+                        <img src="/Images/icon-user.png" class="cycle polaroid shadow bd-darkGreen bg-green" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+                <div class="span3 text-center">
+                    <a href="/AsistenteGruposInvestigacion/ParaElMaestro?idGrupoInvestigacion=@Model.id">
+                        <img src="/Images/libro.png" class="cycle polaroid bg-orange bg-amber shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+                <div class="span3 text-center">
+                    <a href="/AsistenteGruposInvestigacion/MiembroGrupo">
+                        <img src="/Images/icon-user.png" class="cycle polaroid bg-darkCobalt bg-cobalt shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset2 text-center">
+                    <strong>Registro maestros coinvestigadores</strong>
+                </div>
+                <div class="span3 text-center">
+                    <strong>Bitacora - Para el maestro</strong>
+                </div>
+                <div class="span3 text-center">
+                    <strong>Registro estudiantes investigadores</strong>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+    <h1>Perturbación de las Ondas</h1>
+    <div>
+        <div class="grid fluid">
+            @if (Model != null)
+            {
+                if (Model.TipoGrupo == 2)
+                {
+            <div class="row">
+                <div class="span12">
+                    <strong>
+                        Escriba cinco de las preguntas que formularon los integrantes del grupo de investigación
+                    </strong>
+                </div>
+            </div>
+                    foreach (var item in Model.tblPreguntaInvestigacion.OrderBy(m => m.Consecutivo))
+                    {
+            <div class="row">
+                <div class="span12">
+                    @item.Pregunta
+                </div>
+            </div>
+                    }
+            <div class="row">
+                <div class="span3 offset3 text-center">
+                    <a href="/AsistenteGruposInvestigacion/Pregunta/@Model.id">
+                        <img src="/Images/icon-user.png" class="cycle polaroid bg-darkCobalt bg-cobalt shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+                <div class="span3 text-center">
+                    <a href="/AsistenteGruposInvestigacion/PreguntaParaElMaestro?idGrupoInvestigacion=@Model.id">
+                        <img src="/Images/libro.png" class="cycle polaroid bg-orange bg-amber shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset3 text-center">
+                    <strong>Bitacora - Para el grupo de investigacion.</strong>
+                </div>
+                <div class="span3 text-center">
+                    <strong>Bitacora - Para el maestro.</strong>
+                </div>
+            </div>
+                }
+            }
+        </div>
+    </div>
+
+    <h1>Superposición de las Ondas</h1>
+    <div>
+        @if (Model != null)
+        {
+            if (Model.TipoGrupo == 2)
+            {
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span12">
+                    <strong>
+                        Descripción del problema que se quiere investigar
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    @Model.tblProblemaInvestigacion.First().Descripcion
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <strong>
+                        Con base en el punto anterior, justifiquen la importancia de resolver el problema o avanzar en su solucion
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    @Model.tblProblemaInvestigacion.First().Justificacion
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset3 text-center">
+                    <a href="/AsistenteGruposInvestigacion/ElProblema?idGrupoInvestigacion=@Model.id">
+                        <img src="/Images/icon-user.png" class="cycle polaroid bg-darkCobalt bg-cobalt shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+                <div class="span3 text-center">
+                    <a href="/AsistenteGruposInvestigacion/ElProblemaParaElProfesor?idGrupoInvestigacion=@Model.id">
+                        <img src="/Images/libro.png" class="cycle polaroid bg-orange bg-amber shadow" style="width: 120px; height:120px;" />
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset3 text-center">
+                    <strong>Bitacora - Para el grupo de investigacion.</strong>
+                </div>
+                <div class="span3 text-center">
+                    <strong>Bitacora - Para el maestro.</strong>
+                </div>
+            </div>
+        </div>
+            }
+        }
+    </div>
+
+    <h1>Presupuesto Proyecto</h1>
+    <div style="overflow-y:scroll;">
+        <h3>Presupuesto</h3>
+        <button id="lnkPresupuesto" class="button large bg-green">Ingresar presupuesto</button>
+        <a href="/AsistenteGruposInvestigacion/PresupuestoDetallado/@Model.id" class="button large bg-green">Presupuesto Detallado</a>
+        <hr />
+        @if (Model != null)
+        {
+            var PresupuestoResumido = from p in Model.tblPresupuestoProyectoInvestigacion
+                                      group p by p.tblRubro.Rubro into g
+                                      select new { Rubro = g.Key,
+                                          Total = g.Sum(m=>m.Total)
+                                      };
+            if (Model.TipoGrupo == 2)
+            {
+        <table class="table striped hovered">
+            <thead>
+                <tr>
+                    <th>Rubro</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var itemPresupuesto in PresupuestoResumido)
+                        {
+                        <tr>
+                            <td>
+                                @itemPresupuesto.Rubro
+                            </td>
+                            <td class="text-right">
+                                @Html.DisplayFor(item => itemPresupuesto.Total, "Currency")
+                            </td>
+                        </tr>
+                        }
+            </tbody>
+        </table>
+            }
+        }
+    </div>
+
+    <h1>Recorrido trayectorias</h1>
+    <div style="overflow-y:scroll;">
+        @if (Model != null)
+        {
+            if (Model.TipoGrupo == 2)
+            {
+                if (Model.tblEstadoArteProyectoInvestigacion.Count == 1)
+                {
+        <div class="grid fluid">
+            <div class="row">
+                <div class="span1">
+                    <strong>
+                        Tema:
+                    </strong>
+                </div>
+                <div class="span7">
+                    @Html.DisplayFor(model => model.tblEstadoArteProyectoInvestigacion.First().TemaInvestigacion)
+                </div>
+                <div class="span1">
+                    <a class="image-button size2" href="~/Upload/@Model.tblEstadoArteProyectoInvestigacion.FirstOrDefault().MapaConceptual" target="_blank">
+                        Descargar
+                        <i class="icon-download-2 bg-red fg-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <button id="lnkConcepto" class="button large bg-green">Agregar concepto</button>
+        <div class="listview">
+            @foreach (var conc in Model.tblEstadoArteProyectoInvestigacion.First().tblConceptosEstadoArte)
+            {
+            @Html.Partial("_Conceptos", conc)
+            }
+        </div>
+        <hr />
+        <button id="lnkInformacion" class="button large bg-green">Agregar información</button>
+        <div class="listview">
+            @foreach (var infor in Model.tblRecoleccionInformacionProyectoInvestigacion)
+            {
+            @Html.Partial("_Informacion", infor)
+            }
+        </div>
+                }
+                else
+                {
+        <button id="lnkEstadoArte" class="button large bg-green">Estado del arte</button>
+                }
+            }
+        }
+    </div>
+
+    <h1>Reflexión de la Onda</h1>
+    <div></div>
+
+    <h1>Propagación de la Onda</h1>
+    <div>
+        <button id="lnkFerInstitucional" class="button bg-green">Feria Institucional</button>
+        @{
+            var feriaInstitucional = Model.tblPropagacionGrupo.Where(m => m.idTipoFeria == 1);
+            if (feriaInstitucional.Count() > 0)
+            {
+                Html.RenderPartial("_ImagenesGrupo", feriaInstitucional);
+            }
+        }
+    </div>
+
+    <h1>Resumen del Proyecto</h1>
+    <div></div>
+</div>
+
+
+<div id="register-research-group">
+    @{
+        tblGrupoInvestigacion tblgrupoinvestigacion = new tblGrupoInvestigacion();
+        ViewBag.idLineaInvestigacion = new SelectList(db.tblLineaInvestigacion.Where(m => m.Categoria == 2), "id", "Nombre");
+        tblgrupoinvestigacion.FechaCreacion = DateTime.Now;
+        tblgrupoinvestigacion.idUsuario = AspNetUsers.GetUserId(User.Identity.Name);
+        tblgrupoinvestigacion.idInstitucion = tblMaestroCoinvestigador.GetIdInstitucion(tblgrupoinvestigacion.idUsuario);
+        tblgrupoinvestigacion.Codigo = dl.Codigos.ResearchGroupCode();
+        Html.RenderPartial("_CrearGrupo", tblgrupoinvestigacion);
+    }
+</div>
+<div id="ingresar-presupuesto">
+    @{
+        tblPresupuestoProyectoInvestigacion tblpresupuesto = new tblPresupuestoProyectoInvestigacion();
+        if (Model != null)
+        {
+            tblpresupuesto.idGrupoInvestigacion = Model.id;
+        }
+        ViewBag.idRubro = new SelectList(db.tblRubro, "id", "Rubro");
+        Html.RenderPartial("_AgregarPresupuesto", tblpresupuesto);
+    }
+</div>
+<div id="ingresar-estado-arte">
+    @{
+        tblEstadoArteProyectoInvestigacion tblestadoarte = new tblEstadoArteProyectoInvestigacion();
+        if (Model != null)
+        {
+            tblestadoarte.idGrupoInvestigacion = Model.id;
+        }
+        Html.RenderPartial("_AgregarEstadoArte", tblestadoarte);
+    }
+</div>
+<div id="ingresar-conceptos-principales">
+    @{
+        tblConceptosEstadoArte tblconcepto = new tblConceptosEstadoArte();
+        if (Model != null)
+        {
+            if (Model.tblEstadoArteProyectoInvestigacion.Count == 1)
+            {
+                tblconcepto.idEstadoArte = Model.tblEstadoArteProyectoInvestigacion.First().id;
+            }
+        }
+        Html.RenderPartial("_AgregarConcepto", tblconcepto);
+    }
+</div>
+<div id="ingresar-informacion">
+    @{
+        tblRecoleccionInformacionProyectoInvestigacion tblinformacion = new tblRecoleccionInformacionProyectoInvestigacion();
+        if (Model != null)
+        {
+            tblinformacion.idGrupoInvestigacion = Model.id;
+        }
+        ViewBag.idInstrumento = new SelectList(db.tblHerramientasRecoleccionInformacion, "id", "HerramientaRecoleccion");
+        Html.RenderPartial("_RecoleccionInformacion", tblinformacion);
+    }
+</div>
+<div id="ingresar-feria-institucional">
+    @{
+        tblPropagacionGrupo tblFeriaInstitucional = new tblPropagacionGrupo();
+        tblFeriaInstitucional.id = 0;
+        tblFeriaInstitucional.idGrupoInvestigacion = Model.id;
+        tblFeriaInstitucional.idTipoFeria = 1;
+        Html.RenderPartial("_CargarImagenesFerias", tblFeriaInstitucional);
+    }
+</div>
+
+<!-- Botón que activa el panel -->
+<a href="#" id="abre_tab">
+    <div id="tab">
+        <div id="tab_interna">
+        </div>
+    </div>
+</a>
+<!-- Panel oculto -->
+<div class="panel_lateral" style="display: none">
+    <div class="contenido">
+        @{
+            ViewBag.IdGrupo = Model.id;
+            Html.RenderPartial("_ListaComentarios", Model.tblComentarioGrupo.Where(m => m.Aprobado.Value));
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {            
+    <link href="~/Content/Investic/Comentarios.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/csswizard")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/wizard")
+    <script>
+        AlertMessage('@msj');
+    </script>
+}

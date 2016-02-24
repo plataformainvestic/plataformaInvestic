@@ -1,0 +1,177 @@
+﻿@model IEnumerable<INI.Models.DataBase.course>
+
+@{
+    ViewBag.Title = "descripcioncursos";
+}
+
+<h2>descripcioncursos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.directory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.db_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course_language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visibility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.show_score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tutor_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visual_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department_url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.disk_quota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_visit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_edit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creation_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.expiration_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.target_course_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subscribe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unsubscribe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registration_code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.legal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activate_legal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course_type_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.directory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.db_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course_language)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category_code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visibility)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.show_score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tutor_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visual_code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department_url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.disk_quota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_visit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_edit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creation_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expiration_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.target_course_code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subscribe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unsubscribe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.registration_code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.legal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activate_legal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course_type_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,397 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblBitacoraGrupoInvestigacion>
+
+
+@using INI.Models.DataBase
+@using dl = ClassLibrary
+
+@{
+    ViewBag.Title = "Investigacion";
+    Layout = "~/Views/Shared/_InvInvestiga.cshtml";
+    investicEntities db = new investicEntities();
+}
+<div id="docenteinvestiga" style="position: fixed; top: 10%; left: 0px; width: 100%; height: 100%;">
+    <div id="cuerpo" style="border:1px, #FF9100;position:relative;">
+        <div style="background-color:#361F00;float:left;width:50%;height:800px;">
+
+            <div class="aprizquierda" style="background-color:#00cccc;height:100%;" onclick="javascript: vest(1);">
+                <br /><br /><br /><br /> Estudiantes<br /> Investigando
+            </div>
+        </div>
+        <div style="background-color:#361F00;float:left;width:50%;height:800px;">
+            <div class="aprderecha" style="background-color:#2A0415;height:100%;" onclick="javascript: vest(2);">
+                <div class="row">
+                    <div class="cell"><div id="centro" class="row" style="position: fixed; top: 19%; left: 94%; z-index: 99;">@Html.AtrasInvestic()</div></div>
+                </div>
+                <br /><br /><br /><br />Docentes <br />Investigando
+            </div>
+        </div>
+    </div>
+</div>
+<div id="estudiantes" style="display:none;">
+    <div style="position: relative; padding: 5px; top: 50px; left: 150px; max-width: 80%; max-height: 80%;overflow:auto;">
+
+        <div class="tab-control" data-role="tab-control">
+            <ul class="tabs">
+                <li class="active"><a href="#_page_1">Bitácora 1</a></li>
+                <li><a href="#_page_2">Bitácora 2</a></li>
+                <li><a href="#_page_3">Bitácora 3</a></li>
+                <li><a href="#_page_4">Bitácora 4</a></li>
+                <li><a href="#_page_5">Bitácora 5</a></li>
+                <li><a href="#_page_6">Bitácora 6</a></li>
+            </ul>
+
+            @foreach (var item in db.tblBitacoraGrupoInvestigacion.Where(t => t.idGrupoInvestigacion == 1027))
+            {
+                <div class="frames">
+                    <div class="frame" id="_page_1">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Tilulo</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Titulo_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nombre</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Nombre_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Maestro</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Maestro_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Introducción</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelitem => item.Introduccion_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Resumen Final</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ResumenFinal_1)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="frame" id="_page_2">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Insignia</strong></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/images/Avatars/@item.InsigniaGrupoURL_2" style="max-height: 256px; max-width: 256px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pregunta</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.PreguntaInvestigacion_2)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Descripción del Problema</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.DescripcionProblema_2)</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Objetivos</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Objetivos_2)</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Actividades Realizadas</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ActividadesRealizadas_2)</td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                    <div class="frame" id="_page_3">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Conceptos Principales</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ConceptosPrincipales_3)</td>
+                            </tr>
+                            <tr>
+
+                                <td><strong>Resultados</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Resultalos_3)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Participación</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Participacion_3)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="frame" id="_page_4">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Concluciones</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Concluciones_4)</td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                    <div class="frame" id="_page_5">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Bibliografía</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Bibliografia_5)</td>
+                            </tr>
+                        </table>
+
+
+
+                    </div>
+                    <div class="frame" id="_page_6">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Bibliografía</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Ponencia_6)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+<<<<<<< .mine
+</div>
+                      
+<div id="docentes" style=" margin-top: 48px; width: 1201px; display: none;">    
+    <img src="~/images/Investiga/docinv/3a.png" />
+    <div id="btn_buscar" style="position: relative;top: -321px;left: 627px;display:none">
+        <img src="~/images/Investiga/docinv/boton_buscar.png" />
+    </div>
+    <input id="titulo" type="text" style="position: relative;left: 393px;top: -518px;height: 36px;width: 210px;" />
+    <br /><br />
+    <input id="palabraclave" type="text" style="position: relative;left: 393px;top: -509px;height: 36px;width: 210px;" />
+=======
+    <div style="position: relative; padding: 5px; top: 50px; left: 150px; max-width: 80%; max-height: 80%;overflow:auto;">
+
+        <div class="tab-control" data-role="tab-control">
+            <ul class="tabs">
+                <li class="active"><a href="#_page_1">Bitácora 1</a></li>
+                <li><a href="#_page_2">Bitácora 2</a></li>
+                <li><a href="#_page_3">Bitácora 3</a></li>
+                <li><a href="#_page_4">Bitácora 4</a></li>
+                <li><a href="#_page_5">Bitácora 5</a></li>
+                <li><a href="#_page_6">Bitácora 6</a></li>
+            </ul>
+
+            @foreach (var item in db.tblBitacoraGrupoInvestigacion.Where(t=>t.idGrupoInvestigacion==1027))
+            {
+                <div class="frames">
+                    <div class="frame" id="_page_1">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Tilulo</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Titulo_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nombre</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Nombre_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Maestro</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Maestro_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Introducción</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelitem => item.Introduccion_1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Resumen Final</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ResumenFinal_1)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="frame" id="_page_2">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Insignia</strong></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/images/Avatars/@item.InsigniaGrupoURL_2" style="max-height: 256px; max-width: 256px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pregunta</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.PreguntaInvestigacion_2)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Descripción del Problema</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.DescripcionProblema_2)</td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>Objetivos</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Objetivos_2)</td>
+                            </tr>
+
+>>>>>>> .r758
+                            <tr>
+                                <td><strong>Actividades Realizadas</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ActividadesRealizadas_2)</td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                    <div class="frame" id="_page_3">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Conceptos Principales</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ConceptosPrincipales_3)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Resultados</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Resultalos_3)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Participación</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Participacion_3)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="frame" id="_page_4">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Concluciones</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Concluciones_4)</td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                    <div class="frame" id="_page_5">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Bibliografía</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Bibliografia_5)</td>
+                            </tr>
+                        </table>
+
+
+
+                    </div>
+                    <div class="frame" id="_page_6">
+                        <table style="background-color:transparent; line-height:25px;">
+                            <tr>
+                                <td><strong>Bibliografía</strong></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Ponencia_6)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>
+<<<<<<< .mine
+<div id="docentesinv" style="margin-top: 48px; width: 1201px; display: none;">    
+    <img src="~/images/Investiga/docinv/ini3.png" />
+    <div id="btn_atraz" style="position: relative;top: -321px;left: 627px;display:none">
+        <img src="~/images/Investiga/docinv/boton_buscar.png" />
+    </div>
+    <div id="ginv" style="width: 100px; height: 22px; position: relative; top: -506px; left: 582px;">Siguiente</div>
+</div>
+<div id="prys" style="margin-top: 48px; width: 1201px; display: none;">
+    <img src="~/images/Investiga/docinv/ini5.png" />
+</div>
+=======
+<div id="docentes">
+>>>>>>> .r758
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function vest(id) {
+            switch (id) {
+                case 1:
+
+                    window.location.href = "/Home/BusquedaEstudiantesInvestigando";
+
+                    //$('#estudiantes').show();
+                    //$('#docente').hide();
+                    //$('#cuerpo').hide();
+                    break;
+                case 2:
+                    window.location.href = "/Home/BusquedaDocenteInvestigando";
+                    break;
+            }
+        }
+        $(function () {
+            $('#btn_buscar').click(function () {
+                $('#btn_buscar').hide();
+                $('#docentes').hide();
+                $('#docentesinv').show();
+            });
+            $("#ginv").click(function () {
+                $('#docentesinv').hide();
+                $('#prys').show();
+            });
+        });
+    </script>
+    <script src="~/Scripts/metro-ui/metro.min.js"></script>
+    <script src="~/Scripts/Investic/BinnacleTwo.js"></script>
+
+}
+

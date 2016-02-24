@@ -1,0 +1,19 @@
+﻿@model INI.Models.DataBase.tblProyectosInvestigacion
+@using INI.Models.DataBase
+
+@{
+    investicEntities db = new investicEntities();
+    var integrantes = db.tblIntegrantesGrupoInv.Where(a => a.tblGruposInvestigacion.tblGruposInvestigacion_ID == Model.tblGruposInvestigacion_ID).Count();
+    var proyectos = db.tblProyectosInvestigacion.Where(a => a.tblGruposInvestigacion.tblGruposInvestigacion_ID == Model.tblGruposInvestigacion_ID).Count();
+}
+
+<div class="row">
+    @*<div class="span2">
+        <img src="~/images/logo_Grupo/@Model.tblGruposInvestigacion.gruInv_emblema" width="110" />
+    </div>*@
+    <div>
+        <small><strong>@Html.DisplayFor(m => m.tblGruposInvestigacion.gruInv_nombreGrupo)</strong></small><br />
+        <small><strong>Cantidad Integrantes: </strong>@Html.DisplayName(integrantes.ToString())</small><br />
+        <small><strong>Cantidad de Proyectos: </strong>@Html.DisplayName(proyectos.ToString())</small>
+    </div>
+</div>

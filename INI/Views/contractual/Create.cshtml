@@ -1,0 +1,66 @@
+﻿@model INI.Models.DataBase.tblResponsabContratista
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InvSeguimiento.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Coordinador)
+       
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <div class="grid fluid">
+        <div class="row">
+            <div class="span2">
+                <strong>Contratista</strong>
+            </div>
+            <div class="span2 input-control select">
+                @Html.DropDownList("Id_Contratista")
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="span2">
+                <strong>Descripción</strong>
+            </div>
+            <div class="span6 input-control textarea">
+                @Html.TextAreaFor(m => m.Descripcion)
+                @Html.ValidationMessageFor(m => m.Descripcion)
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="span2">
+
+            </div>
+            <div class="span2">
+                <input type="submit" class="btn large bg-darkBlue fg-white" value="Asignar" />
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

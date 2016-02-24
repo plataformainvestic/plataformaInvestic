@@ -1,0 +1,22 @@
+﻿@model IEnumerable<INI.Models.DataBase.tblComentarioGrupo>
+
+<p>
+    @Html.ActionLink("Agreagar comentario", "Create")
+</p>
+<div class="grid fluid">
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="span4">
+            <span>
+                @Html.DisplayFor(modelItem => item.AspNetUsers.Name)
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span10">
+            @Html.DisplayFor(modelItem => item.Comentario)
+        </div>
+    </div>
+}    
+</div>

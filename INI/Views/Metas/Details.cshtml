@@ -1,0 +1,72 @@
+﻿@model INI.Models.DataBase.tblMeta
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InvEditor.cshtml";
+}
+
+<div class="divMetas">
+    <p>
+        <h2>
+            <strong>Meta</strong>
+        </h2>
+    </p>
+    <hr />
+    <table border="0" style="background-color:transparent;">
+        <tr><td colspan="2"><h4><strong>Investigación</strong></h4></td></tr>
+        <tr>
+            <td><div class="span3">Municipio</div></td>
+            <td>@Html.DisplayFor(model => model.tblMunicipios.NombreMunicipio)</td>
+        </tr>
+        <tr>
+            <td>Grupos Estudiantiles</td>
+            <td>@Html.DisplayFor(model => model.met_grupoInvestigacionEstudiantil)</td>
+        </tr>
+        <tr>
+            <td>N° Estudiantes</td>
+            <td>@Html.DisplayFor(model => model.met_estudianteInvestigando)</td>
+        </tr>
+        <tr>
+            <td>Grupos de Docentes</td>
+            <td>@Html.DisplayFor(model => model.met_grupoInvestigacionDocente)</td>
+        </tr>
+        <tr>
+            <td>N° Docentes</td>
+            <td>@Html.DisplayFor(model => model.met_docenteInvestigando)</td>
+        </tr>
+        <tr><td colspan="2"><br /><br /></td></tr>
+        <tr><td colspan="2"><h4><strong>Formación en las TIC</strong></h4></td></tr>
+        <tr>
+            <td>Sedes Educativas</td>
+            <td>@Html.DisplayFor(model => model.met_establecimientosEducativos)</td>
+        </tr>
+        <tr>
+            <td>N° Padres 40H</td>
+            <td>@Html.DisplayFor(model => model.met_padresFormados40)</td>
+        </tr>
+        <tr>
+            <td>N° Estudiantes 40H</td>
+            <td>@Html.DisplayFor(model => model.met_estudiantesFormados40)</td>
+        </tr>
+        <tr>
+            <td>N° Docentes 120H</td>
+            <td>@Html.DisplayFor(model => model.met_docentesFormados120)</td>
+        </tr>
+        <tr>
+            <td>N° estudiantes 180H</td>
+            <td>@Html.DisplayFor(model => model.met_estudiantesFormados180)</td>
+        </tr>
+        <tr>
+            <td>N° Docentes 180H</td>
+            <td>@Html.DisplayFor(model => model.met_docentesFormados180)</td>
+        </tr>
+        
+
+    </table>
+    <br />
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.tblMeta_ID }) |
+        @Html.ActionLink("Regresar", "Index")
+    </p>
+
+</div>
