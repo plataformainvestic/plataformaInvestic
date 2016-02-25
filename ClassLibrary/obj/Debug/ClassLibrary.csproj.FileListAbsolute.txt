@@ -30,3 +30,36 @@ C:\Users\efrgau\Documents\Visual Studio 2013\Projects\20-oct\investic\ClassLibra
 C:\Users\efrgau\Documents\Visual Studio 2013\Projects\20-oct\investic\ClassLibrary\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\efrgau\Documents\Visual Studio 2013\Projects\20-oct\investic\ClassLibrary\obj\Debug\ClassLibrary.dll
 C:\Users\efrgau\Documents\Visual Studio 2013\Projects\20-oct\investic\ClassLibrary\obj\Debug\ClassLibrary.pdb
+G:\wwwinvestic\ClassLibrary\bin\Debug\ClassLibrary.dll.config
+G:\wwwinvestic\ClassLibrary\bin\Debug\ClassLibrary.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\ClassLibrary.pdb
+G:\wwwinvestic\ClassLibrary\bin\Debug\ClosedXML.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\DocumentFormat.OpenXml.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\EntityFramework.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\EntityFramework.SqlServer.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\itextsharp.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\Microsoft.Web.Infrastructure.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\MvcSiteMapProvider.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\MvcSiteMapProvider.WebActivator.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.Helpers.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.Mvc.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.Razor.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.WebPages.Deployment.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.WebPages.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.WebPages.Razor.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\WebActivatorEx.dll
+G:\wwwinvestic\ClassLibrary\bin\Debug\ClosedXML.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\EntityFramework.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\EntityFramework.SqlServer.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\itextsharp.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\MvcSiteMapProvider.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\MvcSiteMapProvider.WebActivator.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.Helpers.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.Mvc.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.Razor.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.WebPages.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.WebPages.Deployment.xml
+G:\wwwinvestic\ClassLibrary\bin\Debug\System.Web.WebPages.Razor.xml
+G:\wwwinvestic\ClassLibrary\obj\Debug\ClassLibrary.csprojResolveAssemblyReference.cache
+G:\wwwinvestic\ClassLibrary\obj\Debug\ClassLibrary.dll
+G:\wwwinvestic\ClassLibrary\obj\Debug\ClassLibrary.pdb
